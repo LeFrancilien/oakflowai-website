@@ -1,0 +1,20 @@
+# robots.txt for OAKFLOW AI
+# https://www.oakflowai.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /confidentialite.html
+
+# Sitemap
+Sitemap: https://www.oakflowai.com/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Crawl-delay (optional)
+Crawl-delay: 1
