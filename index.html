@@ -31,6 +31,21 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8">
 
+    <!-- Resource Hints - Optimisation performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn1.genspark.ai">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+    <link rel="preload" href="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" as="image" fetchpriority="high">
+
+    <!-- CSS avec display=swap pour éviter FOIT -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -116,32 +131,45 @@
     </script>
 
     <style>
+        /* Critical CSS inline pour LCP rapide */
         * {
-            font-family: 'Inter', sans-serif;
-            /* Éviter le zoom automatique sur les inputs iOS */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+            box-sizing: border-box;
         }
 
         body {
+            margin: 0;
+            padding: 0;
             background: linear-gradient(135deg, #000000 0%, #111111 100%);
             color: #ffffff;
-            /* Améliorer le rendu des polices sur mobile */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Smooth scrolling global */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Éviter les débordements horizontaux */
         body, html {
             overflow-x: hidden;
             max-width: 100%;
+        }
+
+        /* Optimisation images - réserver espace pour éviter CLS */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Styles critiques pour hero - éviter layout shift */
+        .hero-bg {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .gradient-text {
@@ -556,7 +584,7 @@
     <section id="accueil" class="hero-bg section-padding pt-32">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="animate-float mb-8">
-                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="Logo OAKFLOW AI - Expert en automatisation IA pour PME et TPE" class="h-24 w-24 mx-auto mb-6" loading="eager" width="96" height="96">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="Logo OAKFLOW AI - Expert en automatisation IA pour PME et TPE" class="h-24 w-24 mx-auto mb-6" loading="eager" fetchpriority="high" width="96" height="96">
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 Libérez vos équipes des <span class="gradient-text">tâches répétitives</span><br>
