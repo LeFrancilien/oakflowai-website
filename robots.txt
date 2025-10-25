@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 Disallow: /confidentialite.html
+Disallow: /cdn-cgi/
 
 # Sitemap
 Sitemap: https://www.oakflowai.com/sitemap.xml
@@ -11,10 +12,12 @@ Sitemap: https://www.oakflowai.com/sitemap.xml
 # Google
 User-agent: Googlebot
 Allow: /
+Disallow: /cdn-cgi/
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Disallow: /cdn-cgi/
 
 # Crawl-delay (optional)
 Crawl-delay: 1
