@@ -8,7 +8,7 @@
       "typeVersion": 1,
       "position": [100, 80],
       "parameters": {
-        "content": "# 🎬 Workflow Automatisation TikTok\n\n## Flux complet :\n1️⃣ Réception webhook formulaire\n2️⃣ Configuration par défaut\n3️⃣ **Agent IA** génère 5 scripts (GPT-4o-mini)\n4️⃣ **Parse + Validation** JSON robuste\n5️⃣ **Scoring KIE.ai** pour détecter viralité\n6️⃣ **Sélection meilleure idée** + Fallback\n7️⃣ **📊 Logging Google Sheets** (scores + métadata)\n8️⃣ Construction voiceover + caption\n9️⃣ Génération vidéo **Heygen**\n🔟 Publication **TikTok**\n\n---\n**Status** : 🧪 TEST\n**Version** : 2.0\n**Date** : 2025-10-27",
+        "content": "# 🎬 Workflow Automatisation TikTok\n\n## Flux complet :\n1️⃣ Réception webhook formulaire\n2️⃣ Configuration par défaut\n3️⃣ **Agent IA** génère 5 scripts (GPT-4o-mini)\n4️⃣ **Parse + Validation** JSON robuste\n5️⃣ **Scoring KIE.ai** pour détecter viralité\n6️⃣ **Sélection meilleure idée** + Fallback\n7️⃣ **📊 Logging Google Sheets** (scores + métadata)\n8️⃣ Construction voiceover + caption\n9️⃣ Génération vidéo **Heygen**\n🔟 Publication **TikTok**\n\n---\n**Status** : 🧪 TEST\n**Version** : 2.1\n**Date** : 2025-10-27",
         "height": 440,
         "width": 340,
         "color": 4
@@ -86,18 +86,18 @@
       "typeVersion": 1,
       "position": [620, 180],
       "parameters": {
-        "content": "## 🤖 Agent IA\n\n**Modèle** : gpt-4o-mini\n**Température** : 0.3\n**Format** : JSON structuré\n\n**Output** : 5 scripts TikTok avec :\n- Hook (< 3s)\n- Flow (3-5 steps)\n- Result\n- Outro\n- Caption (140 char)\n- Voiceover (15s)",
-        "height": 240,
+        "content": "## 🤖 Agent IA + Output Parser\n\n**Architecture** :\n- Agent AI (orchestrateur)\n- Chat Model GPT-4o-mini (T=0.3)\n- Structured Output Parser (JSON)\n\n**Output** : 5 scripts TikTok avec :\n- Hook (< 3s)\n- Flow (3-5 steps)\n- Result\n- Outro\n- Caption (140 char)\n- Voiceover (15s)",
+        "height": 260,
         "width": 260,
         "color": 5
       }
     },
     {
-      "id": "ffd348ab-8e65-4859-9c77-84f1f043802d",
-      "name": "Agent IA → Génère 5 scripts",
+      "id": "chat-model-openai",
+      "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
-      "position": [660, 300],
+      "position": [580, 460],
       "credentials": {
         "openAiApi": {
           "id": "CONFIGURE_OPENAI_CREDENTIAL",
@@ -108,8 +108,31 @@
         "model": "gpt-4o-mini",
         "options": {
           "temperature": 0.3,
-          "maxTokens": 1200
+          "maxTokens": 1500
         }
+      }
+    },
+    {
+      "id": "output-parser-structured",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1,
+      "position": [760, 460],
+      "parameters": {
+        "jsonSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"ideas\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"hook\": {\n            \"type\": \"string\",\n            \"description\": \"Phrase d'accroche ultra-percutante de moins de 3 secondes\"\n          },\n          \"flow_steps\": {\n            \"type\": \"array\",\n            \"items\": {\"type\": \"string\"},\n            \"description\": \"Entre 3 et 5 étapes courtes et actionnables\"\n          },\n          \"result\": {\n            \"type\": \"string\",\n            \"description\": \"Résultat concret et bénéfice clair\"\n          },\n          \"outro\": {\n            \"type\": \"string\",\n            \"description\": \"Call-to-action engageant\"\n          },\n          \"caption_140\": {\n            \"type\": \"string\",\n            \"description\": \"Caption TikTok de maximum 140 caractères\"\n          },\n          \"voiceover_15s\": {\n            \"type\": \"string\",\n            \"description\": \"Texte voix-off adapté à 15 secondes de narration\"\n          }\n        },\n        \"required\": [\"hook\", \"flow_steps\", \"result\", \"outro\", \"caption_140\", \"voiceover_15s\"]\n      },\n      \"minItems\": 5,\n      \"maxItems\": 5\n    }\n  },\n  \"required\": [\"ideas\"]\n}"
+      }
+    },
+    {
+      "id": "ffd348ab-8e65-4859-9c77-84f1f043802d",
+      "name": "Agent IA → Génère 5 scripts",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [660, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu es un expert créateur de scripts TikTok viraux optimisés pour maximiser l'engagement.\n\n**CONTEXTE DU PROJET**\nSujet : {{ $('Set Defaults').first().json.topic }}\nTon recherché : {{ $('Set Defaults').first().json.tone }}\nLangue : {{ $('Set Defaults').first().json.language }}\nDurée cible : {{ $('Set Defaults').first().json.targetDurationSec }} secondes\n\n**TA MISSION**\nGénère EXACTEMENT 5 idées de scripts TikTok différents et captivants sur ce sujet.\n\n**RÈGLES STRICTES POUR CHAQUE SCRIPT**\n\n1. **HOOK** (< 3 secondes)\n   - Phrase d'accroche ULTRA-percutante\n   - Doit stopper le scroll immédiatement\n   - Maximum 10-12 mots\n   - Commence par une question, un fait surprenant, ou une promesse claire\n\n2. **FLOW_STEPS** (3 à 5 étapes)\n   - Chaque étape = 1 action concrète et simple\n   - Langage direct et actionnable\n   - Progression logique du problème à la solution\n   - Pas de jargon technique\n\n3. **RESULT** (résultat)\n   - Bénéfice CONCRET et mesurable\n   - Doit créer le désir d'appliquer le conseil\n   - Focalisé sur la transformation\n\n4. **OUTRO** (call-to-action)\n   - Invitation claire à agir\n   - Engagement de la communauté\n   - Question ou challenge\n\n5. **CAPTION_140** (140 caractères MAX)\n   - Résumé punchy du script\n   - Pas d'emojis (seront ajoutés séparément)\n   - Inclut un teaser du bénéfice\n\n6. **VOICEOVER_15S** (voix-off complète)\n   - Texte fluide pour narration orale\n   - Adapté à {{ $('Set Defaults').first().json.targetDurationSec }} secondes de lecture\n   - Pas d'emojis, pas de symboles\n   - Style conversationnel naturel\n   - Intègre : hook + flow + result + outro\n\n**FORMAT DE SORTIE**\nRéponds UNIQUEMENT avec un objet JSON contenant un tableau \"ideas\" de 5 objets.\nLe parser structuré forcera automatiquement le bon format.\n\n**EXEMPLE DE QUALITÉ ATTENDUE**\n- Hook : \"Tu perds 3h par jour sur des tâches automatisables ?\"\n- Flow : [\"Identifie les tâches répétitives\", \"Configure n8n en 5 min\", \"Connecte tes outils\", \"Lance l'automation\"]\n- Result : \"Économise 15h par semaine pour créer du contenu\"\n- Outro : \"Quelle tâche vas-tu automatiser en premier ?\"\n\n**VARIATIONS REQUISES**\nChaque des 5 idées DOIT avoir :\n- Un angle différent sur le sujet\n- Un hook unique\n- Des étapes complémentaires (pas de répétition)\n- Un ton cohérent mais des approches variées\n\n🎯 OBJECTIF : Maximiser les chances de viralité en offrant 5 approches différentes du même sujet.",
+        "hasOutputParser": true,
+        "options": {}
       }
     },
     {
@@ -119,7 +142,7 @@
       "typeVersion": 1,
       "position": [900, 180],
       "parameters": {
-        "content": "## 🔍 Parse JSON + Validation\n\n✅ Extraction robuste du JSON\n✅ Validation structure complète\n✅ Vérification champs requis\n✅ Try/catch avec messages clairs\n⚠️ Logs détaillés",
+        "content": "## 🔍 Validation Simplifiée\n\n✅ Output Parser garantit le format\n✅ Validation des champs obligatoires\n✅ Vérification des contraintes\n✅ Logs de qualité\n⚠️ Fallback si erreur",
         "height": 200,
         "width": 260,
         "color": 3
@@ -132,7 +155,7 @@
       "typeVersion": 2,
       "position": [940, 300],
       "parameters": {
-        "jsCode": "// 🔍 PARSING JSON + VALIDATION ROBUSTE\n// Extraction et validation complète du JSON retourné par OpenAI\n\ntry {\n  // Récupération du contenu brut\n  const raw = $input.first().json.choices?.[0]?.message?.content || \n              $input.first().json.data || \n              JSON.stringify($input.first().json);\n  \n  console.log('📥 Contenu brut reçu:', raw.slice(0, 200));\n  \n  // Tentative de parsing JSON\n  let obj;\n  try {\n    obj = JSON.parse(raw);\n  } catch(parseError) {\n    throw new Error(`❌ ERREUR PARSING: Réponse IA non-JSON valide. Extrait: ${raw.slice(0, 200)}`);\n  }\n  \n  // Vérification de la structure principale\n  if (!obj.ideas || !Array.isArray(obj.ideas)) {\n    throw new Error('❌ ERREUR STRUCTURE: Champ \"ideas\" manquant ou invalide');\n  }\n  \n  if (obj.ideas.length === 0) {\n    throw new Error('❌ ERREUR: Tableau \"ideas\" vide - aucune idée générée');\n  }\n  \n  console.log(`✅ ${obj.ideas.length} idées détectées`);\n  \n  // Validation de chaque idée\n  const requiredFields = [\n    'hook', 'flow_steps', 'result', 'outro', 'caption_140', 'voiceover_15s'\n  ];\n  \n  const validatedIdeas = obj.ideas.map((idea, idx) => {\n    // Vérification des champs obligatoires\n    const missingFields = requiredFields.filter(field => !idea[field]);\n    \n    if (missingFields.length > 0) {\n      throw new Error(\n        `❌ ERREUR VALIDATION - Idée ${idx + 1}: ` +\n        `champs manquants → ${missingFields.join(', ')}`\n      );\n    }\n    \n    // Validation flow_steps\n    if (!Array.isArray(idea.flow_steps)) {\n      throw new Error(\n        `❌ ERREUR - Idée ${idx + 1}: ` +\n        `flow_steps doit être un tableau, reçu: ${typeof idea.flow_steps}`\n      );\n    }\n    \n    if (idea.flow_steps.length < 3) {\n      throw new Error(\n        `❌ ERREUR - Idée ${idx + 1}: ` +\n        `flow_steps doit contenir min 3 éléments, reçu: ${idea.flow_steps.length}`\n      );\n    }\n    \n    // Validation longueur caption\n    if (idea.caption_140.length > 140) {\n      console.warn(\n        `⚠️ WARNING - Idée ${idx + 1}: ` +\n        `caption tronquée (${idea.caption_140.length} → 140 caractères)`\n      );\n      idea.caption_140 = idea.caption_140.slice(0, 137) + '...';\n    }\n    \n    // Validation longueur hook\n    if (idea.hook.length > 100) {\n      console.warn(`⚠️ Hook long pour idée ${idx + 1}: ${idea.hook.length} caractères`);\n    }\n    \n    return {\n      json: {\n        idx: idx + 1,\n        ...idea,\n        validated: true,\n        validation_timestamp: new Date().toISOString(),\n        flow_steps_count: idea.flow_steps.length,\n        caption_length: idea.caption_140.length,\n        voiceover_length: idea.voiceover_15s.length\n      }\n    };\n  });\n  \n  // Log de succès\n  console.log(`✅ SUCCESS: ${validatedIdeas.length} idées validées`);\n  console.log('📊 Stats:', {\n    total: validatedIdeas.length,\n    avg_caption_length: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.caption_length, 0) / validatedIdeas.length\n    ),\n    avg_flow_steps: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.flow_steps_count, 0) / validatedIdeas.length\n    )\n  });\n  \n  return validatedIdeas;\n  \n} catch(error) {\n  // Gestion d'erreur robuste\n  console.error('🚨 ERREUR CRITIQUE PARSING:', error.message);\n  console.error('Stack:', error.stack);\n  \n  // Retour d'erreur structuré pour le workflow\n  throw new Error(\n    `PARSING FAILED: ${error.message}\\n\\n` +\n    `Action requise: Vérifier le format de réponse de l'Agent IA`\n  );\n}"
+        "jsCode": "// 🔍 VALIDATION SIMPLIFIÉE - Le Structured Output Parser garantit le format JSON\n\ntry {\n  // Récupération des données depuis l'Agent IA\n  const agentOutput = $input.first().json;\n  \n  console.log('📥 Réception output Agent IA');\n  console.log('Type:', typeof agentOutput);\n  console.log('Keys:', Object.keys(agentOutput));\n  \n  // Le Structured Output Parser retourne directement l'objet structuré\n  let ideas;\n  \n  // Gestion de différentes structures possibles\n  if (agentOutput.output && Array.isArray(agentOutput.output.ideas)) {\n    ideas = agentOutput.output.ideas;\n  } else if (agentOutput.ideas && Array.isArray(agentOutput.ideas)) {\n    ideas = agentOutput.ideas;\n  } else if (Array.isArray(agentOutput)) {\n    // Fallback : si c'est directement un tableau\n    ideas = agentOutput;\n  } else {\n    throw new Error(\n      '❌ ERREUR STRUCTURE: Format de sortie Agent IA non reconnu. ' +\n      `Reçu: ${JSON.stringify(agentOutput).slice(0, 200)}`\n    );\n  }\n  \n  if (!ideas || ideas.length === 0) {\n    throw new Error('❌ ERREUR: Aucune idée générée par l\\'Agent IA');\n  }\n  \n  console.log(`✅ ${ideas.length} idées détectées`);\n  \n  // Validation de chaque idée\n  const requiredFields = [\n    'hook', 'flow_steps', 'result', 'outro', 'caption_140', 'voiceover_15s'\n  ];\n  \n  const validatedIdeas = ideas.map((idea, idx) => {\n    // Vérification des champs obligatoires\n    const missingFields = requiredFields.filter(field => !idea[field]);\n    \n    if (missingFields.length > 0) {\n      throw new Error(\n        `❌ ERREUR VALIDATION - Idée ${idx + 1}: ` +\n        `champs manquants → ${missingFields.join(', ')}`\n      );\n    }\n    \n    // Validation flow_steps\n    if (!Array.isArray(idea.flow_steps)) {\n      throw new Error(\n        `❌ ERREUR - Idée ${idx + 1}: ` +\n        `flow_steps doit être un tableau, reçu: ${typeof idea.flow_steps}`\n      );\n    }\n    \n    if (idea.flow_steps.length < 3) {\n      throw new Error(\n        `❌ ERREUR - Idée ${idx + 1}: ` +\n        `flow_steps doit contenir min 3 éléments, reçu: ${idea.flow_steps.length}`\n      );\n    }\n    \n    // Validation longueur caption\n    if (idea.caption_140.length > 140) {\n      console.warn(\n        `⚠️ WARNING - Idée ${idx + 1}: ` +\n        `caption tronquée (${idea.caption_140.length} → 140 caractères)`\n      );\n      idea.caption_140 = idea.caption_140.slice(0, 137) + '...';\n    }\n    \n    // Validation longueur hook\n    if (idea.hook.length > 100) {\n      console.warn(`⚠️ Hook long pour idée ${idx + 1}: ${idea.hook.length} caractères`);\n    }\n    \n    // Validation voiceover non vide\n    if (idea.voiceover_15s.length < 50) {\n      console.warn(\n        `⚠️ WARNING - Idée ${idx + 1}: ` +\n        `voiceover très court (${idea.voiceover_15s.length} caractères)`\n      );\n    }\n    \n    return {\n      json: {\n        idx: idx + 1,\n        ...idea,\n        validated: true,\n        validation_timestamp: new Date().toISOString(),\n        flow_steps_count: idea.flow_steps.length,\n        caption_length: idea.caption_140.length,\n        voiceover_length: idea.voiceover_15s.length,\n        hook_length: idea.hook.length\n      }\n    };\n  });\n  \n  // Log de succès avec statistiques détaillées\n  console.log(`✅ SUCCESS: ${validatedIdeas.length} idées validées`);\n  console.log('📊 Statistiques détaillées:', {\n    total: validatedIdeas.length,\n    avg_caption_length: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.caption_length, 0) / validatedIdeas.length\n    ),\n    avg_voiceover_length: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.voiceover_length, 0) / validatedIdeas.length\n    ),\n    avg_flow_steps: (validatedIdeas.reduce((sum, v) => sum + v.json.flow_steps_count, 0) / validatedIdeas.length).toFixed(1),\n    avg_hook_length: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.hook_length, 0) / validatedIdeas.length\n    )\n  });\n  \n  return validatedIdeas;\n  \n} catch(error) {\n  // Gestion d'erreur robuste avec logs détaillés\n  console.error('🚨 ERREUR CRITIQUE VALIDATION:', error.message);\n  console.error('Stack:', error.stack);\n  \n  // Log du contenu reçu pour debug\n  try {\n    console.error('Contenu reçu:', JSON.stringify($input.first().json).slice(0, 500));\n  } catch(e) {\n    console.error('Impossible de logger le contenu reçu');\n  }\n  \n  // Retour d'erreur structuré pour le workflow\n  throw new Error(\n    `VALIDATION FAILED: ${error.message}\\n\\n` +\n    `Action requise: \\n` +\n    `1. Vérifier la configuration du Structured Output Parser\\n` +\n    `2. Vérifier le prompt de l'Agent IA\\n` +\n    `3. Consulter les logs pour plus de détails`\n  );\n}"
       },
       "onError": "continueErrorOutput"
     },
@@ -524,8 +547,8 @@
       "typeVersion": 1,
       "position": [100, 560],
       "parameters": {
-        "content": "# ⚠️ WORKFLOW EN MODE TEST\n\n## Actions à faire avant production :\n\n✅ **1. Google Sheets**\n- Créer la feuille de logs\n- Configurer les credentials\n- Ajuster le documentId\n\n✅ **2. Credentials à configurer**\n- OpenAI API\n- KIE API (Header Auth)\n- Heygen API (Header Auth)\n- TikTok API (Header Auth)\n- Google Sheets OAuth2\n\n✅ **3. Heygen**\n- Remplacer VOTRE_AVATAR_ID\n- Remplacer VOTRE_VOICE_ID\n\n✅ **4. Tests**\n- Tester avec webhook\n- Vérifier logging Sheets\n- Valider publication TikTok\n\n✅ **5. Activation**\n- Passer `active: true`\n- Monitorer les logs\n- Suivre les métriques",
-        "height": 520,
+        "content": "# ⚠️ WORKFLOW EN MODE TEST\n\n## Actions à faire avant production :\n\n✅ **1. Connecter les sub-nodes**\n- Chat Model → Agent (AI_LANGUAGEMODEL)\n- Output Parser → Agent (AI_OUTPUT_PARSER)\n\n✅ **2. Google Sheets**\n- Créer la feuille de logs\n- Configurer les credentials\n- Ajuster le documentId\n\n✅ **3. Credentials à configurer**\n- OpenAI API\n- KIE API (Header Auth)\n- Heygen API (Header Auth)\n- TikTok API (Header Auth)\n- Google Sheets OAuth2\n\n✅ **4. Heygen**\n- Remplacer VOTRE_AVATAR_ID\n- Remplacer VOTRE_VOICE_ID\n\n✅ **5. Tests**\n- Tester Agent IA + Parser\n- Vérifier logging Sheets\n- Valider publication TikTok",
+        "height": 580,
         "width": 340,
         "color": 1
       }
@@ -537,6 +560,12 @@
     },
     "4c410f0f-eb8f-436f-910a-20c57b080145": {
       "main": [[{"node": "ffd348ab-8e65-4859-9c77-84f1f043802d", "type": "main", "index": 0}]]
+    },
+    "chat-model-openai": {
+      "ai_languageModel": [[{"node": "ffd348ab-8e65-4859-9c77-84f1f043802d", "type": "ai_languageModel", "index": 0}]]
+    },
+    "output-parser-structured": {
+      "ai_outputParser": [[{"node": "ffd348ab-8e65-4859-9c77-84f1f043802d", "type": "ai_outputParser", "index": 0}]]
     },
     "ffd348ab-8e65-4859-9c77-84f1f043802d": {
       "main": [[{"node": "3e215f6f-ac1f-4673-8c0b-fe675e97f251", "type": "main", "index": 0}]]
@@ -598,7 +627,7 @@
     "executionOrder": "v1"
   },
   "meta": {
-    "templateVersion": "2.0-production",
+    "templateVersion": "2.1-with-agent-parser",
     "createdAt": "2025-10-27"
   }
 }
