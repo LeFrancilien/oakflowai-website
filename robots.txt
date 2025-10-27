@@ -3,18 +3,7 @@
 
 User-agent: *
 Allow: /
-Disallow: /confidentialite.html
+Disallow: /cdn-cgi/
 
 # Sitemap
 Sitemap: https://www.oakflowai.com/sitemap.xml
-
-# Google
-User-agent: Googlebot
-Allow: /
-
-# Bing
-User-agent: Bingbot
-Allow: /
-
-# Crawl-delay (optional)
-Crawl-delay: 1
