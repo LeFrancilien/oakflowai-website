@@ -1,0 +1,604 @@
+{
+  "name": "TikTok - Workflow Complet avec Logging [PRODUCTION]",
+  "nodes": [
+    {
+      "id": "f1a2b3c4-5678-90ab-cdef-111111111111",
+      "name": "🎬 WORKFLOW TIKTOK AUTOMATION",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [100, 80],
+      "parameters": {
+        "content": "# 🎬 Workflow Automatisation TikTok\n\n## Flux complet :\n1️⃣ Réception webhook formulaire\n2️⃣ Configuration par défaut\n3️⃣ **Agent IA** génère 5 scripts (GPT-4o-mini)\n4️⃣ **Parse + Validation** JSON robuste\n5️⃣ **Scoring KIE.ai** pour détecter viralité\n6️⃣ **Sélection meilleure idée** + Fallback\n7️⃣ **📊 Logging Google Sheets** (scores + métadata)\n8️⃣ Construction voiceover + caption\n9️⃣ Génération vidéo **Heygen**\n🔟 Publication **TikTok**\n\n---\n**Status** : 🧪 TEST\n**Version** : 2.0\n**Date** : 2025-10-27",
+        "height": 440,
+        "width": 340,
+        "color": 4
+      }
+    },
+    {
+      "id": "89d77201-7ec8-4ec6-b459-437452666d37",
+      "name": "Trigger Form (Webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tiktok-script-ideas",
+        "responseMode": "onReceived",
+        "responseData": "allEntries",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    },
+    {
+      "id": "f2a3b4c5-6789-01bc-def2-222222222222",
+      "name": "📝 Configuration Defaults",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [380, 180],
+      "parameters": {
+        "content": "## ⚙️ Set Defaults\n\nRécupère les paramètres du webhook ou applique les valeurs par défaut :\n- Topic\n- Tone\n- Language\n- Hashtags\n- Duration",
+        "height": 180,
+        "width": 240,
+        "color": 6
+      }
+    },
+    {
+      "id": "4c410f0f-eb8f-436f-910a-20c57b080145",
+      "name": "Set Defaults",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [420, 300],
+      "parameters": {
+        "keepOnlySet": false,
+        "values": {
+          "string": [
+            {
+              "name": "topic",
+              "value": "={{$json.body?.topic || 'Automations IA pour créateurs de contenu'}}"
+            },
+            {
+              "name": "tone",
+              "value": "={{$json.body?.tone || 'énergique, pédagogique, punchy'}}"
+            },
+            {
+              "name": "language",
+              "value": "={{$json.body?.language || 'fr'}}"
+            },
+            {
+              "name": "hashtags",
+              "value": "={{$json.body?.hashtags || '#n8n #Automation #IA #Workflow #Heygen'}}"
+            }
+          ],
+          "number": [
+            {
+              "name": "targetDurationSec",
+              "value": "={{$json.body?.duration || 15}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "f3a4b5c6-7890-12cd-ef33-333333333333",
+      "name": "🤖 Agent IA - Génération",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [620, 180],
+      "parameters": {
+        "content": "## 🤖 Agent IA\n\n**Modèle** : gpt-4o-mini\n**Température** : 0.3\n**Format** : JSON structuré\n\n**Output** : 5 scripts TikTok avec :\n- Hook (< 3s)\n- Flow (3-5 steps)\n- Result\n- Outro\n- Caption (140 char)\n- Voiceover (15s)",
+        "height": 240,
+        "width": 260,
+        "color": 5
+      }
+    },
+    {
+      "id": "ffd348ab-8e65-4859-9c77-84f1f043802d",
+      "name": "Agent IA → Génère 5 scripts",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [660, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "CONFIGURE_OPENAI_CREDENTIAL",
+          "name": "OpenAI account"
+        }
+      },
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 1200
+        }
+      }
+    },
+    {
+      "id": "f4a5b6c7-8901-23de-f444-444444444444",
+      "name": "🔍 Parsing & Validation",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [900, 180],
+      "parameters": {
+        "content": "## 🔍 Parse JSON + Validation\n\n✅ Extraction robuste du JSON\n✅ Validation structure complète\n✅ Vérification champs requis\n✅ Try/catch avec messages clairs\n⚠️ Logs détaillés",
+        "height": 200,
+        "width": 260,
+        "color": 3
+      }
+    },
+    {
+      "id": "3e215f6f-ac1f-4673-8c0b-fe675e97f251",
+      "name": "Parse JSON (idées)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [940, 300],
+      "parameters": {
+        "jsCode": "// 🔍 PARSING JSON + VALIDATION ROBUSTE\n// Extraction et validation complète du JSON retourné par OpenAI\n\ntry {\n  // Récupération du contenu brut\n  const raw = $input.first().json.choices?.[0]?.message?.content || \n              $input.first().json.data || \n              JSON.stringify($input.first().json);\n  \n  console.log('📥 Contenu brut reçu:', raw.slice(0, 200));\n  \n  // Tentative de parsing JSON\n  let obj;\n  try {\n    obj = JSON.parse(raw);\n  } catch(parseError) {\n    throw new Error(`❌ ERREUR PARSING: Réponse IA non-JSON valide. Extrait: ${raw.slice(0, 200)}`);\n  }\n  \n  // Vérification de la structure principale\n  if (!obj.ideas || !Array.isArray(obj.ideas)) {\n    throw new Error('❌ ERREUR STRUCTURE: Champ \"ideas\" manquant ou invalide');\n  }\n  \n  if (obj.ideas.length === 0) {\n    throw new Error('❌ ERREUR: Tableau \"ideas\" vide - aucune idée générée');\n  }\n  \n  console.log(`✅ ${obj.ideas.length} idées détectées`);\n  \n  // Validation de chaque idée\n  const requiredFields = [\n    'hook', 'flow_steps', 'result', 'outro', 'caption_140', 'voiceover_15s'\n  ];\n  \n  const validatedIdeas = obj.ideas.map((idea, idx) => {\n    // Vérification des champs obligatoires\n    const missingFields = requiredFields.filter(field => !idea[field]);\n    \n    if (missingFields.length > 0) {\n      throw new Error(\n        `❌ ERREUR VALIDATION - Idée ${idx + 1}: ` +\n        `champs manquants → ${missingFields.join(', ')}`\n      );\n    }\n    \n    // Validation flow_steps\n    if (!Array.isArray(idea.flow_steps)) {\n      throw new Error(\n        `❌ ERREUR - Idée ${idx + 1}: ` +\n        `flow_steps doit être un tableau, reçu: ${typeof idea.flow_steps}`\n      );\n    }\n    \n    if (idea.flow_steps.length < 3) {\n      throw new Error(\n        `❌ ERREUR - Idée ${idx + 1}: ` +\n        `flow_steps doit contenir min 3 éléments, reçu: ${idea.flow_steps.length}`\n      );\n    }\n    \n    // Validation longueur caption\n    if (idea.caption_140.length > 140) {\n      console.warn(\n        `⚠️ WARNING - Idée ${idx + 1}: ` +\n        `caption tronquée (${idea.caption_140.length} → 140 caractères)`\n      );\n      idea.caption_140 = idea.caption_140.slice(0, 137) + '...';\n    }\n    \n    // Validation longueur hook\n    if (idea.hook.length > 100) {\n      console.warn(`⚠️ Hook long pour idée ${idx + 1}: ${idea.hook.length} caractères`);\n    }\n    \n    return {\n      json: {\n        idx: idx + 1,\n        ...idea,\n        validated: true,\n        validation_timestamp: new Date().toISOString(),\n        flow_steps_count: idea.flow_steps.length,\n        caption_length: idea.caption_140.length,\n        voiceover_length: idea.voiceover_15s.length\n      }\n    };\n  });\n  \n  // Log de succès\n  console.log(`✅ SUCCESS: ${validatedIdeas.length} idées validées`);\n  console.log('📊 Stats:', {\n    total: validatedIdeas.length,\n    avg_caption_length: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.caption_length, 0) / validatedIdeas.length\n    ),\n    avg_flow_steps: Math.round(\n      validatedIdeas.reduce((sum, v) => sum + v.json.flow_steps_count, 0) / validatedIdeas.length\n    )\n  });\n  \n  return validatedIdeas;\n  \n} catch(error) {\n  // Gestion d'erreur robuste\n  console.error('🚨 ERREUR CRITIQUE PARSING:', error.message);\n  console.error('Stack:', error.stack);\n  \n  // Retour d'erreur structuré pour le workflow\n  throw new Error(\n    `PARSING FAILED: ${error.message}\\n\\n` +\n    `Action requise: Vérifier le format de réponse de l'Agent IA`\n  );\n}"
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "id": "f5a6b7c8-9012-34ef-5555-555555555555",
+      "name": "📊 Scoring Viral KIE",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1180, 180],
+      "parameters": {
+        "content": "## 📊 API KIE - Scoring\n\n**Endpoint** : /v1/score\n**Méthode** : POST\n**Timeout** : 30s\n**Retry** : 2 tentatives\n\n**Analyse** :\n- Hook quality\n- Flow structure\n- Result impact\n- Overall virality score",
+        "height": 220,
+        "width": 260,
+        "color": 2
+      }
+    },
+    {
+      "id": "5d3c2f02-4bbd-4d84-8d1e-dda272e6af3a",
+      "name": "api.kie → Score Viral",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1220, 300],
+      "parameters": {
+        "url": "https://api.kie.ai/v1/score",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "jsonBody": "={\n  \"items\": [\n    {\n      \"hook\": {{ JSON.stringify($json.hook) }},\n      \"flow\": {{ JSON.stringify($json.flow_steps) }},\n      \"result\": {{ JSON.stringify($json.result) }},\n      \"outro\": {{ JSON.stringify($json.outro) }}\n    }\n  ],\n  \"metric\": \"virality_ia_v1\"\n}",
+        "options": {
+          "timeout": 30000,
+          "retry": {
+            "enabled": true,
+            "maxRetries": 2,
+            "waitBetweenRetries": 1000
+          }
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_KIE_CREDENTIAL",
+          "name": "KIE API"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "f6a7b8c9-0123-45f6-6666-666666666666",
+      "name": "🏆 Sélection Meilleure Idée",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1460, 180],
+      "parameters": {
+        "content": "## 🏆 Pick Best Idea\n\n**Stratégie** :\n1. Tri par score KIE décroissant\n2. Sélection du top score\n3. Fallback si API échoue\n4. Logging complet\n\n**Fallbacks** :\n- API KIE down → 1ère idée\n- Scores invalides → 1ère idée\n- Erreur critique → emergency fallback",
+        "height": 260,
+        "width": 280,
+        "color": 1
+      }
+    },
+    {
+      "id": "02bc3649-ed04-4bb2-b53f-f7b0168acf65",
+      "name": "Pick Best Idea",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1500, 300],
+      "parameters": {
+        "jsCode": "// 🏆 SÉLECTION MEILLEURE IDÉE + FALLBACKS ROBUSTES\n\ntry {\n  // Récupération de toutes les idées parsées\n  const ideasNode = $('Parse JSON (idées)');\n  const ideas = ideasNode.all().map(it => it.json);\n  \n  if (!ideas || ideas.length === 0) {\n    throw new Error('❌ ERREUR: Aucune idée disponible pour sélection');\n  }\n  \n  console.log(`📊 Début sélection sur ${ideas.length} idées`);\n  \n  // Récupération des scores depuis l'API KIE\n  const scoredItems = $input.all().map((it, i) => {\n    let score = 0;\n    let has_api_score = false;\n    let api_response_status = 'unknown';\n    \n    // Extraction du score avec gestion de multiples structures\n    if (it.json?.data?.scores?.[0] !== undefined) {\n      score = parseFloat(it.json.data.scores[0]);\n      has_api_score = true;\n      api_response_status = 'success';\n    } else if (it.json?.data?.score !== undefined) {\n      score = parseFloat(it.json.data.score);\n      has_api_score = true;\n      api_response_status = 'success';\n    } else if (it.json?.score !== undefined) {\n      score = parseFloat(it.json.score);\n      has_api_score = true;\n      api_response_status = 'success';\n    } else if (it.json?.error) {\n      console.warn(`⚠️ Erreur API KIE pour idée ${i + 1}: ${it.json.error}`);\n      api_response_status = 'error';\n      score = 0;\n    } else {\n      console.warn(`⚠️ Structure de réponse inconnue pour idée ${i + 1}`);\n      api_response_status = 'no_data';\n      score = 0;\n    }\n    \n    return {\n      index: i,\n      idea_number: i + 1,\n      score: isNaN(score) ? 0 : score,\n      idea: ideas[i],\n      has_api_score,\n      api_response_status\n    };\n  });\n  \n  // Vérification si on a au moins un score valide\n  const hasValidScores = scoredItems.some(item => item.has_api_score && item.score > 0);\n  \n  if (!hasValidScores) {\n    console.warn('⚠️⚠️⚠️ FALLBACK ACTIVÉ ⚠️⚠️⚠️');\n    console.warn('Raison: Aucun score KIE valide détecté');\n    console.warn('Action: Sélection de la première idée par défaut');\n    \n    return [{\n      json: {\n        best: ideas[0],\n        score: 0,\n        rank: 1,\n        total_ideas: ideas.length,\n        fallback_used: true,\n        fallback_reason: 'API KIE non disponible ou scores invalides',\n        selection_method: 'first_by_default',\n        timestamp: new Date().toISOString(),\n        all_api_statuses: scoredItems.map(s => s.api_response_status)\n      }\n    }];\n  }\n  \n  // Tri par score décroissant\n  scoredItems.sort((a, b) => b.score - a.score);\n  \n  // Sélection de la meilleure idée\n  const topIdea = scoredItems[0];\n  const scores = scoredItems.map(s => s.score);\n  \n  // Logs détaillés\n  console.log('✅✅✅ SÉLECTION RÉUSSIE ✅✅✅');\n  console.log(`🏆 Meilleure idée: #${topIdea.idea_number}`);\n  console.log(`📊 Score: ${topIdea.score.toFixed(2)}`);\n  console.log(`📈 Tous les scores: [${scores.map(s => s.toFixed(2)).join(', ')}]`);\n  console.log(`📊 Stats: min=${Math.min(...scores).toFixed(2)}, max=${Math.max(...scores).toFixed(2)}, avg=${(scores.reduce((a,b) => a+b, 0)/scores.length).toFixed(2)}`);\n  \n  return [{\n    json: {\n      best: topIdea.idea,\n      score: topIdea.score,\n      rank: 1,\n      idea_number: topIdea.idea_number,\n      total_ideas: ideas.length,\n      score_stats: {\n        min: Math.min(...scores),\n        max: Math.max(...scores),\n        avg: scores.reduce((a,b) => a+b, 0) / scores.length,\n        scores_array: scores\n      },\n      all_scores: scoredItems.map(s => ({\n        idea_number: s.idea_number,\n        score: s.score,\n        api_status: s.api_response_status\n      })),\n      fallback_used: false,\n      selection_method: 'kie_api_scoring',\n      timestamp: new Date().toISOString()\n    }\n  }];\n  \n} catch(error) {\n  // 🚨 FALLBACK ULTIME EN CAS D'ERREUR CRITIQUE\n  console.error('🚨🚨🚨 ERREUR CRITIQUE 🚨🚨🚨');\n  console.error('Message:', error.message);\n  console.error('Stack:', error.stack);\n  \n  // Tentative de récupération des idées\n  try {\n    const ideas = $('Parse JSON (idées)').all().map(it => it.json);\n    \n    if (ideas && ideas.length > 0) {\n      console.warn('⚠️ FALLBACK CRITIQUE: Retour de la première idée disponible');\n      \n      return [{\n        json: {\n          best: ideas[0],\n          score: 0,\n          fallback_used: true,\n          fallback_reason: `Erreur critique: ${error.message}`,\n          selection_method: 'emergency_fallback',\n          total_ideas: ideas.length,\n          timestamp: new Date().toISOString(),\n          error_details: {\n            message: error.message,\n            type: error.name\n          }\n        }\n      }];\n    }\n  } catch(fallbackError) {\n    console.error('🚨 Impossible de récupérer les idées:', fallbackError.message);\n  }\n  \n  throw new Error(\n    `SÉLECTION FAILED: ${error.message}\\n\\n` +\n    `Aucune idée disponible pour fallback. Vérifier les nodes en amont.`\n  );\n}"
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "id": "f7a8b9c0-1234-56f7-7777-777777777777",
+      "name": "📊 Logging Google Sheets",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1760, 180],
+      "parameters": {
+        "content": "## 📊 Logging Scores\n\n**Destination** : Google Sheets\n**Action** : Append Row\n\n**Données enregistrées** :\n- Timestamp\n- Meilleure idée (hook)\n- Score viral\n- Méthode de sélection\n- Fallback utilisé ?\n- Statistiques complètes\n- Topic & Tone",
+        "height": 260,
+        "width": 280,
+        "color": 7
+      }
+    },
+    {
+      "id": "log-to-sheets",
+      "name": "📊 Log → Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1800, 300],
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "CONFIGURE_YOUR_SHEET_ID_HERE"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $json.timestamp }}",
+            "hook": "={{ $json.best.hook }}",
+            "score": "={{ $json.score }}",
+            "selection_method": "={{ $json.selection_method }}",
+            "fallback_used": "={{ $json.fallback_used ? 'OUI' : 'NON' }}",
+            "total_ideas": "={{ $json.total_ideas }}",
+            "min_score": "={{ $json.score_stats?.min || 0 }}",
+            "max_score": "={{ $json.score_stats?.max || 0 }}",
+            "avg_score": "={{ $json.score_stats?.avg || 0 }}",
+            "topic": "={{ $('Set Defaults').first().json.topic }}",
+            "tone": "={{ $('Set Defaults').first().json.tone }}",
+            "caption": "={{ $json.best.caption_140 }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_GOOGLE_SHEETS_CREDENTIAL",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "f8a9b0c1-2345-67f8-8888-888888888888",
+      "name": "🎥 Génération Vidéo",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [2060, 180],
+      "parameters": {
+        "content": "## 🎥 Heygen Video Pipeline\n\n1. **Build Voiceover + Caption**\n2. **Generate Video** (Heygen API)\n3. **Poll Status** (wait 5s loop)\n4. **Check if ready**\n5. **Get MP4 URL**\n6. **Download Binary**\n7. **Publish TikTok**",
+        "height": 220,
+        "width": 300,
+        "color": 4
+      }
+    },
+    {
+      "id": "dff878f1-4879-4e6b-b901-e5a4ccb09c50",
+      "name": "Build Voiceover + Caption",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2100, 300],
+      "parameters": {
+        "jsCode": "const best = $input.first().json.best;\nconst defaults = $('Set Defaults').first().json;\nconst hashtags = defaults.hashtags;\n\nconst voiceover = best.voiceover_15s;\nconst caption = (best.caption_140 + ' ' + hashtags).trim().slice(0, 2200);\n\nconst pickBestData = $input.first().json;\n\nreturn [{ \n  json: { \n    voiceover, \n    caption,\n    score: pickBestData.score || 0,\n    selection_method: pickBestData.selection_method || 'unknown',\n    fallback_used: pickBestData.fallback_used || false,\n    idea_number: pickBestData.idea_number || 1\n  } \n}];"
+      }
+    },
+    {
+      "id": "5ed21c34-259b-4717-9bf0-368b6d860a70",
+      "name": "Heygen → Generate Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [2340, 300],
+      "parameters": {
+        "url": "https://api.heygen.com/v2/video/generate",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "jsonBody": "={\n  \"title\": \"TikTok - Workflow IA\",\n  \"test\": false,\n  \"video_inputs\": [\n    {\n      \"avatar_id\": \"VOTRE_AVATAR_ID\",\n      \"input_text\": {{ JSON.stringify($json.voiceover) }},\n      \"voice_id\": \"VOTRE_VOICE_ID\"\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920\n  }\n}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_HEYGEN_CREDENTIAL",
+          "name": "Heygen API"
+        }
+      }
+    },
+    {
+      "id": "5a46c8a6-baab-4c1e-920e-039eae74e3ed",
+      "name": "Heygen → Poll Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [2580, 300],
+      "parameters": {
+        "url": "={{\"https://api.heygen.com/v1/video_status.get?video_id=\" + $json.data?.video_id}}",
+        "method": "GET",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_HEYGEN_CREDENTIAL",
+          "name": "Heygen API"
+        }
+      }
+    },
+    {
+      "id": "f4e7cdcf-0f5e-461a-a022-f294e9d3c707",
+      "name": "Wait 5s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [2800, 300],
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      }
+    },
+    {
+      "id": "43344644-4fa1-4ad3-a568-606c6971f261",
+      "name": "IF Video Ready?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [3020, 300],
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.data?.status}}",
+              "operation": "equal",
+              "value2": "completed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "0fffd4d2-7484-4838-8a05-6369e96cbc5b",
+      "name": "Heygen → Get MP4 URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [3260, 220],
+      "parameters": {
+        "url": "={{\"https://api.heygen.com/v1/video.get?video_id=\" + $('Heygen → Poll Status').first().json.data?.video_id}}",
+        "method": "GET",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_HEYGEN_CREDENTIAL",
+          "name": "Heygen API"
+        }
+      }
+    },
+    {
+      "id": "a547449f-3cf1-4f4e-82fb-d4acb4bd3b6b",
+      "name": "Download MP4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [3500, 220],
+      "parameters": {
+        "url": "={{$json.data?.video_url}}",
+        "method": "GET",
+        "responseFormat": "file",
+        "options": {
+          "timeout": 120000
+        }
+      }
+    },
+    {
+      "id": "b815c767-4ae3-44f8-beb5-3a934eb39cc5",
+      "name": "Switch TikTok Method",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [3720, 220],
+      "parameters": {
+        "value": "=DIRECT_URL",
+        "rules": {
+          "rules": [
+            {
+              "operation": "equal",
+              "value": "DIRECT_URL"
+            },
+            {
+              "operation": "equal",
+              "value": "FILE_UPLOAD"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "3db9c6a5-e319-4b0a-bc24-37f5d5a8e704",
+      "name": "TikTok → Direct Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [3960, 120],
+      "parameters": {
+        "url": "https://open.tiktokapis.com/v2/post/publish/video/init/",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "jsonBody": "={\n  \"post_info\": {\n    \"privacy_level\": \"PUBLIC_TO_EVERYONE\",\n    \"title\": {{ JSON.stringify($('Build Voiceover + Caption').first().json.caption) }},\n    \"is_aigc\": true,\n    \"brand_organic_toggle\": true\n  },\n  \"source_info\": {\n    \"source\": \"PULL_FROM_URL\",\n    \"video_url\": {{ JSON.stringify($('Heygen → Get MP4 URL').first().json.data.video_url) }}\n  }\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_TIKTOK_CREDENTIAL",
+          "name": "TikTok API"
+        }
+      }
+    },
+    {
+      "id": "4b84b89d-b981-4737-9f70-ad0082411c55",
+      "name": "TikTok → Upload Init",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [3960, 340],
+      "parameters": {
+        "url": "https://open.tiktokapis.com/v2/post/publish/inbox/video/init/",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "jsonBody": "={\n  \"source_info\": {\n    \"source\": \"FILE_UPLOAD\",\n    \"video_size\": {{$binary.data?.data?.length || 0}},\n    \"chunk_size\": {{$binary.data?.data?.length || 0}},\n    \"total_chunk_count\": 1\n  }\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_TIKTOK_CREDENTIAL",
+          "name": "TikTok API"
+        }
+      }
+    },
+    {
+      "id": "c0550c4b-2652-4d14-9210-00d739bfdd0f",
+      "name": "TikTok → PUT File",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [4200, 340],
+      "parameters": {
+        "url": "={{$json.data?.upload_url}}",
+        "method": "PUT",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "video/mp4"
+            },
+            {
+              "name": "Content-Length",
+              "value": "={{$binary.data.data.length}}"
+            },
+            {
+              "name": "Content-Range",
+              "value": "={{'bytes 0-' + ($binary.data.data.length-1) + '/' + $binary.data.data.length}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "binary",
+        "bodyBinaryPropertyName": "data",
+        "options": {
+          "timeout": 180000
+        }
+      }
+    },
+    {
+      "id": "4019f336-1329-47d4-97dc-0fc3d08537f2",
+      "name": "✅ Réponse Finale",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [4450, 220],
+      "parameters": {
+        "responseBody": "={\n  \"status\": \"success\",\n  \"message\": \"Vidéo TikTok générée et publiée avec succès\",\n  \"data\": {\n    \"caption\": {{ JSON.stringify($('Build Voiceover + Caption').first().json.caption) }},\n    \"score\": {{ $('Build Voiceover + Caption').first().json.score }},\n    \"selection_method\": {{ JSON.stringify($('Build Voiceover + Caption').first().json.selection_method) }},\n    \"fallback_used\": {{ $('Build Voiceover + Caption').first().json.fallback_used }},\n    \"idea_number\": {{ $('Build Voiceover + Caption').first().json.idea_number }},\n    \"tiktok_publish\": {{ JSON.stringify($json.data || null) }}\n  },\n  \"timestamp\": {{ JSON.stringify(new Date().toISOString()) }}\n}",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    },
+    {
+      "id": "f9a0b1c2-3456-78f9-9999-999999999999",
+      "name": "🧪 MODE TEST",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [100, 560],
+      "parameters": {
+        "content": "# ⚠️ WORKFLOW EN MODE TEST\n\n## Actions à faire avant production :\n\n✅ **1. Google Sheets**\n- Créer la feuille de logs\n- Configurer les credentials\n- Ajuster le documentId\n\n✅ **2. Credentials à configurer**\n- OpenAI API\n- KIE API (Header Auth)\n- Heygen API (Header Auth)\n- TikTok API (Header Auth)\n- Google Sheets OAuth2\n\n✅ **3. Heygen**\n- Remplacer VOTRE_AVATAR_ID\n- Remplacer VOTRE_VOICE_ID\n\n✅ **4. Tests**\n- Tester avec webhook\n- Vérifier logging Sheets\n- Valider publication TikTok\n\n✅ **5. Activation**\n- Passer `active: true`\n- Monitorer les logs\n- Suivre les métriques",
+        "height": 520,
+        "width": 340,
+        "color": 1
+      }
+    }
+  ],
+  "connections": {
+    "89d77201-7ec8-4ec6-b459-437452666d37": {
+      "main": [[{"node": "4c410f0f-eb8f-436f-910a-20c57b080145", "type": "main", "index": 0}]]
+    },
+    "4c410f0f-eb8f-436f-910a-20c57b080145": {
+      "main": [[{"node": "ffd348ab-8e65-4859-9c77-84f1f043802d", "type": "main", "index": 0}]]
+    },
+    "ffd348ab-8e65-4859-9c77-84f1f043802d": {
+      "main": [[{"node": "3e215f6f-ac1f-4673-8c0b-fe675e97f251", "type": "main", "index": 0}]]
+    },
+    "3e215f6f-ac1f-4673-8c0b-fe675e97f251": {
+      "main": [[{"node": "5d3c2f02-4bbd-4d84-8d1e-dda272e6af3a", "type": "main", "index": 0}]]
+    },
+    "5d3c2f02-4bbd-4d84-8d1e-dda272e6af3a": {
+      "main": [[{"node": "02bc3649-ed04-4bb2-b53f-f7b0168acf65", "type": "main", "index": 0}]]
+    },
+    "02bc3649-ed04-4bb2-b53f-f7b0168acf65": {
+      "main": [[{"node": "log-to-sheets", "type": "main", "index": 0}]]
+    },
+    "log-to-sheets": {
+      "main": [[{"node": "dff878f1-4879-4e6b-b901-e5a4ccb09c50", "type": "main", "index": 0}]]
+    },
+    "dff878f1-4879-4e6b-b901-e5a4ccb09c50": {
+      "main": [[{"node": "5ed21c34-259b-4717-9bf0-368b6d860a70", "type": "main", "index": 0}]]
+    },
+    "5ed21c34-259b-4717-9bf0-368b6d860a70": {
+      "main": [[{"node": "5a46c8a6-baab-4c1e-920e-039eae74e3ed", "type": "main", "index": 0}]]
+    },
+    "5a46c8a6-baab-4c1e-920e-039eae74e3ed": {
+      "main": [[{"node": "f4e7cdcf-0f5e-461a-a022-f294e9d3c707", "type": "main", "index": 0}]]
+    },
+    "f4e7cdcf-0f5e-461a-a022-f294e9d3c707": {
+      "main": [[{"node": "43344644-4fa1-4ad3-a568-606c6971f261", "type": "main", "index": 0}]]
+    },
+    "43344644-4fa1-4ad3-a568-606c6971f261": {
+      "main": [
+        [{"node": "0fffd4d2-7484-4838-8a05-6369e96cbc5b", "type": "main", "index": 0}],
+        [{"node": "5a46c8a6-baab-4c1e-920e-039eae74e3ed", "type": "main", "index": 0}]
+      ]
+    },
+    "0fffd4d2-7484-4838-8a05-6369e96cbc5b": {
+      "main": [[{"node": "a547449f-3cf1-4f4e-82fb-d4acb4bd3b6b", "type": "main", "index": 0}]]
+    },
+    "a547449f-3cf1-4f4e-82fb-d4acb4bd3b6b": {
+      "main": [[{"node": "b815c767-4ae3-44f8-beb5-3a934eb39cc5", "type": "main", "index": 0}]]
+    },
+    "b815c767-4ae3-44f8-beb5-3a934eb39cc5": {
+      "main": [
+        [{"node": "3db9c6a5-e319-4b0a-bc24-37f5d5a8e704", "type": "main", "index": 0}],
+        [{"node": "4b84b89d-b981-4737-9f70-ad0082411c55", "type": "main", "index": 0}]
+      ]
+    },
+    "3db9c6a5-e319-4b0a-bc24-37f5d5a8e704": {
+      "main": [[{"node": "4019f336-1329-47d4-97dc-0fc3d08537f2", "type": "main", "index": 0}]]
+    },
+    "4b84b89d-b981-4737-9f70-ad0082411c55": {
+      "main": [[{"node": "c0550c4b-2652-4d14-9210-00d739bfdd0f", "type": "main", "index": 0}]]
+    },
+    "c0550c4b-2652-4d14-9210-00d739bfdd0f": {
+      "main": [[{"node": "4019f336-1329-47d4-97dc-0fc3d08537f2", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateVersion": "2.0-production",
+    "createdAt": "2025-10-27"
+  }
+}
