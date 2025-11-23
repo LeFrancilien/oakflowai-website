@@ -41,20 +41,14 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></noscript>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
     <link rel="preload" href="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" as="image" fetchpriority="high">
 
-    <!-- Font Awesome chargé en différé (non critique) -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"></noscript>
-
-    <!-- loadCSS polyfill pour anciens navigateurs -->
-    <script>
-    !function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
-    </script>
+    <!-- CSS avec display=swap pour éviter FOIT -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -137,32 +131,45 @@
     </script>
 
     <style>
+        /* Critical CSS inline pour LCP rapide */
         * {
-            font-family: 'Inter', sans-serif;
-            /* Éviter le zoom automatique sur les inputs iOS */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
+            box-sizing: border-box;
         }
 
         body {
+            margin: 0;
+            padding: 0;
             background: linear-gradient(135deg, #000000 0%, #111111 100%);
             color: #ffffff;
-            /* Améliorer le rendu des polices sur mobile */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Smooth scrolling global */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Éviter les débordements horizontaux */
         body, html {
             overflow-x: hidden;
             max-width: 100%;
+        }
+
+        /* Optimisation images - réserver espace pour éviter CLS */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Styles critiques pour hero - éviter layout shift */
+        .hero-bg {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .gradient-text {
@@ -546,7 +553,6 @@
                     <a href="#blog" class="nav-link" aria-label="Aller à la section Blog">Blog</a>
                     <a href="#portfolio" class="nav-link" aria-label="Aller à la section Portfolio">Portfolio</a>
                     <a href="#partenaires" class="nav-link" aria-label="Aller à la section Partenaires">Partenaires</a>
-                    <a href="#temoignages" class="nav-link" aria-label="Aller à la section Témoignages">Témoignages</a>
                     <a href="#faq" class="nav-link" aria-label="Aller à la section FAQ">FAQ</a>
                     <a href="#contact" class="nav-link" aria-label="Aller à la section Contact">Contact</a>
                 </div>
@@ -566,7 +572,6 @@
                 <a href="#blog" class="block py-2 nav-link" role="menuitem">Blog</a>
                 <a href="#portfolio" class="block py-2 nav-link" role="menuitem">Portfolio</a>
                 <a href="#partenaires" class="block py-2 nav-link" role="menuitem">Partenaires</a>
-                <a href="#temoignages" class="block py-2 nav-link" role="menuitem">Témoignages</a>
                 <a href="#faq" class="block py-2 nav-link" role="menuitem">FAQ</a>
                 <a href="#contact" class="block py-2 nav-link" role="menuitem">Contact</a>
             </div>
@@ -577,7 +582,7 @@
     <section id="accueil" class="hero-bg section-padding pt-32">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="animate-float mb-8">
-                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="Logo OAKFLOW AI - Expert en automatisation IA pour PME et TPE" class="h-24 w-24 mx-auto mb-6" loading="eager" width="96" height="96">
+                <img src="https://cdn1.genspark.ai/user-upload-image/22_generated/48ae5f0d-b78a-4c52-ace4-c5b7a18a17b8" alt="Logo OAKFLOW AI - Expert en automatisation IA pour PME et TPE" class="h-24 w-24 mx-auto mb-6" loading="eager" fetchpriority="high" width="96" height="96">
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 Libérez vos équipes des <span class="gradient-text">tâches répétitives</span><br>
@@ -847,57 +852,189 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
-                    <div class="text-green-500 text-3xl mb-4">
-                        <i class="fas fa-bed"></i>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Cas d'usage 1 : Hôtellerie -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-green-500 text-4xl mr-4">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Hôtellerie - Résidence Apart'Hôtel</h3>
+                            <span class="text-green-500 text-sm font-semibold">15 appartements • Paris 15ème</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Secteur Hôtellerie</h3>
-                    <p class="text-gray-400 mb-4">Automatisation des réservations, check-in/check-out, et gestion des avis clients.</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• Réduction 70% temps administratif</li>
-                        <li>• Amélioration satisfaction client</li>
-                        <li>• Optimisation pricing automatique</li>
-                    </ul>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-cyan-500 mb-2">🎯 Problématique</h4>
+                        <p class="text-gray-300 text-sm">
+                            Gestion manuelle des réservations via Booking, Airbnb et site web. 10h/semaine perdues
+                            en saisie manuelle, erreurs de double réservation, réponses tardives aux avis clients.
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-cyan-500 mb-2">✅ Solution OAKFLOW AI</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><strong>Synchronisation multi-plateformes :</strong> Calendriers Booking/Airbnb/Site web unifiés en temps réel</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><strong>Emails automatisés :</strong> Confirmation, instructions d'accès, relances paiement</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><strong>Gestion avis :</strong> Réponses automatiques personnalisées aux avis clients</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><strong>Facturation auto :</strong> Génération et envoi automatique des factures</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-green-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-green-500">-70%</div>
+                            <div class="text-xs text-gray-400">Temps admin</div>
+                        </div>
+                        <div class="bg-cyan-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-cyan-500">0</div>
+                            <div class="text-xs text-gray-400">Double booking</div>
+                        </div>
+                        <div class="bg-blue-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-blue-500">+25%</div>
+                            <div class="text-xs text-gray-400">Avis positifs</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
-                    <div class="text-cyan-500 text-3xl mb-4">
-                        <i class="fas fa-shopping-cart"></i>
+                <!-- Cas d'usage 2 : E-commerce -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-cyan-500 text-4xl mr-4">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">E-commerce - Boutique Mode</h3>
+                            <span class="text-cyan-500 text-sm font-semibold">Shopify + Instagram + Facebook</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">E-commerce</h3>
-                    <p class="text-gray-400 mb-4">Gestion automatisée des commandes, stocks, et relation client multicanal.</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• Synchronisation stocks temps réel</li>
-                        <li>• Emails marketing automatisés</li>
-                        <li>• Suivi commandes optimisé</li>
-                    </ul>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-green-500 mb-2">🎯 Problématique</h4>
+                        <p class="text-gray-300 text-sm">
+                            Gestion manuelle des stocks entre boutique physique et 3 canaux en ligne. Ruptures de stock
+                            fréquentes, emails clients non personnalisés, suivi commandes chronophage (8h/semaine).
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-green-500 mb-2">✅ Solution OAKFLOW AI</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li><i class="fas fa-check text-cyan-500 mr-2"></i><strong>Stocks synchronisés :</strong> Mise à jour en temps réel sur tous les canaux</li>
+                            <li><i class="fas fa-check text-cyan-500 mr-2"></i><strong>Emails intelligents :</strong> Confirmation, expédition, relance panier abandonné</li>
+                            <li><i class="fas fa-check text-cyan-500 mr-2"></i><strong>Alertes automatiques :</strong> Notifications réapprovisionnement par SMS/Email</li>
+                            <li><i class="fas fa-check text-cyan-500 mr-2"></i><strong>Marketing automation :</strong> Campagnes personnalisées selon historique d'achat</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-cyan-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-cyan-500">-85%</div>
+                            <div class="text-xs text-gray-400">Ruptures stock</div>
+                        </div>
+                        <div class="bg-green-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-green-500">+35%</div>
+                            <div class="text-xs text-gray-400">Paniers récupérés</div>
+                        </div>
+                        <div class="bg-purple-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-purple-500">8h</div>
+                            <div class="text-xs text-gray-400">Gagnées/sem</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
-                    <div class="text-blue-500 text-3xl mb-4">
-                        <i class="fas fa-handshake"></i>
+                <!-- Cas d'usage 3 : Services B2B -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-blue-500 text-4xl mr-4">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Services B2B - Agence Marketing Digital</h3>
+                            <span class="text-blue-500 text-sm font-semibold">12 collaborateurs • 50 clients actifs</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Services B2B</h3>
-                    <p class="text-gray-400 mb-4">CRM automatisé, facturation intelligente, et suivi de la relation client.</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• Pipeline commercial automatisé</li>
-                        <li>• Facturation récurrente</li>
-                        <li>• Reporting activité en temps réel</li>
-                    </ul>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-orange-500 mb-2">🎯 Problématique</h4>
+                        <p class="text-gray-300 text-sm">
+                            CRM désorganisé, facturation mensuelle manuelle (2 jours/mois), relances impayés oubliées,
+                            reporting clients chronophage, suivi commercial dans Excel.
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-orange-500 mb-2">✅ Solution OAKFLOW AI</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i><strong>CRM automatisé :</strong> Pipeline commercial avec relances automatiques par étape</li>
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i><strong>Facturation récurrente :</strong> Génération et envoi auto des factures mensuelles</li>
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i><strong>Relances intelligentes :</strong> Emails de relance progressifs selon profil client</li>
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i><strong>Reporting automatisé :</strong> Dashboards clients mis à jour en temps réel</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-blue-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-blue-500">16h</div>
+                            <div class="text-xs text-gray-400">Gagnées/mois</div>
+                        </div>
+                        <div class="bg-green-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-green-500">-60%</div>
+                            <div class="text-xs text-gray-400">Impayés</div>
+                        </div>
+                        <div class="bg-cyan-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-cyan-500">+40%</div>
+                            <div class="text-xs text-gray-400">Conversion leads</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-gray-800 bg-opacity-50 p-6 rounded-2xl border border-gray-700">
-                    <div class="text-yellow-500 text-3xl mb-4">
-                        <i class="fas fa-calculator"></i>
+                <!-- Cas d'usage 4 : Comptabilité -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 text-4xl mr-4">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Comptabilité - Cabinet d'Expertise Comptable</h3>
+                            <span class="text-yellow-500 text-sm font-semibold">5 collaborateurs • 80 dossiers clients</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Comptabilité</h3>
-                    <p class="text-gray-400 mb-4">Automatisation des processus comptables, rapprochements bancaires, et reporting financier.</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• Saisie automatique factures</li>
-                        <li>• Rapprochements bancaires</li>
-                        <li>• Reporting financier automatisé</li>
-                    </ul>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-red-500 mb-2">🎯 Problématique</h4>
+                        <p class="text-gray-300 text-sm">
+                            Saisie manuelle de 500+ factures/mois, rapprochements bancaires fastidieux (3h/dossier),
+                            relances clients pour documents manquants, reporting Excel chronophage.
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-red-500 mb-2">✅ Solution OAKFLOW AI</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li><i class="fas fa-check text-yellow-500 mr-2"></i><strong>OCR intelligent :</strong> Extraction automatique des données de factures (PDF/papier)</li>
+                            <li><i class="fas fa-check text-yellow-500 mr-2"></i><strong>Rapprochement auto :</strong> Lettrage bancaire automatisé via IA</li>
+                            <li><i class="fas fa-check text-yellow-500 mr-2"></i><strong>Relances clients :</strong> Emails automatiques pour documents manquants</li>
+                            <li><i class="fas fa-check text-yellow-500 mr-2"></i><strong>Reporting dynamique :</strong> Tableaux de bord clients auto-générés</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-yellow-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-yellow-500">-75%</div>
+                            <div class="text-xs text-gray-400">Temps de saisie</div>
+                        </div>
+                        <div class="bg-orange-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-orange-500">45h</div>
+                            <div class="text-xs text-gray-400">Gagnées/mois</div>
+                        </div>
+                        <div class="bg-red-500 bg-opacity-10 p-3 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-red-500">98%</div>
+                            <div class="text-xs text-gray-400">Précision OCR</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1009,137 +1146,6 @@
         box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
       }
     </style>
-
-    <!-- Testimonials Section -->
-    <section id="temoignages" class="section-padding">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="gradient-text">Témoignages</span> Clients
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Découvrez comment OAKFLOW AI a transformé le quotidien de nos clients
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
-                    <div class="flex space-x-1 mb-4">
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                    </div>
-                    
-                    <blockquote class="text-gray-300 mb-6 relative z-10">
-                        "OAKFLOW AI a révolutionné notre gestion ! L'automatisation des réservations et de la facturation nous fait gagner 15 heures par semaine. Cyril a parfaitement compris nos besoins spécifiques."
-                    </blockquote>
-                    
-                    <div class="flex items-center space-x-4">
-                        <img src="https://i.postimg.cc/v8kvKG81/a-formal-passport-photograph-captures-a-VKo-P48s-Qf2-C-M4e-Gcx-N8-A-3c-Je-Ny-Pn-T9-v-Ct-Ts-Cu-D2hw.jpg"
-                             alt="Photo de Marie Dubois, gérante du Restaurant Le Petit Gourmet"
-                             class="w-12 h-12 rounded-full border-2 border-green-500" loading="lazy" width="48" height="48">
-                        <div>
-                            <div class="font-bold text-white">Marie Dubois</div>
-                            <div class="text-green-500 text-sm">Gérante</div>
-                            <div class="text-gray-400 text-sm">Restaurant Le Petit Gourmet</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-xs text-gray-500 bg-gray-700 px-2 py-1 rounded">Restauration</span>
-                        <span class="text-xs font-bold text-cyan-400 bg-cyan-500 bg-opacity-10 px-2 py-1 rounded">+40% de productivité</span>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
-                    <div class="flex space-x-1 mb-4">
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                    </div>
-                    
-                    <blockquote class="text-gray-300 mb-6 relative z-10">
-                        "Incroyable ROI ! En 3 mois, nos processus CRM et facturation sont entièrement automatisés. L'équipe OAKFLOW AI combine expertise technique et compréhension business. Un partenaire de confiance."
-                    </blockquote>
-                    
-                    <div class="flex items-center space-x-4">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-                             alt="Photo de Thomas Martin, directeur général de TechServices Pro"
-                             class="w-12 h-12 rounded-full border-2 border-green-500" loading="lazy" width="48" height="48">
-                        <div>
-                            <div class="font-bold text-white">Thomas Martin</div>
-                            <div class="text-green-500 text-sm">Directeur Général</div>
-                            <div class="text-gray-400 text-sm">TechServices Pro</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-xs text-gray-500 bg-gray-700 px-2 py-1 rounded">Services B2B</span>
-                        <span class="text-xs font-bold text-cyan-400 bg-cyan-500 bg-opacity-10 px-2 py-1 rounded">ROI 320% en 3 mois</span>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card card-hover bg-gray-800 bg-opacity-50 p-8 rounded-2xl border border-gray-700">
-                    <div class="flex space-x-1 mb-4">
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                        <i class="fas fa-star star-rating"></i>
-                    </div>
-                    
-                    <blockquote class="text-gray-300 mb-6 relative z-10">
-                        "Cyril a transformé notre e-commerce ! Gestion automatique des stocks, emails clients personnalisés, tout fonctionne parfaitement. Nous nous concentrons enfin sur notre cœur de métier."
-                    </blockquote>
-                    
-                    <div class="flex items-center space-x-4">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-                             alt="Photo de Sophie Lebreton, propriétaire de la Boutique Mode & Style"
-                             class="w-12 h-12 rounded-full border-2 border-green-500" loading="lazy" width="48" height="48">
-                        <div>
-                            <div class="font-bold text-white">Sophie Lebreton</div>
-                            <div class="text-green-500 text-sm">Propriétaire</div>
-                            <div class="text-gray-400 text-sm">Boutique Mode & Style</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-xs text-gray-500 bg-gray-700 px-2 py-1 rounded">E-commerce</span>
-                        <span class="text-xs font-bold text-cyan-400 bg-cyan-500 bg-opacity-10 px-2 py-1 rounded">+60% satisfaction client</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Trust Indicators -->
-            <div class="mt-16 text-center">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-green-500 mb-2">100%</div>
-                        <div class="text-gray-400 text-sm">Satisfaction Client</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-cyan-500 mb-2">15+</div>
-                        <div class="text-gray-400 text-sm">Entreprises Accompagnées</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-blue-500 mb-2">Moy de 25h</div>
-                        <div class="text-gray-400 text-sm">Économisées / Semaine</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-purple-500 mb-2">320%</div>
-                        <div class="text-gray-400 text-sm">ROI Moyen</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ Section -->
     <section id="faq" class="section-padding bg-gray-900 bg-opacity-50">
@@ -1361,7 +1367,6 @@
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#blog" class="hover:text-green-500">Blog</a></li>
                         <li><a href="#portfolio" class="hover:text-green-500">Portfolio</a></li>
-                        <li><a href="#temoignages" class="hover:text-green-500">Témoignages</a></li>
                         <li><a href="#faq" class="hover:text-green-500">FAQ</a></li>
                     </ul>
                 </div>
@@ -1552,7 +1557,7 @@ ${projet}
         }
 </script>
     <!-- Widget ElevenLabs avec webhook n8n corrigé -->
-    <elevenlabs-convai agent-id="agent_6001k5njqf9ceyrtgkkcrarnp16g"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <elevenlabs-convai agent-id="agent_7201k9kxqq0rfy590zw09xanxsgc"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 </body>
 </html>
