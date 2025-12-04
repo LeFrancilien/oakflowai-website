@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Oakflow AI - Libérez vos équipes des tâches répétitives. 20 ans d'expérience au service de votre transformation IA. Audit, conseil et implémentation pour PME/TPE.">
+    <meta name="keywords"
+        content="IA, Automatisation, PME, TPE, Consultant IA, Oakflow AI, Transformation Digitale, Cyril DE LA RUE">
+    <meta name="author" content="Oakflow AI">
+    <meta property="og:title" content="Oakflow AI - Libérez vos équipes des tâches répétitives">
+    <meta property="og:description"
+        content="20 ans d'expérience au service de votre transformation IA. Solutions sur-mesure pour les PME/TPE.">
+    <meta property="og:image" content="assets/images/logo.png">
+    <meta property="og:type" content="website">
+
+    <title>Oakflow AI | Consultant IA & Automatisation</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.min.css" as="style">
+    <link rel="preload" href="js/script.min.js" as="script">
+    <link rel="preload" href="assets/images/logo.png" as="image">
+
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Oakflow AI",
+      "image": "https://oakflowai.com/assets/images/logo.png",
+      "@id": "https://oakflowai.com",
+      "url": "https://oakflowai.com",
+      "telephone": "",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/de-la-rue/"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Combien de temps faut-il pour voir les premiers résultats ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les premiers résultats sont visibles dès la première semaine pour les automatisations simples (facturation, emails). Pour les projets plus complexes, comptez 2-4 semaines. Le ROI complet est généralement atteint en 3-6 mois selon la complexité."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Faut-il des compétences techniques dans mon équipe ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non, c'est notre rôle ! Nous concevons, déployons et formons vos équipes. Vous n'avez besoin que de personnes motivées pour apprendre les nouveaux processus. La formation est incluse dans tous nos packs."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Quels sont les risques de l'automatisation ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les principaux risques sont la résistance au changement et la mauvaise conception des workflows. C'est pourquoi nous privilégions une approche progressive, avec formation et accompagnement. Nous gardons toujours des sauvegardes et procédures manuelles de secours."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Mes données sont-elles sécurisées ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument. Nous utilisons uniquement des plateformes certifiées (ISO 27001, SOC 2, GDPR). Vos données restent chiffrées et vous gardez le contrôle total. Nous pouvons aussi implémenter des solutions on-premise si nécessaire."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Que se passe-t-il si je ne suis pas satisfait ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nous offrons une garantie satisfaction 30 jours. Si les résultats ne correspondent pas à vos attentes, nous ajustons gratuitement ou vous remboursons. Notre objectif est votre succès à long terme."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Puis-je commencer petit et évoluer ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "C'est même recommandé ! Nous préconisons de commencer par 1-2 processus simples pour valider l'approche, puis d'étendre progressivement. Tous nos packs sont évolutifs et modulaires."
+        }
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Pack Découverte",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Oakflow AI"
+      },
+      "description": "Audit de vos processus pour identifier 3 tâches à automatiser immédiatement.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Pack Transformation",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Oakflow AI"
+      },
+      "description": "Implémentation complète de 3-5 workflows automatisés (CRM, Marketing, API).",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Pack Entreprise",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Oakflow AI"
+      },
+      "description": "Accompagnement continu, IA personnalisée et support prioritaire.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+</head>
+
+<div class="container hero-content">
+    <div class="hero-logo-center">
+        <img src="assets/images/logo.png" alt="Oakflow AI Icon" class="hero-icon">
+    </div>
+    <h1>Libérez vos équipes des <span class="text-accent">tâches répétitives</span></h1>
+    <h2>20 ans d'expérience au service de <br>votre transformation IA</h2>
+    <p class="hero-subtitle">Votre consultant en IA et Automatisation.<br>Des solutions sur-mesure pour les
+    <div class="about-wrapper">
+        <div class="about-image-col">
+            <div class="about-image">
+                <img src="assets/images/cyril-profile.png" alt="Cyril DE LA RUE" class="profile-photo">
+            </div>
+        </div>
+        <div class="about-content">
+            <h3>Cyril DE LA RUE <span class="text-muted" style="font-size: 0.8em; font-weight: 400;">-
+                    Consultant IA & Automatisation</span></h3>
+
+            <div class="about-block">
+                <h4>📈 Mon Expérience Business (20 ans)</h4>
+                <p>Après plus de 20 ans d'expérience en gestion client dans les secteurs du tourisme,
+                    transport & finance, notamment comme directeur de centre de profit chez All
+                    (Accor)/Appart'City/Econocab, j'ai vu de l'intérieur les défis de productivité que
+                    rencontrent les entreprises.</p>
+            </div>
+
+            <div class="about-block">
+                <h4>🚀 Ma Transition vers l'IA</h4>
+                <p>J'ai décidé de me consacrer à l'automatisation et à l'IA, non pas pour la technologie
+                    elle-même, mais pour permettre aux entreprises et à leurs équipes de se concentrer sur
+                    leur véritable valeur ajoutée.</p>
+            </div>
+
+            <div class="about-block">
+                <h4>🎯 Ma Vision OAKFLOW AI</h4>
+                <p class="quote">"Libérer le potentiel des PME/TPE grâce à l'automatisation intelligente.
+                    Mon expérience terrain me permet de comprendre vos vrais enjeux et de proposer des
+                    solutions concrètes et rentables."</p>
+            </div>
+        </div>
+        <div class="about-stats">
+            <div class="stat-card">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Années d'expérience</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Sur-mesure</span>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="services" class="section services-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-tag">Nos Solutions</span>
+            <h2>Nos Solutions Concrètes</h2>
+        </div>
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Pack Découverte</h3>
+                <p>Audit de vos processus pour identifier 3 tâches à automatiser immédiatement.</p>
+                <ul class="service-list">
+                    <li>Automatisation facturation</li>
+                    <li>Qualification prospects automatique</li>
+                    <li>Intégration chatbots service client</li>
+                    <li>Support 30 jours</li>
+                </ul>
+                <a href="https://calendar.app.google/NRLmBeoSWXvYgfpMA" target="_blank"
+                    class="btn btn-outline btn-block btn-sm" style="margin-top: 1rem;">Réserver
+                    un Audit</a>
+            </article>
+            <article class="service-card featured">
+                <div class="service-icon">🚀</div>
+                <h3>Pack Transformation</h3>
+                <p>Implémentation complète de 3-5 workflows automatisés.</p>
+                <ul class="service-list">
+                    <li>CRM automatisé complet</li>
+                    <li>Emails marketing séquencés</li>
+                    <li>Intégrations API avancées</li>
+                    <li>Dashboard analytics temps réel</li>
+                    <li>Formation équipe complète</li>
+                </ul>
+                <a href="https://calendar.app.google/NRLmBeoSWXvYgfpMA" target="_blank"
+                    class="btn btn-accent btn-block btn-sm" style="margin-top: 1rem;">Planifier
+                    un Appel</a>
+            </article>
+            <article class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Pack Entreprise</h3>
+                <p>Accompagnement continu et IA personnalisée.</p>
+                <ul class="service-list">
+                    <li>Workflows illimités</li>
+                    <li>IA conversationnelle sur-mesure</li>
+                    <li>Intégrations métier complexes</li>
+                    <li>Support prioritaire 24/7</li>
+                    <li>Consultant dédié</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline btn-block btn-sm" style="margin-top: 1rem;">Nous
+                    contacter</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" class="section portfolio-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Portfolio</span>
+            <h2>Cas d'usage récents</h2>
+        </div>
+        <div class="portfolio-grid-detailed">
+            <!-- Case 1 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <h3>Hôtellerie - Résidence Apart'Hôtel</h3>
+                    <span class="case-icon">🏨</span>
+                </div>
+                <div class="case-body">
+                    <div class="case-problem">
+                        <h4>🎯 Problématique</h4>
+                        <p>Gestion manuelle des réservations via Booking, Airbnb et site web. 10h/semaine
+                            perdues en saisie manuelle, erreurs de double réservation.</p>
+                    </div>
+                    <div class="case-solution">
+                        <h4>✅ Solution OAKFLOW AI</h4>
+                        <ul>
+                            <li>Synchronisation multi-plateformes temps réel</li>
+                            <li>Emails automatisés (Confirmation, accès)</li>
+                            <li>Réponses automatiques aux avis clients</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 2 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <h3>E-commerce - Boutique Mode</h3>
+                    <span class="case-icon">🛍️</span>
+                </div>
+                <div class="case-body">
+                    <div class="case-problem">
+                        <h4>🎯 Problématique</h4>
+                        <p>Gestion manuelle des stocks entre boutique physique et 3 canaux en ligne. Ruptures de
+                            stock fréquentes, suivi commandes chronophage.</p>
+                    </div>
+                    <div class="case-solution">
+                        <h4>✅ Solution OAKFLOW AI</h4>
+                        <ul>
+                            <li>Stocks synchronisés temps réel</li>
+                            <li>Emails intelligents & Relance panier</li>
+                            <li>Alertes réapprovisionnement SMS/Email</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 3 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <h3>Services B2B - Agence Marketing</h3>
+                    <span class="case-icon">📈</span>
+                </div>
+                <div class="case-body">
+                    <div class="case-problem">
+                        <h4>🎯 Problématique</h4>
+                        <p>CRM désorganisé, facturation mensuelle manuelle, relances impayés oubliées, reporting
+                            clients chronophage.</p>
+                    </div>
+                    <div class="case-solution">
+                        <h4>✅ Solution OAKFLOW AI</h4>
+                        <ul>
+                            <li>CRM automatisé & Pipeline commercial</li>
+                            <li>Facturation récurrente auto</li>
+                            <li>Reporting automatisé temps réel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 4 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <h3>Comptabilité - Cabinet d'Expertise</h3>
+                    <span class="case-icon">📊</span>
+                </div>
+                <div class="case-body">
+                    <div class="case-problem">
+                        <h4>🎯 Problématique</h4>
+                        <p>Saisie manuelle de 500+ factures/mois, rapprochements bancaires fastidieux, relances
+                            clients pour documents manquants.</p>
+                    </div>
+                    <div class="case-solution">
+                        <h4>✅ Solution OAKFLOW AI</h4>
+                        <ul>
+                            <li>OCR intelligent (Extraction données)</li>
+                            <li>Rapprochement auto & Lettrage IA</li>
+                            <li>Relances clients automatiques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section faq-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-tag">FAQ</span>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary>Combien de temps faut-il pour voir les premiers résultats ?</summary>
+                <div class="faq-content">
+                    <p>Les premiers résultats sont visibles dès la première semaine pour les automatisations
+                        simples (facturation, emails). Pour les projets plus complexes, comptez 2-4 semaines. Le
+                        ROI complet est généralement atteint en 3-6 mois selon la complexité.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Faut-il des compétences techniques dans mon équipe ?</summary>
+                <div class="faq-content">
+                    <p>Non, c'est notre rôle ! Nous concevons, déployons et formons vos équipes. Vous n'avez
+                        besoin que de personnes motivées pour apprendre les nouveaux processus. La formation est
+                        incluse dans tous nos packs.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Quels sont les risques de l'automatisation ?</summary>
+                <div class="faq-content">
+                    <p>Les principaux risques sont la résistance au changement et la mauvaise conception des
+                        workflows. C'est pourquoi nous privilégions une approche progressive, avec formation et
+                        accompagnement. Nous gardons toujours des sauvegardes et procédures manuelles de
+                        secours.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Mes données sont-elles sécurisées ?</summary>
+                <div class="faq-content">
+                    <p>Absolument. Nous utilisons uniquement des plateformes certifiées (ISO 27001, SOC 2,
+                        GDPR). Vos données restent chiffrées et vous gardez le contrôle total. Nous pouvons
+                        aussi implémenter des solutions on-premise si nécessaire.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Que se passe-t-il si je ne suis pas satisfait ?</summary>
+                <div class="faq-content">
+                    <p>Nous offrons une garantie satisfaction 30 jours. Si les résultats ne correspondent pas à
+                        vos attentes, nous ajustons gratuitement ou vous remboursons. Notre objectif est votre
+                        succès à long terme.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Puis-je commencer petit et évoluer ?</summary>
+                <div class="faq-content">
+                    <p>C'est même recommandé ! Nous préconisons de commencer par 1-2 processus simples pour
+                        valider l'approche, puis d'étendre progressivement. Tous nos packs sont évolutifs et
+                        modulaires.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Prêt à transformer votre entreprise ?</h2>
+                <p>Réservez votre appel découverte gratuit ou envoyez-nous un message.</p>
+                <div class="contact-methods">
+                    <div class="method">
+                        <strong>Email:</strong> contact@oakflowai.com
+                    </div>
+                    <div class="method">
+                        <strong>Lieu:</strong> Paris, France (Disponible en visio)
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email professionnel</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Comment pouvons-nous vous aider ?</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-accent btn-block">Envoyer le message</button>
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="container footer-container">
+        <div class="footer-col">
+            <img src="assets/images/logo.png" alt="Oakflow AI" class="footer-logo" width="180" loading="lazy">
+            <p>Expertise en IA et Automatisation pour les entreprises ambitieuses.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Liens rapides</h4>
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Solutions</a></li>
+                <li><a href="#portfolio">Cas d'usage</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Légal</h4>
+            <ul>
+                <li><a href="#">Mentions légales</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="https://www.linkedin.com/in/de-la-rue/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom text-center">
+        <p>&copy; 2024 Oakflow AI. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Floating Chat Widget -->
+<div class="chat-widget">
+    <div class="chat-message">
+    </div>
+    <div class="case-body">
+        <div class="case-problem">
+            <h4>🎯 Problématique</h4>
+            <p>Gestion manuelle des stocks entre boutique physique et 3 canaux en ligne. Ruptures de
+                stock fréquentes, suivi commandes chronophage.</p>
+        </div>
+        <div class="case-solution">
+            <h4>✅ Solution OAKFLOW AI</h4>
+            <ul>
+                <li>Stocks synchronisés temps réel</li>
+                <li>Emails intelligents & Relance panier</li>
+                <li>Alertes réapprovisionnement SMS/Email</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Case 3 -->
+<div class="case-card">
+    <div class="case-header">
+        <h3>Services B2B - Agence Marketing</h3>
+        <span class="case-icon">📈</span>
+    </div>
+    <div class="case-body">
+        <div class="case-problem">
+            <h4>🎯 Problématique</h4>
+            <p>CRM désorganisé, facturation mensuelle manuelle, relances impayés oubliées, reporting
+                clients chronophage.</p>
+        </div>
+        <div class="case-solution">
+            <h4>✅ Solution OAKFLOW AI</h4>
+            <ul>
+                <li>CRM automatisé & Pipeline commercial</li>
+                <li>Facturation récurrente auto</li>
+                <li>Reporting automatisé temps réel</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Case 4 -->
+<div class="case-card">
+    <div class="case-header">
+        <h3>Comptabilité - Cabinet d'Expertise</h3>
+        <span class="case-icon">📊</span>
+    </div>
+    <div class="case-body">
+        <div class="case-problem">
+            <h4>🎯 Problématique</h4>
+            <p>Saisie manuelle de 500+ factures/mois, rapprochements bancaires fastidieux, relances
+                clients pour documents manquants.</p>
+        </div>
+        <div class="case-solution">
+            <h4>✅ Solution OAKFLOW AI</h4>
+            <ul>
+                <li>OCR intelligent (Extraction données)</li>
+                <li>Rapprochement auto & Lettrage IA</li>
+                <li>Relances clients automatiques</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="section faq-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-tag">FAQ</span>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary>Combien de temps faut-il pour voir les premiers résultats ?</summary>
+                <div class="faq-content">
+                    <p>Les premiers résultats sont visibles dès la première semaine pour les automatisations
+                        simples (facturation, emails). Pour les projets plus complexes, comptez 2-4 semaines. Le
+                        ROI complet est généralement atteint en 3-6 mois selon la complexité.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Faut-il des compétences techniques dans mon équipe ?</summary>
+                <div class="faq-content">
+                    <p>Non, c'est notre rôle ! Nous concevons, déployons et formons vos équipes. Vous n'avez
+                        besoin que de personnes motivées pour apprendre les nouveaux processus. La formation est
+                        incluse dans tous nos packs.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Quels sont les risques de l'automatisation ?</summary>
+                <div class="faq-content">
+                    <p>Les principaux risques sont la résistance au changement et la mauvaise conception des
+                        workflows. C'est pourquoi nous privilégions une approche progressive, avec formation et
+                        accompagnement. Nous gardons toujours des sauvegardes et procédures manuelles de
+                        secours.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Mes données sont-elles sécurisées ?</summary>
+                <div class="faq-content">
+                    <p>Absolument. Nous utilisons uniquement des plateformes certifiées (ISO 27001, SOC 2,
+                        GDPR). Vos données restent chiffrées et vous gardez le contrôle total. Nous pouvons
+                        aussi implémenter des solutions on-premise si nécessaire.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Que se passe-t-il si je ne suis pas satisfait ?</summary>
+                <div class="faq-content">
+                    <p>Nous offrons une garantie satisfaction 30 jours. Si les résultats ne correspondent pas à
+                        vos attentes, nous ajustons gratuitement ou vous remboursons. Notre objectif est votre
+                        succès à long terme.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Puis-je commencer petit et évoluer ?</summary>
+                <div class="faq-content">
+                    <p>C'est même recommandé ! Nous préconisons de commencer par 1-2 processus simples pour
+                        valider l'approche, puis d'étendre progressivement. Tous nos packs sont évolutifs et
+                        modulaires.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Prêt à transformer votre entreprise ?</h2>
+                <p>Réservez votre appel découverte gratuit ou envoyez-nous un message.</p>
+                <div class="contact-methods">
+                    <div class="method">
+                        <strong>Email:</strong> contact@oakflowai.com
+                    </div>
+                    <div class="method">
+                        <strong>Lieu:</strong> Paris, France (Disponible en visio)
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email professionnel</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Comment pouvons-nous vous aider ?</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-accent btn-block">Envoyer le message</button>
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="container footer-container">
+        <div class="footer-col">
+            <img src="assets/images/logo.png" alt="Oakflow AI" class="footer-logo" width="180" loading="lazy">
+            <p>Expertise en IA et Automatisation pour les entreprises ambitieuses.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Liens rapides</h4>
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Solutions</a></li>
+                <li><a href="#portfolio">Cas d'usage</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Légal</h4>
+            <ul>
+                <li><a href="#">Mentions légales</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="https://www.linkedin.com/in/de-la-rue/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom text-center">
+        <p>&copy; 2024 Oakflow AI. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Floating Chat Widget -->
+<div class="chat-widget">
+    <div class="chat-message">
+        Besoin d'informations sur Oakflow AI ?
+    </div>
+    <button class="chat-btn">
+        Démarrez un appel avec Néo
+    </button>
+</div>
+
+<script src="js/script.min.js" defer></script>
+</body>
+
+</html>

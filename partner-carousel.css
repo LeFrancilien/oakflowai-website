@@ -1,0 +1,62 @@
+
+/* Partner Ticker Carousel */
+.partner-ticker-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.partner-ticker-content {
+    display: flex;
+    animation: ticker-scroll 40s linear infinite;
+    width: fit-content;
+}
+
+.partner-ticker-content:hover {
+    animation-play-state: paused;
+}
+
+.partner-ticker-item {
+    flex-shrink: 0;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logo-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #9CA3AF;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.partner-ticker-item:hover .partner-logo-text {
+    color: #10b981;
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .partner-ticker-item {
+        padding: 0 2rem;
+    }
+    
+    .partner-logo-text {
+        font-size: 1.2rem;
+    }
+}
