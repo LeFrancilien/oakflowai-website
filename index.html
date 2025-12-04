@@ -61,7 +61,11 @@
 
     <!-- CSS avec display=swap pour éviter FOIT -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    </noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Schema.org Structured Data -->
@@ -642,7 +646,8 @@
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-3">
                     <img src="assets/images/logo-voxel-clean.png?v=4"
-                        alt="Logo OAKFLOW AI - Automatisation IA pour PME et TPE" class="h-48 w-auto" loading="lazy">
+                        alt="Logo OAKFLOW AI - Automatisation IA pour PME et TPE" class="h-48 w-auto" width="192"
+                        height="192" loading="eager">
                 </div>
                 <div class="hidden md:flex space-x-8 desktop-menu">
                     <a href="#accueil" class="nav-link" aria-label="Aller à la section Accueil">Accueil</a>
@@ -686,7 +691,8 @@
             <div class="animate-float mb-8">
                 <img src="assets/images/logo-voxel-clean.png?v=4"
                     alt="Logo OAKFLOW AI - Expert en automatisation IA pour PME et TPE"
-                    class="h-64 w-auto mx-auto mb-6 floating-logo" loading="eager" fetchpriority="high">
+                    class="h-64 w-auto mx-auto mb-6 floating-logo" width="256" height="256" loading="eager"
+                    fetchpriority="high">
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 Libérez vos équipes des <span class="gradient-text">tâches répétitives</span><br>
@@ -1221,98 +1227,100 @@
                 <div class="partner-ticker-content">
                     <div class="partner-ticker-item">
                         <img src="https://images.ctfassets.net/un655fb9wln6/1k5wBPhbu5kXiaYlFWgEJE/b590772959bd510e64cf230ef37bba3e/Make-Logo-RGB.svg"
-                            alt="Make" class="partner-logo-img">
+                            alt="Make" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://cdn.worldvectorlogo.com/logos/zapier.svg" alt="Zapier"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
-                        <img src="assets/images/n8n-logo.png" alt="n8n" class="partner-logo-img">
+                        <img src="assets/images/n8n-logo.png" alt="n8n" class="partner-logo-img" loading="lazy"
+                            width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="OpenAI"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://mintlify.s3-us-west-1.amazonaws.com/anthropic/_generated/favicon/apple-touch-icon.png?v=3"
-                            alt="Anthropic" class="partner-logo-img">
+                            alt="Anthropic" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png"
-                            alt="HubSpot" class="partner-logo-img">
+                            alt="HubSpot" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://airtable.com/images/favicon/baymax/favicon-32x32.png" alt="Airtable"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png"
-                            alt="Slack" class="partner-logo-img">
+                            alt="Slack" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://www.gstatic.com/images/branding/product/2x/google_cloud_64dp.png"
-                            alt="Google Cloud" class="partner-logo-img">
+                            alt="Google Cloud" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                            alt="Microsoft 365" class="partner-logo-img">
+                            alt="Microsoft 365" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://images.ctfassets.net/fzn2n1nzq965/HTTOloNPhisV9P4hlMPNA/cacf1bb88b9fc492dfad34378d844280/Stripe_icon_-_square.svg"
-                            alt="Stripe" class="partner-logo-img">
+                            alt="Stripe" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <!-- Duplicate for seamless loop -->
                     <div class="partner-ticker-item">
                         <img src="https://images.ctfassets.net/un655fb9wln6/1k5wBPhbu5kXiaYlFWgEJE/b590772959bd510e64cf230ef37bba3e/Make-Logo-RGB.svg"
-                            alt="Make" class="partner-logo-img">
+                            alt="Make" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://cdn.worldvectorlogo.com/logos/zapier.svg" alt="Zapier"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
-                        <img src="assets/images/n8n-logo.png" alt="n8n" class="partner-logo-img">
+                        <img src="assets/images/n8n-logo.png" alt="n8n" class="partner-logo-img" loading="lazy"
+                            width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="OpenAI"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://mintlify.s3-us-west-1.amazonaws.com/anthropic/_generated/favicon/apple-touch-icon.png?v=3"
-                            alt="Anthropic" class="partner-logo-img">
+                            alt="Anthropic" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png"
-                            alt="HubSpot" class="partner-logo-img">
+                            alt="HubSpot" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://airtable.com/images/favicon/baymax/favicon-32x32.png" alt="Airtable"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion"
-                            class="partner-logo-img">
+                            class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png"
-                            alt="Slack" class="partner-logo-img">
+                            alt="Slack" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://www.gstatic.com/images/branding/product/2x/google_cloud_64dp.png"
-                            alt="Google Cloud" class="partner-logo-img">
+                            alt="Google Cloud" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                            alt="Microsoft 365" class="partner-logo-img">
+                            alt="Microsoft 365" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                     <div class="partner-ticker-item">
                         <img src="https://images.ctfassets.net/fzn2n1nzq965/HTTOloNPhisV9P4hlMPNA/cacf1bb88b9fc492dfad34378d844280/Stripe_icon_-_square.svg"
-                            alt="Stripe" class="partner-logo-img">
+                            alt="Stripe" class="partner-logo-img" loading="lazy" width="48" height="48">
                     </div>
                 </div>
             </div>
