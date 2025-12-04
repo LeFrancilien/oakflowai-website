@@ -54,19 +54,23 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        as="style">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
-    <link rel="preload" href="assets/images/logo-final.png" as="image" fetchpriority="high">
+    <link rel="preload" href="css/tailwind-optimized.css" as="style">
+    <link rel="preload" href="assets/images/logo-voxel-clean.png" as="image" fetchpriority="high">
 
-    <!-- CSS avec display=swap pour éviter FOIT -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Critical CSS - Optimized Tailwind subset (15KB vs 271KB CDN) -->
+    <link href="css/tailwind-optimized.css" rel="stylesheet">
+
+    <!-- Fonts - Display swap to avoid FOIT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome - Deferred loading -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
         media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     </noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
