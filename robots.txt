@@ -1,0 +1,16 @@
+# Robots.txt for oakflowai.com
+# Generated: 2024-12-04
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.oakflowai.com/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Disallow backup/dev files
+Disallow: /*.backup
+Disallow: /*.broken
+Disallow: /index-original.html
