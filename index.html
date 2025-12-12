@@ -75,15 +75,104 @@
 
 
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://www.oakflowai.com/#organization",
+        "name": "OAKFLOW AI",
+        "url": "https://www.oakflowai.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.oakflowai.com/assets/images/logo-voxel-clean.png",
+            "width": 256,
+            "height": 256
+        },
+        "image": "https://www.oakflowai.com/assets/images/og-image.png",
+        "description": "OAKFLOW AI - Expert en automatisation IA pour PME et TPE. Solutions sur-mesure, audit gratuit, ROI garanti.",
+        "email": "cyril@oakflowai.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/oakflowai"
+        ],
+        "founder": {
+            "@type": "Person",
+            "name": "Cyril DE LA RUE",
+            "jobTitle": "Consultant IA & Automatisation",
+            "sameAs": ["https://www.linkedin.com/in/de-la-rue/"]
+        }
+    }
+    </script>
+
+    <!-- Schema.org Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://www.oakflowai.com/#website",
+        "name": "OAKFLOW AI",
+        "url": "https://www.oakflowai.com",
+        "description": "Automatisation IA pour PME & TPE - Solutions sur-mesure par OAKFLOW AI",
+        "publisher": {
+            "@id": "https://www.oakflowai.com/#organization"
+        },
+        "inLanguage": "fr-FR"
+    }
+    </script>
+
+    <!-- Schema.org Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://www.oakflowai.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Solutions",
+                "item": "https://www.oakflowai.com/#services"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "À propos",
+                "item": "https://www.oakflowai.com/#apropos"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Blog",
+                "item": "https://www.oakflowai.com/#blog"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Contact",
+                "item": "https://www.oakflowai.com/#contact"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Schema.org Structured Data - ProfessionalService -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
+        "@id": "https://www.oakflowai.com/#professionalservice",
         "name": "OAKFLOW AI",
-        "image": "https://www.oakflowai.com/assets/images/logo-final.png",
+        "image": "https://www.oakflowai.com/assets/images/og-image.png",
         "url": "https://www.oakflowai.com",
-        "telephone": "",
         "email": "cyril@oakflowai.com",
         "address": {
             "@type": "PostalAddress",
