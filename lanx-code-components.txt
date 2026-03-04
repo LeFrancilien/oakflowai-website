@@ -1,0 +1,309 @@
+// =============================================
+// PROJET LANX - CODE COMPONENTS
+// Exporté depuis Framer le 01/03/2026
+// =============================================
+
+// =============================================
+// FICHIER 1: Counter.tsx
+// AnimatedCounter component
+// =============================================
+
+import {
+    animate,
+    motion,
+    useInView,
+    useMotionValue,
+    useTransform,
+} from "framer-motion"
+import { useEffect, useRef } from "react"
+import { addPropertyControls, ControlType } from "framer"
+
+type CounterProps = {
+    from: number
+    to: number
+    duration: number
+    fontFamily: string
+    fontSize: number
+    color: string
+    lineHeight: number // Added lineHeight property
+}
+
+// ==================
+// Added formatNumberWithCommas function
+// ==================
+function formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+// ==================
+
+function AnimatedCounter({
+    from,
+    to,
+    duration,
+    fontFamily,
+    fontSize,
+    color,
+    lineHeight, // Added lineHeight parameter
+}: CounterProps) {
+    const count = useMotionValue(from)
+
+    // ==================
+    // Modified useTransform hook to use formatNumberWithCommas
+    // ==================
+    const rounded = useTransform(count, (latest) => {
+        return formatNumberWithCommas(Math.round(latest))
+    })
+    // ==================
+
+    const ref = useRef(null)
+    const inView = useInView(ref)
+
+    // while in view animate the count
+    useEffect(() => {
+        if (inView) {
+            animate(count, to, { duration })
+        }
+    }, [count, inView, to, duration])
+
+    return (
+        <motion.span
+            ref={ref}
+            style={{ fontFamily, fontSize, color, lineHeight }} // Added lineHeight style
+        >
+            {rounded}
+        </motion.span>
+    )
+}
+
+AnimatedCounter.defaultProps = {
+    from: 0,
+    to: 15,
+    duration: 2.5,
+    fontFamily: "Arial",
+    fontSize: 24,
+    color: "#000000",
+    lineHeight: 1.5, // Added default lineHeight value
+}
+
+addPropertyControls(AnimatedCounter, {
+    from: {
+        type: ControlType.Number,
+        title: "From",
+        defaultValue: 0,
+        min: 0,
+        step: 1,
+    },
+    to: {
+        type: ControlType.Number,
+        title: "To",
+        defaultValue: 15,
+        min: 0,
+        step: 1,
+    },
+    duration: {
+        type: ControlType.Number,
+        title: "Duration",
+        defaultValue: 2.5,
+        min: 0,
+        step: 0.1,
+        displayStepper: true,
+    },
+    fontFamily: {
+        type: ControlType.String,
+        title: "Font Family",
+        defaultValue: "Arial",
+    },
+    fontSize: {
+        type: ControlType.Number,
+        title: "Font Size",
+        defaultValue: 24,
+        min: 12,
+        max: 72,
+        step: 1,
+    },
+    color: {
+        type: ControlType.Color,
+        title: "Color",
+        defaultValue: "#000000",
+    },
+    lineHeight: {
+        // Added lineHeight property control
+        type: ControlType.Number,
+        title: "Line Height",
+        defaultValue: 1.5,
+        min: 0,
+        step: 0.1,
+        displayStepper: true,
+    },
+})
+
+export default AnimatedCounter
+
+
+
+// =============================================
+// FICHIER 2: rating.tsx
+// StarRating component
+// =============================================
+
+import { addPropertyControls, ControlType } from "framer"
+import * as React from "react"
+
+/**
+ * @framerSupportedLayoutWidth auto
+ * @framerSupportedLayoutHeight auto
+ */
+export default function StarRating(props) {
+    const {
+        rating,
+        starColor,
+        filledColor,
+        starSize,
+        textSize,
+        textWeight,
+        textColor, // New prop for text color
+        style,
+    } = props
+
+    // Ensure all whole numbers are displayed with .0
+    const formattedRating = Number.isInteger(rating)
+        ? `${rating}.0`
+        : rating.toFixed(1)
+
+    const renderStar = (index) => {
+        if (rating >= index + 1) {
+            // Full star
+            return (
+                <svg
+                    key={index}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill={filledColor}
+                    width={`${starSize}px`}
+                    height={`${starSize}px`}
+                >
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+            )
+        } else if (rating > index && rating < index + 1) {
+            // Half-filled star
+            return (
+                <svg
+                    key={index}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width={`${starSize}px`}
+                    height={`${starSize}px`}
+                >
+                    <defs>
+                        <linearGradient id={`half-fill-${index}`}>
+                            <stop offset="50%" stopColor={filledColor} />
+                            <stop offset="50%" stopColor={starColor} />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        fill={`url(#half-fill-${index})`}
+                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                    />
+                </svg>
+            )
+        } else {
+            // Empty star
+            return (
+                <svg
+                    key={index}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill={starColor}
+                    width={`${starSize}px`}
+                    height={`${starSize}px`}
+                >
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+            )
+        }
+    }
+
+    return (
+        <div
+            style={{
+                ...style,
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+            }}
+        >
+            {/* Display the rating number */}
+            <div
+                style={{
+                    fontSize: `${textSize}px`,
+                    fontWeight: textWeight,
+                    color: textColor, // Apply the text color
+                }}
+            >
+                {formattedRating}
+            </div>
+            {/* Display the stars */}
+            <div style={{ display: "flex", gap: "4px" }}>
+                {Array.from({ length: 5 }, (_, index) => renderStar(index))}
+            </div>
+        </div>
+    )
+}
+
+StarRating.displayName = "Star Rating"
+
+// Add property controls for customizing the component in Framer
+addPropertyControls(StarRating, {
+    rating: {
+        type: ControlType.Number,
+        defaultValue: 3,
+        min: 0,
+        max: 5,
+        step: 0.1,
+        displayStepper: true,
+        title: "Rating",
+    },
+    starColor: {
+        type: ControlType.Color,
+        defaultValue: "#d3d3d3",
+        title: "Star Color",
+    },
+    filledColor: {
+        type: ControlType.Color,
+        defaultValue: "#FFD700",
+        title: "Filled Color",
+    },
+    starSize: {
+        type: ControlType.Number,
+        defaultValue: 24,
+        min: 12,
+        max: 64,
+        step: 1,
+        unit: "px",
+        title: "Star Size",
+    },
+    textSize: {
+        type: ControlType.Number,
+        defaultValue: 16,
+        min: 10,
+        max: 64,
+        step: 1,
+        unit: "px",
+        title: "Text Size",
+    },
+    textWeight: {
+        type: ControlType.Number,
+        defaultValue: 400,
+        min: 100,
+        max: 900,
+        step: 100,
+        title: "Text Weight",
+    },
+    textColor: {
+        type: ControlType.Color,
+        defaultValue: "#000000",
+        title: "Text Color",
+    },
+})
+
