@@ -1,0 +1,29 @@
+{
+    "redirects": [
+        {
+            "source": "/blog/automatiser-comptabilite",
+            "destination": "/#usecases",
+            "permanent": true
+        },
+        {
+            "source": "/blog/n8n-vs-make-vs-zapier",
+            "destination": "/#features",
+            "permanent": true
+        },
+        {
+            "source": "/blog/n8n-vs-make.html",
+            "destination": "/#features",
+            "permanent": true
+        },
+        {
+            "source": "/blog/parcours-expert-ia",
+            "destination": "/#methode",
+            "permanent": true
+        },
+        {
+            "source": "/blog/roi-automatisation",
+            "destination": "/#usecases",
+            "permanent": true
+        }
+    ]
+}
