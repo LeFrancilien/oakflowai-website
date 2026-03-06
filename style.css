@@ -2270,3 +2270,54 @@ footer {
     }
 }
 }
+
+/* ── FAQ ── */
+#faq {
+    padding: 120px 0;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 32px 36px;
+    transition: border-color 0.2s;
+}
+
+.faq-item:hover {
+    border-color: rgba(0, 229, 176, 0.25);
+}
+
+.faq-item h3 {
+    font-family: var(--font-h);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 14px;
+    line-height: 1.4;
+}
+
+.faq-item p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .faq-item {
+        padding: 24px 20px;
+    }
+
+    .faq-item h3 {
+        font-size: 16px;
+    }
+}

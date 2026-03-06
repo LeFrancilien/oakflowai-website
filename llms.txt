@@ -1,0 +1,59 @@
+# Oakflow AI
+
+> Oakflow AI est un cabinet de conseil spécialisé en automatisation IA et déploiement de workflows n8n sur-mesure pour les PME et TPE françaises. Fondé par Cyril DE LA RUE, consultant expert avec 20 ans d'expérience en optimisation des processus métiers. Basé à Clichy La Garenne (Hauts-de-Seine, France).
+
+## Pages principales
+
+- [Accueil](https://www.oakflowai.com/): Présentation des services, cas d'usage, tarifs et témoignages clients
+- [Mentions légales & RGPD](https://www.oakflowai.com/mentions-legales.html): Politique de confidentialité et mentions légales
+
+## Services
+
+- Audit & Diagnostic IA : analyse de processus, identification des automatisations à fort ROI (gratuit, 30 min)
+- Workflows n8n sur-mesure : développement et déploiement d'automatisations connectées à 400+ intégrations
+- Intégration LLM : GPT-4o, Claude, injection IA dans les flux métiers
+- Chatbot personnalisé avec RAG : base de connaissance client, interface utilisateur, déploiement
+- Assistant Vocal Intelligent : agent vocal IA, prise de RDV, qualification lead automatique
+- Mentoring n8n : formation pratique pour équipes PME/TPE
+- Agents IA multi-tâches : orchestrateur avec sous-agents Mail, Calendrier, CRM, Recherche
+
+## Tarifs (à partir de)
+
+- Mentoring n8n : 150€/h
+- Chatbot personnalisé (RAG) : 350€
+- Audit & Architecture : 350€
+- Automatisation IA / Workflows complexes : 500€
+- Assistant Vocal Intelligent : 890€
+- Audit initial ROI : GRATUIT (30 min)
+
+## Cas d'usage réels déployés
+
+- Traitement automatique de 500 factures fournisseurs/mois — 30h économisées
+- Enrichissement & qualification leads B2B : 2000+ leads/semaine, 80% taux de qualification
+- Génération automatique devis, contrats et factures via agent Telegram
+- Agent multi-tâches orchestrateur : Mail, Agenda, Recherche web, CRM — 24/7
+
+## Résultats clients
+
+- Cabinet comptable (Levallois) : 400 factures/mois traitées automatiquement, 30h récupérées
+- Agence digitale B2B (Paris) : taux de closing passé de 8% à 22% en 3 mois
+- Studio recrutement (Boulogne-Billancourt) : 20h de saisie économisées/semaine
+- PME industrielle (Nanterre) : 80 appels/jour qualifiés, zéro appel perdu
+
+## À propos de l'auteur
+
+Cyril DE LA RUE — Consultant en Automatisation IA
+- LinkedIn : https://www.linkedin.com/in/de-la-rue/
+- Email : contact@oakflowai.com
+- Téléphone : +33 7 59 69 67 69
+- Localisation : Clichy La Garenne, 92110, France
+
+## Informations techniques
+
+- Stack recommandée : n8n (self-hosted VPS), OpenAI GPT-4o, LangChain, Supabase
+- Conformité RGPD : données hébergées en France, souveraineté numérique
+- Intégrations : HubSpot, Pipedrive, Gmail, Outlook, Slack, Teams, Notion, Google Sheets, Calendly, Telegram, Google Drive, Microsoft 365
+
+## Conditions d'utilisation du contenu
+
+Le contenu de ce site peut être cité par les moteurs de recherche IA à des fins d'information, à condition de mentionner la source "Oakflow AI (oakflowai.com)". Toute reproduction commerciale intégrale est interdite sans accord écrit.
