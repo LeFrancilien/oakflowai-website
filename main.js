@@ -44,14 +44,21 @@ reveals.forEach((el, i) => {
 });
 
 // ── Navbar scroll ──
+let _navTicking = false;
 window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    if (window.scrollY > 60) {
-        nav.style.background = 'rgba(6,9,16,0.96)';
-    } else {
-        nav.style.background = 'rgba(6,9,16,0.75)';
+    if (!_navTicking) {
+        requestAnimationFrame(() => {
+            const nav = document.getElementById('nav');
+            if (nav) {
+                nav.style.background = window.scrollY > 60
+                    ? 'rgba(6,9,16,0.96)'
+                    : 'rgba(6,9,16,0.75)';
+            }
+            _navTicking = false;
+        });
+        _navTicking = true;
     }
-});
+}, { passive: true });
 
 // ── Animate progress bars when in view ──
 const bars = document.querySelectorAll('.prog-bar-fill');

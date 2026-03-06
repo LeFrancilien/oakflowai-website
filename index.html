@@ -15,11 +15,15 @@
     <title>Oakflow AI — Automatisation IA pour PME & TPE</title>
     <meta name="description"
         content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implémentation n8n & LLM. Basé en France." />
-    <meta name="keywords" content="Consultant IA, Automatisation n8n, Agence automatisation France, PME, TPE, Paris" />
+    <meta name="keywords" content="Consultant IA, Automatisation n8n, Agence automatisation France, PME, TPE, Clichy" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://esm.sh" crossorigin />
+    <link rel="preconnect" href="https://prod.spline.design" crossorigin />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://api.iconify.design" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 
@@ -32,8 +36,11 @@
     <meta property="og:url" content="https://www.oakflowai.com/" />
     <meta property="og:title" content="Oakflow AI — Automatisation IA pour PME & TPE" />
     <meta property="og:description"
-        content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implémentation n8n & LLM." />
+        content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implémentation n8n & LLM. Basé en France." />
     <meta property="og:image" content="https://www.oakflowai.com/oakflow_logo_cube.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:locale" content="fr_FR" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -43,22 +50,226 @@
         content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implémentation n8n & LLM." />
     <meta property="twitter:image" content="https://www.oakflowai.com/oakflow_logo_cube.jpg" />
 
-    <!-- JSON-LD LocalBusiness Schema -->
+    <!-- JSON-LD Schema — ProfessionalService -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.oakflowai.com/#organization",
       "name": "Oakflow AI",
+      "legalName": "Oakflow AI — Cyril DE LA RUE",
       "image": "https://www.oakflowai.com/oakflow_logo_cube.jpg",
-      "@id": "https://www.oakflowai.com/",
+      "logo": "https://www.oakflowai.com/oakflow_logo_cube.jpg",
       "url": "https://www.oakflowai.com/",
       "telephone": "+33759696769",
+      "email": "contact@oakflowai.com",
+      "description": "Consultant en automatisation IA et déploiement de workflows n8n sur-mesure pour PME et TPE françaises. Audit, conseil et implémentation de solutions LLM avec ROI mesurable en 30 jours.",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Clichy",
+        "addressLocality": "Clichy La Garenne",
+        "addressRegion": "Hauts-de-Seine",
+        "postalCode": "92110",
         "addressCountry": "FR"
       },
-      "description": "Consultant en IA et Automatisation pour PME/TPE. Déploiement de solutions n8n et LLM sur-mesure."
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "48.9007",
+        "longitude": "2.3065"
+      },
+      "areaServed": { "@type": "Country", "name": "France" },
+      "knowsLanguage": "fr",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "founder": { "@id": "https://www.oakflowai.com/#person" },
+      "sameAs": ["https://www.linkedin.com/in/de-la-rue/"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "4"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD Schema — Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://www.oakflowai.com/#person",
+      "name": "Cyril DE LA RUE",
+      "givenName": "Cyril",
+      "familyName": "DE LA RUE",
+      "jobTitle": "Consultant en Automatisation IA",
+      "description": "Expert en automatisation des processus métiers et intelligence artificielle. 20 ans d'expérience dans l'optimisation opérationnelle pour PME et TPE françaises.",
+      "url": "https://www.oakflowai.com/",
+      "email": "contact@oakflowai.com",
+      "telephone": "+33759696769",
+      "image": "https://www.oakflowai.com/oakflow_logo_cube.jpg",
+      "worksFor": { "@id": "https://www.oakflowai.com/#organization" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Clichy La Garenne",
+        "addressRegion": "Hauts-de-Seine",
+        "addressCountry": "FR"
+      },
+      "knowsAbout": [
+        "Automatisation des processus métiers",
+        "Intelligence artificielle",
+        "n8n workflow automation",
+        "Large Language Models",
+        "Intégration de systèmes",
+        "Transformation digitale PME"
+      ],
+      "sameAs": ["https://www.linkedin.com/in/de-la-rue/"]
+    }
+    </script>
+
+    <!-- JSON-LD Schema — Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Services Oakflow AI",
+      "itemListElement": [
+        {
+          "@type": "ListItem", "position": 1,
+          "item": {
+            "@type": "Service",
+            "@id": "https://www.oakflowai.com/#service-chatbot",
+            "name": "Création de Chatbot Personnalisé (RAG)",
+            "description": "Chatbot avec base de connaissance client, système RAG, interface utilisateur, test et déploiement.",
+            "provider": { "@id": "https://www.oakflowai.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "France" },
+            "serviceType": "Développement IA",
+            "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "350", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 2,
+          "item": {
+            "@type": "Service",
+            "@id": "https://www.oakflowai.com/#service-automatisation",
+            "name": "Automatisation IA",
+            "description": "Transformation de vos processus métiers par l'automatisation des tâches chronophages via n8n et LLM.",
+            "provider": { "@id": "https://www.oakflowai.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "France" },
+            "serviceType": "Automatisation des processus",
+            "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "500", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 3,
+          "item": {
+            "@type": "Service",
+            "@id": "https://www.oakflowai.com/#service-vocal",
+            "name": "Assistant Vocal Intelligent",
+            "description": "IA conversationnelle pour accompagner les tâches quotidiennes. Gain de temps et optimisation de la gestion client.",
+            "provider": { "@id": "https://www.oakflowai.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "France" },
+            "serviceType": "Développement IA",
+            "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "890", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 4,
+          "item": {
+            "@type": "Service",
+            "@id": "https://www.oakflowai.com/#service-mentoring",
+            "name": "Mentoring n8n — Devenez Autonome en Automatisation",
+            "description": "Maîtrise de n8n et des concepts clés. Gestion des erreurs, monitoring, cas pratiques appliqués à votre business. Support post-formation inclus.",
+            "provider": { "@id": "https://www.oakflowai.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "France" },
+            "serviceType": "Formation",
+            "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "150", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 5,
+          "item": {
+            "@type": "Service",
+            "@id": "https://www.oakflowai.com/#service-workflows",
+            "name": "Développement de Workflows Complexes et Agents IA",
+            "description": "Workflows n8n avancés avec gestion d'erreurs, agents IA connectés (RAG, API), intégration CRM et bases de données.",
+            "provider": { "@id": "https://www.oakflowai.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "France" },
+            "serviceType": "Développement IA",
+            "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "500", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 6,
+          "item": {
+            "@type": "Service",
+            "@id": "https://www.oakflowai.com/#service-audit",
+            "name": "Audit & Architecture d'Automatisation (n8n & IA)",
+            "description": "Analyse des processus actuels, sélection de la stack technique souveraine (n8n sur VPS), architecture de systèmes complets et scalables.",
+            "provider": { "@id": "https://www.oakflowai.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "France" },
+            "serviceType": "Conseil en automatisation",
+            "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "350", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD Schema — Reviews -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.oakflowai.com/#organization" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Nathalie Dumont" },
+        "reviewBody": "Franchement, au début j'étais sceptique sur l'IA pour notre cabinet. Cyril a posé les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit « j'ai cru que c'était une blague ». On a récupéré 30h par mois, c'est concret."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.oakflowai.com/#organization" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Karim Benali" },
+        "reviewBody": "On perdait un temps fou à trier les leads entrants. Depuis qu'Oakflow a branché le pipeline d'enrichissement, c'est nuit et jour. Notre taux de closing est passé de 8% à 22% en trois mois."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.oakflowai.com/#organization" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Estelle Maréchal" },
+        "reviewBody": "J'avais testé deux agences avant, ça n'avait rien donné. Avec Cyril, en une heure il avait capté le problème. Trois semaines plus tard, notre workflow n8n tournait et on économisait 20h de saisie par semaine."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.oakflowai.com/#organization" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Julien Pascaud" },
+        "reviewBody": "On recevait 80 appels par jour et on en loupait la moitié. Depuis que l'agent vocal est en place, plus un seul appel perdu. Il qualifie, prend les RDV sur Google Calendar et logge tout dans notre CRM."
+      }
+    ]
+    </script>
+
+    <!-- JSON-LD Schema — WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.oakflowai.com/#website",
+      "url": "https://www.oakflowai.com/",
+      "name": "Oakflow AI",
+      "description": "Consultant en IA et Automatisation pour PME et TPE françaises. Solutions n8n et LLM sur-mesure.",
+      "inLanguage": "fr-FR",
+      "publisher": { "@id": "https://www.oakflowai.com/#organization" }
     }
     </script>
 </head>
@@ -124,7 +335,7 @@
                     <div class="proof-avatars">
                         <img class="av" src="avatar-1.png" alt="Cliente satisfaite" width="36" height="36" />
                         <img class="av" src="avatar-2.png" alt="Client satisfait" width="36" height="36" />
-                        <img class="av" src="https://i.pravatar.cc/72?img=68" alt="Client satisfait" width="36"
+                        <img class="av" src="avatar-2.png" alt="Client satisfait" width="36"
                             height="36" />
                     </div>
                     <p class="proof-text"><strong>+40 PME/TPE</strong> automatisées</p>
@@ -832,7 +1043,7 @@
                     <div class="pf-card-inner">
                         <div class="pf-img-col">
                             <div class="pf-img-wrap">
-                                <img src="agent_vocal_neo.webp" alt="Workflow Agent Vocal NEO - n8n" loading="lazy" />
+                                <img src="agent_vocal_neo.webp" alt="Workflow Agent Vocal NEO - n8n" width="1987" height="1135" loading="lazy" />
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
@@ -871,7 +1082,7 @@
                         <div class="pf-img-col">
                             <div class="pf-img-wrap">
                                 <img src="enrichissement_qualification_leads.webp"
-                                    alt="Workflow Enrichissement & Qualification Leads - n8n" loading="lazy" />
+                                    alt="Workflow Enrichissement & Qualification Leads - n8n" width="3064" height="1117" loading="lazy" />
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
@@ -907,7 +1118,7 @@
                         <div class="pf-img-col">
                             <div class="pf-img-wrap">
                                 <img src="Schema_n8n_devis_contrat_facture.webp"
-                                    alt="Workflow Devis Contrat Facture - n8n" loading="lazy" />
+                                    alt="Workflow Devis Contrat Facture - n8n" width="2895" height="1177" loading="lazy" />
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
@@ -945,7 +1156,7 @@
                         <div class="pf-img-col">
                             <div class="pf-img-wrap">
                                 <img src="Agent_vocal_mutlitache.webp" alt="Agent Orchestrateur Multi-tâches - n8n"
-                                    loading="lazy" />
+                                    width="3159" height="1747" loading="lazy" />
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
@@ -998,7 +1209,12 @@
 
             <div class="testi-outer reveal">
                 <div class="testi-stack" id="testiStack">
-                    <!-- Cards injected by JS -->
+                    <!-- First card static for SEO — JS rebuilds all cards on init -->
+                    <div class="testi-card is-front">
+                        <p class="testi-quote">"Franchement, au début j'étais sceptique sur l'IA pour notre cabinet. Cyril a posé les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit « j'ai cru que c'était une blague ». On a récupéré 30h par mois, c'est concret."</p>
+                        <span class="testi-author">Nathalie Dumont</span>
+                        <span class="testi-role">Directrice Administrative — Cabinet comptable, Levallois</span>
+                    </div>
                 </div>
                 <p class="testi-hint">← Glissez la carte pour voir le suivant</p>
             </div>
@@ -1123,11 +1339,11 @@
 
             <div class="footer-col">
                 <h4>Société</h4>
-                <a href="index.html#about">À propos</a>
+                <a href="#methode">À propos</a>
                 <a href="mailto:contact@oakflowai.com">Contact</a>
                 <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="mentions-legales.html">Mentions Légales &amp; RGPD</a>
-                <a href="https://oakflowai.com">oakflowai.com</a>
+                <a href="https://www.oakflowai.com/">oakflowai.com</a>
             </div>
         </div>
 
@@ -1136,16 +1352,19 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 
-    <!-- Spline 3D — chargement via ESM CDN -->
+    <!-- Spline 3D — chargement différé via requestIdleCallback -->
     <script type="module">
-        import { Application } from 'https://esm.sh/@splinetool/runtime@1.9.48';
-        const canvas = document.getElementById('spline-canvas');
-        const loader = document.getElementById('splineLoader');
-        if (canvas) {
-            const app = new Application(canvas);
-            app.load('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode')
+        function loadSpline() {
+            const canvas = document.getElementById('spline-canvas');
+            const loader = document.getElementById('splineLoader');
+            if (!canvas) return;
+            import('https://esm.sh/@splinetool/runtime@1.9.48')
+                .then(({ Application }) => {
+                    const app = new Application(canvas);
+                    return app.load('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode');
+                })
                 .then(() => {
                     if (loader) {
                         loader.style.opacity = '0';
@@ -1157,11 +1376,36 @@
                     if (loader) loader.innerHTML = '';
                 });
         }
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadSpline, { timeout: 3000 });
+        } else {
+            setTimeout(loadSpline, 500);
+        }
     </script>
 
-    <!-- ── Assistant vocal NEO (ElevenLabs) ── -->
-    <elevenlabs-convai agent-id="agent_7201k9kxqq0rfy590zw09xanxsgc"></elevenlabs-convai>
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <!-- ── Assistant vocal NEO (ElevenLabs) — chargement différé ── -->
+    <script>
+    (function() {
+        var loaded = false;
+        function loadElevenLabs() {
+            if (loaded) return;
+            loaded = true;
+            var widget = document.createElement('elevenlabs-convai');
+            widget.setAttribute('agent-id', 'agent_7201k9kxqq0rfy590zw09xanxsgc');
+            document.body.appendChild(widget);
+            var s = document.createElement('script');
+            s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+            s.async = true;
+            document.body.appendChild(s);
+            ['mousemove','keydown','touchstart','scroll'].forEach(function(e) {
+                document.removeEventListener(e, loadElevenLabs);
+            });
+        }
+        ['mousemove','keydown','touchstart','scroll'].forEach(function(e) {
+            document.addEventListener(e, loadElevenLabs, { once: true, passive: true });
+        });
+    })();
+    </script>
 
     <!-- ── BANNIÈRE COOKIES RGPD ── -->
     <div id="cookie-banner" style="display:none">
