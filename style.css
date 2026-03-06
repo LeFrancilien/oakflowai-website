@@ -2077,6 +2077,10 @@ footer {
         display: none;
     }
 
+    .nav-hamburger {
+        display: flex;
+    }
+
     .bento {
         grid-template-columns: 1fr 1fr;
     }
@@ -2155,4 +2159,102 @@ footer {
         padding: 14px 14px;
         font-size: 13px;
     }
+}
+
+/* ── HAMBURGER BUTTON ── */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    flex-shrink: 0;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+.nav-hamburger.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-hamburger.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE MENU OVERLAY ── */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(6, 9, 16, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 48px;
+}
+
+.mobile-menu-link {
+    font-family: var(--font-h);
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: var(--r);
+    transition: color 0.2s ease, background 0.2s ease;
+    letter-spacing: -0.02em;
+}
+
+.mobile-menu-link:hover {
+    color: var(--accent);
+    background: rgba(0, 229, 176, 0.07);
+}
+
+.mobile-menu-cta {
+    font-size: 1rem;
+}
+
+@media (max-width: 960px) {
+    .mobile-menu {
+        display: flex;
+    }
+}
 }

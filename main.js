@@ -193,3 +193,38 @@ const TESTIMONIALS = [
 
     buildCards();
 })();
+
+// ── Menu Mobile ──
+(function () {
+    const btn = document.getElementById('navHamburger');
+    const menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+
+    function openMenu() {
+        btn.classList.add('is-open');
+        menu.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        menu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        btn.classList.remove('is-open');
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', () => {
+        btn.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    menu.querySelectorAll('.mobile-menu-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    }, { passive: true });
+})();
