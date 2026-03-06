@@ -2077,6 +2077,10 @@ footer {
         display: none;
     }
 
+    .nav-cta {
+        display: none;
+    }
+
     .nav-hamburger {
         display: flex;
     }
@@ -2255,6 +2259,14 @@ footer {
 @media (max-width: 960px) {
     .mobile-menu {
         display: flex;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .nav-cta {
+        display: none;
     }
 }
 }
