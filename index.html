@@ -1411,10 +1411,28 @@
                 engagement, sans jargon.
             </p>
 
-            <div class="cta-input-wrap reveal" id="contact">
-                <input type="email" placeholder="votre@email.com" id="email-input" autocomplete="email" />
-                <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener"
-                    class="btn-primary">Réserver mon audit &rarr;</a>
+            <div class="cta-calendly-wrap reveal" id="contact">
+                <!-- Calendly inline widget -->
+                <div class="calendly-inline-widget"
+                    data-url="https://calendly.com/oakflowai/30min?hide_gdpr_banner=1&background_color=060910&text_color=f0f4ff&primary_color=00e5b0"
+                    style="min-width:320px;height:700px;">
+                </div>
+                <script type="text/javascript">
+                    (function () {
+                        function loadCalendly() {
+                            var s = document.createElement('script');
+                            s.src = 'https://assets.calendly.com/assets/external/widget.js';
+                            s.async = true;
+                            document.body.appendChild(s);
+                            ['mousemove', 'keydown', 'touchstart', 'scroll'].forEach(function (e) {
+                                document.removeEventListener(e, loadCalendly);
+                            });
+                        }
+                        ['mousemove', 'keydown', 'touchstart', 'scroll'].forEach(function (e) {
+                            document.addEventListener(e, loadCalendly, { once: true, passive: true });
+                        });
+                    })();
+                </script>
             </div>
 
             <p class="cta-note reveal">🔒 Sans engagement &nbsp;&middot;&nbsp; Diagnostic personnalisé
