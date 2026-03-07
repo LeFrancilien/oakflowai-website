@@ -80,25 +80,29 @@ bars.forEach(b => {
 // ── Testimonial Shuffle Cards ──
 const TESTIMONIALS = [
     {
-        id: 5,
+        initials: "ND",
+        color: "#00e5b0",
         quote: "Franchement, au début j'étais sceptique sur l'IA pour notre cabinet. Cyril a posé les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit « j'ai cru que c'était une blague ». On a récupéré 30h par mois, c'est concret.",
         author: "Nathalie Dumont",
         role: "Directrice Administrative — Cabinet comptable, Levallois"
     },
     {
-        id: 12,
+        initials: "KB",
+        color: "#6366f1",
         quote: "On perdait un temps fou à trier les leads entrants. Depuis qu'Oakflow a branché le pipeline d'enrichissement, c'est nuit et jour. Le système scrape, qualifie et planifie les RDV sans qu'on touche à rien. Notre taux de closing est passé de 8% à 22% en trois mois.",
         author: "Karim Benali",
         role: "Co-fondateur — Agence digitale B2B, Paris"
     },
     {
-        id: 28,
+        initials: "EM",
+        color: "#f59e0b",
         quote: "J'avais testé deux agences avant, ça n'avait rien donné. Avec Cyril, en une heure il avait capté le problème. Trois semaines plus tard, notre workflow n8n tournait et on économisait 20h de saisie par semaine. Le ROI était là dès le premier mois. Je le recommande à tous mes contacts.",
         author: "Estelle Maréchal",
         role: "Gérante — Studio de recrutement, Boulogne-Billancourt"
     },
     {
-        id: 33,
+        initials: "JP",
+        color: "#ec4899",
         quote: "On recevait 80 appels par jour et on en loupait la moitié. Depuis que l'agent vocal est en place, plus un seul appel perdu. Il qualifie, prend les RDV sur Google Calendar et logge tout dans notre CRM. Mes commerciaux ne font plus que du closing maintenant.",
         author: "Julien Pascaud",
         role: "Directeur Commercial — PME industrielle, Nanterre"
@@ -119,7 +123,7 @@ const TESTIMONIALS = [
             card.className = 'testi-card ' + positions[i];
             card.dataset.index = i;
             card.innerHTML = `
-        <img class="testi-avatar" src="https://i.pravatar.cc/128?img=${t.id}" alt="Photo de ${t.author}" loading="lazy"/>
+        <div class="testi-avatar" style="background:${t.color}20;border:2px solid ${t.color}40;color:${t.color};" aria-label="${t.author}">${t.initials}</div>
         <p class="testi-quote">${t.quote}</p>
         <span class="testi-author">${t.author}</span>
         <span class="testi-role">${t.role}</span>
