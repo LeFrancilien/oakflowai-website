@@ -2600,9 +2600,10 @@ footer {
 .about-photo {
     width: 100%;
     aspect-ratio: 1;
-    border-radius: 24px;
+    border-radius: 50%;
     object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 3px solid rgba(0, 229, 176, 0.35);
+    box-shadow: 0 0 0 6px rgba(0, 229, 176, 0.07), 0 0 40px rgba(0, 229, 176, 0.12);
 }
 
 .about-photo-badge {
