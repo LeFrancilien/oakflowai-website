@@ -24,9 +24,15 @@
     <link rel="preconnect" href="https://prod.spline.design" crossorigin />
     <link rel="dns-prefetch" href="https://unpkg.com" />
     <link rel="dns-prefetch" href="https://api.iconify.design" />
-    <link
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap"
-        rel="stylesheet" />
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap"
+            rel="stylesheet" />
+    </noscript>
+    <link rel="preload" as="image" href="oakflow_logo_cube.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="style.css" />
 
     <!-- SEO Meta Tags -->

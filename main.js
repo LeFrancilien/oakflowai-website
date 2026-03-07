@@ -3,14 +3,20 @@
     const hero = document.getElementById('hero');
     const spot = document.getElementById('heroSpotlight');
     if (!hero || !spot) return;
+    let _spotTick = false;
     hero.addEventListener('mousemove', (e) => {
-        const r = hero.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
-        const y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
-        spot.style.setProperty('--sx', x + '%');
-        spot.style.setProperty('--sy', y + '%');
-        spot.style.opacity = '1';
-    });
+        if (_spotTick) return;
+        _spotTick = true;
+        requestAnimationFrame(() => {
+            const r = hero.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
+            const y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
+            spot.style.setProperty('--sx', x + '%');
+            spot.style.setProperty('--sy', y + '%');
+            spot.style.opacity = '1';
+            _spotTick = false;
+        });
+    }, { passive: true });
     hero.addEventListener('mouseleave', () => { spot.style.opacity = '0'; });
 })();
 
@@ -18,11 +24,17 @@
 (function () {
     const btns = document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta');
     btns.forEach(btn => {
+        let _btnTick = false;
         btn.addEventListener('mousemove', (e) => {
-            const r = btn.getBoundingClientRect();
-            btn.style.setProperty('--gx', (e.clientX - r.left) + 'px');
-            btn.style.setProperty('--gy', (e.clientY - r.top) + 'px');
-        });
+            if (_btnTick) return;
+            _btnTick = true;
+            requestAnimationFrame(() => {
+                const r = btn.getBoundingClientRect();
+                btn.style.setProperty('--gx', (e.clientX - r.left) + 'px');
+                btn.style.setProperty('--gy', (e.clientY - r.top) + 'px');
+                _btnTick = false;
+            });
+        }, { passive: true });
     });
 })();
 
