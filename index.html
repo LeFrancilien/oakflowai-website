@@ -20,8 +20,7 @@
     <meta name="keywords" content="Consultant IA, Automatisation n8n, Agence automatisation France, PME, TPE, Clichy" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://esm.sh" crossorigin />
-    <link rel="preconnect" href="https://prod.spline.design" crossorigin />
+
     <link rel="dns-prefetch" href="https://unpkg.com" />
     <link rel="dns-prefetch" href="https://api.iconify.design" />
     <link rel="preload" as="style"
@@ -32,8 +31,9 @@
             href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap"
             rel="stylesheet" />
     </noscript>
-    <link rel="preload" as="image" href="oakflow_logo_cube.jpg" fetchpriority="high" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="preload" as="image" href="oakflow_logo_cube.webp" fetchpriority="high" />
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
 
     <!-- SEO Meta Tags -->
     <link rel="canonical" href="https://www.oakflowai.com/" />
@@ -293,8 +293,7 @@
     <!-- ── NAV ── -->
     <nav id="nav">
         <a href="#" class="nav-logo">
-            <img src="oakflow_logo_cube.jpg" alt="Oakflow AI" class="logo-img"
-                style="height: 48px; width: auto; border-radius: 8px;" />
+            <img src="oakflow_logo_cube.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
         </a>
 
         <ul class="nav-links">
@@ -367,10 +366,9 @@
 
                 <div class="hero-social-proof">
                     <div class="proof-avatars">
-                        <img class="av" src="avatar-1.png" alt="Cliente satisfaite" width="36" height="36" />
-                        <img class="av" src="avatar-2.png" alt="Client satisfait" width="36" height="36" />
-                        <img class="av" src="avatar-2.png" alt="Client satisfait" width="36"
-                            height="36" />
+                        <img class="av" src="avatar-1.webp" alt="Cliente satisfaite" width="36" height="36" loading="lazy" />
+                        <img class="av" src="avatar-2.webp" alt="Client satisfait" width="36" height="36" loading="lazy" />
+                        <img class="av" src="avatar-2.webp" alt="Client satisfait" width="36" height="36" loading="lazy" />
                     </div>
                     <p class="proof-text"><strong>+40 PME/TPE</strong> automatisées</p>
                     <div class="proof-sep"></div>
@@ -1262,7 +1260,7 @@
             </div>
             <div class="expert-image-wrap reveal">
                 <div class="expert-img-glow"></div>
-                <img src="cyril-de-la-rue.jpg" alt="Cyril DE LA RUE - Expert IA Oakflow" class="expert-img" />
+                <img src="cyril-de-la-rue.webp" alt="Cyril DE LA RUE - Expert IA Oakflow" class="expert-img" width="320" height="320" loading="lazy" />
             </div>
         </div>
     </section>
@@ -1431,7 +1429,7 @@
                             class="social-icon linkedin">
                             <div class="icon-container">
                                 <img src="https://api.iconify.design/simple-icons:linkedin.svg?color=white"
-                                    class="social-svg" alt="LinkedIn" />
+                                    class="social-svg" alt="LinkedIn" width="32" height="32" />
                             </div>
                             <span class="icon-label">LinkedIn</span>
                         </a>
@@ -1440,7 +1438,7 @@
                             class="social-icon tiktok">
                             <div class="icon-container">
                                 <img src="https://api.iconify.design/simple-icons:tiktok.svg?color=white"
-                                    class="social-svg" alt="TikTok" />
+                                    class="social-svg" alt="TikTok" width="32" height="32" />
                             </div>
                             <span class="icon-label">TikTok</span>
                         </a>
@@ -1449,7 +1447,7 @@
                             rel="noopener" class="social-icon youtube">
                             <div class="icon-container">
                                 <img src="https://api.iconify.design/simple-icons:youtube.svg?color=white"
-                                    class="social-svg" alt="YouTube" />
+                                    class="social-svg" alt="YouTube" width="32" height="32" />
                             </div>
                             <span class="icon-label">YouTube</span>
                         </a>
@@ -1525,30 +1523,34 @@
 
     <!-- Spline 3D — chargement différé via requestIdleCallback -->
     <script type="module">
-        function loadSpline() {
-            const canvas = document.getElementById('spline-canvas');
+        // Spline lazy load — ne charge que sur desktop et quand le hero est visible
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+            // Mobile : masquer le loader, la section est déjà cachée via CSS
             const loader = document.getElementById('splineLoader');
-            if (!canvas) return;
-            import('https://esm.sh/@splinetool/runtime@1.9.48')
-                .then(({ Application }) => {
-                    const app = new Application(canvas);
-                    return app.load('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode');
-                })
-                .then(() => {
-                    if (loader) {
-                        loader.style.opacity = '0';
-                        setTimeout(() => loader.style.display = 'none', 400);
-                    }
-                })
-                .catch(err => {
-                    console.warn('Spline scene failed to load', err);
-                    if (loader) loader.innerHTML = '';
-                });
-        }
-        if (window.requestIdleCallback) {
-            requestIdleCallback(loadSpline, { timeout: 3000 });
+            if (loader) loader.style.display = 'none';
         } else {
-            setTimeout(loadSpline, 500);
+            let splineLoaded = false;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(async (entry) => {
+                    if (entry.isIntersecting && !splineLoaded) {
+                        splineLoaded = true;
+                        observer.disconnect();
+                        const { Application } = await import('https://esm.sh/@splinetool/runtime@1.9.48');
+                        const canvas = document.getElementById('spline-canvas');
+                        const loader = document.getElementById('splineLoader');
+                        try {
+                            const app = new Application(canvas);
+                            await app.load('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode');
+                            if (loader) loader.style.display = 'none';
+                        } catch (err) {
+                            if (loader) loader.style.display = 'none';
+                        }
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '200px' });
+            const heroSection = document.getElementById('hero');
+            if (heroSection) observer.observe(heroSection);
         }
     </script>
 
