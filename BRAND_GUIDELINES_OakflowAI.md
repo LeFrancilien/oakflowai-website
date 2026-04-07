@@ -250,5 +250,7 @@ Formulaire → Webhook n8n → Qualification LLM → Calendly (prise de RDV)
 `Consultant IA`, `Automatisation n8n`, `Agence automatisation France`, `PME`, `TPE`
 
 ---
+### Information importante
+Ne fais aucun changement tant que tu n'as pas 95% de confiance. Pose moi des questions de suivi.
 
 *Dernière mise à jour : 2026-03-01 — Source : PRD_OakflowAI_V2.md*

@@ -244,3 +244,104 @@ const TESTIMONIALS = [
         if (e.key === 'Escape') closeMenu();
     }, { passive: true });
 })();
+
+// ── Formulaire de qualification ──
+(function () {
+    const form        = document.getElementById('qualification-form');
+    if (!form) return;
+
+    const submitBtn   = document.getElementById('qual-submit-btn');
+    const btnText     = document.getElementById('qual-btn-text');
+    const btnLoader   = document.getElementById('qual-btn-loader');
+    const successDiv  = document.getElementById('qual-success');
+    const calendlyGate = document.getElementById('calendly-gate');
+
+    function setLoading(on) {
+        submitBtn.disabled = on;
+        btnText.hidden     = on;
+        btnLoader.hidden   = !on;
+    }
+
+    function showFieldError(el) {
+        el.classList.add('field-error');
+        el.addEventListener('input', () => el.classList.remove('field-error'), { once: true });
+    }
+
+    function unlockCalendly() {
+        // Remplace le formulaire par le message de succès
+        form.hidden         = true;
+        successDiv.hidden   = false;
+
+        // Déverrouille le Calendly avec animation CSS
+        if (calendlyGate) {
+            calendlyGate.classList.remove('locked');
+        }
+
+        // Scroll doux vers le message de succès puis vers le Calendly
+        setTimeout(() => {
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Supprimer les erreurs précédentes
+        form.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+        const prevErr = form.querySelector('.qual-error-msg');
+        if (prevErr) prevErr.remove();
+
+        // Lecture des valeurs
+        const full_name      = form.full_name.value.trim();
+        const lead_email     = form.lead_email.value.trim();
+        const company        = form.company.value.trim();
+        const business_type  = form.business_type.value;
+        const monthly_revenue = form.monthly_revenue.value;
+        const pain_point     = form.pain_point.value.trim();
+
+        // Validation côté client
+        let hasError = false;
+        if (!full_name)   { showFieldError(form.full_name);   hasError = true; }
+        if (!lead_email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead_email)) {
+            showFieldError(form.lead_email); hasError = true;
+        }
+        if (!company)         { showFieldError(form.company);         hasError = true; }
+        if (!business_type)   { showFieldError(form.business_type);   hasError = true; }
+        if (!monthly_revenue) { showFieldError(form.monthly_revenue); hasError = true; }
+        if (!pain_point)      { showFieldError(form.pain_point);      hasError = true; }
+        if (hasError) return;
+
+        // État de chargement : texte + spinner visibles
+        submitBtn.disabled  = true;
+        btnText.textContent = 'Analyse de votre profil par l\'IA d\'Oakflow en cours...';
+        btnText.hidden      = false;
+        btnLoader.hidden    = false;
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ full_name, lead_email, company, business_type, monthly_revenue, pain_point }),
+            });
+
+            if (!res.ok) {
+                const data = await res.json().catch(() => ({}));
+                throw new Error(data.error || 'Erreur serveur');
+            }
+
+            unlockCalendly();
+
+        } catch (err) {
+            console.error('[qualification-form]', err.message);
+            setLoading(false);
+            btnText.textContent = 'Analyser mon profil par l\'IA →';
+            btnText.hidden = false;
+            btnLoader.hidden = true;
+
+            const errMsg = document.createElement('p');
+            errMsg.className = 'qual-error-msg';
+            errMsg.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.';
+            form.querySelector('.qual-form-footer').appendChild(errMsg);
+        }
+    });
+})();

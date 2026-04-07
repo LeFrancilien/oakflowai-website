@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automatiser la prospection commerciale PME avec n8n — Guide 2026</title>
+    <title>Automatiser la prospection B2B avec n8n</title>
     <meta name="description"
         content="Comment automatiser votre prospection commerciale en PME avec n8n : scraping LinkedIn, enrichissement, scoring et prise de RDV automatique. ROI mesuré." />
     <meta name="author" content="Cyril DE LA RUE" />
@@ -41,8 +41,20 @@
       "description": "Comment automatiser votre prospection commerciale en PME avec n8n : scraping LinkedIn, enrichissement, scoring et prise de RDV automatique. ROI mesuré.",
       "datePublished": "2026-03-07",
       "dateModified": "2026-03-07",
-      "author": { "@id": "https://www.oakflowai.com/#person" },
-      "publisher": { "@id": "https://www.oakflowai.com/#organization" },
+      "dateModified": "2026-03-07",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/oakflow_logo_cube.jpg"
+        }
+      },
       "url": "https://www.oakflowai.com/blog/automatiser-prospection-commerciale",
       "inLanguage": "fr-FR",
       "keywords": ["automatisation prospection", "n8n prospection commerciale", "scraping LinkedIn PME", "pipeline commercial automatisé", "lead scoring IA"],
@@ -282,6 +294,17 @@
             margin: 0 auto 28px;
         }
 
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+
         .article-nav {
             display: flex;
             justify-content: space-between;
@@ -312,6 +335,9 @@
 </head>
 
 <body>
+    <!-- ── SKIP LINK ── -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <!-- ── NAV ── -->
     <nav id="nav">
         <a href="../index.html" class="nav-logo">
@@ -330,7 +356,7 @@
         </button>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
         <ul>
             <li><a href="../index.html#features">Services</a></li>
@@ -342,7 +368,7 @@
     </div>
 
     <!-- ── ARTICLE ── -->
-    <main class="article-wrap">
+    <main class="article-wrap" id="main-content">
 
         <div class="article-meta">
             <span class="article-tag">Automatisation commerciale</span>
@@ -510,10 +536,15 @@
             <a href="../index.html#contact" class="btn-primary">Réserver un appel gratuit →</a>
         </div>
 
+        <div class="article-related">
+            <h3>Nos services associés</h3>
+            <p>Envie de déployer ce pipeline ? Découvrez <a href="/services/workflows-n8n">nos workflows n8n sur-mesure</a> ou <a href="/services/chatbot-personnalise">notre solution de chatbot IA pour qualifier vos leads</a>.</p>
+        </div>
+
         <!-- Article nav -->
         <nav class="article-nav" aria-label="Navigation entre articles">
             <a href="automatiser-comptabilite.html">← Automatiser les factures fournisseurs</a>
-            <a href="../index.html">Retour à l'accueil →</a>
+            <a href="/blog/">Retour au blog →</a>
         </nav>
 
     </main>

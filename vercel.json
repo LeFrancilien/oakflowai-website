@@ -6,30 +6,23 @@
                 { "key": "X-Content-Type-Options", "value": "nosniff" },
                 { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
                 { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-                { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+                { "key": "Permissions-Policy", "value": "camera=(), microphone=(self), geolocation=()" }
             ]
         }
     ],
+    "rewrites": [
+        { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+    ],
     "redirects": [
-        {
-            "source": "/blog/n8n-vs-make-vs-zapier",
-            "destination": "/#features",
-            "permanent": true
-        },
-        {
-            "source": "/blog/n8n-vs-make.html",
-            "destination": "/#features",
-            "permanent": true
-        },
-        {
-            "source": "/blog/parcours-expert-ia",
-            "destination": "/#methode",
-            "permanent": true
-        },
-        {
-            "source": "/blog/roi-automatisation",
-            "destination": "/#usecases",
-            "permanent": true
-        }
+        { "source": "/blog/n8n-vs-make-vs-zapier", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
+        { "source": "/blog/n8n-vs-make.html", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
+        { "source": "/blog/guide-automatiser-comptabilite", "destination": "/blog/automatiser-comptabilite", "permanent": true },
+        { "source": "/blog/5-processus-automatiser", "destination": "/blog/", "permanent": true },
+        { "source": "/blog/formation-equipe-ia", "destination": "/blog/", "permanent": true },
+        { "source": "/blog/formation-automatisation", "destination": "/blog/", "permanent": true },
+        { "source": "/blog/directeur-expert-ia/:path*", "destination": "/blog/", "permanent": true },
+        { "source": "/blog/guide-automatiser-comptabilite/:path*", "destination": "/blog/automatiser-comptabilite", "permanent": true },
+        { "source": "/blog/:slug.html", "destination": "/blog/:slug", "permanent": true },
+        { "source": "/cdn-cgi/:path*", "destination": "/", "permanent": true }
     ]
 }

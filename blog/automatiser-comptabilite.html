@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automatiser le traitement des factures fournisseurs avec n8n — Guide PME 2026</title>
+    <title>Automatiser le traitement des factures avec n8n</title>
     <meta name="description"
         content="Guide complet pour automatiser le traitement des factures fournisseurs en PME avec n8n et GPT-4o. Workflow étape par étape, outils, coûts et résultats réels." />
     <meta name="author" content="Cyril DE LA RUE" />
@@ -31,8 +31,20 @@
       "description": "Guide complet pour automatiser le traitement des factures fournisseurs en PME avec n8n et GPT-4o. Workflow étape par étape, outils, coûts et résultats réels.",
       "datePublished": "2026-03-07",
       "dateModified": "2026-03-07",
-      "author": { "@id": "https://www.oakflowai.com/#person" },
-      "publisher": { "@id": "https://www.oakflowai.com/#organization" },
+      "dateModified": "2026-03-07",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/oakflow_logo_cube.jpg"
+        }
+      },
       "url": "https://www.oakflowai.com/blog/automatiser-comptabilite",
       "inLanguage": "fr-FR",
       "keywords": ["automatisation factures", "n8n PME", "traitement factures IA", "GPT-4o comptabilité", "workflow n8n"],
@@ -267,6 +279,17 @@
             margin: 0 auto 28px;
         }
 
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+
         .article-nav {
             display: flex;
             justify-content: space-between;
@@ -297,6 +320,9 @@
 </head>
 
 <body>
+    <!-- ── SKIP LINK ── -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <!-- ── NAV ── -->
     <nav id="nav">
         <a href="../index.html" class="nav-logo">
@@ -312,14 +338,14 @@
         </ul>
         <div class="nav-cta">
             <a href="../index.html#contact" class="btn btn-outline">Nous contacter</a>
-            <a href="https://calendly.com/oakflowai/30min" target="_blank" class="btn btn-primary">Réserver un Audit</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
         </div>
         <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-menu-nav">
             <a href="../index.html#features" class="mobile-menu-link">Services</a>
             <a href="../index.html#methode" class="mobile-menu-link">Méthode</a>
@@ -327,11 +353,12 @@
             <a href="../index.html#pricing" class="mobile-menu-link">Tarifs</a>
             <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
         </nav>
-        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener"
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
             class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
     </div>
 
     <!-- ── ARTICLE ── -->
+    <main id="main-content">
     <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
 
         <div class="article-meta">
@@ -513,17 +540,23 @@
         <div class="article-cta">
             <h2>Votre PME traite encore ses factures à la main ?</h2>
             <p>Réservez un audit gratuit de 30 minutes. Nous analysons votre processus actuel et vous proposons un chiffrage précis sous 48h.</p>
-            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener" class="btn-primary">
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
                 Réserver mon audit gratuit →
             </a>
         </div>
 
+        <div class="article-related">
+            <h3>Nos services associés</h3>
+            <p>Vous souhaitez aller plus loin ? Découvrez <a href="/services/workflows-n8n">nos workflows n8n sur-mesure pour PME</a> ou <a href="/services/integration-llm">l'intégration LLM dans vos processus métiers</a>.</p>
+        </div>
+
         <div class="article-nav">
-            <a href="../index.html">← Retour à l'accueil</a>
+            <a href="/blog/">← Retour au blog</a>
             <a href="automatiser-prospection-commerciale.html">Automatiser la prospection commerciale →</a>
         </div>
 
     </article>
+    </main>
 
     <!-- ── FOOTER ── -->
     <footer>
@@ -536,16 +569,16 @@
                 <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
             </div>
             <div class="footer-col">
-                <h4>Services</h4>
+                <h3>Services</h3>
                 <a href="../index.html#features">Notre Expertise</a>
                 <a href="../index.html#methode">Notre Méthode</a>
                 <a href="../index.html#pricing">Tarifs</a>
             </div>
             <div class="footer-col">
-                <h4>Société</h4>
+                <h3>Société</h3>
                 <a href="../index.html#about">À propos</a>
                 <a href="mailto:contact@oakflowai.com">Contact</a>
-                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="../mentions-legales.html">Mentions Légales &amp; RGPD</a>
             </div>
         </div>

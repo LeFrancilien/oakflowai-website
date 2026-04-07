@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>n8n ou Make ? Comparatif complet avec Zapier pour PME françaises (2026)</title>
+    <meta name="description"
+        content="n8n ou Make : lequel choisir pour votre PME ? Comparatif complet n8n vs Make vs Zapier — prix réels, RGPD, intégration IA. Notre verdict après 40+ déploiements." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-04-01" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/n8n-vs-zapier-vs-make" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/n8n-vs-zapier-vs-make" />
+    <meta property="og:title" content="n8n ou Make ? Comparatif complet avec Zapier pour PME françaises (2026)" />
+    <meta property="og:description" content="Comparatif complet des 3 plateformes d'automatisation les plus utilisées. Prix, limites, intégrations IA. Notre recommandation après 40+ déploiements." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Schema — Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://www.oakflowai.com/blog/n8n-vs-zapier-vs-make#article",
+      "headline": "n8n ou Make ? Comparatif complet avec Zapier pour PME françaises (2026)",
+      "description": "n8n ou Make : lequel choisir pour votre PME ? Comparatif complet n8n vs Make vs Zapier — prix réels, RGPD, intégration IA. Notre verdict après 40+ déploiements.",
+      "datePublished": "2026-04-01",
+      "dateModified": "2026-04-01",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/oakflow_logo_cube.jpg"
+        }
+      },
+      "url": "https://www.oakflowai.com/blog/n8n-vs-zapier-vs-make",
+      "inLanguage": "fr-FR",
+      "keywords": ["n8n ou make", "n8n vs make", "make ou n8n", "n8n vs zapier", "comparatif automatisation PME", "meilleur outil automatisation PME", "Zapier alternatif", "Make vs n8n"],
+      "articleSection": "Comparatif"
+    }
+    </script>
+
+    <!-- Schema — FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "n8n ou Make : lequel choisir pour une PME française ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour une PME française soucieuse du RGPD et qui veut intégrer l'IA dans ses processus, n8n est le meilleur choix. Il peut être hébergé en France (OVH, Hetzner), son coût est fixe et prévisible, et ses intégrations OpenAI/Claude sont natives. Make reste pertinent pour les équipes qui veulent automatiser en autonomie avec une courbe d'apprentissage plus douce."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre n8n et Make ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La différence principale : n8n est open-source et peut être hébergé sur vos propres serveurs en France, Make est un SaaS propriétaire. n8n offre plus de liberté (code JS/Python natif, agents IA autonomes) mais nécessite un accompagnement technique. Make est plus accessible aux non-développeurs mais moins flexible pour les workflows complexes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "n8n est-il vraiment gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n est gratuit en self-hosted (open-source sous licence Sustainable Use). Vous payez uniquement le serveur, soit environ 5 à 10 euros par mois sur un VPS. La version cloud commence à 20 euros par mois. Zapier et Make n'ont pas d'option self-hosted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Make est-il conforme au RGPD ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Make propose un hébergement EU (serveurs européens) sur ses plans payants, ce qui facilite la conformité RGPD. Cependant, n8n en self-hosted offre une souveraineté totale sur vos données — vos workflows et données métiers ne quittent jamais vos serveurs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on migrer de Zapier ou Make vers n8n ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Il n'existe pas d'import automatique mais la logique des workflows est transposable. La migration d'un Zap ou d'un scénario Make vers n8n prend 2 à 4 heures par workflow selon la complexité. C'est l'occasion d'optimiser les workflows existants."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap {
+            max-width: 760px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            background: rgba(0, 229, 176, 0.1);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .article-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .article-wrap h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(240, 244, 255, 0.7);
+            margin-bottom: 48px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+        .article-wrap h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 52px 0 16px;
+            letter-spacing: -0.5px;
+        }
+        .article-wrap h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        .article-wrap p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .article-wrap ul, .article-wrap ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-wrap li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box {
+            background: rgba(0, 229, 176, 0.06);
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { margin: 0; font-size: 15px; }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+        .result-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .result-val {
+            font-family: var(--font-h);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -1px;
+            display: block;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .result-lbl { font-size: 13px; color: var(--muted); }
+        .stack-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 15px;
+        }
+        .stack-table th {
+            text-align: left;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .stack-table td {
+            padding: 10px 16px;
+            color: var(--muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .stack-table td:first-child { color: var(--accent); font-weight: 500; }
+        .verdict-box {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 32px 0;
+        }
+        .verdict-box h3 { margin-top: 0; color: var(--accent); }
+        .article-cta {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 40px;
+        }
+        .article-nav a {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-nav a:hover { color: var(--accent); }
+        .article-toc {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px 28px;
+            margin: 32px 0;
+        }
+        .article-toc strong { color: var(--text); display: block; margin-bottom: 12px; font-size: 15px; }
+        .article-toc ol { margin: 0; padding-left: 20px; }
+        .article-toc li { font-size: 14px; margin-bottom: 6px; color: var(--muted); }
+        .article-toc a { color: var(--accent); text-decoration: none; }
+        .article-toc a:hover { text-decoration: underline; }
+        .article-faq { margin: 48px 0; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 24px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 17px; margin: 0 0 10px; }
+        .faq-item p { margin: 0; font-size: 15px; }
+        @media (max-width: 600px) {
+            .result-grid { grid-template-columns: 1fr 1fr; }
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="../index.html" class="nav-logo">
+            <img src="../oakflow_logo_cube.jpg" alt="Oakflow AI" class="logo-img"
+                style="height: 48px; width: auto; border-radius: 8px;" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html#features">Services</a></li>
+            <li><a href="../index.html#methode">Méthode</a></li>
+            <li><a href="../index.html#usecases">Cas d'usage</a></li>
+            <li><a href="../index.html#pricing">Tarifs</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="../index.html#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="../index.html#features" class="mobile-menu-link">Services</a>
+            <a href="../index.html#methode" class="mobile-menu-link">Méthode</a>
+            <a href="../index.html#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="../index.html#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── ARTICLE ── -->
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
+
+        <div class="article-meta">
+            <span class="article-tag">Comparatif</span>
+            <span class="article-tag">Outils</span>
+            <time class="article-date" datetime="2026-04-01">1 avril 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">n8n ou Make ? Comparatif complet avec Zapier pour les PME françaises (2026)</h1>
+
+        <p class="article-intro">n8n ou Make (ex-Integromat) ou Zapier ? C'est la question que nous posent 9 prospects sur 10 avant de démarrer un projet d'automatisation. Après avoir déployé plus de <strong>40 workflows en production</strong> pour des PME françaises, voici notre comparatif honnête — avec chiffres, limites réelles, et une recommandation claire selon votre situation.</p>
+
+        <div class="article-toc">
+            <strong>Sommaire</strong>
+            <ol>
+                <li><a href="#vue-ensemble">Vue d'ensemble des 3 outils</a></li>
+                <li><a href="#zapier">Zapier : le plus simple</a></li>
+                <li><a href="#make">Make : le meilleur rapport qualité-prix</a></li>
+                <li><a href="#n8n">n8n : l'outil des workflows IA</a></li>
+                <li><a href="#n8n-vs-make">n8n ou Make : comparaison directe</a></li>
+                <li><a href="#prix">Comparatif des prix réels</a></li>
+                <li><a href="#verdict">Quel outil choisir ?</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol>
+        </div>
+
+        <h2>Pourquoi ce comparatif existe-t-il ?</h2>
+
+        <p>Le marché de l'automatisation no-code explose. Zapier revendique 3 millions d'utilisateurs. Make s'est imposé comme l'alternative européenne. Et n8n, open-source, monte en puissance chez les équipes techniques. Mais les guides de comparaison publiés en ligne sont souvent rédigés par des affiliés qui touchent une commission sur chaque abonnement vendu. Ce n'est pas notre cas.</p>
+
+        <p>Nous utilisons ces trois outils au quotidien. Nous les avons déployés pour des cabinets comptables, des agences marketing, des e-commerçants et des acteurs des services à la personne. Ce que vous allez lire reflète ce que nous observons <strong>en conditions réelles</strong>, pas dans des démos.</p>
+
+        <h2 id="vue-ensemble">Vue d'ensemble des trois plateformes</h2>
+
+        <table class="stack-table">
+            <thead>
+                <tr>
+                    <th>Critère</th>
+                    <th>n8n</th>
+                    <th>Zapier</th>
+                    <th>Make</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Modèle</td>
+                    <td>Open-source / Cloud</td>
+                    <td>SaaS propriétaire</td>
+                    <td>SaaS propriétaire</td>
+                </tr>
+                <tr>
+                    <td>Prix entrée de gamme</td>
+                    <td>Gratuit (self-hosted) / 20€/mois cloud</td>
+                    <td>29,99$/mois</td>
+                    <td>9$/mois</td>
+                </tr>
+                <tr>
+                    <td>Prix pour PME (usage moyen)</td>
+                    <td>20-50€/mois</td>
+                    <td>49-299$/mois</td>
+                    <td>16-29$/mois</td>
+                </tr>
+                <tr>
+                    <td>Intégrations natives</td>
+                    <td>400+</td>
+                    <td>6 000+</td>
+                    <td>1 500+</td>
+                </tr>
+                <tr>
+                    <td>Nœuds de code (JS/Python)</td>
+                    <td>Oui (natif)</td>
+                    <td>Limité (Zapier Code)</td>
+                    <td>Oui (limité)</td>
+                </tr>
+                <tr>
+                    <td>Intégration LLM / IA</td>
+                    <td>Excellente (OpenAI, Claude, Gemini…)</td>
+                    <td>Correcte</td>
+                    <td>Correcte</td>
+                </tr>
+                <tr>
+                    <td>Souveraineté des données</td>
+                    <td>Totale (self-hosted)</td>
+                    <td>Aucune (US)</td>
+                    <td>Partielle (UE disponible)</td>
+                </tr>
+                <tr>
+                    <td>Courbe d'apprentissage</td>
+                    <td>Modérée à élevée</td>
+                    <td>Faible</td>
+                    <td>Modérée</td>
+                </tr>
+                <tr>
+                    <td>Adapté aux non-développeurs</td>
+                    <td>Avec accompagnement</td>
+                    <td>Oui</td>
+                    <td>Oui</td>
+                </tr>
+                <tr>
+                    <td>Hébergement France/UE</td>
+                    <td>Oui (self-hosted)</td>
+                    <td>Non</td>
+                    <td>Oui (plan EU)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="zapier">Zapier : la solution la plus simple, mais la plus chère</h2>
+
+        <p>Zapier est né en 2011 et reste la référence du marché en termes de notoriété. Sa promesse : connecter deux applications en quelques minutes, sans écrire une seule ligne de code. Elle tient, pour des cas simples.</p>
+
+        <h3>Ce que Zapier fait bien</h3>
+        <ul>
+            <li><strong>Vitesse de mise en œuvre</strong> : un "Zap" basique (ex. Google Forms → Slack) se configure en moins de 10 minutes.</li>
+            <li><strong>Catalogue d'intégrations</strong> : 6 000+ applications connectées. Vous trouvez presque toujours ce que vous cherchez.</li>
+            <li><strong>Support</strong> : réactif et en anglais. Documentation très complète.</li>
+        </ul>
+
+        <h3>Les limites que personne ne vous dit</h3>
+        <ul>
+            <li><strong>Le prix explose avec le volume</strong> : le plan Starter (29,99$/mois) est limité à 750 tâches/mois. Pour une PME avec 5 000 tâches/mois, vous passez à 73,50$/mois minimum. À 50 000 tâches, comptez 299$/mois.</li>
+            <li><strong>Pas de logique conditionnelle avancée</strong> : les workflows Zapier restent linéaires. Dès que vous avez besoin de boucles, de sous-workflows ou de logique complexe, vous vous heurtez aux limites.</li>
+            <li><strong>Données hébergées aux États-Unis</strong> : problématique selon votre secteur (santé, juridique, comptable) et votre interprétation du RGPD.</li>
+            <li><strong>Pas de nœud de code vraiment puissant</strong> : "Zapier Code" permet du JavaScript basique, mais pas d'appels HTTP arbitraires ni de traitement de fichiers.</li>
+        </ul>
+
+        <div class="info-box">
+            <p><strong>Notre expérience client</strong> : Nous avons repris un projet Zapier d'un cabinet RH qui payait 180€/mois pour 35 000 tâches. Migré vers n8n : même volume de données, même résultat, 20€/mois. Économie annuelle : 1 920€.</p>
+        </div>
+
+        <h2 id="make">Make (ex-Integromat) : le meilleur rapport qualité-prix du no-code</h2>
+
+        <p>Make est l'outil que nous recommandons le plus souvent aux équipes qui souhaitent automatiser elles-mêmes, sans développeur. L'interface visuelle est plus riche que Zapier, les prix bien plus bas, et le modèle de tarification à l'opération (et non à la tâche) est souvent plus économique.</p>
+
+        <h3>Ce que Make fait bien</h3>
+        <ul>
+            <li><strong>Interface visuelle intuitive</strong> : les scénarios se construisent comme un diagramme. On voit immédiatement le flux de données.</li>
+            <li><strong>Logique avancée accessible</strong> : routeurs, itérateurs, agrégateurs — des fonctionnalités qui nécessitent du code dans Zapier sont natives dans Make.</li>
+            <li><strong>Prix compétitif</strong> : à partir de 9$/mois, avec un plan gratuit généreux (1 000 opérations/mois).</li>
+            <li><strong>Hébergement EU disponible</strong> : conformité RGPD possible sur les plans payants.</li>
+        </ul>
+
+        <h3>Les limites de Make</h3>
+        <ul>
+            <li><strong>Intégrations IA moins matures que n8n</strong> : les nœuds OpenAI/Claude existent mais sont moins configurables.</li>
+            <li><strong>Pas d'hébergement self-hosted</strong> : vous dépendez entièrement de l'infrastructure Make.</li>
+            <li><strong>Débogage parfois pénible</strong> : les erreurs dans les scénarios complexes sont difficiles à tracer.</li>
+            <li><strong>Tarification à l'opération</strong> : chaque action dans chaque module compte comme une opération. Sur des workflows avec beaucoup d'itérations, la facture peut surprendre.</li>
+        </ul>
+
+        <h2 id="n8n">n8n : l'outil des workflows IA avancés</h2>
+
+        <p>n8n (prononcé "nodemation") est un outil open-source né en 2019, qui a explosé en popularité avec l'essor des LLM. C'est aujourd'hui notre outil de référence pour les déploiements en production chez nos clients PME.</p>
+
+        <h3>Ce que n8n fait exceptionnellement bien</h3>
+        <ul>
+            <li><strong>Intégration native des LLM</strong> : nœuds OpenAI, Anthropic Claude, Google Gemini, Mistral, Ollama (modèles locaux). La gestion de la mémoire conversationnelle, les chaînes de prompts et les agents autonomes sont directement accessibles sans code.</li>
+            <li><strong>Liberté totale avec le code</strong> : chaque nœud peut exécuter du JavaScript ou du Python. Vous pouvez appeler n'importe quelle API, transformer des données comme vous le souhaitez, traiter des fichiers PDF/Excel/CSV.</li>
+            <li><strong>Self-hosting = données chez vous</strong> : pour les PME soumises au RGPD, à des contrats de confidentialité client, ou simplement soucieuses de leurs données, l'hébergement sur VPS français (ex. Hetzner, OVH) est un argument décisif.</li>
+            <li><strong>Coût fixe et prévisible</strong> : contrairement à Zapier ou Make qui facturent à la tâche, n8n cloud facture à l'exécution de workflow (pas au nombre d'opérations). Un workflow complexe coûte autant qu'un simple.</li>
+            <li><strong>Workflows de type "agent IA"</strong> : n8n supporte nativement les agents IA avec outils (function calling), mémoire persistante et boucles d'auto-correction.</li>
+        </ul>
+
+        <h3>Les limites de n8n</h3>
+        <ul>
+            <li><strong>Moins d'intégrations natives</strong> : 400+ contre 6 000 pour Zapier. Mais les nœuds HTTP/Webhook génériques couvrent presque tout le reste.</li>
+            <li><strong>Courbe d'apprentissage plus élevée</strong> : sans accompagnement, il faut compter 2 à 4 semaines avant d'être autonome sur des workflows complexes.</li>
+            <li><strong>Self-hosting demande des compétences DevOps</strong> : configuration du serveur, certificats SSL, mises à jour. C'est là qu'un partenaire comme Oakflow AI apporte de la valeur.</li>
+        </ul>
+
+        <h2 id="n8n-vs-make">n8n ou Make : la comparaison directe</h2>
+
+        <p>C'est la confrontation qui revient le plus souvent. Zapier mis à part (trop cher pour la majorité des PME), le vrai choix se fait entre <strong>n8n et Make</strong>. Voici une comparaison focalisée sur les critères qui comptent vraiment :</p>
+
+        <table class="stack-table">
+            <thead>
+                <tr>
+                    <th>Critère</th>
+                    <th>n8n</th>
+                    <th>Make</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Prix pour une PME</td>
+                    <td>20-50€/mois (cloud) ou ~8€/mois (self-hosted VPS)</td>
+                    <td>9-29$/mois selon le volume d'opérations</td>
+                </tr>
+                <tr>
+                    <td>Intégration IA / LLM</td>
+                    <td>Excellente — OpenAI, Claude, Gemini, Mistral natifs</td>
+                    <td>Correcte — modules tiers, moins configurables</td>
+                </tr>
+                <tr>
+                    <td>Hébergement en France</td>
+                    <td>Oui — self-hosted sur OVH, Hetzner, etc.</td>
+                    <td>Oui — plan EU uniquement (plans payants)</td>
+                </tr>
+                <tr>
+                    <td>Souveraineté des données</td>
+                    <td>Totale en self-hosted</td>
+                    <td>Partielle (dépend de Make)</td>
+                </tr>
+                <tr>
+                    <td>Logique avancée</td>
+                    <td>Illimitée (JS/Python natif dans chaque nœud)</td>
+                    <td>Bonne (routeurs, itérateurs) mais sans code libre</td>
+                </tr>
+                <tr>
+                    <td>Facilité de prise en main</td>
+                    <td>Modérée — recommandé avec un partenaire technique</td>
+                    <td>Facile — interface intuitive, autodidacte possible</td>
+                </tr>
+                <tr>
+                    <td>Agents IA autonomes</td>
+                    <td>Oui — natif (function calling, mémoire, boucles)</td>
+                    <td>Non — pas de support natif des agents IA</td>
+                </tr>
+                <tr>
+                    <td>Open-source</td>
+                    <td>Oui</td>
+                    <td>Non</td>
+                </tr>
+                <tr>
+                    <td>Tarification</td>
+                    <td>À l'exécution de workflow (coût fixe quel que soit le volume)</td>
+                    <td>À l'opération (peut surprendre sur les gros workflows)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="verdict-box">
+            <h3>n8n ou Make : notre verdict en une phrase</h3>
+            <p><strong>Choisissez Make</strong> si vous souhaitez automatiser vous-même, sans développeur, avec des workflows de complexité modérée et un budget maîtrisé.</p>
+            <p><strong>Choisissez n8n</strong> si vous avez des exigences RGPD strictes, souhaitez intégrer des LLM dans vos processus métiers, ou cherchez un coût prévisible quelle que soit la croissance de votre volume.</p>
+            <p>Dans notre pratique terrain : nous déployons n8n pour <strong>~80% de nos clients PME</strong> en France. Make est notre recommandation pour les 20% restants qui veulent être autonomes rapidement sur des cas simples.</p>
+        </div>
+
+        <h2 id="prix">Comparatif des prix réels pour une PME française</h2>
+
+        <p>Prenons un cas concret : une PME avec 3 workflows actifs — traitement de factures, qualification de leads, et notifications automatiques — générant <strong>10 000 actions par mois</strong>.</p>
+
+        <div class="result-grid">
+            <div class="result-card">
+                <span class="result-val">149$</span>
+                <span class="result-lbl">Zapier / mois<br><small>Plan Professional</small></span>
+            </div>
+            <div class="result-card">
+                <span class="result-val">29$</span>
+                <span class="result-lbl">Make / mois<br><small>Plan Core 10k ops</small></span>
+            </div>
+            <div class="result-card">
+                <span class="result-val">20€</span>
+                <span class="result-lbl">n8n / mois<br><small>Plan Starter ou self-hosted</small></span>
+            </div>
+        </div>
+
+        <p>Sur 12 mois, l'écart Zapier vs n8n représente <strong>plus de 1 500€ d'économies</strong> pour un usage équivalent — et souvent des workflows bien plus puissants avec n8n.</p>
+
+        <h2 id="verdict">Quel outil choisir selon votre situation ?</h2>
+
+        <div class="verdict-box">
+            <h3>Choisissez Zapier si…</h3>
+            <ul>
+                <li>Vous avez besoin de connecter deux outils très spécifiques sans développeur (Zapier a l'intégration).</li>
+                <li>Vous voulez des automatisations simples et rapides à mettre en place en autonomie totale.</li>
+                <li>Le budget n'est pas un critère limitant.</li>
+            </ul>
+        </div>
+
+        <div class="verdict-box">
+            <h3>Choisissez Make si…</h3>
+            <ul>
+                <li>Vous souhaitez automatiser vous-même avec une courbe d'apprentissage raisonnable.</li>
+                <li>Vous avez des workflows avec logique conditionnelle modérée.</li>
+                <li>Vous avez un budget serré et peu de volume.</li>
+            </ul>
+        </div>
+
+        <div class="verdict-box">
+            <h3>Choisissez n8n si…</h3>
+            <ul>
+                <li>Vous voulez intégrer des LLM (GPT-4, Claude) dans vos workflows métiers.</li>
+                <li>Vous avez des contraintes RGPD ou de confidentialité (données hébergées en France).</li>
+                <li>Votre volume de tâches est élevé et vous voulez un coût prévisible.</li>
+                <li>Vous cherchez des workflows complexes (agents IA, boucles, traitement de fichiers).</li>
+                <li>Vous travaillez avec un partenaire qui gère la partie technique.</li>
+            </ul>
+        </div>
+
+        <h2>Notre recommandation pour les PME françaises en 2026</h2>
+
+        <p>Après 40+ déploiements, notre biais est clair : <strong>n8n est notre choix par défaut</strong> pour les PME françaises qui souhaitent aller au-delà des automatisations basiques. Les raisons sont simples : coût maîtrisé, données souveraines, intégration IA native, et une communauté très active.</p>
+
+        <p>Zapier reste pertinent pour les équipes non techniques qui ont besoin d'une solution en autonomie totale et pour qui la confidentialité des données n'est pas un enjeu critique. Make est un bon compromis si vous avez un peu de compétences techniques et un budget modéré.</p>
+
+        <p>La vraie question n'est pas "quel outil ?" mais <strong>"quel processus automatiser en premier ?"</strong>. C'est exactement ce que nous faisons lors de l'audit gratuit de 30 minutes : analyser vos processus, identifier les 3 automatisations à ROI le plus rapide, et vous proposer une architecture adaptée à votre stack.</p>
+
+        <section id="faq" class="article-faq">
+            <h2>FAQ — n8n, Make et Zapier</h2>
+
+            <div class="faq-item">
+                <h3>n8n ou Make : lequel choisir pour une PME française ?</h3>
+                <p>Pour une PME française soucieuse du RGPD et qui veut intégrer l'IA dans ses processus, <strong>n8n est le meilleur choix</strong>. Il peut être hébergé en France (OVH, Hetzner), son coût est fixe et prévisible, et ses intégrations OpenAI/Claude sont natives. Make reste pertinent pour les équipes qui veulent automatiser en autonomie complète avec une courbe d'apprentissage plus douce.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Quelle est la différence entre n8n et Make ?</h3>
+                <p>La différence principale : <strong>n8n est open-source et hébergeable sur vos propres serveurs en France</strong>, Make est un SaaS propriétaire. En pratique, n8n offre plus de liberté (code JS/Python natif, agents IA autonomes) mais demande un accompagnement technique. Make est plus accessible aux non-développeurs mais moins flexible pour les workflows complexes.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>n8n est-il vraiment gratuit ?</h3>
+                <p>n8n est <strong>gratuit en self-hosted</strong> (open-source sous licence Sustainable Use). Vous payez uniquement le serveur, soit environ 5 à 10€/mois sur un VPS. La version cloud commence à 20€/mois. Ni Zapier ni Make ne proposent d'option self-hosted.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Make est-il conforme au RGPD ?</h3>
+                <p>Make propose un hébergement EU (serveurs européens) sur ses plans payants, ce qui facilite la conformité RGPD. Cependant, <strong>n8n en self-hosted offre une souveraineté totale</strong> — vos workflows et données métiers ne quittent jamais vos serveurs.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Peut-on migrer de Zapier ou Make vers n8n ?</h3>
+                <p>Oui, c'est une migration que nous réalisons régulièrement. Il n'existe pas d'import automatique, mais la logique des workflows est transposable. La migration d'un Zap ou d'un scénario Make vers n8n prend <strong>2 à 4 heures par workflow</strong> selon la complexité — et c'est l'occasion de les optimiser.</p>
+            </div>
+        </section>
+
+        <div class="article-cta">
+            <h2>Pas sûr de quel outil choisir ?</h2>
+            <p>30 minutes d'audit gratuit. Nous analysons vos processus actuels et vous recommandons la stack d'automatisation adaptée à votre PME et votre budget.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Réserver mon audit gratuit →
+            </a>
+        </div>
+
+        <div class="article-related">
+            <h3>Aller plus loin</h3>
+            <p>Découvrez comment nous utilisons n8n concrètement : <a href="/blog/automatiser-comptabilite">automatiser le traitement des factures fournisseurs</a> ou <a href="/blog/automatiser-prospection-commerciale">automatiser la prospection commerciale B2B</a>. Consultez aussi notre page <a href="/services/workflows-n8n">service workflows n8n</a> pour en savoir plus sur nos offres.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog/">← Retour au blog</a>
+            <a href="automatiser-comptabilite.html">Automatiser les factures →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="../index.html" class="nav-logo">
+                    <img src="../oakflow_logo_cube.jpg" alt="Oakflow AI" class="logo-img"
+                        style="height: 48px; width: auto; border-radius: 8px;" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="../index.html#features">Notre Expertise</a>
+                <a href="../index.html#methode">Notre Méthode</a>
+                <a href="../index.html#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="../index.html#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="../mentions-legales.html">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+
+</html>

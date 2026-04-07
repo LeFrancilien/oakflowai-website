@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /mentions-legales.html
 
 # AI Search crawlers — explicitement autorisés
 User-agent: GPTBot
