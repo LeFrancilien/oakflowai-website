@@ -1,4 +1,6 @@
 {
+    "cleanUrls": true,
+    "trailingSlash": false,
     "headers": [
         {
             "source": "/(.*)",
@@ -11,7 +13,8 @@
         }
     ],
     "rewrites": [
-        { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+        { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+        { "source": "/(.*)", "destination": "/404.html" }
     ],
     "redirects": [
         { "source": "/blog/n8n-vs-make-vs-zapier", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },

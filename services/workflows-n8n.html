@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics — chargé uniquement après consentement RGPD -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
     <title>Workflows n8n PME France | Agence Oakflow AI</title>
     <meta name="description" content="Création de workflows n8n sur-mesure pour PME en France. Automatisez vos tâches chronophages, connectez vos outils et gagnez jusqu'à 30h/mois avec Oakflow AI.">
     <link rel="stylesheet" href="/style.css">
@@ -14,6 +21,7 @@
     <meta property="og:url" content="https://www.oakflowai.com/services/workflows-n8n">
     <meta property="og:title" content="Automatisation et Workflows n8n pour PME">
     <meta property="og:description" content="Libérez-vous des tâches répétitives grâce à nos workflows n8n sécurisés. Audit gratuit de 30min.">
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <!-- Preconnect Fonts -->
@@ -43,6 +51,9 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.oakflowai.com/#features"},{"@type":"ListItem","position":3,"name":"Workflows n8n"}]}
+    </script>
 </head>
 <body>
 
@@ -56,7 +67,10 @@
             <li><a href="/#features">Services</a></li>
             <li><a href="/#methode">Méthode</a></li>
             <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
         </ul>
 
         <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>

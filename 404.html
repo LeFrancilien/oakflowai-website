@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+
+    <title>Page introuvable — Oakflow AI</title>
+    <meta name="description" content="La page que vous recherchez n'existe pas ou a été déplacée." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap"
+            rel="stylesheet" />
+    </noscript>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <style>
+        .error-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .error-inner {
+            max-width: 560px;
+        }
+
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #00e5b0 0%, #00b894 50%, #0984e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .error-section h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            color: var(--text, #eef2f0);
+            margin-bottom: 1rem;
+        }
+
+        .error-section p {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--muted, #8a9a97);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            border: 1px solid var(--accent, #00e5b0);
+            border-radius: 8px;
+            color: var(--accent, #00e5b0);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            background: transparent;
+        }
+
+        .btn-ghost:hover {
+            background: var(--accent, #00e5b0);
+            color: var(--bg, #060910);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/oakflow_logo_cube.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" />
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver
+            30min</a>
+
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- ── MENU MOBILE PLEIN ÉCRAN ── -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="/#features" class="mobile-menu-link">Services</a>
+            <a href="/#methode" class="mobile-menu-link">Méthode</a>
+            <a href="/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="/#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="/#contact" class="mobile-menu-link">Contact</a>
+            <a href="/blog/" class="mobile-menu-link">Blog</a>
+            <a href="/#newsletter" class="mobile-menu-link">Newsletter</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── 404 CONTENT ── -->
+    <main>
+        <section class="error-section">
+            <div class="error-inner">
+                <div class="error-code">404</div>
+                <h1>Page introuvable</h1>
+                <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
+                <div class="error-buttons">
+                    <a href="/" class="btn-primary">Retour à l'accueil</a>
+                    <a href="/blog/" class="btn-ghost">Voir le blog</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="/oakflow_logo_cube.webp" alt="Oakflow AI" class="logo-img"
+                        width="48" height="48" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="/#features">Notre Expertise</a>
+                <a href="/#features">Workflows n8n</a>
+                <a href="/#features">Sites Web 3D</a>
+                <a href="/#methode">Notre Méthode</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Ressources</h3>
+                <a href="/#portfolio">Cas d'usage</a>
+                <a href="/#pricing">Tarifs</a>
+                <a href="/#testimonials">Témoignages</a>
+                <a href="/#faq">FAQ</a>
+                <a href="/#social">Communauté</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="/#methode">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://x.com/Oakflowai" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="/mentions-legales.html">Mentions Légales &amp; RGPD</a>
+                <a href="https://www.oakflowai.com/">oakflowai.com</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="/main.js" defer></script>
+</body>
+
+</html>

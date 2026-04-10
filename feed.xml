@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oakflow AI — Blog Automatisation IA pour PME</title>
-    <link>https://oakflowai.com/blog</link>
+    <link>https://www.oakflowai.com/blog/</link>
     <description>Guides pratiques, retours d'expérience et outils pour automatiser votre PME avec n8n, l'IA et les LLM.</description>
     <language>fr-FR</language>
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
     <managingEditor>contact@oakflowai.com (Cyril DE LA RUE)</managingEditor>
     <webMaster>contact@oakflowai.com (Cyril DE LA RUE)</webMaster>
     <lastBuildDate>Tue, 07 Apr 2026 09:00:00 +0200</lastBuildDate>
-    <atom:link href="https://oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://www.oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
-      <url>https://oakflowai.com/logo-oakflow.png</url>
+      <url>https://www.oakflowai.com/oakflow_logo_cube.jpg</url>
       <title>Oakflow AI</title>
-      <link>https://oakflowai.com</link>
+      <link>https://www.oakflowai.com</link>
     </image>
 
     <item>
       <title>CRM IA pour PME : 7 problèmes concrets qu'il résout (2026)</title>
-      <link>https://oakflowai.com/blog/crm-ia-pme.html</link>
-      <guid isPermaLink="true">https://oakflowai.com/blog/crm-ia-pme.html</guid>
+      <link>https://www.oakflowai.com/blog/crm-ia-pme</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/crm-ia-pme</guid>
       <pubDate>Thu, 02 Apr 2026 09:00:00 +0200</pubDate>
       <description>CRM IA pour PME : quels problèmes résout-il vraiment ? Saisie manuelle, leads non qualifiés, relances oubliées… 7 cas réels et notre retour après 40+ déploiements.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
@@ -30,8 +30,8 @@
 
     <item>
       <title>ROI de l'automatisation IA pour les PME : chiffres réels 2026</title>
-      <link>https://oakflowai.com/blog/roi-automatisation.html</link>
-      <guid isPermaLink="true">https://oakflowai.com/blog/roi-automatisation.html</guid>
+      <link>https://www.oakflowai.com/blog/roi-automatisation</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/roi-automatisation</guid>
       <pubDate>Wed, 01 Apr 2026 09:00:00 +0200</pubDate>
       <description>Quel ROI espérer de l'automatisation IA en PME ? Données réelles sur 40+ projets : économies de temps, réduction d'erreurs, délai de retour sur investissement. Calculez votre ROI.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
@@ -42,8 +42,8 @@
 
     <item>
       <title>n8n ou Make ? Comparatif complet avec Zapier pour PME françaises (2026)</title>
-      <link>https://oakflowai.com/blog/n8n-vs-zapier-vs-make.html</link>
-      <guid isPermaLink="true">https://oakflowai.com/blog/n8n-vs-zapier-vs-make.html</guid>
+      <link>https://www.oakflowai.com/blog/n8n-vs-zapier-vs-make</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/n8n-vs-zapier-vs-make</guid>
       <pubDate>Wed, 01 Apr 2026 08:00:00 +0200</pubDate>
       <description>n8n ou Make : lequel choisir pour votre PME ? Comparatif complet n8n vs Make vs Zapier — prix réels, RGPD, intégration IA. Notre verdict après 40+ déploiements.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
@@ -55,8 +55,8 @@
 
     <item>
       <title>Cyril DE LA RUE — Consultant IA &amp; Automatisation PME | Oakflow AI</title>
-      <link>https://oakflowai.com/blog/parcours-expert-ia.html</link>
-      <guid isPermaLink="true">https://oakflowai.com/blog/parcours-expert-ia.html</guid>
+      <link>https://www.oakflowai.com/blog/parcours-expert-ia</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/parcours-expert-ia</guid>
       <pubDate>Wed, 01 Apr 2026 07:00:00 +0200</pubDate>
       <description>20 ans d'expérience en automatisation des processus métiers. Découvrez le parcours de Cyril DE LA RUE, fondateur d'Oakflow AI, consultant IA pour PME françaises.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
@@ -67,8 +67,8 @@
 
     <item>
       <title>Automatiser la prospection commerciale B2B avec n8n — Guide PME 2026</title>
-      <link>https://oakflowai.com/blog/automatiser-prospection-commerciale.html</link>
-      <guid isPermaLink="true">https://oakflowai.com/blog/automatiser-prospection-commerciale.html</guid>
+      <link>https://www.oakflowai.com/blog/automatiser-prospection-commerciale</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/automatiser-prospection-commerciale</guid>
       <pubDate>Sat, 07 Mar 2026 09:00:00 +0100</pubDate>
       <description>Comment automatiser votre prospection commerciale en PME avec n8n : scraping LinkedIn, enrichissement, scoring et prise de RDV automatique. ROI mesuré.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
@@ -80,8 +80,8 @@
 
     <item>
       <title>Automatiser le traitement des factures fournisseurs avec n8n — Guide PME 2026</title>
-      <link>https://oakflowai.com/blog/automatiser-comptabilite.html</link>
-      <guid isPermaLink="true">https://oakflowai.com/blog/automatiser-comptabilite.html</guid>
+      <link>https://www.oakflowai.com/blog/automatiser-comptabilite</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/automatiser-comptabilite</guid>
       <pubDate>Sat, 07 Mar 2026 08:00:00 +0100</pubDate>
       <description>Guide complet pour automatiser le traitement des factures fournisseurs en PME avec n8n et GPT-4o. Workflow étape par étape, outils, coûts et résultats réels.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>

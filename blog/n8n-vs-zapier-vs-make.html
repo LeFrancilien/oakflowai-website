@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Analytics — chargé uniquement après consentement RGPD -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
     <title>n8n ou Make ? Comparatif complet avec Zapier pour PME françaises (2026)</title>
     <meta name="description"
         content="n8n ou Make : lequel choisir pour votre PME ? Comparatif complet n8n vs Make vs Zapier — prix réels, RGPD, intégration IA. Notre verdict après 40+ déploiements." />
@@ -20,6 +27,8 @@
     <meta property="og:description" content="Comparatif complet des 3 plateformes d'automatisation les plus utilisées. Prix, limites, intégrations IA. Notre recommandation après 40+ déploiements." />
     <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
     <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
 
     <!-- Schema — Article -->
     <script type="application/ld+json">
@@ -99,6 +108,9 @@
         }
       ]
     }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"n8n vs Zapier vs Make"}]}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -321,11 +333,13 @@
                 style="height: 48px; width: auto; border-radius: 8px;" />
         </a>
         <ul class="nav-links">
-            <li><a href="../index.html#features">Services</a></li>
-            <li><a href="../index.html#methode">Méthode</a></li>
-            <li><a href="../index.html#usecases">Cas d'usage</a></li>
-            <li><a href="../index.html#pricing">Tarifs</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
         </ul>
         <div class="nav-cta">
             <a href="../index.html#contact" class="btn btn-outline">Nous contacter</a>
