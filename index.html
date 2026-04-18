@@ -397,6 +397,11 @@
       ]
     }
     </script>
+    <!-- Critical CSS inline - masque skip link + base render -->
+    <style>
+      .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+      .skip-link:focus{position:fixed;top:12px;left:12px;width:auto;height:auto;padding:10px 18px;background:#14F1D9;color:#020606;z-index:9999;border-radius:8px;font-weight:600;clip:auto;box-shadow:0 0 20px rgba(20,241,217,.5)}
+    </style>
 </head>
 
 <body>
