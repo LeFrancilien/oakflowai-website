@@ -1,19 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Analytics — chargé uniquement après consentement RGPD -->
+    <!-- Preconnect - reduit le handshake DNS/TLS (gain LCP mobile) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Google Analytics â€” chargÃ© uniquement aprÃ¨s consentement RGPD -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
     </script>
-    <title>Oakflow AI — Automatisation IA pour PME & TPE</title>
-    <meta name="description" content="Consultant IA & Automatisation pour PME/TPE en France. Workflows n8n sur-mesure, intégration LLM, audit & implémentation. +40 clients. ROI mesuré en 30 jours." />
+    <title>Oakflow AI â€” Automatisation IA pour PME & TPE</title>
+    <meta name="description" content="Consultant IA & Automatisation pour PME/TPE en France. Workflows n8n sur-mesure, intÃ©gration LLM, audit & implÃ©mentation. +40 clients. ROI mesurÃ© en 30 jours." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://esm.sh" crossorigin />
@@ -29,7 +35,8 @@
     <link rel="dns-prefetch" href="https://unpkg.com" />
     <link rel="dns-prefetch" href="https://api.iconify.design" />
     <link rel="preload" as="image" href="oakflow_logo_cube.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="preload" as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
 
     <!-- SEO Meta Tags -->
     <link rel="canonical" href="https://www.oakflowai.com/" />
@@ -42,40 +49,40 @@
     <!-- Open Graph / LinkedIn / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.oakflowai.com/" />
-    <meta property="og:title" content="Oakflow AI — Automatisation IA pour PME & TPE" />
+    <meta property="og:title" content="Oakflow AI â€” Automatisation IA pour PME & TPE" />
     <meta property="og:description"
-        content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implémentation n8n & LLM. Basé en France." />
+        content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implÃ©mentation n8n & LLM. BasÃ© en France." />
     <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Oakflow AI — Automatisation IA pour PME & TPE françaises" />
+    <meta property="og:image:alt" content="Oakflow AI â€” Automatisation IA pour PME & TPE franÃ§aises" />
     <meta property="og:locale" content="fr_FR" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.oakflowai.com/" />
-    <meta property="twitter:title" content="Oakflow AI — Automatisation IA pour PME & TPE" />
+    <meta property="twitter:title" content="Oakflow AI â€” Automatisation IA pour PME & TPE" />
     <meta property="twitter:description"
-        content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implémentation n8n & LLM." />
+        content="Votre consultant en IA & Automatisation. Solutions sur-mesure pour PME/TPE : Audit, conseil et implÃ©mentation n8n & LLM." />
     <meta property="twitter:image" content="https://www.oakflowai.com/og-image.png" />
 
     <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
 
-    <!-- JSON-LD Schema — ProfessionalService -->
+    <!-- JSON-LD Schema â€” ProfessionalService -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://www.oakflowai.com/#organization",
       "name": "Oakflow AI",
-      "legalName": "Oakflow AI — Cyril DE LA RUE",
+      "legalName": "Oakflow AI â€” Cyril DE LA RUE",
       "image": "https://www.oakflowai.com/oakflow_logo_cube.jpg",
       "logo": "https://www.oakflowai.com/oakflow_logo_cube.jpg",
       "url": "https://www.oakflowai.com/",
       "telephone": "+33759696769",
       "email": "contact@oakflowai.com",
-      "description": "Consultant en automatisation IA et déploiement de workflows n8n sur-mesure pour PME et TPE françaises. Audit, conseil et implémentation de solutions LLM avec ROI mesurable en 30 jours.",
-      "priceRange": "€€",
+      "description": "Consultant en automatisation IA et dÃ©ploiement de workflows n8n sur-mesure pour PME et TPE franÃ§aises. Audit, conseil et implÃ©mentation de solutions LLM avec ROI mesurable en 30 jours.",
+      "priceRange": "â‚¬â‚¬",
       "currenciesAccepted": "EUR",
       "address": {
         "@type": "PostalAddress",
@@ -119,7 +126,7 @@
     }
     </script>
 
-    <!-- JSON-LD Schema — Person -->
+    <!-- JSON-LD Schema â€” Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -129,7 +136,7 @@
       "givenName": "Cyril",
       "familyName": "DE LA RUE",
       "jobTitle": "Consultant en Automatisation IA",
-      "description": "Expert en automatisation des processus métiers et intelligence artificielle. 20 ans d'expérience dans l'optimisation opérationnelle pour PME et TPE françaises.",
+      "description": "Expert en automatisation des processus mÃ©tiers et intelligence artificielle. 20 ans d'expÃ©rience dans l'optimisation opÃ©rationnelle pour PME et TPE franÃ§aises.",
       "url": "https://www.oakflowai.com/",
       "email": "contact@oakflowai.com",
       "telephone": "+33759696769",
@@ -142,18 +149,18 @@
         "addressCountry": "FR"
       },
       "knowsAbout": [
-        "Automatisation des processus métiers",
+        "Automatisation des processus mÃ©tiers",
         "Intelligence artificielle",
         "n8n workflow automation",
         "Large Language Models",
-        "Intégration de systèmes",
+        "IntÃ©gration de systÃ¨mes",
         "Transformation digitale PME"
       ],
       "sameAs": ["https://www.linkedin.com/in/de-la-rue/"]
     }
     </script>
 
-    <!-- JSON-LD Schema — Services -->
+    <!-- JSON-LD Schema â€” Services -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -165,11 +172,11 @@
           "item": {
             "@type": "Service",
             "@id": "https://www.oakflowai.com/#service-chatbot",
-            "name": "Création de Chatbot Personnalisé (RAG)",
-            "description": "Chatbot avec base de connaissance client, système RAG, interface utilisateur, test et déploiement.",
+            "name": "CrÃ©ation de Chatbot PersonnalisÃ© (RAG)",
+            "description": "Chatbot avec base de connaissance client, systÃ¨me RAG, interface utilisateur, test et dÃ©ploiement.",
             "provider": { "@id": "https://www.oakflowai.com/#organization" },
             "areaServed": { "@type": "Country", "name": "France" },
-            "serviceType": "Développement IA",
+            "serviceType": "DÃ©veloppement IA",
             "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "350", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
           }
         },
@@ -179,7 +186,7 @@
             "@type": "Service",
             "@id": "https://www.oakflowai.com/#service-automatisation",
             "name": "Automatisation IA",
-            "description": "Transformation de vos processus métiers par l'automatisation des tâches chronophages via n8n et LLM.",
+            "description": "Transformation de vos processus mÃ©tiers par l'automatisation des tÃ¢ches chronophages via n8n et LLM.",
             "provider": { "@id": "https://www.oakflowai.com/#organization" },
             "areaServed": { "@type": "Country", "name": "France" },
             "serviceType": "Automatisation des processus",
@@ -192,10 +199,10 @@
             "@type": "Service",
             "@id": "https://www.oakflowai.com/#service-vocal",
             "name": "Assistant Vocal Intelligent",
-            "description": "IA conversationnelle pour accompagner les tâches quotidiennes. Gain de temps et optimisation de la gestion client.",
+            "description": "IA conversationnelle pour accompagner les tÃ¢ches quotidiennes. Gain de temps et optimisation de la gestion client.",
             "provider": { "@id": "https://www.oakflowai.com/#organization" },
             "areaServed": { "@type": "Country", "name": "France" },
-            "serviceType": "Développement IA",
+            "serviceType": "DÃ©veloppement IA",
             "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "890", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
           }
         },
@@ -204,8 +211,8 @@
           "item": {
             "@type": "Service",
             "@id": "https://www.oakflowai.com/#service-mentoring",
-            "name": "Mentoring n8n — Devenez Autonome en Automatisation",
-            "description": "Maîtrise de n8n et des concepts clés. Gestion des erreurs, monitoring, cas pratiques appliqués à votre business. Support post-formation inclus.",
+            "name": "Mentoring n8n â€” Devenez Autonome en Automatisation",
+            "description": "MaÃ®trise de n8n et des concepts clÃ©s. Gestion des erreurs, monitoring, cas pratiques appliquÃ©s Ã  votre business. Support post-formation inclus.",
             "provider": { "@id": "https://www.oakflowai.com/#organization" },
             "areaServed": { "@type": "Country", "name": "France" },
             "serviceType": "Formation",
@@ -217,11 +224,11 @@
           "item": {
             "@type": "Service",
             "@id": "https://www.oakflowai.com/#service-workflows",
-            "name": "Développement de Workflows Complexes et Agents IA",
-            "description": "Workflows n8n avancés avec gestion d'erreurs, agents IA connectés (RAG, API), intégration CRM et bases de données.",
+            "name": "DÃ©veloppement de Workflows Complexes et Agents IA",
+            "description": "Workflows n8n avancÃ©s avec gestion d'erreurs, agents IA connectÃ©s (RAG, API), intÃ©gration CRM et bases de donnÃ©es.",
             "provider": { "@id": "https://www.oakflowai.com/#organization" },
             "areaServed": { "@type": "Country", "name": "France" },
-            "serviceType": "Développement IA",
+            "serviceType": "DÃ©veloppement IA",
             "offers": { "@type": "Offer", "priceCurrency": "EUR", "price": "500", "availability": "https://schema.org/InStock", "url": "https://www.oakflowai.com/#pricing" }
           }
         },
@@ -231,7 +238,7 @@
             "@type": "Service",
             "@id": "https://www.oakflowai.com/#service-audit",
             "name": "Audit & Architecture d'Automatisation (n8n & IA)",
-            "description": "Analyse des processus actuels, sélection de la stack technique souveraine (n8n sur VPS), architecture de systèmes complets et scalables.",
+            "description": "Analyse des processus actuels, sÃ©lection de la stack technique souveraine (n8n sur VPS), architecture de systÃ¨mes complets et scalables.",
             "provider": { "@id": "https://www.oakflowai.com/#organization" },
             "areaServed": { "@type": "Country", "name": "France" },
             "serviceType": "Conseil en automatisation",
@@ -242,7 +249,7 @@
     }
     </script>
 
-    <!-- JSON-LD Schema — Reviews -->
+    <!-- JSON-LD Schema â€” Reviews -->
     <script type="application/ld+json">
     [
       {
@@ -257,7 +264,7 @@
           "worstRating": "1"
         },
         "author": { "@type": "Person", "name": "Nathalie Dumont" },
-        "reviewBody": "Franchement, au début j'étais sceptique sur l'IA pour notre cabinet. Cyril a posé les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit « j'ai cru que c'était une blague ». On a récupéré 30h par mois, c'est concret."
+        "reviewBody": "Franchement, au dÃ©but j'Ã©tais sceptique sur l'IA pour notre cabinet. Cyril a posÃ© les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit Â« j'ai cru que c'Ã©tait une blague Â». On a rÃ©cupÃ©rÃ© 30h par mois, c'est concret."
       },
       {
         "@context": "https://schema.org",
@@ -271,7 +278,7 @@
           "worstRating": "1"
         },
         "author": { "@type": "Person", "name": "Karim Benali" },
-        "reviewBody": "On perdait un temps fou à trier les leads entrants. Depuis qu'Oakflow a branché le pipeline d'enrichissement, c'est nuit et jour. Notre taux de closing est passé de 8% à 22% en trois mois."
+        "reviewBody": "On perdait un temps fou Ã  trier les leads entrants. Depuis qu'Oakflow a branchÃ© le pipeline d'enrichissement, c'est nuit et jour. Notre taux de closing est passÃ© de 8% Ã  22% en trois mois."
       },
       {
         "@context": "https://schema.org",
@@ -284,8 +291,8 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "author": { "@type": "Person", "name": "Estelle Maréchal" },
-        "reviewBody": "J'avais testé deux agences avant, ça n'avait rien donné. Avec Cyril, en une heure il avait capté le problème. Trois semaines plus tard, notre workflow n8n tournait et on économisait 20h de saisie par semaine."
+        "author": { "@type": "Person", "name": "Estelle MarÃ©chal" },
+        "reviewBody": "J'avais testÃ© deux agences avant, Ã§a n'avait rien donnÃ©. Avec Cyril, en une heure il avait captÃ© le problÃ¨me. Trois semaines plus tard, notre workflow n8n tournait et on Ã©conomisait 20h de saisie par semaine."
       },
       {
         "@context": "https://schema.org",
@@ -299,12 +306,12 @@
           "worstRating": "1"
         },
         "author": { "@type": "Person", "name": "Julien Pascaud" },
-        "reviewBody": "On recevait 80 appels par jour et on en loupait la moitié. Depuis que l'agent vocal est en place, plus un seul appel perdu. Il qualifie, prend les RDV sur Google Calendar et logge tout dans notre CRM."
+        "reviewBody": "On recevait 80 appels par jour et on en loupait la moitiÃ©. Depuis que l'agent vocal est en place, plus un seul appel perdu. Il qualifie, prend les RDV sur Google Calendar et logge tout dans notre CRM."
       }
     ]
     </script>
 
-    <!-- JSON-LD Schema — WebSite -->
+    <!-- JSON-LD Schema â€” WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -312,13 +319,13 @@
       "@id": "https://www.oakflowai.com/#website",
       "url": "https://www.oakflowai.com/",
       "name": "Oakflow AI",
-      "description": "Consultant en IA et Automatisation pour PME et TPE françaises. Solutions n8n et LLM sur-mesure.",
+      "description": "Consultant en IA et Automatisation pour PME et TPE franÃ§aises. Solutions n8n et LLM sur-mesure.",
       "inLanguage": "fr-FR",
       "publisher": { "@id": "https://www.oakflowai.com/#organization" }
     }
     </script>
 
-    <!-- JSON-LD Schema — FAQPage (Rich Snippets Google) -->
+    <!-- JSON-LD Schema â€” FAQPage (Rich Snippets Google) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -329,31 +336,31 @@
           "name": "Qu'est-ce que l'automatisation IA pour PME ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "L'automatisation IA pour PME consiste à utiliser des outils comme n8n et des LLM pour éliminer les tâches manuelles répétitives : traitement de factures, qualification de leads, rapports automatiques, etc."
+            "text": "L'automatisation IA pour PME consiste Ã  utiliser des outils comme n8n et des LLM pour Ã©liminer les tÃ¢ches manuelles rÃ©pÃ©titives : traitement de factures, qualification de leads, rapports automatiques, etc."
           }
         },
         {
           "@type": "Question",
-          "name": "Combien coûte une automatisation n8n pour mon entreprise ?",
+          "name": "Combien coÃ»te une automatisation n8n pour mon entreprise ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nos prestations démarrent à 150€ pour un mentoring n8n et jusqu'à 890€ pour un assistant vocal intelligent. Un audit initial gratuit de 30 minutes est proposé."
+            "text": "Nos prestations dÃ©marrent Ã  150â‚¬ pour un mentoring n8n et jusqu'Ã  890â‚¬ pour un assistant vocal intelligent. Un audit initial gratuit de 30 minutes est proposÃ©."
           }
         },
         {
           "@type": "Question",
-          "name": "En combien de temps voit-on des résultats avec l'automatisation IA ?",
+          "name": "En combien de temps voit-on des rÃ©sultats avec l'automatisation IA ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Les premiers résultats sont visibles en moins de 30 jours. Le ROI moyen constaté chez nos clients est de ×3."
+            "text": "Les premiers rÃ©sultats sont visibles en moins de 30 jours. Le ROI moyen constatÃ© chez nos clients est de Ã—3."
           }
         },
         {
           "@type": "Question",
-          "name": "Quelle est la différence entre n8n, Make et Zapier ?",
+          "name": "Quelle est la diffÃ©rence entre n8n, Make et Zapier ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "n8n est open-source et auto-hébergeable, offrant plus de flexibilité et un meilleur rapport coût/performance pour des workflows complexes. Make et Zapier sont des solutions SaaS avec des limites sur les automatisations avancées."
+            "text": "n8n est open-source et auto-hÃ©bergeable, offrant plus de flexibilitÃ© et un meilleur rapport coÃ»t/performance pour des workflows complexes. Make et Zapier sont des solutions SaaS avec des limites sur les automatisations avancÃ©es."
           }
         },
         {
@@ -361,7 +368,7 @@
           "name": "Faut-il changer ses outils existants pour s'automatiser ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non. Nos solutions s'intègrent avec vos outils existants : Gmail, Outlook, Slack, Teams, HubSpot, Pipedrive, Notion et plus de 400 autres connecteurs."
+            "text": "Non. Nos solutions s'intÃ¨grent avec vos outils existants : Gmail, Outlook, Slack, Teams, HubSpot, Pipedrive, Notion et plus de 400 autres connecteurs."
           }
         },
         {
@@ -369,7 +376,7 @@
           "name": "Que se passe-t-il si une automatisation tombe en panne ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nous assurons un suivi et une maintenance de vos workflows. En cas de panne, nous intervenons pour diagnostiquer et corriger le problème, avec un suivi ROI et reporting inclus."
+            "text": "Nous assurons un suivi et une maintenance de vos workflows. En cas de panne, nous intervenons pour diagnostiquer et corriger le problÃ¨me, avec un suivi ROI et reporting inclus."
           }
         },
         {
@@ -377,7 +384,7 @@
           "name": "Travaillez-vous en remote ou sur site ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nous intervenons principalement en remote pour toute la France, avec possibilité d'interventions sur site en Île-de-France (Clichy, Hauts-de-Seine)."
+            "text": "Nous intervenons principalement en remote pour toute la France, avec possibilitÃ© d'interventions sur site en ÃŽle-de-France (Clichy, Hauts-de-Seine)."
           }
         },
         {
@@ -385,7 +392,7 @@
           "name": "Comment se passe l'audit initial ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "L'audit initial est un appel gratuit de 30 minutes pour identifier vos 3 premières automatisations à fort ROI. Prenez rendez-vous via Calendly, sans engagement."
+            "text": "L'audit initial est un appel gratuit de 30 minutes pour identifier vos 3 premiÃ¨res automatisations Ã  fort ROI. Prenez rendez-vous via Calendly, sans engagement."
           }
         }
       ]
@@ -394,18 +401,18 @@
 </head>
 
 <body>
-    <!-- ── SKIP LINK ── -->
+    <!-- â”€â”€ SKIP LINK â”€â”€ -->
     <a href="#hero" class="skip-link">Aller au contenu principal</a>
 
-    <!-- ── NAV ── -->
+    <!-- â”€â”€ NAV â”€â”€ -->
     <nav id="nav">
         <a href="#" class="nav-logo">
-            <img src="oakflow_logo_cube.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+            <img src="oakflow_logo_cube.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" decoding="async" />
         </a>
 
         <ul class="nav-links">
             <li><a href="#features">Services</a></li>
-            <li><a href="#methode">Méthode</a></li>
+            <li><a href="#methode">MÃ©thode</a></li>
             <li><a href="#usecases">Cas d'usage</a></li>
             <li><a href="#expert">Votre Expert</a></li>
             <li><a href="#pricing">Tarifs</a></li>
@@ -414,7 +421,7 @@
             <li><a href="#newsletter">Newsletter</a></li>
         </ul>
 
-        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">ðŸ“… RÃ©server
             30min</a>
 
         <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -424,11 +431,11 @@
         </button>
     </nav>
 
-    <!-- ── MENU MOBILE PLEIN ÉCRAN ── -->
+    <!-- â”€â”€ MENU MOBILE PLEIN Ã‰CRAN â”€â”€ -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-menu-nav">
             <a href="#features" class="mobile-menu-link">Services</a>
-            <a href="#methode" class="mobile-menu-link">Méthode</a>
+            <a href="#methode" class="mobile-menu-link">MÃ©thode</a>
             <a href="#usecases" class="mobile-menu-link">Cas d'usage</a>
             <a href="#expert" class="mobile-menu-link">Votre Expert</a>
             <a href="#pricing" class="mobile-menu-link">Tarifs</a>
@@ -437,10 +444,10 @@
             <a href="#newsletter" class="mobile-menu-link">Newsletter</a>
         </nav>
         <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
-            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+            class="btn-primary mobile-menu-cta">ðŸ“… RÃ©server 30min</a>
     </div>
 
-    <!-- ── HERO ── -->
+    <!-- â”€â”€ HERO â”€â”€ -->
     <main>
     <section id="hero">
         <div class="glow-bg hero-glow-1"></div>
@@ -454,7 +461,7 @@
             <div class="hero-left">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Consultant IA &amp; Automatisation · France
+                    Consultant IA &amp; Automatisation Â· France
                 </div>
 
                 <h1>
@@ -463,13 +470,13 @@
                 </h1>
 
                 <p class="hero-desc">
-                    Libérez vos équipes des tâches répétitives. Des solutions sur-mesure en n8n &amp; LLM :
-                    audit, conseil et implémentation opérationnelle.
+                    LibÃ©rez vos Ã©quipes des tÃ¢ches rÃ©pÃ©titives. Des solutions sur-mesure en n8n &amp; LLM :
+                    audit, conseil et implÃ©mentation opÃ©rationnelle.
                 </p>
 
                 <div class="hero-ctas">
                     <a href="#cta" class="btn-primary">
-                        ☎&nbsp; Planifier un appel gratuit (30 min)
+                        â˜Ž&nbsp; Planifier un appel gratuit (30 min)
                     </a>
                     <a href="#usecases" class="btn-ghost">
                         Voir les cas d'usage &rarr;
@@ -482,7 +489,7 @@
                         <img class="av" src="avatar-2.webp" alt="Client satisfait" width="36" height="36" loading="lazy" />
                         <img class="av" src="avatar-2.webp" alt="Client satisfait" width="36" height="36" loading="lazy" />
                     </div>
-                    <p class="proof-text"><strong>+40 PME/TPE</strong> automatisées</p>
+                    <p class="proof-text"><strong>+40 PME/TPE</strong> automatisÃ©es</p>
                     <div class="proof-sep"></div>
                     <div class="proof-checks">
                         <span class="check-item">
@@ -516,20 +523,20 @@
                     <canvas id="spline-canvas"></canvas>
                     <div class="spline-loader" id="splineLoader">
                         <div class="loader-ring"></div>
-                        <span>Chargement 3D…</span>
+                        <span>Chargement 3Dâ€¦</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── TICKER ── -->
+    <!-- â”€â”€ TICKER â”€â”€ -->
     <div id="ticker">
         <div class="ticker-track" aria-hidden="true">
             <span class="ticker-item">n8n Automation <span class="ticker-dot"></span></span>
-            <span class="ticker-item">OpenAI · GPT-4o <span class="ticker-dot"></span></span>
+            <span class="ticker-item">OpenAI Â· GPT-4o <span class="ticker-dot"></span></span>
             <span class="ticker-item">Qualification LLM <span class="ticker-dot"></span></span>
-            <span class="ticker-item">Lead Gen Automatisé <span class="ticker-dot"></span></span>
+            <span class="ticker-item">Lead Gen AutomatisÃ© <span class="ticker-dot"></span></span>
             <span class="ticker-item">Traitement Documents <span class="ticker-dot"></span></span>
             <span class="ticker-item">CRM Auto-Update <span class="ticker-dot"></span></span>
             <span class="ticker-item">Emails Intelligents <span class="ticker-dot"></span></span>
@@ -537,9 +544,9 @@
             <span class="ticker-item">Reporting Auto <span class="ticker-dot"></span></span>
             <!-- Duplicate for seamless loop -->
             <span class="ticker-item">n8n Automation <span class="ticker-dot"></span></span>
-            <span class="ticker-item">OpenAI · GPT-4o <span class="ticker-dot"></span></span>
+            <span class="ticker-item">OpenAI Â· GPT-4o <span class="ticker-dot"></span></span>
             <span class="ticker-item">Qualification LLM <span class="ticker-dot"></span></span>
-            <span class="ticker-item">Lead Gen Automatisé <span class="ticker-dot"></span></span>
+            <span class="ticker-item">Lead Gen AutomatisÃ© <span class="ticker-dot"></span></span>
             <span class="ticker-item">Traitement Documents <span class="ticker-dot"></span></span>
             <span class="ticker-item">CRM Auto-Update <span class="ticker-dot"></span></span>
             <span class="ticker-item">Emails Intelligents <span class="ticker-dot"></span></span>
@@ -548,16 +555,16 @@
         </div>
     </div>
 
-    <!-- ── FEATURES BENTO ── -->
+    <!-- â”€â”€ FEATURES BENTO â”€â”€ -->
     <section id="features">
         <div class="container">
             <div class="label reveal">Services</div>
             <h2 class="reveal">Tout ce qu'il faut pour<br />automatiser votre croissance</h2>
-            <p class="sec-desc reveal">De l'audit à l'implémentation, Oakflow AI transforme vos processus en avantage
-                compétitif.</p>
+            <p class="sec-desc reveal">De l'audit Ã  l'implÃ©mentation, Oakflow AI transforme vos processus en avantage
+                compÃ©titif.</p>
 
             <div class="bento">
-                <!-- A — tall card: Audit -->
+                <!-- A â€” tall card: Audit -->
                 <div class="bc bc-a reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -567,25 +574,25 @@
                         </svg>
                     </div>
                     <h3>Audit &amp; Diagnostic IA</h3>
-                    <p>Cartographie complète de vos processus actuels. Identification des tâches automatisables à fort
-                        ROI, avec estimations concrètes de gains.</p>
+                    <p>Cartographie complÃ¨te de vos processus actuels. Identification des tÃ¢ches automatisables Ã  fort
+                        ROI, avec estimations concrÃ¨tes de gains.</p>
 
                     <div class="mini-widget">
-                        <div class="row"><span class="key">Tâches analysées</span><span class="val good">47</span></div>
+                        <div class="row"><span class="key">TÃ¢ches analysÃ©es</span><span class="val good">47</span></div>
                         <div class="row"><span class="key">Automatisables</span><span class="val">31</span></div>
                         <div class="row"><span class="key">Temps gagnable</span><span class="val good">+120h/mois</span>
                         </div>
-                        <div class="row"><span class="key">ROI estimé</span><span class="val good">×3.2</span></div>
+                        <div class="row"><span class="key">ROI estimÃ©</span><span class="val good">Ã—3.2</span></div>
                     </div>
 
                     <div class="prog-bar" style="margin-top:16px;">
                         <div class="prog-bar-fill" data-w="68%" style="width:0%"></div>
                     </div>
-                    <p style="font-size:12px;color:var(--muted);margin-top:8px;">68% des tâches manuelles éliminables en
+                    <p style="font-size:12px;color:var(--muted);margin-top:8px;">68% des tÃ¢ches manuelles Ã©liminables en
                         30 jours</p>
                 </div>
 
-                <!-- B — wide card: Workflows n8n -->
+                <!-- B â€” wide card: Workflows n8n -->
                 <div class="bc bc-b reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -594,12 +601,12 @@
                         </svg>
                     </div>
                     <h3>Workflows n8n sur-mesure</h3>
-                    <p>Développement &amp; déploiement d'automatisations connectées à vos outils existants. 400+
-                        intégrations natives.</p>
+                    <p>DÃ©veloppement &amp; dÃ©ploiement d'automatisations connectÃ©es Ã  vos outils existants. 400+
+                        intÃ©grations natives.</p>
                     <span class="bc-stat">400+</span>
                 </div>
 
-                <!-- C — Intégration LLM -->
+                <!-- C â€” IntÃ©gration LLM -->
                 <div class="bc bc-c reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -608,12 +615,12 @@
                                 d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
-                    <h3>Intégration LLM</h3>
-                    <p>Intelligence artificielle injectée dans vos flux : analyse documents, qualification leads,
-                        réponses auto.</p>
+                    <h3>IntÃ©gration LLM</h3>
+                    <p>Intelligence artificielle injectÃ©e dans vos flux : analyse documents, qualification leads,
+                        rÃ©ponses auto.</p>
                 </div>
 
-                <!-- D — Formation -->
+                <!-- D â€” Formation -->
                 <div class="bc bc-d reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -623,10 +630,10 @@
                         </svg>
                     </div>
                     <h3>Formation</h3>
-                    <p>Vos équipes autonomes sur les outils IA.</p>
+                    <p>Vos Ã©quipes autonomes sur les outils IA.</p>
                 </div>
 
-                <!-- F — Sites Web 3D -->
+                <!-- F â€” Sites Web 3D -->
                 <div class="bc bc-f reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -636,11 +643,11 @@
                         </svg>
                     </div>
                     <h3>Sites Web 3D Immersifs</h3>
-                    <p>Conception de sites vitrines avec scènes 3D interactives (Spline, Three.js). Expériences
+                    <p>Conception de sites vitrines avec scÃ¨nes 3D interactives (Spline, Three.js). ExpÃ©riences
                         immersives qui captent l'attention et boostent vos conversions.</p>
                 </div>
 
-                <!-- E — Suivi ROI (wide) -->
+                <!-- E â€” Suivi ROI (wide) -->
                 <div class="bc bc-e reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -650,7 +657,7 @@
                         </svg>
                     </div>
                     <h3>Suivi ROI &amp; Reporting</h3>
-                    <p>Dashboard de performance en temps réel. Métriques : temps gagné, erreurs évitées, coûts réduits.
+                    <p>Dashboard de performance en temps rÃ©el. MÃ©triques : temps gagnÃ©, erreurs Ã©vitÃ©es, coÃ»ts rÃ©duits.
                         Optimisation sur 3 mois incluse.</p>
 
                     <div style="display:flex;gap:28px;margin-top:20px;flex-wrap:wrap;">
@@ -661,21 +668,21 @@
                         </div>
                         <div>
                             <span
-                                style="font-family:var(--font-h);font-size:38px;font-weight:700;color:var(--accent);letter-spacing:-2px;display:block;">×3</span>
+                                style="font-family:var(--font-h);font-size:38px;font-weight:700;color:var(--accent);letter-spacing:-2px;display:block;">Ã—3</span>
                             <span style="font-size:12px;color:var(--muted);">ROI moyen</span>
                         </div>
                         <div>
                             <span
                                 style="font-family:var(--font-h);font-size:38px;font-weight:700;color:var(--accent);letter-spacing:-2px;display:block;">30j</span>
-                            <span style="font-size:12px;color:var(--muted);">premiers résultats</span>
+                            <span style="font-size:12px;color:var(--muted);">premiers rÃ©sultats</span>
                         </div>
                     </div>
                     <p style="font-size:11px;color:var(--muted);margin-top:12px;opacity:0.7;">
-                        * Données issues de nos 40+ missions clients (2024-2025). Méthodologie disponible sur demande.
+                        * DonnÃ©es issues de nos 40+ missions clients (2024-2025). MÃ©thodologie disponible sur demande.
                     </p>
                 </div>
 
-                <!-- F — Conseil -->
+                <!-- F â€” Conseil -->
                 <div class="bc bc-f reveal">
                     <div class="bc-icon">
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -685,20 +692,20 @@
                         </svg>
                     </div>
                     <h3>Conseil &amp; Architecture</h3>
-                    <p>Plan d'implémentation priorisé par ROI. Stack n8n + LLM adapté à votre infrastructure existante.
+                    <p>Plan d'implÃ©mentation priorisÃ© par ROI. Stack n8n + LLM adaptÃ© Ã  votre infrastructure existante.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── MÉTHODE ── -->
+    <!-- â”€â”€ MÃ‰THODE â”€â”€ -->
     <section id="methode">
         <div class="container">
             <div class="method-head">
-                <div class="label reveal" style="justify-content:center;">Notre méthode</div>
-                <h2 class="reveal">Audit → Conseil → Implémentation</h2>
-                <p class="sec-desc reveal">Résultats concrets en moins de 30 jours. Un processus éprouvé, 0 surprise.
+                <div class="label reveal" style="justify-content:center;">Notre mÃ©thode</div>
+                <h2 class="reveal">Audit â†’ Conseil â†’ ImplÃ©mentation</h2>
+                <p class="sec-desc reveal">RÃ©sultats concrets en moins de 30 jours. Un processus Ã©prouvÃ©, 0 surprise.
                 </p>
             </div>
 
@@ -706,141 +713,141 @@
                 <div class="step-card reveal">
                     <div class="step-no">01</div>
                     <h3>Audit &amp; Cartographie</h3>
-                    <p>Analyse de vos processus, identification des goulots d'étranglement et des opportunités
-                        d'automatisation à fort impact.</p>
+                    <p>Analyse de vos processus, identification des goulots d'Ã©tranglement et des opportunitÃ©s
+                        d'automatisation Ã  fort impact.</p>
                 </div>
                 <div class="step-card reveal">
                     <div class="step-no">02</div>
                     <h3>Conseil &amp; Architecture</h3>
-                    <p>Conception de la solution : stack, intégrations, plan d'implémentation priorisé par ROI. Livré
-                        sous 5 jours ouvrés.</p>
+                    <p>Conception de la solution : stack, intÃ©grations, plan d'implÃ©mentation priorisÃ© par ROI. LivrÃ©
+                        sous 5 jours ouvrÃ©s.</p>
                 </div>
                 <div class="step-card reveal">
                     <div class="step-no">03</div>
-                    <h3>Implémentation &amp; Suivi</h3>
-                    <p>Développement, tests, déploiement. Formation des équipes et suivi sur 3 mois pour optimisation
+                    <h3>ImplÃ©mentation &amp; Suivi</h3>
+                    <p>DÃ©veloppement, tests, dÃ©ploiement. Formation des Ã©quipes et suivi sur 3 mois pour optimisation
                         continue.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── CAS D'USAGE ── -->
+    <!-- â”€â”€ CAS D'USAGE â”€â”€ -->
     <section id="usecases">
         <div class="container">
             <div class="cases-head">
-                <div class="label reveal">Cas d'usage réels</div>
-                <h2 class="reveal">Des résultats concrets,<br />pas des promesses</h2>
-                <p class="sec-desc reveal">Workflows n8n déployés chez nos clients. Chiffres réels.</p>
+                <div class="label reveal">Cas d'usage rÃ©els</div>
+                <h2 class="reveal">Des rÃ©sultats concrets,<br />pas des promesses</h2>
+                <p class="sec-desc reveal">Workflows n8n dÃ©ployÃ©s chez nos clients. Chiffres rÃ©els.</p>
             </div>
 
             <div class="cases-grid">
                 <div class="case-card reveal">
-                    <span class="case-tag">Comptabilité</span>
+                    <span class="case-tag">ComptabilitÃ©</span>
                     <h3>Traitement automatique des factures fournisseurs</h3>
-                    <p>Extraction des données par LLM, validation et intégration dans le logiciel comptable. Zéro
+                    <p>Extraction des donnÃ©es par LLM, validation et intÃ©gration dans le logiciel comptable. ZÃ©ro
                         ressaisie manuelle.</p>
                     <div class="case-metrics">
                         <div><span class="cm-val">500</span><span class="cm-lbl">factures/mois</span></div>
-                        <div><span class="cm-val">30h</span><span class="cm-lbl">économisées/mois</span></div>
+                        <div><span class="cm-val">30h</span><span class="cm-lbl">Ã©conomisÃ©es/mois</span></div>
                         <div><span class="cm-val">0</span><span class="cm-lbl">erreur de saisie</span></div>
                     </div>
                 </div>
 
                 <div class="case-card reveal">
                     <span class="case-tag">Marketing</span>
-                    <h3>Qualification &amp; nurturing automatisé des leads</h3>
-                    <p>Capture Typeform → scoring LLM → segmentation → séquences email → Calendly si qualifié. Pipeline
-                        100% automatisé.</p>
+                    <h3>Qualification &amp; nurturing automatisÃ© des leads</h3>
+                    <p>Capture Typeform â†’ scoring LLM â†’ segmentation â†’ sÃ©quences email â†’ Calendly si qualifiÃ©. Pipeline
+                        100% automatisÃ©.</p>
                     <div class="case-metrics">
-                        <div><span class="cm-val">×3</span><span class="cm-lbl">taux de conversion</span></div>
-                        <div><span class="cm-val">15h</span><span class="cm-lbl">gagnées/semaine</span></div>
+                        <div><span class="cm-val">Ã—3</span><span class="cm-lbl">taux de conversion</span></div>
+                        <div><span class="cm-val">15h</span><span class="cm-lbl">gagnÃ©es/semaine</span></div>
                         <div><span class="cm-val">24/7</span><span class="cm-lbl">suivi automatique</span></div>
                     </div>
                 </div>
 
                 <div class="case-card reveal">
                     <span class="case-tag">RH</span>
-                    <h3>Pré-qualification automatique des candidatures</h3>
-                    <p>Analyse des CVs par IA, scoring selon critères définis, tri et préparation des comptes-rendus
+                    <h3>PrÃ©-qualification automatique des candidatures</h3>
+                    <p>Analyse des CVs par IA, scoring selon critÃ¨res dÃ©finis, tri et prÃ©paration des comptes-rendus
                         pour les recruteurs.</p>
                     <div class="case-metrics">
                         <div><span class="cm-val">200</span><span class="cm-lbl">CV/semaine</span></div>
-                        <div><span class="cm-val">20h</span><span class="cm-lbl">économisées/recruteur</span></div>
-                        <div><span class="cm-val">+60%</span><span class="cm-lbl">pertinence sélections</span></div>
+                        <div><span class="cm-val">20h</span><span class="cm-lbl">Ã©conomisÃ©es/recruteur</span></div>
+                        <div><span class="cm-val">+60%</span><span class="cm-lbl">pertinence sÃ©lections</span></div>
                     </div>
                 </div>
 
                 <div class="case-card reveal">
                     <span class="case-tag">Service client</span>
-                    <h3>Rapports hebdomadaires clients automatisés</h3>
-                    <p>Agrégation multi-sources, génération narrative par LLM, envoi personnalisé à chaque client,
-                        toujours à l'heure.</p>
+                    <h3>Rapports hebdomadaires clients automatisÃ©s</h3>
+                    <p>AgrÃ©gation multi-sources, gÃ©nÃ©ration narrative par LLM, envoi personnalisÃ© Ã  chaque client,
+                        toujours Ã  l'heure.</p>
                     <div class="case-metrics">
                         <div><span class="cm-val">50</span><span class="cm-lbl">rapports/semaine</span></div>
-                        <div><span class="cm-val">8h</span><span class="cm-lbl">gagnées/semaine</span></div>
-                        <div><span class="cm-val">100%</span><span class="cm-lbl">à temps, toujours</span></div>
+                        <div><span class="cm-val">8h</span><span class="cm-lbl">gagnÃ©es/semaine</span></div>
+                        <div><span class="cm-val">100%</span><span class="cm-lbl">Ã  temps, toujours</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── COMPARISON ── -->
+    <!-- â”€â”€ COMPARISON â”€â”€ -->
     <section id="compare">
         <div class="container">
             <div class="label reveal" style="justify-content:center;">Pourquoi Oakflow AI</div>
             <h2 class="reveal">Oakflow AI vs les autres</h2>
-            <p class="sec-desc reveal">Ce qui nous différencie concrètement des solutions ESN et agences génériques.</p>
+            <p class="sec-desc reveal">Ce qui nous diffÃ©rencie concrÃ¨tement des solutions ESN et agences gÃ©nÃ©riques.</p>
 
             <div class="compare-table reveal">
                 <div class="cmp-row header">
-                    <div class="cmp-cell">Critère</div>
-                    <div class="cmp-cell ours">✦ Oakflow AI</div>
+                    <div class="cmp-cell">CritÃ¨re</div>
+                    <div class="cmp-cell ours">âœ¦ Oakflow AI</div>
                     <div class="cmp-cell">ESN / Agence classique</div>
                 </div>
                 <div class="cmp-row">
-                    <div class="cmp-cell">Premiers résultats</div>
-                    <div class="cmp-cell ours"><span class="ok">✓</span> &lt; 30 jours</div>
-                    <div class="cmp-cell"><span class="nok">✗</span> 3 à 6 mois</div>
+                    <div class="cmp-cell">Premiers rÃ©sultats</div>
+                    <div class="cmp-cell ours"><span class="ok">âœ“</span> &lt; 30 jours</div>
+                    <div class="cmp-cell"><span class="nok">âœ—</span> 3 Ã  6 mois</div>
                 </div>
                 <div class="cmp-row">
-                    <div class="cmp-cell">Spécialiste n8n + LLM</div>
-                    <div class="cmp-cell ours"><span class="ok">✓</span> Stack dédié PME</div>
-                    <div class="cmp-cell"><span class="nok">✗</span> Solutions génériques</div>
+                    <div class="cmp-cell">SpÃ©cialiste n8n + LLM</div>
+                    <div class="cmp-cell ours"><span class="ok">âœ“</span> Stack dÃ©diÃ© PME</div>
+                    <div class="cmp-cell"><span class="nok">âœ—</span> Solutions gÃ©nÃ©riques</div>
                 </div>
                 <div class="cmp-row">
                     <div class="cmp-cell">Audit ROI offert</div>
-                    <div class="cmp-cell ours"><span class="ok">✓</span> Inclus &amp; gratuit</div>
-                    <div class="cmp-cell"><span class="nok">✗</span> Facturé à part</div>
+                    <div class="cmp-cell ours"><span class="ok">âœ“</span> Inclus &amp; gratuit</div>
+                    <div class="cmp-cell"><span class="nok">âœ—</span> FacturÃ© Ã  part</div>
                 </div>
                 <div class="cmp-row">
-                    <div class="cmp-cell">Suivi post-déploiement</div>
-                    <div class="cmp-cell ours"><span class="ok">✓</span> 3 mois inclus</div>
-                    <div class="cmp-cell"><span class="nok">✗</span> Option payante</div>
+                    <div class="cmp-cell">Suivi post-dÃ©ploiement</div>
+                    <div class="cmp-cell ours"><span class="ok">âœ“</span> 3 mois inclus</div>
+                    <div class="cmp-cell"><span class="nok">âœ—</span> Option payante</div>
                 </div>
                 <div class="cmp-row">
                     <div class="cmp-cell">Engagement minimum</div>
-                    <div class="cmp-cell ours"><span class="ok">✓</span> Aucun</div>
-                    <div class="cmp-cell"><span class="nok">✗</span> 6 à 12 mois</div>
+                    <div class="cmp-cell ours"><span class="ok">âœ“</span> Aucun</div>
+                    <div class="cmp-cell"><span class="nok">âœ—</span> 6 Ã  12 mois</div>
                 </div>
                 <div class="cmp-row">
-                    <div class="cmp-cell">Tarifs adaptés PME/TPE</div>
-                    <div class="cmp-cell ours"><span class="ok">✓</span> Sur-mesure</div>
-                    <div class="cmp-cell"><span class="nok">✗</span> Budget grands comptes</div>
+                    <div class="cmp-cell">Tarifs adaptÃ©s PME/TPE</div>
+                    <div class="cmp-cell ours"><span class="ok">âœ“</span> Sur-mesure</div>
+                    <div class="cmp-cell"><span class="nok">âœ—</span> Budget grands comptes</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── PRICING ── -->
+    <!-- â”€â”€ PRICING â”€â”€ -->
     <section id="pricing">
         <div class="pf-bg-glow" style="top: 0; left: 50%; opacity: 0.2;"></div>
         <div class="container">
             <div class="label reveal" style="justify-content:center;">Tarifs</div>
-            <h2 class="reveal">Des solutions<br />adaptées à vos besoins</h2>
+            <h2 class="reveal">Des solutions<br />adaptÃ©es Ã  vos besoins</h2>
             <p class="sec-desc reveal" style="text-align:center; max-width:640px; margin:0 auto 60px;">
-                Découvrez nos forfaits d'accompagnement, de développement sur-mesure et de formation pour démarrer votre
+                DÃ©couvrez nos forfaits d'accompagnement, de dÃ©veloppement sur-mesure et de formation pour dÃ©marrer votre
                 transformation IA.
             </p>
 
@@ -850,16 +857,16 @@
                 <div class="pricing-card reveal">
                     <div class="pc-content">
                         <div class="pc-header">
-                            <h3>Création de Chatbot Personnalisé</h3>
+                            <h3>CrÃ©ation de Chatbot PersonnalisÃ©</h3>
                             <div class="pc-tags">
-                                <span class="ptag ptag-green">Approuvé</span>
-                                <span class="ptag ptag-orange">Développement</span>
+                                <span class="ptag ptag-green">ApprouvÃ©</span>
+                                <span class="ptag ptag-orange">DÃ©veloppement</span>
                             </div>
                         </div>
                         <p class="pc-desc">Planification et configuration du projet, Ajout de la base de connaissance
-                            client, Création système RAG, Interface utilisateur, Test et déploiement.</p>
+                            client, CrÃ©ation systÃ¨me RAG, Interface utilisateur, Test et dÃ©ploiement.</p>
                         <div class="pc-price-row">
-                            <span class="pc-price">À partir de <strong>350€</strong></span>
+                            <span class="pc-price">Ã€ partir de <strong>350â‚¬</strong></span>
                         </div>
                     </div>
                 </div>
@@ -870,14 +877,14 @@
                         <div class="pc-header">
                             <h3>Automatisation IA</h3>
                             <div class="pc-tags">
-                                <span class="ptag ptag-green">Approuvé</span>
-                                <span class="ptag ptag-orange">Développement</span>
+                                <span class="ptag ptag-green">ApprouvÃ©</span>
+                                <span class="ptag ptag-orange">DÃ©veloppement</span>
                             </div>
                         </div>
                         <p class="pc-desc">Transformons votre entreprise et vos process en automatisant tout ce qui est
-                            chronophage pour vous concentrer sur votre cœur de métier.</p>
+                            chronophage pour vous concentrer sur votre cÅ“ur de mÃ©tier.</p>
                         <div class="pc-price-row">
-                            <span class="pc-price">À partir de <strong>500€</strong></span>
+                            <span class="pc-price">Ã€ partir de <strong>500â‚¬</strong></span>
                         </div>
                     </div>
                 </div>
@@ -888,14 +895,14 @@
                         <div class="pc-header">
                             <h3>Assistant Vocal Intelligent</h3>
                             <div class="pc-tags">
-                                <span class="ptag ptag-green">Approuvé</span>
-                                <span class="ptag ptag-orange">Développement</span>
+                                <span class="ptag ptag-green">ApprouvÃ©</span>
+                                <span class="ptag ptag-orange">DÃ©veloppement</span>
                             </div>
                         </div>
-                        <p class="pc-desc">IA conversationnelle pour vous accompagner dans vos tâches quotidiennes.
+                        <p class="pc-desc">IA conversationnelle pour vous accompagner dans vos tÃ¢ches quotidiennes.
                             Gagnez du temps et optimisez votre gestion client.</p>
                         <div class="pc-price-row">
-                            <span class="pc-price">À partir de <strong>890€</strong></span>
+                            <span class="pc-price">Ã€ partir de <strong>890â‚¬</strong></span>
                         </div>
                     </div>
                 </div>
@@ -906,15 +913,15 @@
                         <div class="pc-header">
                             <h3>Mentoring n8n : Devenez Autonome en Automatisation</h3>
                             <div class="pc-tags">
-                                <span class="ptag ptag-green">Approuvé</span>
+                                <span class="ptag ptag-green">ApprouvÃ©</span>
                                 <span class="ptag ptag-purple">Formation</span>
                             </div>
                         </div>
-                        <p class="pc-desc">Maîtrise de l'interface n8n et des concepts clés (JSON, Webhooks). Gestion
-                            des erreurs et monitoring de vos automatisations. Cas pratiques appliqués à VOTRE business
-                            (pas de théorie vide). Support post-formation pour vos premiers déploiements.</p>
+                        <p class="pc-desc">MaÃ®trise de l'interface n8n et des concepts clÃ©s (JSON, Webhooks). Gestion
+                            des erreurs et monitoring de vos automatisations. Cas pratiques appliquÃ©s Ã  VOTRE business
+                            (pas de thÃ©orie vide). Support post-formation pour vos premiers dÃ©ploiements.</p>
                         <div class="pc-price-row">
-                            <span class="pc-price">À partir de <strong>150€</strong></span>
+                            <span class="pc-price">Ã€ partir de <strong>150â‚¬</strong></span>
                         </div>
                     </div>
                 </div>
@@ -923,18 +930,18 @@
                 <div class="pricing-card reveal">
                     <div class="pc-content">
                         <div class="pc-header">
-                            <h3>Développement de Workflows Complexes & Agents IA</h3>
+                            <h3>DÃ©veloppement de Workflows Complexes & Agents IA</h3>
                             <div class="pc-tags">
-                                <span class="ptag ptag-green">Approuvé</span>
-                                <span class="ptag ptag-orange">Développement</span>
+                                <span class="ptag ptag-green">ApprouvÃ©</span>
+                                <span class="ptag ptag-orange">DÃ©veloppement</span>
                             </div>
                         </div>
-                        <p class="pc-desc">Conception de workflows n8n avancés (Error Handling inclus). Développement
-                            d'Agents IA connectés (RAG, Outils, API), Intégration Microsoft 365, CRM et bases de
-                            données. Livraison clé en main avec documentation technique. Tests rigoureux et mise en
-                            production sécurisée.</p>
+                        <p class="pc-desc">Conception de workflows n8n avancÃ©s (Error Handling inclus). DÃ©veloppement
+                            d'Agents IA connectÃ©s (RAG, Outils, API), IntÃ©gration Microsoft 365, CRM et bases de
+                            donnÃ©es. Livraison clÃ© en main avec documentation technique. Tests rigoureux et mise en
+                            production sÃ©curisÃ©e.</p>
                         <div class="pc-price-row">
-                            <span class="pc-price">À partir de <strong>500€</strong></span>
+                            <span class="pc-price">Ã€ partir de <strong>500â‚¬</strong></span>
                         </div>
                     </div>
                 </div>
@@ -945,15 +952,15 @@
                         <div class="pc-header">
                             <h3>Audit & Architecture d'Automatisation (n8n & IA)</h3>
                             <div class="pc-tags">
-                                <span class="ptag ptag-green">Approuvé</span>
+                                <span class="ptag ptag-green">ApprouvÃ©</span>
                                 <span class="ptag ptag-blue">Accompagnement</span>
                             </div>
                         </div>
-                        <p class="pc-desc">Sélection de la Stack technique souveraine (n8n sur VPS). Analyse
-                            "Anti-bullshit" de vos processus actuels (Audit). Architecture de systèmes complets et
+                        <p class="pc-desc">SÃ©lection de la Stack technique souveraine (n8n sur VPS). Analyse
+                            "Anti-bullshit" de vos processus actuels (Audit). Architecture de systÃ¨mes complets et
                             scalables.</p>
                         <div class="pc-price-row">
-                            <span class="pc-price">À partir de <strong>350€</strong></span>
+                            <span class="pc-price">Ã€ partir de <strong>350â‚¬</strong></span>
                         </div>
                     </div>
                 </div>
@@ -962,18 +969,18 @@
 
             <div class="pf-footer-cta reveal" style="margin-top: 40px;">
                 <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
-                    class="btn-primary">Réserver un appel pour en discuter →</a>
+                    class="btn-primary">RÃ©server un appel pour en discuter â†’</a>
             </div>
 
         </div>
     </section>
 
-    <!-- ── INTÉGRATIONS ── -->
+    <!-- â”€â”€ INTÃ‰GRATIONS â”€â”€ -->
     <section id="integrations">
         <div class="container">
-            <div class="label reveal" style="justify-content:center;">Intégrations</div>
+            <div class="label reveal" style="justify-content:center;">IntÃ©grations</div>
             <h2 class="reveal">Compatible avec vos outils</h2>
-            <p class="sec-desc reveal">Connexion native à 400+ services. Zéro code requis de votre côté.</p>
+            <p class="sec-desc reveal">Connexion native Ã  400+ services. ZÃ©ro code requis de votre cÃ´tÃ©.</p>
 
             <div class="ticker-wrapper">
                 <div class="ticker-track">
@@ -1173,19 +1180,19 @@
         </div>
     </section>
 
-    <!-- ── PORTFOLIO: NOS PROJETS ── -->
+    <!-- â”€â”€ PORTFOLIO: NOS PROJETS â”€â”€ -->
     <section id="portfolio">
         <div class="pf-bg-glow"></div>
         <div class="container">
             <div class="label reveal" style="justify-content:center;">Nos Projets</div>
             <h2 class="reveal">L'IA <span class="hl">au travail</span><br />dans vos processus</h2>
             <p class="sec-desc reveal" style="text-align:center; max-width:640px; margin:0 auto 80px;">
-                Des automatisations réelles, des résultats mesurables. Voici les solutions que nous avons déployées.
+                Des automatisations rÃ©elles, des rÃ©sultats mesurables. Voici les solutions que nous avons dÃ©ployÃ©es.
             </p>
 
             <div class="pf-list">
 
-                <!-- ── CAS 1: Agent Vocal ── -->
+                <!-- â”€â”€ CAS 1: Agent Vocal â”€â”€ -->
                 <div class="pf-card reveal">
                     <div class="pf-card-inner">
                         <div class="pf-img-col">
@@ -1194,8 +1201,8 @@
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
-                                <span class="pf-badge">95% Précision Vocale</span>
-                                <span class="pf-badge">Temps Réponse &lt;2s</span>
+                                <span class="pf-badge">95% PrÃ©cision Vocale</span>
+                                <span class="pf-badge">Temps RÃ©ponse &lt;2s</span>
                                 <span class="pf-badge pf-badge--green">24/7 Actif</span>
                             </div>
                         </div>
@@ -1209,21 +1216,21 @@
                                 <span class="btag">Google Sheets</span>
                             </div>
                             <p class="pf-desc">
-                                <strong>Problème :</strong> Standards téléphoniques saturés, appels perdus hors
+                                <strong>ProblÃ¨me :</strong> Standards tÃ©lÃ©phoniques saturÃ©s, appels perdus hors
                                 horaires,
-                                prospects frustrés par les délais de réponse.
+                                prospects frustrÃ©s par les dÃ©lais de rÃ©ponse.
                             </p>
                             <p class="pf-desc">
-                                <strong>Solution :</strong> Agent vocal IA orchestrateur LangChain connecté à la
-                                téléphonie,
-                                avec booking en temps réel et qualification lead automatique.
+                                <strong>Solution :</strong> Agent vocal IA orchestrateur LangChain connectÃ© Ã  la
+                                tÃ©lÃ©phonie,
+                                avec booking en temps rÃ©el et qualification lead automatique.
                             </p>
-                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Assistant Vocal">Voir le projet →</a>
+                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Assistant Vocal">Voir le projet â†’</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- ── CAS 2: Lead Gen ── -->
+                <!-- â”€â”€ CAS 2: Lead Gen â”€â”€ -->
                 <div class="pf-card reveal pf-card--alt">
                     <div class="pf-card-inner">
                         <div class="pf-img-col">
@@ -1247,19 +1254,19 @@
                                 <span class="btag">Supabase</span>
                             </div>
                             <p class="pf-desc">
-                                <strong>Problème :</strong> Prospection manuelle chronophage, données non qualifiées,
+                                <strong>ProblÃ¨me :</strong> Prospection manuelle chronophage, donnÃ©es non qualifiÃ©es,
                                 perte de 3h/jour sur la collecte de leads B2B.
                             </p>
                             <p class="pf-desc">
-                                <strong>Solution :</strong> Scraping intelligent Apify → enrichissement LLM →
-                                scoring automatique → insertion Supabase. Zéro intervention humaine.
+                                <strong>Solution :</strong> Scraping intelligent Apify â†’ enrichissement LLM â†’
+                                scoring automatique â†’ insertion Supabase. ZÃ©ro intervention humaine.
                             </p>
-                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Enrichissement Leads">Voir le projet →</a>
+                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Enrichissement Leads">Voir le projet â†’</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- ── CAS 3: LinkedIn ── -->
+                <!-- â”€â”€ CAS 3: LinkedIn â”€â”€ -->
                 <div class="pf-card reveal">
                     <div class="pf-card-inner">
                         <div class="pf-img-col">
@@ -1269,14 +1276,14 @@
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
-                                <span class="pf-badge">Devis · Contrats · Factures</span>
-                                <span class="pf-badge pf-badge--green">100% Automatisé</span>
+                                <span class="pf-badge">Devis Â· Contrats Â· Factures</span>
+                                <span class="pf-badge pf-badge--green">100% AutomatisÃ©</span>
                                 <span class="pf-badge">RGPD Conforme</span>
                             </div>
                         </div>
                         <div class="pf-info-col">
                             <div class="pf-num">03</div>
-                            <h3>Génération Automatique Devis, Contrats &amp; Factures</h3>
+                            <h3>GÃ©nÃ©ration Automatique Devis, Contrats &amp; Factures</h3>
                             <div class="pf-tags">
                                 <span class="btag">n8n</span>
                                 <span class="btag">Telegram</span>
@@ -1284,36 +1291,36 @@
                                 <span class="btag">Google Drive</span>
                             </div>
                             <p class="pf-desc">
-                                <strong>Problème :</strong> Devis et factures créés à la main sur Word, erreurs de
+                                <strong>ProblÃ¨me :</strong> Devis et factures crÃ©Ã©s Ã  la main sur Word, erreurs de
                                 saisie,
                                 perte de temps sur les relances et le suivi contractuel.
                             </p>
                             <p class="pf-desc">
-                                <strong>Solution :</strong> Agent IA Telegram qui génère devis, contrats et factures
-                                depuis un simple message vocal ou texte, avec archivage Drive et conformité RGPD.
+                                <strong>Solution :</strong> Agent IA Telegram qui gÃ©nÃ¨re devis, contrats et factures
+                                depuis un simple message vocal ou texte, avec archivage Drive et conformitÃ© RGPD.
                             </p>
-                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Génération Devis">Voir le projet →</a>
+                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - GÃ©nÃ©ration Devis">Voir le projet â†’</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- ── CAS 4: Booking ── -->
+                <!-- â”€â”€ CAS 4: Booking â”€â”€ -->
                 <div class="pf-card reveal pf-card--alt">
                     <div class="pf-card-inner">
                         <div class="pf-img-col">
                             <div class="pf-img-wrap">
-                                <img src="Agent_vocal_mutlitache.webp" alt="Agent Orchestrateur Multi-tâches - n8n"
+                                <img src="Agent_vocal_mutlitache.webp" alt="Agent Orchestrateur Multi-tÃ¢ches - n8n"
                                     width="3159" height="1747" loading="lazy" />
                                 <div class="pf-img-shine"></div>
                             </div>
                             <div class="pf-badges">
-                                <span class="pf-badge">Mail · Agenda · Search · CRM</span>
+                                <span class="pf-badge">Mail Â· Agenda Â· Search Â· CRM</span>
                                 <span class="pf-badge pf-badge--green">Agent 24/7</span>
                             </div>
                         </div>
                         <div class="pf-info-col">
                             <div class="pf-num">04</div>
-                            <h3>Agent IA Multi-tâches Orchestrateur</h3>
+                            <h3>Agent IA Multi-tÃ¢ches Orchestrateur</h3>
                             <div class="pf-tags">
                                 <span class="btag">n8n</span>
                                 <span class="btag">LangChain</span>
@@ -1322,15 +1329,15 @@
                                 <span class="btag">Tavily</span>
                             </div>
                             <p class="pf-desc">
-                                <strong>Problème :</strong> Tâches répétitives éparpillées (emails, agenda, recherche,
+                                <strong>ProblÃ¨me :</strong> TÃ¢ches rÃ©pÃ©titives Ã©parpillÃ©es (emails, agenda, recherche,
                                 CRM),
-                                équipe surchargée sur des activités à faible valeur ajoutée.
+                                Ã©quipe surchargÃ©e sur des activitÃ©s Ã  faible valeur ajoutÃ©e.
                             </p>
                             <p class="pf-desc">
-                                <strong>Solution :</strong> Agent orchestrateur avec 4 sous-agents spécialisés :
-                                Mail, Calendrier, Recherche web et Lead — opérationnels en continu.
+                                <strong>Solution :</strong> Agent orchestrateur avec 4 sous-agents spÃ©cialisÃ©s :
+                                Mail, Calendrier, Recherche web et Lead â€” opÃ©rationnels en continu.
                             </p>
-                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Agent Orchestrateur">Voir le projet →</a>
+                            <a href="#contact" class="pf-cta" aria-label="Voir le projet - Agent Orchestrateur">Voir le projet â†’</a>
                         </div>
                     </div>
                 </div>
@@ -1339,13 +1346,13 @@
 
             <div class="pf-footer-cta reveal">
                 <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
-                    class="btn-primary">Réserver mon audit ROI gratuit →</a>
+                    class="btn-primary">RÃ©server mon audit ROI gratuit â†’</a>
             </div>
 
         </div>
     </section>
 
-    <!-- ── VOTRE EXPERT ── -->
+    <!-- â”€â”€ VOTRE EXPERT â”€â”€ -->
     <section id="expert">
         <div class="container expert-container">
             <div class="expert-content">
@@ -1353,17 +1360,17 @@
                 <h2 class="reveal">Cyril DE LA RUE</h2>
                 <p class="expert-role reveal">Consultant en Automatisation IA & Fondateur d'Oakflow AI</p>
                 <p class="sec-desc reveal">
-                    Expert en optimisation opérationnelle avec plus de 20 ans d'expérience, j'accompagne les PME et TPE dans leur transformation digitale. Mon approche est pragmatique : pas de technologie pour la technologie, mais des solutions concrètes qui libèrent du temps et génèrent un ROI mesurable.
+                    Expert en optimisation opÃ©rationnelle avec plus de 20 ans d'expÃ©rience, j'accompagne les PME et TPE dans leur transformation digitale. Mon approche est pragmatique : pas de technologie pour la technologie, mais des solutions concrÃ¨tes qui libÃ¨rent du temps et gÃ©nÃ¨rent un ROI mesurable.
                 </p>
                 <div class="expert-badges reveal">
                     <span class="badg">
                         <img src="https://api.iconify.design/simple-icons:n8n.svg?color=%23FF6D5A" width="16" height="16" alt="n8n"/> Expert n8n
                     </span>
                     <span class="badg">
-                        <img src="https://api.iconify.design/logos:openai-icon.svg" width="16" height="16" alt="OpenAI"/> IA Stratégie
+                        <img src="https://api.iconify.design/logos:openai-icon.svg" width="16" height="16" alt="OpenAI"/> IA StratÃ©gie
                     </span>
                     <span class="badg">
-                        <img src="https://api.iconify.design/lucide:shield-check.svg?color=%2300e5b0" width="16" height="16" alt="Security"/> Souveraineté & RGPD
+                        <img src="https://api.iconify.design/lucide:shield-check.svg?color=%2300e5b0" width="16" height="16" alt="Security"/> SouverainetÃ© & RGPD
                     </span>
                 </div>
                 <div class="expert-cta reveal">
@@ -1380,142 +1387,142 @@
         </div>
     </section>
 
-    <!-- ── TÉMOIGNAGES ── -->
+    <!-- â”€â”€ TÃ‰MOIGNAGES â”€â”€ -->
     <section id="testimonials">
         <div class="container">
-            <div class="label reveal" style="justify-content:center;">Témoignages</div>
+            <div class="label reveal" style="justify-content:center;">TÃ©moignages</div>
             <h2 class="reveal">Ce que disent nos clients</h2>
             <p class="sec-desc reveal" style="margin:0 auto 64px;text-align:center;">
-                Des dirigeants de PME et TPE qui ont franchi le pas. Chiffres et résultats réels.
+                Des dirigeants de PME et TPE qui ont franchi le pas. Chiffres et rÃ©sultats rÃ©els.
             </p>
 
             <div class="testi-outer reveal">
                 <div class="testi-stack" id="testiStack">
-                    <!-- First card static for SEO — JS rebuilds all cards on init -->
+                    <!-- First card static for SEO â€” JS rebuilds all cards on init -->
                     <div class="testi-card is-front">
                         <div class="testi-avatar" style="background:#00e5b020;border:2px solid #00e5b040;color:#00e5b0;" aria-label="Nathalie Dumont">ND</div>
-                        <p class="testi-quote">"Franchement, au début j'étais sceptique sur l'IA pour notre cabinet. Cyril a posé les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit « j'ai cru que c'était une blague ». On a récupéré 30h par mois, c'est concret."</p>
+                        <p class="testi-quote">"Franchement, au dÃ©but j'Ã©tais sceptique sur l'IA pour notre cabinet. Cyril a posÃ© les bonnes questions, et en deux semaines on avait un agent qui traitait nos 400 factures mensuelles tout seul. Ma comptable m'a dit Â« j'ai cru que c'Ã©tait une blague Â». On a rÃ©cupÃ©rÃ© 30h par mois, c'est concret."</p>
                         <span class="testi-author">Nathalie Dumont</span>
-                        <span class="testi-role">Directrice Administrative — Cabinet comptable, Levallois</span>
+                        <span class="testi-role">Directrice Administrative â€” Cabinet comptable, Levallois</span>
                     </div>
                 </div>
-                <p class="testi-hint">← Glissez la carte pour voir le suivant</p>
+                <p class="testi-hint">â† Glissez la carte pour voir le suivant</p>
             </div>
         </div>
     </section>
 
-    <!-- ── FAQ ── -->
+    <!-- â”€â”€ FAQ â”€â”€ -->
     <section id="faq">
         <div class="container">
             <div class="label reveal" style="justify-content:center;">FAQ</div>
-            <h2 class="reveal">Questions fréquentes<br />sur l'automatisation IA</h2>
+            <h2 class="reveal">Questions frÃ©quentes<br />sur l'automatisation IA</h2>
             <p class="sec-desc reveal" style="text-align:center; max-width:640px; margin:0 auto 56px;">
-                Tout ce que vous devez savoir avant de lancer votre première automatisation.
+                Tout ce que vous devez savoir avant de lancer votre premiÃ¨re automatisation.
             </p>
 
             <div class="faq-list">
 
                 <div class="faq-item reveal">
                     <h3>Qu'est-ce que l'automatisation IA pour PME ?</h3>
-                    <p>L'automatisation IA pour PME désigne l'utilisation de workflows intelligents — tels que n8n couplé à des LLM (GPT-4o, Claude) — pour exécuter instantanément les tâches répétitives à la place de vos collaborateurs. Concrètement, cette technologie englobe le traitement comptable des factures fournisseurs automatisé, la qualification immédiate des leads entrants depuis votre CRM, la prise de rendez-vous ou la réponse intelligente aux emails de service client. Contrairement aux solutions lourdes des grands comptes, les implémentations IA pour PME sont ultra-rapides (moins de 30 jours), abordables (à partir de 350€) et ne nécessitent ni code ni refonte de votre infrastructure existante. Aucun engagement sur la durée minimum n'est requis. Le retour sur investissement (ROI) financier et temporel se révèle très concret : dès le tout premier mois, une PME française typique récupère statistiquement entre 15 et 40 heures de travail chronophage par mois, grâce au déploiement encadré de ses premières automatisations.</p>
+                    <p>L'automatisation IA pour PME dÃ©signe l'utilisation de workflows intelligents â€” tels que n8n couplÃ© Ã  des LLM (GPT-4o, Claude) â€” pour exÃ©cuter instantanÃ©ment les tÃ¢ches rÃ©pÃ©titives Ã  la place de vos collaborateurs. ConcrÃ¨tement, cette technologie englobe le traitement comptable des factures fournisseurs automatisÃ©, la qualification immÃ©diate des leads entrants depuis votre CRM, la prise de rendez-vous ou la rÃ©ponse intelligente aux emails de service client. Contrairement aux solutions lourdes des grands comptes, les implÃ©mentations IA pour PME sont ultra-rapides (moins de 30 jours), abordables (Ã  partir de 350â‚¬) et ne nÃ©cessitent ni code ni refonte de votre infrastructure existante. Aucun engagement sur la durÃ©e minimum n'est requis. Le retour sur investissement (ROI) financier et temporel se rÃ©vÃ¨le trÃ¨s concret : dÃ¨s le tout premier mois, une PME franÃ§aise typique rÃ©cupÃ¨re statistiquement entre 15 et 40 heures de travail chronophage par mois, grÃ¢ce au dÃ©ploiement encadrÃ© de ses premiÃ¨res automatisations.</p>
                 </div>
 
                 <div class="faq-item reveal">
-                    <h3>Combien coûte une automatisation n8n pour mon entreprise ?</h3>
-                    <p>Une automatisation n8n pour PME ou TPE coûte entre 150€ et 890€ selon la complexité du workflow. Un chatbot personnalisé avec base de connaissances client démarre à 350€. Un assistant vocal intelligent commence à 890€. Une session de mentoring n8n pour vos équipes est accessible dès 150€ de l'heure. L'audit initial d'automatisation est offert gratuitement : en 30 minutes d'appel, nous identifions vos 3 premières automatisations à fort ROI et estimons le gain de temps concret. Aucun engagement minimum n'est requis, contrairement aux ESN classiques qui facturent des contrats de 6 à 12 mois. Le coût d'une automatisation est généralement amorti en moins de 3 mois grâce au temps récupéré par vos équipes sur les tâches chronophages.</p>
+                    <h3>Combien coÃ»te une automatisation n8n pour mon entreprise ?</h3>
+                    <p>Une automatisation n8n pour PME ou TPE coÃ»te entre 150â‚¬ et 890â‚¬ selon la complexitÃ© du workflow. Un chatbot personnalisÃ© avec base de connaissances client dÃ©marre Ã  350â‚¬. Un assistant vocal intelligent commence Ã  890â‚¬. Une session de mentoring n8n pour vos Ã©quipes est accessible dÃ¨s 150â‚¬ de l'heure. L'audit initial d'automatisation est offert gratuitement : en 30 minutes d'appel, nous identifions vos 3 premiÃ¨res automatisations Ã  fort ROI et estimons le gain de temps concret. Aucun engagement minimum n'est requis, contrairement aux ESN classiques qui facturent des contrats de 6 Ã  12 mois. Le coÃ»t d'une automatisation est gÃ©nÃ©ralement amorti en moins de 3 mois grÃ¢ce au temps rÃ©cupÃ©rÃ© par vos Ã©quipes sur les tÃ¢ches chronophages.</p>
                 </div>
 
                 <div class="faq-item reveal">
-                    <h3>En combien de temps voit-on des résultats avec l'automatisation IA ?</h3>
-                    <p>Les premiers résultats d'une automatisation IA sont visibles en moins de 30 jours. La méthode Oakflow AI se décompose en 3 phases : un audit de vos processus (1 semaine), la conception de l'architecture technique (5 jours ouvrés), puis le développement et déploiement du workflow (1 à 2 semaines). Pour un workflow simple — traitement de factures, qualification de leads ou envoi d'emails automatiques — le ROI est mesurable dès la première semaine de production. Les clients Oakflow AI témoignent de gains allant de 8h à 30h par mois selon les cas d'usage. Un suivi sur 3 mois est inclus dans chaque prestation pour optimiser les performances et ajuster les paramètres selon les retours terrain.</p>
+                    <h3>En combien de temps voit-on des rÃ©sultats avec l'automatisation IA ?</h3>
+                    <p>Les premiers rÃ©sultats d'une automatisation IA sont visibles en moins de 30 jours. La mÃ©thode Oakflow AI se dÃ©compose en 3 phases : un audit de vos processus (1 semaine), la conception de l'architecture technique (5 jours ouvrÃ©s), puis le dÃ©veloppement et dÃ©ploiement du workflow (1 Ã  2 semaines). Pour un workflow simple â€” traitement de factures, qualification de leads ou envoi d'emails automatiques â€” le ROI est mesurable dÃ¨s la premiÃ¨re semaine de production. Les clients Oakflow AI tÃ©moignent de gains allant de 8h Ã  30h par mois selon les cas d'usage. Un suivi sur 3 mois est inclus dans chaque prestation pour optimiser les performances et ajuster les paramÃ¨tres selon les retours terrain.</p>
                 </div>
 
                 <div class="faq-item reveal">
-                    <h3>Quelle est la différence entre n8n, Make et Zapier ?</h3>
-                    <p>n8n, Make (ex-Integromat) et Zapier sont trois outils d'automatisation de workflows, mais ils diffèrent sur des points essentiels pour les PME françaises. Zapier est le plus simple à prendre en main mais aussi le plus limité et le plus coûteux à volume élevé de tâches. Make offre une interface graphique plus flexible et des scénarios plus complexes. n8n se distingue par son modèle open-source hébergeable sur vos propres serveurs (souveraineté des données RGPD), ses 400+ intégrations natives et son absence de frais par exécution. Pour les PME soucieuses du RGPD et souhaitant maîtriser leurs coûts sur le long terme, n8n est la solution recommandée par Oakflow AI. Elle permet de connecter GPT-4o, vos CRM, votre comptabilité et vos outils métiers sans dépendance à un éditeur SaaS unique.</p>
+                    <h3>Quelle est la diffÃ©rence entre n8n, Make et Zapier ?</h3>
+                    <p>n8n, Make (ex-Integromat) et Zapier sont trois outils d'automatisation de workflows, mais ils diffÃ¨rent sur des points essentiels pour les PME franÃ§aises. Zapier est le plus simple Ã  prendre en main mais aussi le plus limitÃ© et le plus coÃ»teux Ã  volume Ã©levÃ© de tÃ¢ches. Make offre une interface graphique plus flexible et des scÃ©narios plus complexes. n8n se distingue par son modÃ¨le open-source hÃ©bergeable sur vos propres serveurs (souverainetÃ© des donnÃ©es RGPD), ses 400+ intÃ©grations natives et son absence de frais par exÃ©cution. Pour les PME soucieuses du RGPD et souhaitant maÃ®triser leurs coÃ»ts sur le long terme, n8n est la solution recommandÃ©e par Oakflow AI. Elle permet de connecter GPT-4o, vos CRM, votre comptabilitÃ© et vos outils mÃ©tiers sans dÃ©pendance Ã  un Ã©diteur SaaS unique.</p>
                 </div>
 
                 <div class="faq-item reveal">
                     <h3>Faut-il changer ses outils existants pour s'automatiser ?</h3>
-                    <p>Non, l'automatisation n8n s'intègre à vos outils existants sans les remplacer. n8n dispose de 400+ connecteurs natifs : Gmail, Outlook, HubSpot, Pipedrive, Notion, Google Sheets, Slack, Teams, Sage, QuickBooks, et bien d'autres. L'approche Oakflow AI consiste à partir de votre stack actuelle et à y ajouter une couche d'intelligence sans perturber les habitudes de vos équipes. Aucune migration de données ni refonte de système n'est nécessaire dans la grande majorité des projets. Lors de l'audit initial, nous cartographions précisément vos outils en place et identifions les points de connexion les plus rentables. Le changement se fait de manière progressive et transparente pour vos collaborateurs.</p>
+                    <p>Non, l'automatisation n8n s'intÃ¨gre Ã  vos outils existants sans les remplacer. n8n dispose de 400+ connecteurs natifs : Gmail, Outlook, HubSpot, Pipedrive, Notion, Google Sheets, Slack, Teams, Sage, QuickBooks, et bien d'autres. L'approche Oakflow AI consiste Ã  partir de votre stack actuelle et Ã  y ajouter une couche d'intelligence sans perturber les habitudes de vos Ã©quipes. Aucune migration de donnÃ©es ni refonte de systÃ¨me n'est nÃ©cessaire dans la grande majoritÃ© des projets. Lors de l'audit initial, nous cartographions prÃ©cisÃ©ment vos outils en place et identifions les points de connexion les plus rentables. Le changement se fait de maniÃ¨re progressive et transparente pour vos collaborateurs.</p>
                 </div>
 
                 <div class="faq-item reveal">
                     <h3>Que se passe-t-il si une automatisation tombe en panne ?</h3>
-                    <p>Chaque workflow n8n déployé par Oakflow AI intègre nativement un système de gestion d'erreurs : alertes en temps réel par email ou Slack, logs détaillés pour identifier la cause, et mécanismes de retry automatique sur les étapes critiques. En cas de panne, vos équipes sont notifiées immédiatement et peuvent intervenir manuellement le temps que le problème soit résolu. Un suivi de 3 mois est inclus dans chaque prestation : pendant cette période, Oakflow AI intervient gratuitement pour corriger tout dysfonctionnement lié à l'implémentation initiale. Au-delà, une maintenance mensuelle optionnelle est disponible. Nos automatisations sont conçues pour être résilientes et facilement maintenables par vos équipes après formation.</p>
+                    <p>Chaque workflow n8n dÃ©ployÃ© par Oakflow AI intÃ¨gre nativement un systÃ¨me de gestion d'erreurs : alertes en temps rÃ©el par email ou Slack, logs dÃ©taillÃ©s pour identifier la cause, et mÃ©canismes de retry automatique sur les Ã©tapes critiques. En cas de panne, vos Ã©quipes sont notifiÃ©es immÃ©diatement et peuvent intervenir manuellement le temps que le problÃ¨me soit rÃ©solu. Un suivi de 3 mois est inclus dans chaque prestation : pendant cette pÃ©riode, Oakflow AI intervient gratuitement pour corriger tout dysfonctionnement liÃ© Ã  l'implÃ©mentation initiale. Au-delÃ , une maintenance mensuelle optionnelle est disponible. Nos automatisations sont conÃ§ues pour Ãªtre rÃ©silientes et facilement maintenables par vos Ã©quipes aprÃ¨s formation.</p>
                 </div>
 
                 <div class="faq-item reveal">
                     <h3>Travaillez-vous en remote ou sur site ?</h3>
-                    <p>Oakflow AI travaille principalement en remote, ce qui permet d'intervenir pour des PME et TPE partout en France sans délai ni frais de déplacement. Les outils de collaboration (Slack, Notion, Google Meet, Loom) permettent un suivi aussi efficace qu'en présentiel. Pour les clients qui préfèrent un accompagnement sur site — notamment pour les sessions de formation ou les ateliers d'audit — des interventions en Île-de-France sont possibles. Pour les projets hors région parisienne, nous nous déplaçons ponctuellement selon les besoins du projet. La localisation n'est jamais un frein : la quasi-totalité de nos clients ont été accompagnés intégralement à distance avec d'excellents résultats.</p>
+                    <p>Oakflow AI travaille principalement en remote, ce qui permet d'intervenir pour des PME et TPE partout en France sans dÃ©lai ni frais de dÃ©placement. Les outils de collaboration (Slack, Notion, Google Meet, Loom) permettent un suivi aussi efficace qu'en prÃ©sentiel. Pour les clients qui prÃ©fÃ¨rent un accompagnement sur site â€” notamment pour les sessions de formation ou les ateliers d'audit â€” des interventions en ÃŽle-de-France sont possibles. Pour les projets hors rÃ©gion parisienne, nous nous dÃ©plaÃ§ons ponctuellement selon les besoins du projet. La localisation n'est jamais un frein : la quasi-totalitÃ© de nos clients ont Ã©tÃ© accompagnÃ©s intÃ©gralement Ã  distance avec d'excellents rÃ©sultats.</p>
                 </div>
 
                 <div class="faq-item reveal">
                     <h3>Comment se passe l'audit initial ?</h3>
-                    <p>L'audit initial est un appel de 30 minutes, entièrement gratuit et sans engagement. Durant cet échange, Cyril DE LA RUE analyse vos processus métiers actuels, identifie les 3 tâches les plus chronophages ou sources d'erreurs, et évalue leur potentiel d'automatisation. À l'issue de l'appel, vous recevez une synthèse écrite avec : les automatisations recommandées par ordre de ROI, une estimation du temps récupérable par mois, et une fourchette budgétaire indicative. Si vous souhaitez aller plus loin, un devis détaillé est établi sous 48h. L'audit peut se faire par visioconférence ou par téléphone, selon votre préférence. Réservez directement via Calendly en cliquant sur le bouton en haut de page.</p>
+                    <p>L'audit initial est un appel de 30 minutes, entiÃ¨rement gratuit et sans engagement. Durant cet Ã©change, Cyril DE LA RUE analyse vos processus mÃ©tiers actuels, identifie les 3 tÃ¢ches les plus chronophages ou sources d'erreurs, et Ã©value leur potentiel d'automatisation. Ã€ l'issue de l'appel, vous recevez une synthÃ¨se Ã©crite avec : les automatisations recommandÃ©es par ordre de ROI, une estimation du temps rÃ©cupÃ©rable par mois, et une fourchette budgÃ©taire indicative. Si vous souhaitez aller plus loin, un devis dÃ©taillÃ© est Ã©tabli sous 48h. L'audit peut se faire par visioconfÃ©rence ou par tÃ©lÃ©phone, selon votre prÃ©fÃ©rence. RÃ©servez directement via Calendly en cliquant sur le bouton en haut de page.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- ── BLOG ── -->
+    <!-- â”€â”€ BLOG â”€â”€ -->
     <section id="blog" style="padding: 100px 0;">
         <div class="container">
             <div class="label reveal" style="justify-content:center;">Blog</div>
             <h2 class="reveal" style="text-align:center;">Guides pratiques sur l'automatisation</h2>
             <p class="sec-desc reveal" style="text-align:center; max-width:600px; margin:0 auto 56px;">
-                Des workflows concrets, des résultats mesurés, des outils testés en conditions réelles avec des PME françaises.
+                Des workflows concrets, des rÃ©sultats mesurÃ©s, des outils testÃ©s en conditions rÃ©elles avec des PME franÃ§aises.
             </p>
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:24px; max-width:900px; margin:0 auto;">
                 <a href="blog/automatiser-comptabilite.html" class="reveal" style="display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px; text-decoration:none; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,176,0.35)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">Comptabilité</span>
+                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">ComptabilitÃ©</span>
                     <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">Automatiser le traitement des factures fournisseurs avec n8n</h3>
-                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">500 factures/mois traitées automatiquement. 30h économisées. Workflow étape par étape avec GPT-4o.</p>
-                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article →</span>
+                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">500 factures/mois traitÃ©es automatiquement. 30h Ã©conomisÃ©es. Workflow Ã©tape par Ã©tape avec GPT-4o.</p>
+                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article â†’</span>
                 </a>
                 <a href="blog/automatiser-prospection-commerciale.html" class="reveal" style="display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px; text-decoration:none; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,176,0.35)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
                     <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">Commercial</span>
                     <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">Automatiser la prospection commerciale PME avec n8n</h3>
-                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">Pipeline complet : scraping LinkedIn, enrichissement IA, scoring, prise de RDV automatique. ×2,5 taux de closing.</p>
-                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article →</span>
+                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">Pipeline complet : scraping LinkedIn, enrichissement IA, scoring, prise de RDV automatique. Ã—2,5 taux de closing.</p>
+                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article â†’</span>
                 </a>
                 <a href="blog/n8n-vs-zapier-vs-make" class="reveal" style="display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px; text-decoration:none; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,176,0.35)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">1 Avril 2026 • Comparatif</span>
+                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">1 Avril 2026 â€¢ Comparatif</span>
                     <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">n8n vs Zapier vs Make : quel outil choisir en 2026 ?</h3>
-                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">Comparatif détaillé des 3 plateformes d'automatisation : prix, fonctionnalités, cas d'usage, et verdict pour les PME françaises.</p>
-                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article →</span>
+                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">Comparatif dÃ©taillÃ© des 3 plateformes d'automatisation : prix, fonctionnalitÃ©s, cas d'usage, et verdict pour les PME franÃ§aises.</p>
+                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article â†’</span>
                 </a>
                 <a href="blog/roi-automatisation" class="reveal" style="display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px; text-decoration:none; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,176,0.35)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">1 Avril 2026 • Études de cas</span>
-                    <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">ROI de l'automatisation IA : chiffres réels sur 40+ projets PME</h3>
-                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">Données concrètes de retour sur investissement : temps gagné, coûts réduits, chiffre d'affaires généré sur nos projets clients.</p>
-                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article →</span>
+                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">1 Avril 2026 â€¢ Ã‰tudes de cas</span>
+                    <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">ROI de l'automatisation IA : chiffres rÃ©els sur 40+ projets PME</h3>
+                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">DonnÃ©es concrÃ¨tes de retour sur investissement : temps gagnÃ©, coÃ»ts rÃ©duits, chiffre d'affaires gÃ©nÃ©rÃ© sur nos projets clients.</p>
+                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article â†’</span>
                 </a>
                 <a href="blog/crm-ia-pme" class="reveal" style="display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px; text-decoration:none; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,176,0.35)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">2 Avril 2026 • Guide CRM</span>
-                    <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">CRM IA pour PME : les 7 problèmes qu'il résout vraiment</h3>
+                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">2 Avril 2026 â€¢ Guide CRM</span>
+                    <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">CRM IA pour PME : les 7 problÃ¨mes qu'il rÃ©sout vraiment</h3>
                     <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">Pourquoi un CRM classique ne suffit plus et comment l'IA transforme la gestion client des petites entreprises.</p>
-                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article →</span>
+                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article â†’</span>
                 </a>
                 <a href="blog/parcours-expert-ia" class="reveal" style="display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px; text-decoration:none; transition:border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,176,0.35)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
-                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">1 Avril 2026 • À propos</span>
-                    <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">20 ans d'automatisation, 40+ PME accompagnées : mon parcours</h3>
-                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">De l'automatisation industrielle à l'IA pour PME : retour sur 20 ans d'expérience terrain et les leçons apprises.</p>
-                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article →</span>
+                    <span style="display:inline-block; background:rgba(0,229,176,0.1); border:1px solid rgba(0,229,176,0.25); border-radius:100px; padding:4px 12px; font-size:13px; color:var(--accent); font-weight:500; margin-bottom:16px;">1 Avril 2026 â€¢ Ã€ propos</span>
+                    <h3 style="font-size:20px; font-weight:700; color:var(--text); line-height:1.3; margin:0 0 12px;">20 ans d'automatisation, 40+ PME accompagnÃ©es : mon parcours</h3>
+                    <p style="font-size:14px; color:var(--muted); line-height:1.6; margin:0 0 20px;">De l'automatisation industrielle Ã  l'IA pour PME : retour sur 20 ans d'expÃ©rience terrain et les leÃ§ons apprises.</p>
+                    <span style="font-size:13px; color:var(--accent); font-weight:600;">Lire l'article â†’</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ── NEWSLETTER ── -->
+    <!-- â”€â”€ NEWSLETTER â”€â”€ -->
     <section id="newsletter" style="padding: 80px 0;">
         <div class="container" style="max-width:680px; text-align:center;">
             <div class="label reveal" style="justify-content:center;">Newsletter</div>
             <h2 class="reveal">Le Flux by Oakflow AI</h2>
             <p class="sec-desc reveal" style="text-align:center; max-width:560px; margin:0 auto 32px;">
-                Chaque semaine, l'IA expliquée simplement pour les artisans, commerçants et TPE.
-                Cas pratiques, outils concrets, prompts prêts à l'emploi. Zero jargon.
+                Chaque semaine, l'IA expliquÃ©e simplement pour les artisans, commerÃ§ants et TPE.
+                Cas pratiques, outils concrets, prompts prÃªts Ã  l'emploi. Zero jargon.
             </p>
             <a href="https://oakflowai.substack.com" target="_blank" rel="noopener noreferrer"
                 class="btn-primary reveal"
@@ -1528,26 +1535,26 @@
         </div>
     </section>
 
-    <!-- ── CTA ── -->
+    <!-- â”€â”€ CTA â”€â”€ -->
     <section id="cta">
         <div class="glow-cta"></div>
         <div class="glow-purple"></div>
         <div class="container" style="position:relative;z-index:1;max-width:680px;">
-            <div class="label reveal" style="justify-content:center;">Démarrons</div>
-            <h2 class="reveal">Évaluez votre potentiel<br />d'automatisation</h2>
+            <div class="label reveal" style="justify-content:center;">DÃ©marrons</div>
+            <h2 class="reveal">Ã‰valuez votre potentiel<br />d'automatisation</h2>
             <p class="sec-desc reveal" style="text-align:center;margin:0 auto 44px;">
-                Un appel de 30 minutes pour identifier vos 3 premières automatisations à fort ROI. Gratuit, sans
+                Un appel de 30 minutes pour identifier vos 3 premiÃ¨res automatisations Ã  fort ROI. Gratuit, sans
                 engagement, sans jargon.
             </p>
 
             <div id="contact">
 
-                <!-- ── ÉTAPE 1 : FORMULAIRE DE QUALIFICATION ── -->
+                <!-- â”€â”€ Ã‰TAPE 1 : FORMULAIRE DE QUALIFICATION â”€â”€ -->
                 <div class="oakflow-form-container reveal" id="qual-form-wrap">
                     <div class="qual-form-header">
-                        <div class="qual-step-badge">Étape 1 sur 2 — Qualification IA</div>
+                        <div class="qual-step-badge">Ã‰tape 1 sur 2 â€” Qualification IA</div>
                         <h3 class="qual-form-title">Analysez votre potentiel d'automatisation</h3>
-                        <p class="qual-form-desc">Notre IA évalue votre profil et prépare un diagnostic personnalisé avant votre appel.</p>
+                        <p class="qual-form-desc">Notre IA Ã©value votre profil et prÃ©pare un diagnostic personnalisÃ© avant votre appel.</p>
                     </div>
 
                     <form id="qualification-form" novalidate>
@@ -1565,15 +1572,15 @@
                                 <input type="text" id="qf-company" name="company" class="oakflow-input" placeholder="Mon Entreprise SAS" autocomplete="organization" required />
                             </div>
                             <div class="qual-field">
-                                <label for="qf-type">Secteur d'activité <span class="req">*</span></label>
+                                <label for="qf-type">Secteur d'activitÃ© <span class="req">*</span></label>
                                 <select id="qf-type" name="business_type" class="oakflow-input" required>
-                                    <option value="" disabled selected>Sélectionnez votre secteur</option>
+                                    <option value="" disabled selected>SÃ©lectionnez votre secteur</option>
                                     <option value="Commerce / Distribution">Commerce / Distribution</option>
                                     <option value="Services B2B">Services B2B</option>
                                     <option value="Services B2C">Services B2C</option>
                                     <option value="E-commerce">E-commerce</option>
-                                    <option value="Hôtellerie / Restauration">Hôtellerie / Restauration</option>
-                                    <option value="Santé / Bien-être">Santé / Bien-être</option>
+                                    <option value="HÃ´tellerie / Restauration">HÃ´tellerie / Restauration</option>
+                                    <option value="SantÃ© / Bien-Ãªtre">SantÃ© / Bien-Ãªtre</option>
                                     <option value="Immobilier">Immobilier</option>
                                     <option value="Artisanat / BTP">Artisanat / BTP</option>
                                     <option value="Autre">Autre</option>
@@ -1582,43 +1589,43 @@
                             <div class="qual-field qual-field-full">
                                 <label for="qf-revenue">Chiffre d'affaires mensuel <span class="req">*</span></label>
                                 <select id="qf-revenue" name="monthly_revenue" class="oakflow-input" required>
-                                    <option value="" disabled selected>Sélectionnez une tranche</option>
-                                    <option value="Moins de 5 000€">Moins de 5 000€</option>
-                                    <option value="5 000€ – 20 000€">5 000€ – 20 000€</option>
-                                    <option value="20 000€ – 50 000€">20 000€ – 50 000€</option>
-                                    <option value="50 000€ – 100 000€">50 000€ – 100 000€</option>
-                                    <option value="Plus de 100 000€">Plus de 100 000€</option>
+                                    <option value="" disabled selected>SÃ©lectionnez une tranche</option>
+                                    <option value="Moins de 5 000â‚¬">Moins de 5 000â‚¬</option>
+                                    <option value="5 000â‚¬ â€“ 20 000â‚¬">5 000â‚¬ â€“ 20 000â‚¬</option>
+                                    <option value="20 000â‚¬ â€“ 50 000â‚¬">20 000â‚¬ â€“ 50 000â‚¬</option>
+                                    <option value="50 000â‚¬ â€“ 100 000â‚¬">50 000â‚¬ â€“ 100 000â‚¬</option>
+                                    <option value="Plus de 100 000â‚¬">Plus de 100 000â‚¬</option>
                                 </select>
                             </div>
                             <div class="qual-field qual-field-full">
-                                <label for="qf-pain">Votre principal frein opérationnel <span class="req">*</span></label>
-                                <textarea id="qf-pain" name="pain_point" class="oakflow-input" rows="3" placeholder="Ex : Je passe 3h par jour à saisir des données manuellement, mes équipes perdent du temps sur des tâches répétitives..." required></textarea>
+                                <label for="qf-pain">Votre principal frein opÃ©rationnel <span class="req">*</span></label>
+                                <textarea id="qf-pain" name="pain_point" class="oakflow-input" rows="3" placeholder="Ex : Je passe 3h par jour Ã  saisir des donnÃ©es manuellement, mes Ã©quipes perdent du temps sur des tÃ¢ches rÃ©pÃ©titives..." required></textarea>
                             </div>
                         </div>
                         <div class="qual-form-footer">
                             <button type="submit" id="qual-submit-btn" class="oakflow-submit-btn">
-                                <span id="qual-btn-text">Analyser mon profil par l'IA →</span>
+                                <span id="qual-btn-text">Analyser mon profil par l'IA â†’</span>
                                 <span id="qual-btn-loader" class="qual-btn-spinner" hidden></span>
                             </button>
-                            <p class="qual-privacy">🔒 Données confidentielles &nbsp;·&nbsp; Jamais revendues &nbsp;·&nbsp; Conforme RGPD</p>
+                            <p class="qual-privacy">ðŸ”’ DonnÃ©es confidentielles &nbsp;Â·&nbsp; Jamais revendues &nbsp;Â·&nbsp; Conforme RGPD</p>
                         </div>
                     </form>
 
-                    <!-- Message de succès (masqué par défaut) -->
+                    <!-- Message de succÃ¨s (masquÃ© par dÃ©faut) -->
                     <div id="qual-success" class="qual-success" hidden>
-                        <div class="qual-success-icon">✅</div>
-                        <h3>Analyse terminée.</h3>
-                        <p>Vous semblez être un excellent candidat pour l'automatisation Oakflow.<br/>Réservez votre créneau de diagnostic personnalisé ci-dessous.</p>
-                        <div class="qual-step-badge qual-step-badge--success">Étape 2 sur 2 — Réservation de votre créneau</div>
+                        <div class="qual-success-icon">âœ…</div>
+                        <h3>Analyse terminÃ©e.</h3>
+                        <p>Vous semblez Ãªtre un excellent candidat pour l'automatisation Oakflow.<br/>RÃ©servez votre crÃ©neau de diagnostic personnalisÃ© ci-dessous.</p>
+                        <div class="qual-step-badge qual-step-badge--success">Ã‰tape 2 sur 2 â€” RÃ©servation de votre crÃ©neau</div>
                     </div>
                 </div>
 
-                <!-- ── ÉTAPE 2 : CALENDLY (verrouillé jusqu'à soumission du formulaire) ── -->
+                <!-- â”€â”€ Ã‰TAPE 2 : CALENDLY (verrouillÃ© jusqu'Ã  soumission du formulaire) â”€â”€ -->
                 <div class="calendly-gate locked" id="calendly-gate">
                     <div class="calendly-lock-overlay" id="calendly-lock-overlay">
                         <div class="lock-content">
-                            <div class="lock-icon-wrap">🔒</div>
-                            <p>Remplissez le formulaire ci-dessus<br/>pour débloquer la prise de rendez-vous</p>
+                            <div class="lock-icon-wrap">ðŸ”’</div>
+                            <p>Remplissez le formulaire ci-dessus<br/>pour dÃ©bloquer la prise de rendez-vous</p>
                         </div>
                     </div>
                     <div class="cta-calendly-wrap">
@@ -1647,12 +1654,12 @@
 
             </div>
 
-            <p class="cta-note reveal">🔒 Sans engagement &nbsp;&middot;&nbsp; Diagnostic personnalisé
-                &nbsp;&middot;&nbsp; Réponse sous 24h</p>
+            <p class="cta-note reveal">ðŸ”’ Sans engagement &nbsp;&middot;&nbsp; Diagnostic personnalisÃ©
+                &nbsp;&middot;&nbsp; RÃ©ponse sous 24h</p>
         </div>
     </section>
 
-    <!-- ── CONNECT WITH US ── -->
+    <!-- â”€â”€ CONNECT WITH US â”€â”€ -->
     <section id="connect">
         <div class="glow-cta"></div>
         <div class="glow-purple"></div>
@@ -1660,7 +1667,7 @@
             <div class="label reveal" style="justify-content:center;">Contact</div>
             <h2 class="reveal">Connectez-vous<br />avec <span class="hl">Nous</span></h2>
             <p class="sec-desc reveal" style="margin:0 auto 44px;">
-                Rejoignez notre communauté et restez informés de nos dernières automatisations.
+                Rejoignez notre communautÃ© et restez informÃ©s de nos derniÃ¨res automatisations.
             </p>
 
             <div class="social-connect-wrap reveal" id="social">
@@ -1741,7 +1748,7 @@
                 </a>
                 <a href="tel:+33759696769" class="contact-item">
                     <img src="https://api.iconify.design/lucide:phone.svg?color=%2300e5b0" width="20" height="20"
-                        alt="Téléphone" />
+                        alt="TÃ©lÃ©phone" />
                     +33 7 59 69 67 69
                 </a>
                 <div class="contact-item" style="cursor: default;">
@@ -1755,7 +1762,7 @@
     </section>
 
     </main>
-    <!-- ── FOOTER ── -->
+    <!-- â”€â”€ FOOTER â”€â”€ -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
@@ -1763,14 +1770,14 @@
                     <img src="oakflow_logo_cube.webp" alt="Oakflow AI" class="logo-img"
                         width="48" height="48" style="height: 48px; width: auto; border-radius: 8px;" />
                 </a>
-                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE franÃ§aises.</p>
             </div>
 
             <div class="footer-col">
                 <h3>Services</h3>
                 <a href="/services/workflows-n8n">Workflows n8n</a>
-                <a href="/services/chatbot-personnalise">Chatbot IA Personnalisé</a>
-                <a href="/services/integration-llm">Intégration LLM</a>
+                <a href="/services/chatbot-personnalise">Chatbot IA PersonnalisÃ©</a>
+                <a href="/services/integration-llm">IntÃ©gration LLM</a>
                 <a href="/services/assistant-vocal">Assistant Vocal IA</a>
             </div>
 
@@ -1784,29 +1791,29 @@
             </div>
 
             <div class="footer-col">
-                <h3>Société</h3>
-                <a href="#expert">À propos</a>
+                <h3>SociÃ©tÃ©</h3>
+                <a href="#expert">Ã€ propos</a>
                 <a href="mailto:contact@oakflowai.com">Contact</a>
                 <a href="https://oakflowai.substack.com" target="_blank" rel="noopener">Newsletter</a>
                 <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="https://x.com/Oakflowai" target="_blank" rel="noopener">X (Twitter)</a>
-                <a href="mentions-legales.html">Mentions Légales &amp; RGPD</a>
+                <a href="mentions-legales.html">Mentions LÃ©gales &amp; RGPD</a>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span>
+            <span>Â© 2026 Oakflow AI â€” Cyril DE LA RUE Â· Tous droits rÃ©servÃ©s</span>
         </div>
     </footer>
 
     <script src="main.js" defer></script>
 
-    <!-- Spline 3D — chargement différé via requestIdleCallback -->
+    <!-- Spline 3D â€” chargement diffÃ©rÃ© via requestIdleCallback -->
     <script type="module">
-        // Spline lazy load — ne charge que sur desktop et après interaction utilisateur
+        // Spline lazy load â€” ne charge que sur desktop et aprÃ¨s interaction utilisateur
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         if (isMobile) {
-            // Mobile : masquer le loader, la section est déjà cachée via CSS
+            // Mobile : masquer le loader, la section est dÃ©jÃ  cachÃ©e via CSS
             const loader = document.getElementById('splineLoader');
             if (loader) loader.style.display = 'none';
         } else {
@@ -1837,16 +1844,16 @@
                 if (heroSection) observer.observe(heroSection);
             }
 
-            // Attendre la première interaction pour charger le moteur 3D (évite le TBT massif sur PageSpeed)
+            // Attendre la premiÃ¨re interaction pour charger le moteur 3D (Ã©vite le TBT massif sur PageSpeed)
             ['mousemove', 'keydown', 'touchstart', 'scroll'].forEach(function(e) {
                 document.addEventListener(e, loadSpline, { once: true, passive: true });
             });
-            // Fallback de sécurité au bout de 4 secondes
+            // Fallback de sÃ©curitÃ© au bout de 4 secondes
             setTimeout(loadSpline, 4000);
         }
     </script>
 
-    <!-- ── Assistant vocal NEO (ElevenLabs) — chargement différé ── -->
+    <!-- â”€â”€ Assistant vocal NEO (ElevenLabs) â€” chargement diffÃ©rÃ© â”€â”€ -->
     <script>
     (function() {
         var loaded = false;
@@ -1870,13 +1877,13 @@
     })();
     </script>
 
-    <!-- ── BANNIÈRE COOKIES RGPD ── -->
+    <!-- â”€â”€ BANNIÃˆRE COOKIES RGPD â”€â”€ -->
     <div id="rgpd-consent-mod" style="display:none">
         <div id="rgpd-consent-inner">
             <div id="rgpd-consent-text">
-                <strong>🍪 Cookies & confidentialité</strong>
-                <p>Nous utilisons Google Analytics pour analyser le trafic de notre site et améliorer votre expérience.
-                    Aucune donnée personnelle n'est partagée à des tiers.</p>
+                <strong>ðŸª Cookies & confidentialitÃ©</strong>
+                <p>Nous utilisons Google Analytics pour analyser le trafic de notre site et amÃ©liorer votre expÃ©rience.
+                    Aucune donnÃ©e personnelle n'est partagÃ©e Ã  des tiers.</p>
             </div>
             <div id="rgpd-consent-btns">
                 <button id="rgpd-consent-decline">Refuser</button>
@@ -2033,9 +2040,9 @@
             if (consent === 'granted') {
                 loadGA();
             } else if (consent === 'denied') {
-                // Rien à faire
+                // Rien Ã  faire
             } else {
-                // Afficher la bannière
+                // Afficher la banniÃ¨re
                 var banner = document.getElementById('rgpd-consent-mod');
                 if (banner) banner.style.display = 'block';
 
