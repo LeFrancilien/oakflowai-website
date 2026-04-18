@@ -3,3 +3,10 @@ node_modules/
 .env.local
 *.zip
 .vercel
+
+# HyperFrames
+hyperframes/node_modules/
+hyperframes/dist/
+hyperframes/.cache/
+hyperframes/output/
+hyperframes/*.mp4
