@@ -16,6 +16,7 @@
         { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
     ],
     "redirects": [
+        { "source": "/blog/blog/:path*", "destination": "/blog/", "permanent": true },
         { "source": "/blog/5-processus-automatiser.html", "destination": "/blog/", "permanent": true },
         { "source": "/blog/formation-equipe-ia.html", "destination": "/blog/", "permanent": true },
         { "source": "/blog/formation-automatisation.html", "destination": "/blog/", "permanent": true },
