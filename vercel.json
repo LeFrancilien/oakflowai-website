@@ -13,8 +13,7 @@
         }
     ],
     "rewrites": [
-        { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
-        { "source": "/(.*)", "destination": "/404.html" }
+        { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
     ],
     "redirects": [
         { "source": "/blog/n8n-vs-make-vs-zapier", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
@@ -26,6 +25,7 @@
         { "source": "/blog/directeur-expert-ia/:path*", "destination": "/blog/", "permanent": true },
         { "source": "/blog/guide-automatiser-comptabilite/:path*", "destination": "/blog/automatiser-comptabilite", "permanent": true },
         { "source": "/blog/:slug.html", "destination": "/blog/:slug", "permanent": true },
+        { "source": "/mentions-legales.html", "destination": "/mentions-legales", "permanent": true },
         { "source": "/cdn-cgi/:path*", "destination": "/", "permanent": true }
     ]
 }
