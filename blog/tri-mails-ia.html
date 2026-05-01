@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Tri de mails IA : 5 à 10h/semaine économisées (workflow n8n + GPT)</title>
+    <meta name="description" content="Workflow n8n + GPT-4o pour trier, classer et pré-rédiger ses emails automatiquement. Setup 4 jours, 30€/mois, ROI mesuré sur 12 PME. Guide pas à pas." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-05-01" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/tri-mails-ia" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/tri-mails-ia" />
+    <meta property="og:title" content="Tri de mails IA : 5 à 10h/semaine économisées (workflow n8n + GPT)" />
+    <meta property="og:description" content="Workflow n8n + GPT-4o pour trier, classer et pré-rédiger ses emails automatiquement. Setup 4 jours, 30€/mois, ROI mesuré sur 12 PME. Guide pas à pas." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://www.oakflowai.com/blog/tri-mails-ia#article",
+      "headline": "Tri de mails IA : 5 à 10h/semaine économisées (workflow n8n + GPT)",
+      "description": "Comment trier et pré-rédiger ses emails automatiquement avec n8n et GPT-4o. Architecture, ROI mesuré sur 12 déploiements PME, setup en 4 jours pour 30€/mois.",
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "author": {"@type": "Person", "name": "Cyril DE LA RUE", "url": "https://www.linkedin.com/in/de-la-rue/"},
+      "publisher": {"@type": "Organization", "name": "Oakflow AI", "logo": {"@type": "ImageObject", "url": "https://www.oakflowai.com/logo-oakflow-v2.png"}},
+      "url": "https://www.oakflowai.com/blog/tri-mails-ia",
+      "inLanguage": "fr-FR",
+      "keywords": ["tri mails ia", "automatiser mails", "n8n gmail", "gpt-4o emails", "automatisation email pme"],
+      "articleSection": "Tutoriel"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Combien de temps fait-on gagner avec un tri de mails IA ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "En moyenne 5 à 10 heures par semaine et par collaborateur, selon le volume entrant. Sur les 12 déploiements PME que nous avons mesurés en 2026, le gain médian est de 7,5h/semaine pour un commercial, 4h pour un assistant administratif, et jusqu'à 12h pour un service client niveau 1. Le ROI est atteint en moins de 4 semaines."}},
+        {"@type": "Question", "name": "Quel coût pour automatiser le tri de mails avec n8n et GPT ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Entre 25 et 80€ par mois pour une PME : n8n self-hosted sur VPS OVH (~10€/mois) + API GPT-4o-mini (5 à 30€/mois selon volume) + connecteur Gmail/Outlook (gratuit). Le setup initial demande 3 à 5 jours de mise en place pour un workflow complet : classification, étiquetage, réponse pré-rédigée."}},
+        {"@type": "Question", "name": "Le tri de mails IA est-il conforme RGPD ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Oui, à condition d'utiliser n8n self-hosted sur un serveur français ou européen, et d'utiliser une API LLM avec engagement de non-entraînement (OpenAI Enterprise, Anthropic Claude API, Mistral). Les emails contenant des données sensibles (santé, RH, financières) peuvent être filtrés en amont pour ne JAMAIS transiter par le LLM si nécessaire."}},
+        {"@type": "Question", "name": "Faut-il remplacer Gmail par un autre outil ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Non. Le workflow tourne en arrière-plan via l'API Gmail (ou Microsoft Graph pour Outlook) sans changer l'interface utilisateur. Le collaborateur continue d'utiliser Gmail/Outlook normalement, et voit les emails déjà classés, étiquetés et avec une réponse suggérée. Aucune migration, aucune rupture d'usage."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Tri de mails IA"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap { max-width: 760px; margin: 120px auto 80px; padding: 0 24px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+        .article-tag { background: rgba(0, 229, 176, 0.1); border: 1px solid rgba(0, 229, 176, 0.25); border-radius: 100px; padding: 4px 12px; font-size: 13px; color: var(--accent); font-weight: 500; }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+        .article-author img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+        .article-wrap h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
+        .article-intro { font-size: 18px; line-height: 1.7; color: rgba(240, 244, 255, 0.7); margin-bottom: 48px; border-left: 3px solid var(--accent); padding-left: 20px; }
+        .article-wrap h2 { font-size: 26px; font-weight: 700; color: var(--text); margin: 52px 0 16px; letter-spacing: -0.5px; }
+        .article-wrap h3 { font-size: 20px; font-weight: 600; color: var(--text); margin: 36px 0 12px; }
+        .article-wrap p { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+        .article-wrap ul, .article-wrap ol { padding-left: 24px; margin-bottom: 20px; }
+        .article-wrap li { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 8px; }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box { background: rgba(0, 229, 176, 0.06); border: 1px solid rgba(0, 229, 176, 0.2); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+        .info-box p { margin: 0; font-size: 15px; }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0; }
+        .result-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px; text-align: center; }
+        .result-val { font-family: var(--font-h); font-size: 36px; font-weight: 700; color: var(--accent); letter-spacing: -1px; display: block; line-height: 1; margin-bottom: 6px; }
+        .result-lbl { font-size: 13px; color: var(--muted); }
+        .step-card { background: rgba(124, 58, 255, 0.06); border: 1px solid rgba(124, 58, 255, 0.25); border-left: 4px solid #7C3AFF; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 24px 0; }
+        .step-card .step-label { font-size: 12px; font-weight: 600; color: #7C3AFF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .step-card h3 { margin: 0 0 10px; font-size: 18px; }
+        .verdict-box { background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(124,58,255,0.08)); border: 1px solid rgba(0, 229, 176, 0.25); border-radius: 16px; padding: 28px 32px; margin: 32px 0; }
+        .verdict-box h3 { margin-top: 0; color: var(--accent); }
+        .article-cta { background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(124,58,255,0.08)); border: 1px solid rgba(0, 229, 176, 0.2); border-radius: 20px; padding: 40px; text-align: center; margin: 60px 0 40px; }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related { background: rgba(0,229,176,0.05); border: 1px solid rgba(0, 229, 176, 0.15); border-radius: 16px; padding: 24px 32px; margin: 40px 0; }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+        .article-nav a { color: var(--muted); font-size: 14px; text-decoration: none; }
+        .article-nav a:hover { color: var(--accent); }
+        .article-toc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 28px; margin: 32px 0; }
+        .article-toc strong { color: var(--text); display: block; margin-bottom: 12px; font-size: 15px; }
+        .article-toc ol { margin: 0; padding-left: 20px; }
+        .article-toc li { font-size: 14px; margin-bottom: 6px; color: var(--muted); }
+        .article-toc a { color: var(--accent); text-decoration: none; }
+        .article-toc a:hover { text-decoration: underline; }
+        .article-faq { margin: 48px 0; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 24px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 17px; margin: 0 0 10px; }
+        .faq-item p { margin: 0; font-size: 15px; }
+        @media (max-width: 600px) {
+            .result-grid { grid-template-columns: 1fr 1fr; }
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <nav id="nav">
+        <a href="/" class="nav-logo"><img src="/logo-oakflow-v2.png" alt="Oakflow AI" class="logo-img" width="48" height="48" /></a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="/#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="/#features" class="mobile-menu-link">Services</a>
+            <a href="/#methode" class="mobile-menu-link">Méthode</a>
+            <a href="/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="/blog/" class="mobile-menu-link">Blog</a>
+            <a href="/#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
+
+        <div class="article-meta">
+            <span class="article-tag">Tutoriel</span>
+            <span class="article-tag">n8n + GPT</span>
+            <time class="article-date" datetime="2026-05-01">1 mai 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">Tri de mails IA : 5 à 10h/semaine économisées (workflow n8n + GPT)</h1>
+
+        <p class="article-intro">Un commercial passe en moyenne <strong>2h par jour dans sa boîte mail</strong>. Un assistant administratif, jusqu'à 3h. Avec un workflow n8n + GPT-4o-mini bien configuré, on peut <strong>récupérer 5 à 10 heures par semaine et par collaborateur</strong> — pour 30€/mois et 4 jours de mise en place. Voici l'architecture exacte que nous déployons en PME, ROI inclus.</p>
+
+        <div class="article-toc">
+            <strong>Sommaire</strong>
+            <ol>
+                <li><a href="#contexte">Pourquoi le tri de mails est le 1er chantier d'automatisation</a></li>
+                <li><a href="#architecture">Architecture du workflow (n8n + Gmail + GPT)</a></li>
+                <li><a href="#etapes">Les 5 étapes du workflow détaillées</a></li>
+                <li><a href="#prompt">Le prompt système complet (à copier-coller)</a></li>
+                <li><a href="#roi">ROI mesuré sur 12 PME</a></li>
+                <li><a href="#rgpd">Conformité RGPD et données sensibles</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol>
+        </div>
+
+        <h2 id="contexte">Pourquoi le tri de mails est le 1er chantier d'automatisation</h2>
+
+        <p>Sur nos 40+ déploiements PME, le tri de mails est <strong>systématiquement le 1er processus à automatiser</strong>. Trois raisons :</p>
+
+        <ol>
+            <li><strong>Volume universel</strong> : tout collaborateur a une boîte mail, peu importe le métier.</li>
+            <li><strong>ROI immédiat et mesurable</strong> : dès la première semaine, le temps gagné est sensible et chiffrable.</li>
+            <li><strong>Risque faible</strong> : un humain valide toujours avant envoi sur les cas standards. Pas d'envoi automatique sans contrôle.</li>
+        </ol>
+
+        <div class="result-grid">
+            <div class="result-card"><span class="result-val">7,5h</span><span class="result-lbl">gain médian/sem<br>par commercial</span></div>
+            <div class="result-card"><span class="result-val">30€</span><span class="result-lbl">coût moyen<br>mensuel</span></div>
+            <div class="result-card"><span class="result-val">4 jours</span><span class="result-lbl">setup<br>en moyenne</span></div>
+        </div>
+
+        <h2 id="architecture">Architecture du workflow (n8n + Gmail + GPT)</h2>
+
+        <p>L'architecture canonique repose sur 5 briques connectées via n8n. Aucune ne nécessite de code — tout passe par les nodes natifs n8n.</p>
+
+        <div class="verdict-box">
+            <h3>Stack technique du workflow</h3>
+            <ul>
+                <li><strong>Trigger :</strong> Gmail Trigger (n8n) — déclenché à chaque nouvel email entrant</li>
+                <li><strong>Filtre amont :</strong> ignore les newsletters, notifications automatiques, spams déjà classés</li>
+                <li><strong>Classification IA :</strong> appel à GPT-4o-mini avec un prompt système structuré (voir plus bas)</li>
+                <li><strong>Étiquetage Gmail :</strong> applique automatiquement le label correspondant (Commercial / SAV / Facturation / RH / Spam suspect)</li>
+                <li><strong>Génération de réponse :</strong> pour les cas standards, pré-rédige un brouillon dans Gmail (à valider en 1 clic)</li>
+                <li><strong>Notification optionnelle :</strong> Slack/Teams si email à traiter en urgence (mots-clés détectés : "urgent", "réclamation", "annulation")</li>
+            </ul>
+        </div>
+
+        <p>Pour Outlook, l'architecture est identique avec le node Microsoft Outlook au lieu de Gmail. Le reste du workflow ne change pas.</p>
+
+        <h2 id="etapes">Les 5 étapes du workflow détaillées</h2>
+
+        <div class="step-card">
+            <div class="step-label">Étape 1</div>
+            <h3>Capter les nouveaux emails (Gmail Trigger)</h3>
+            <p>Le Gmail Trigger de n8n écoute la boîte mail principale et se déclenche sur chaque nouvel email reçu, en temps réel via webhook (latence &lt; 30 secondes). On filtre dès cette étape les expéditeurs internes (collègues, fournisseurs récurrents) qui n'ont pas besoin de classification.</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-label">Étape 2</div>
+            <h3>Pré-filtrage règles statiques</h3>
+            <p>Avant d'appeler le LLM, on applique des règles simples : email contenant "unsubscribe" → spam direct, expéditeur dans whitelist clients VIP → notification immédiate, mail répondu il y a moins de 24h sur le même thread → ignore. Ce filtrage économise 30 à 40% des appels LLM (donc le coût).</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-label">Étape 3</div>
+            <h3>Classification par GPT-4o-mini</h3>
+            <p>L'email (sujet + 500 premiers mots du corps) est envoyé à GPT-4o-mini avec un prompt système structuré. Le LLM retourne un JSON : <code>{ catégorie, urgence (1-5), résumé en 1 phrase, action_suggérée }</code>. Coût moyen : 0,0008€ par email traité.</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-label">Étape 4</div>
+            <h3>Étiquetage automatique dans Gmail</h3>
+            <p>n8n applique le label correspondant à la catégorie retournée. Le collaborateur retrouve sa boîte Gmail organisée automatiquement : Commercial, SAV, Facturation, Admin, RH, Newsletter… Plus besoin de "tout lire" pour savoir ce qui est important.</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-label">Étape 5</div>
+            <h3>Pré-rédaction de réponse pour les cas standards</h3>
+            <p>Pour les catégories "réponse standard" (demande de devis, accusé réception, FAQ classique), un second appel LLM rédige un brouillon de réponse dans le ton de l'entreprise. Le brouillon apparaît dans Gmail "Brouillons" — le collaborateur valide en 1 clic ou ajuste avant envoi. <strong>Aucun envoi automatique</strong>.</p>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Bonus avancé :</strong> sur les emails très récurrents (ex. demande de tarif standard), on peut activer une réponse automatique sans validation après 2 semaines de calibration. Sur nos déploiements, ~15% des emails finissent par être traités sans intervention humaine, avec un taux de satisfaction client supérieur (réponse instantanée).</p>
+        </div>
+
+        <h2 id="prompt">Le prompt système complet (à copier-coller)</h2>
+
+        <p>Voici le prompt système que nous utilisons en production, à adapter selon votre activité. Il tient en moins de 250 tokens (donc coût d'appel optimal) et donne des résultats stables sur GPT-4o-mini comme sur Claude Haiku.</p>
+
+        <div class="verdict-box">
+            <h3>Prompt système (template)</h3>
+            <p>Tu es un assistant qui classe les emails entrants d'une PME française. Pour chaque email, retourne UNIQUEMENT un JSON valide avec les champs suivants :</p>
+            <ul>
+                <li><strong>categorie</strong> : "commercial" | "sav" | "facturation" | "admin" | "rh" | "newsletter" | "spam"</li>
+                <li><strong>urgence</strong> : entier de 1 (peut attendre) à 5 (urgent, &lt; 2h)</li>
+                <li><strong>resume</strong> : 1 phrase de 15 mots max résumant la demande</li>
+                <li><strong>reponse_standard_possible</strong> : true si une réponse type peut être pré-rédigée, false sinon</li>
+                <li><strong>action</strong> : "repondre" | "transferer" | "ignorer" | "escalader_humain"</li>
+            </ul>
+            <p>N'invente jamais d'information. Si le contenu est ambigu, mets <code>action: "escalader_humain"</code>.</p>
+        </div>
+
+        <p>Ce prompt génère un JSON systématique que n8n peut router avec un node <em>Switch</em>. Pour les profils techniques, on peut ajouter une couche de "few-shot examples" propres à votre métier (3-5 exemples d'emails déjà classés) — ça améliore la précision de 5 à 10% sur les cas complexes.</p>
+
+        <h2 id="roi">ROI mesuré sur 12 PME (2026)</h2>
+
+        <p>Sur nos 12 déploiements de tri de mails IA en 2026, voici la médiane des résultats mesurés après 8 semaines de tournage :</p>
+
+        <ul>
+            <li><strong>Commercial :</strong> 7,5h gagnées/semaine (extrêmes : 4h à 12h selon volume)</li>
+            <li><strong>Assistant administratif :</strong> 4h gagnées/semaine</li>
+            <li><strong>Service client niveau 1 :</strong> jusqu'à 12h/semaine sur les profils dédiés</li>
+            <li><strong>Délai moyen de réponse aux clients :</strong> -68% (de 6h à 1h45 en moyenne)</li>
+            <li><strong>Taux de satisfaction client :</strong> +12 points (NPS mesuré avant/après)</li>
+        </ul>
+
+        <div class="info-box">
+            <p><strong>Cas client (cabinet d'avocats, 15 personnes) :</strong> 320 emails entrants/jour répartis sur 8 collaborateurs. Avant : 2h45 quotidien moyen passé sur les mails. Après workflow : 1h10 quotidien (-58%). Économie chiffrée : <strong>~135 000€/an</strong> sur le coût horaire de l'équipe, pour un investissement de 4 800€ de mise en place + 65€/mois.</p>
+        </div>
+
+        <h2 id="rgpd">Conformité RGPD et données sensibles</h2>
+
+        <p>Le sujet est sérieux : envoyer des emails à un LLM tiers, c'est faire transiter potentiellement des données personnelles ou confidentielles. Voici les 3 règles que nous appliquons systématiquement :</p>
+
+        <ol>
+            <li><strong>n8n self-hosted en France ou UE</strong> : VPS OVH, Scaleway ou Hetzner (Allemagne). Les données ne quittent pas l'UE pour l'orchestration.</li>
+            <li><strong>API LLM avec engagement de non-entraînement</strong> : OpenAI Enterprise, Anthropic Claude API (sur AWS Europe) ou Mistral AI (souverain français). Les contrats explicitent que vos données ne servent pas à entraîner les modèles.</li>
+            <li><strong>Filtre amont sur données sensibles</strong> : on configure n8n pour <strong>ne JAMAIS envoyer au LLM</strong> les emails contenant certains motifs (numéros de sécurité sociale, IBAN complets, dossiers médicaux, données RH nominatives). Ces emails sont étiquetés "À traiter manuellement".</li>
+        </ol>
+
+        <p>Pour les PME soumises à des contraintes RGPD strictes (santé, juridique, RH), nous recommandons <strong>Mistral Le Chat Pro Enterprise</strong> avec hébergement souverain français, ou un LLM open-source (Llama 3.3, Qwen) déployé sur votre propre VPS. Voir notre article <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Make vs Zapier</a> pour le détail des architectures conformes.</p>
+
+        <section id="faq" class="article-faq">
+            <h2>FAQ — Tri de mails IA</h2>
+
+            <div class="faq-item">
+                <h3>Combien de temps fait-on gagner avec un tri de mails IA ?</h3>
+                <p>En moyenne <strong>5 à 10 heures par semaine et par collaborateur</strong>, selon le volume entrant. Sur les 12 déploiements PME mesurés en 2026, le gain médian est de 7,5h/semaine pour un commercial, 4h pour un assistant administratif, et jusqu'à 12h pour un service client niveau 1. Le ROI est atteint en moins de 4 semaines.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Quel coût pour automatiser le tri de mails avec n8n et GPT ?</h3>
+                <p>Entre <strong>25 et 80€ par mois</strong> pour une PME : n8n self-hosted (~10€/mois) + API GPT-4o-mini (5 à 30€/mois selon volume) + connecteur Gmail/Outlook (gratuit). Le setup initial demande 3 à 5 jours pour un workflow complet.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Le tri de mails IA est-il conforme RGPD ?</h3>
+                <p>Oui, à condition d'utiliser <strong>n8n self-hosted en UE</strong> et une API LLM avec engagement de non-entraînement (OpenAI Enterprise, Claude API, Mistral). Les emails contenant des données sensibles peuvent être filtrés en amont pour ne JAMAIS transiter par le LLM.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Faut-il remplacer Gmail par un autre outil ?</h3>
+                <p>Non. Le workflow tourne en arrière-plan via l'API Gmail (ou Microsoft Graph pour Outlook) sans changer l'interface utilisateur. Le collaborateur continue d'utiliser Gmail/Outlook normalement, et voit les emails déjà classés, étiquetés et avec une réponse suggérée.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Quel niveau d'autonomie après mise en place ?</h3>
+                <p>La majorité de nos clients deviennent autonomes en <strong>2 à 4 semaines</strong> sur la maintenance courante (ajustement des prompts, ajout de nouvelles catégories, modification des règles d'étiquetage). Pour les évolutions majeures (nouveau type de réponse automatique, intégration CRM), un accompagnement ponctuel reste utile.</p>
+            </div>
+        </section>
+
+        <div class="article-cta">
+            <h2>Vous voulez automatiser le tri de vos mails ?</h2>
+            <p>30 minutes d'audit gratuit. Nous analysons le volume et la typologie de vos emails entrants, puis nous chiffrons précisément le gain de temps réalisable et la stack adaptée à votre contexte.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Réserver mon audit gratuit →</a>
+        </div>
+
+        <div class="article-related">
+            <h3>Aller plus loin</h3>
+            <p>Découvrez les <a href="/blog/5-processus-automatiser">5 processus à automatiser dans une PME en 2026</a>, comparez <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Make vs Zapier</a>, ou lisez notre guide <a href="/blog/relance-impayes-ia">relance des impayés par IA (-30 à -50% du DSO)</a>. Pour la formation des équipes, voir <a href="/blog/formation-equipe-ia">formation IA en 4 semaines</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog/">← Retour au blog</a>
+            <a href="/blog/relance-impayes-ia">Relance impayés IA →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo"><img src="/logo-oakflow-v2.png" alt="Oakflow AI" class="logo-img" width="48" height="48" /></a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="/#features">Notre Expertise</a>
+                <a href="/#methode">Notre Méthode</a>
+                <a href="/#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="/#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales.html">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span></div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Shadow IA en PME : ce que vos salariés utilisent à votre insu (2026)</title>
+    <meta name="description" content="27% des salariés utilisent l'IA chaque jour, 16% des dirigeants seulement. Risques RGPD, fuite de données, AI Act : guide pour cadrer le Shadow IA en PME française." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-05-01" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/shadow-ia-pme" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/shadow-ia-pme" />
+    <meta property="og:title" content="Shadow IA en PME : ce que vos salariés utilisent à votre insu (2026)" />
+    <meta property="og:description" content="27% des salariés utilisent l'IA chaque jour, 16% des dirigeants seulement. Risques RGPD, fuite de données, AI Act : guide pour cadrer le Shadow IA en PME française." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://www.oakflowai.com/blog/shadow-ia-pme#article",
+      "headline": "Shadow IA en PME : ce que vos salariés utilisent à votre insu (2026)",
+      "description": "Le Shadow IA — usage non encadré de l'IA par les salariés — est en pleine expansion en 2026. Risques RGPD, fuite de données, conformité AI Act. Guide pratique pour cadrer sans interdire.",
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "author": {"@type": "Person", "name": "Cyril DE LA RUE", "url": "https://www.linkedin.com/in/de-la-rue/"},
+      "publisher": {"@type": "Organization", "name": "Oakflow AI", "logo": {"@type": "ImageObject", "url": "https://www.oakflowai.com/logo-oakflow-v2.png"}},
+      "url": "https://www.oakflowai.com/blog/shadow-ia-pme",
+      "inLanguage": "fr-FR",
+      "keywords": ["shadow ia", "shadow ai pme", "rgpd chatgpt", "ai act pme 2026", "gouvernance ia entreprise", "fuite données ia"],
+      "articleSection": "Stratégie"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Qu'est-ce que le Shadow IA ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Le Shadow IA désigne l'usage non-encadré d'outils d'IA générative (ChatGPT, Claude, Gemini, Copilot) par les salariés sans validation de la direction et sans gouvernance formelle. C'est l'équivalent du Shadow IT des années 2010 : les équipes adoptent les outils plus vite que les processus internes ne se mettent en place. En 2026, 27% des salariés en PME française utilisent l'IA quotidiennement, contre seulement 16% des dirigeants."}},
+        {"@type": "Question", "name": "Quels sont les risques du Shadow IA pour une PME ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Quatre risques majeurs : 1) Fuite de données — un commercial qui colle sa liste de prospects dans ChatGPT envoie potentiellement ces données hors UE sans base RGPD. 2) Propriété intellectuelle — code, contrats, stratégies marketing peuvent enrichir des modèles tiers. 3) Conformité AI Act — depuis août 2026, certains usages doivent être documentés. 4) Qualité des livrables — réponses IA non vérifiées envoyées à des clients ou partenaires, sources d'erreurs et de réputation."}},
+        {"@type": "Question", "name": "Faut-il interdire ChatGPT au travail ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Non, et c'est même contre-productif. Interdire pousse les salariés à utiliser des comptes personnels en navigation privée — exactement la situation à éviter. La bonne approche : déployer une licence d'équipe officielle (ChatGPT Team à 25€/utilisateur/mois ou équivalent) qui n'entraîne pas le modèle sur vos données, puis cadrer les usages via une charte interne d'une page A4 signée par chaque collaborateur."}},
+        {"@type": "Question", "name": "Comment détecter le Shadow IA dans son entreprise ?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Le moyen le plus efficace : un sondage anonyme auprès des collaborateurs, sans menace de sanction. Sur nos 15+ audits PME, 80 à 100% des équipes utilisent ChatGPT ou Claude hebdomadairement, avec ou sans approbation explicite. Une analyse des logs réseau peut compléter (visites sur chat.openai.com, claude.ai, gemini.google.com) mais c'est l'aveu volontaire qui révèle vraiment l'étendue."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Shadow IA en PME"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap { max-width: 760px; margin: 120px auto 80px; padding: 0 24px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+        .article-tag { background: rgba(0, 229, 176, 0.1); border: 1px solid rgba(0, 229, 176, 0.25); border-radius: 100px; padding: 4px 12px; font-size: 13px; color: var(--accent); font-weight: 500; }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+        .article-author img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+        .article-wrap h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
+        .article-intro { font-size: 18px; line-height: 1.7; color: rgba(240, 244, 255, 0.7); margin-bottom: 48px; border-left: 3px solid var(--accent); padding-left: 20px; }
+        .article-wrap h2 { font-size: 26px; font-weight: 700; color: var(--text); margin: 52px 0 16px; letter-spacing: -0.5px; }
+        .article-wrap h3 { font-size: 20px; font-weight: 600; color: var(--text); margin: 36px 0 12px; }
+        .article-wrap p { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+        .article-wrap ul, .article-wrap ol { padding-left: 24px; margin-bottom: 20px; }
+        .article-wrap li { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 8px; }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box { background: rgba(0, 229, 176, 0.06); border: 1px solid rgba(0, 229, 176, 0.2); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+        .info-box p { margin: 0; font-size: 15px; }
+        .warning-box { background: rgba(255, 170, 0, 0.06); border: 1px solid rgba(255, 170, 0, 0.25); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+        .warning-box p { margin: 0; font-size: 15px; }
+        .warning-box strong { color: #ffaa00; }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0; }
+        .result-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px; text-align: center; }
+        .result-val { font-family: var(--font-h); font-size: 36px; font-weight: 700; color: var(--accent); letter-spacing: -1px; display: block; line-height: 1; margin-bottom: 6px; }
+        .result-lbl { font-size: 13px; color: var(--muted); }
+        .risk-card { background: rgba(255, 80, 80, 0.06); border: 1px solid rgba(255, 80, 80, 0.25); border-left: 4px solid #ff5050; border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 24px 0; }
+        .risk-card .risk-label { font-size: 12px; font-weight: 600; color: #ff5050; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .risk-card h3 { margin: 0 0 10px; font-size: 18px; }
+        .verdict-box { background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(124,58,255,0.08)); border: 1px solid rgba(0, 229, 176, 0.25); border-radius: 16px; padding: 28px 32px; margin: 32px 0; }
+        .verdict-box h3 { margin-top: 0; color: var(--accent); }
+        .article-cta { background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(124,58,255,0.08)); border: 1px solid rgba(0, 229, 176, 0.2); border-radius: 20px; padding: 40px; text-align: center; margin: 60px 0 40px; }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related { background: rgba(0,229,176,0.05); border: 1px solid rgba(0, 229, 176, 0.15); border-radius: 16px; padding: 24px 32px; margin: 40px 0; }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+        .article-nav a { color: var(--muted); font-size: 14px; text-decoration: none; }
+        .article-nav a:hover { color: var(--accent); }
+        .article-toc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 28px; margin: 32px 0; }
+        .article-toc strong { color: var(--text); display: block; margin-bottom: 12px; font-size: 15px; }
+        .article-toc ol { margin: 0; padding-left: 20px; }
+        .article-toc li { font-size: 14px; margin-bottom: 6px; color: var(--muted); }
+        .article-toc a { color: var(--accent); text-decoration: none; }
+        .article-toc a:hover { text-decoration: underline; }
+        .article-faq { margin: 48px 0; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 24px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 17px; margin: 0 0 10px; }
+        .faq-item p { margin: 0; font-size: 15px; }
+        @media (max-width: 600px) {
+            .result-grid { grid-template-columns: 1fr 1fr; }
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <nav id="nav">
+        <a href="/" class="nav-logo"><img src="/logo-oakflow-v2.png" alt="Oakflow AI" class="logo-img" width="48" height="48" /></a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="/#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="/#features" class="mobile-menu-link">Services</a>
+            <a href="/#methode" class="mobile-menu-link">Méthode</a>
+            <a href="/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="/blog/" class="mobile-menu-link">Blog</a>
+            <a href="/#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
+
+        <div class="article-meta">
+            <span class="article-tag">Stratégie</span>
+            <span class="article-tag">Gouvernance</span>
+            <time class="article-date" datetime="2026-05-01">1 mai 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">Shadow IA en PME : ce que vos salariés utilisent à votre insu (2026)</h1>
+
+        <p class="article-intro">En PME française, <strong>27% des salariés utilisent l'IA chaque jour. 16% des dirigeants seulement</strong>. Le décalage est massif — et la majorité de ces usages se font hors charte, parfois en navigation privée, avec des données sensibles. C'est le « Shadow IA », équivalent du Shadow IT des années 2010. Voici comment le détecter, mesurer le risque, et le cadrer sans tuer la productivité.</p>
+
+        <div class="article-toc">
+            <strong>Sommaire</strong>
+            <ol>
+                <li><a href="#definition">Le Shadow IA, définition et chiffres 2026</a></li>
+                <li><a href="#pourquoi">Pourquoi vos salariés ne vous en parlent pas</a></li>
+                <li><a href="#risques">Les 4 risques concrets pour votre PME</a></li>
+                <li><a href="#detecter">Comment détecter le Shadow IA dans votre entreprise</a></li>
+                <li><a href="#cadrer">Cadrer sans interdire : la méthode en 3 étapes</a></li>
+                <li><a href="#charte">Modèle de charte d'usage IA (1 page A4)</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol>
+        </div>
+
+        <h2 id="definition">Le Shadow IA, définition et chiffres 2026</h2>
+
+        <p>Le <strong>Shadow IA</strong> désigne l'usage non-encadré d'outils d'IA générative (ChatGPT, Claude, Gemini, Copilot, Mistral) par les salariés, sans validation de la direction et sans gouvernance formelle. C'est l'équivalent du « Shadow IT » des années 2010, quand les commerciaux installaient Dropbox et WhatsApp Business sans en parler à la DSI.</p>
+
+        <p>Les chiffres 2026 sont sans appel :</p>
+
+        <div class="result-grid">
+            <div class="result-card"><span class="result-val">27%</span><span class="result-lbl">des salariés<br>utilisent l'IA quotidiennement</span></div>
+            <div class="result-card"><span class="result-val">16%</span><span class="result-lbl">des dirigeants<br>seulement l'utilisent</span></div>
+            <div class="result-card"><span class="result-val">+11pts</span><span class="result-lbl">de décalage<br>entre les deux populations</span></div>
+        </div>
+
+        <p>Sur nos 15+ audits PME en 2025-2026, le constat est identique : <strong>entre 80 et 100% des équipes utilisent ChatGPT ou Claude hebdomadairement</strong>, avec ou sans approbation explicite. La direction est presque toujours surprise par l'ampleur réelle de l'usage.</p>
+
+        <h2 id="pourquoi">Pourquoi vos salariés ne vous en parlent pas</h2>
+
+        <p>Trois raisons reviennent systématiquement dans nos entretiens :</p>
+
+        <ol>
+            <li><strong>Peur de la sanction.</strong> Sans cadre clair, le salarié craint d'avoir « triché » sur un livrable. Il ne mentionne pas son usage.</li>
+            <li><strong>Pas de canal pour en parler.</strong> Pas de référent IA, pas de discussion ouverte en réunion d'équipe, pas de canal Slack dédié — l'usage reste personnel et silencieux.</li>
+            <li><strong>Sentiment d'être en avance.</strong> Le salarié pense (souvent à raison) qu'il maîtrise mieux l'outil que sa direction. Le partager, c'est risquer qu'on l'encadre maladroitement.</li>
+        </ol>
+
+        <p>Résultat : la direction sous-estime l'usage, n'investit pas dans la formation collective, et le décalage s'aggrave. Pendant ce temps, les données sensibles continuent de transiter par des comptes personnels.</p>
+
+        <h2 id="risques">Les 4 risques concrets pour votre PME</h2>
+
+        <div class="risk-card">
+            <div class="risk-label">Risque 1 · Fuite de données</div>
+            <h3>Vos données clients passent par des serveurs hors UE sans base légale RGPD</h3>
+            <p>Un commercial qui colle dans ChatGPT (compte personnel, plan Free) sa liste de 200 prospects pour rédiger un mailing personnalisé — ces données quittent l'UE, sans engagement contractuel, et peuvent enrichir le modèle. C'est exactement le type d'incident sanctionnable par la CNIL (jusqu'à 4% du CA mondial).</p>
+        </div>
+
+        <div class="risk-card">
+            <div class="risk-label">Risque 2 · Propriété intellectuelle</div>
+            <h3>Code source, contrats, stratégies marketing fuient via les prompts</h3>
+            <p>Un développeur qui demande à ChatGPT de débugger une fonction métier propriétaire envoie potentiellement votre code à un tiers. Idem pour les contrats juridiques sensibles, les présentations stratégiques, les business plans. La PME perd progressivement le contrôle sur ses actifs immatériels.</p>
+        </div>
+
+        <div class="risk-card">
+            <div class="risk-label">Risque 3 · Conformité AI Act</div>
+            <h3>Depuis août 2026, certains usages doivent être documentés</h3>
+            <p>L'AI Act européen impose une obligation de transparence sur les usages IA à risque (RH, scoring client, surveillance salariés). Sans cartographie des usages, impossible de répondre à un contrôle. Les sanctions vont de 7,5 millions d'euros ou 1,5% du CA mondial pour les infractions mineures, à 35 millions ou 7% pour les plus graves.</p>
+        </div>
+
+        <div class="risk-card">
+            <div class="risk-label">Risque 4 · Qualité des livrables</div>
+            <h3>Réponses IA non vérifiées envoyées à des clients</h3>
+            <p>Un assistant qui rédige une réponse client avec ChatGPT et l'envoie sans relecture peut transmettre des informations erronées (prix obsolètes, conditions inventées, références fictives). Les hallucinations LLM sont une réalité — sans cadre de validation, elles deviennent des erreurs commerciales.</p>
+        </div>
+
+        <h2 id="detecter">Comment détecter le Shadow IA dans votre entreprise</h2>
+
+        <p>Trois méthodes complémentaires, classées par efficacité :</p>
+
+        <div class="verdict-box">
+            <h3>Méthode 1 — Sondage anonyme (recommandée)</h3>
+            <p>Sans menace de sanction, demander à chaque collaborateur : « Utilisez-vous ChatGPT, Claude, Gemini ou Copilot dans votre travail ? Si oui, à quelle fréquence et pour quelles tâches ? Quel compte (perso ou pro) ? ». Sur nos audits, le taux de réponse honnête monte à 85%+ quand on garantit l'anonymat.</p>
+        </div>
+
+        <div class="verdict-box">
+            <h3>Méthode 2 — Analyse des logs réseau</h3>
+            <p>Si votre PME a un firewall configuré, on peut compter les connexions vers chat.openai.com, claude.ai, gemini.google.com, copilot.microsoft.com. Donne une bonne idée du volume mais pas du contenu ni des cas d'usage précis. À combiner avec le sondage.</p>
+        </div>
+
+        <div class="verdict-box">
+            <h3>Méthode 3 — Entretiens individuels</h3>
+            <p>Pour les équipes de moins de 20 personnes, un entretien de 20 minutes par collaborateur — bienveillant, ouvert, hors hiérarchie directe — révèle généralement le détail des pratiques. C'est aussi l'occasion de leur demander leurs meilleures astuces (souvent, ils en savent plus que vous).</p>
+        </div>
+
+        <h2 id="cadrer">Cadrer sans interdire : la méthode en 3 étapes</h2>
+
+        <p>Interdire est contre-productif : ça pousse au Shadow IA et fait perdre l'avantage compétitif. Voici la méthode que nous appliquons systématiquement chez nos clients PME.</p>
+
+        <h3>Étape 1 — Déployer une licence d'équipe officielle</h3>
+
+        <p>Avant toute charte, donner aux équipes <strong>un outil officiel à utiliser</strong>. Sinon ils continueront sur leurs comptes perso. Options recommandées en 2026 :</p>
+
+        <ul>
+            <li><strong>ChatGPT Team / Enterprise</strong> : 25-30€/utilisateur/mois — n'entraîne pas le modèle sur vos données</li>
+            <li><strong>Claude Pro Team</strong> : 25€/utilisateur/mois — alternative solide, contexte 200k tokens</li>
+            <li><strong>Microsoft Copilot Business</strong> : 26€/utilisateur/mois — intégré à Microsoft 365 (Outlook, Excel, Word, Teams)</li>
+            <li><strong>Mistral Le Chat Pro Enterprise</strong> : souverain français, idéal pour les PME RGPD-strict (santé, juridique, RH)</li>
+        </ul>
+
+        <h3>Étape 2 — Rédiger une charte d'usage (1 page A4)</h3>
+
+        <p>Pas de manuel de 15 pages que personne ne lit. Une charte d'usage IA en PME tient sur <strong>1 page A4 recto-verso</strong> : 3 cas autorisés sans validation, 3 cas avec validation, 3 cas interdits. Signée par chaque collaborateur lors d'une réunion d'équipe (avec explication, pas en silence).</p>
+
+        <h3>Étape 3 — Former, partager, ajuster</h3>
+
+        <p>Investir dans une <strong>formation IA collective</strong> (voir notre <a href="/blog/formation-equipe-ia">guide formation IA en 4 semaines</a>), créer un canal Slack/Teams dédié au partage des bonnes pratiques, organiser une revue trimestrielle pour ajuster la charte selon les retours. La gouvernance IA est un processus vivant, pas un document figé.</p>
+
+        <div class="info-box">
+            <p><strong>Bénéfice à activer :</strong> dans les PME où nous avons cadré le Shadow IA, l'usage déclaré bondit de 30 à 50%. Pas parce qu'il y a vraiment plus d'usage — il existait déjà — mais parce que les salariés osent enfin partager leurs pratiques. La direction reprend la main, capitalise sur les bonnes idées, et industrialise les workflows à plus fort ROI.</p>
+        </div>
+
+        <h2 id="charte">Modèle de charte d'usage IA (1 page A4)</h2>
+
+        <p>Voici la trame canonique que nous utilisons pour nos clients PME — à adapter selon votre métier :</p>
+
+        <div class="verdict-box">
+            <h3>✅ AUTORISÉ sans validation</h3>
+            <ul>
+                <li>Rédaction et relecture d'emails internes</li>
+                <li>Synthèse de comptes-rendus de réunion (notes anonymisées)</li>
+                <li>Brainstorming, recherche d'idées, plan d'article</li>
+                <li>Reformulation, traduction, correction orthographique</li>
+                <li>Aide au code (sur du code non sensible)</li>
+            </ul>
+        </div>
+
+        <div class="verdict-box">
+            <h3>⚠️ AUTORISÉ avec validation hiérarchique</h3>
+            <ul>
+                <li>Rédaction de livrables clients (devis, propositions, présentations)</li>
+                <li>Analyse de données internes (chiffres, KPIs anonymisés)</li>
+                <li>Génération de contenu publié (blog, LinkedIn, communiqué)</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>❌ INTERDIT (toujours)</strong></p>
+            <ul style="margin-top: 8px;">
+                <li>Coller des données personnelles clients (noms, emails, téléphones, adresses)</li>
+                <li>Coller des données RH (salaires, évaluations, contrats)</li>
+                <li>Coller des données financières (CA, marges, comptes bancaires)</li>
+                <li>Coller du code source confidentiel ou des contrats juridiques</li>
+                <li>Utiliser un compte ChatGPT/Claude personnel pour des tâches pro</li>
+            </ul>
+        </div>
+
+        <p>Cette charte tient en 1 page imprimée. Elle se signe en 5 minutes, se rappelle facilement, et donne un cadre clair sans fermer les usages utiles. Pour aller plus loin sur la gouvernance et la conformité AI Act, voir notre <a href="/blog/formation-equipe-ia">guide formation IA en 4 semaines</a>.</p>
+
+        <section id="faq" class="article-faq">
+            <h2>FAQ — Shadow IA en PME</h2>
+
+            <div class="faq-item">
+                <h3>Qu'est-ce que le Shadow IA ?</h3>
+                <p>Le <strong>Shadow IA</strong> désigne l'usage non-encadré d'outils d'IA générative (ChatGPT, Claude, Gemini, Copilot) par les salariés sans validation de la direction. C'est l'équivalent du Shadow IT des années 2010 : les équipes adoptent les outils plus vite que les processus internes. En 2026, 27% des salariés en PME française utilisent l'IA quotidiennement, contre 16% des dirigeants seulement.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Quels sont les risques du Shadow IA pour une PME ?</h3>
+                <p>Quatre risques majeurs : <strong>fuite de données</strong> (clients/prospects collés dans ChatGPT perso), <strong>propriété intellectuelle</strong> (code, contrats, stratégies fuitent par les prompts), <strong>conformité AI Act</strong> (obligation de documentation depuis août 2026), <strong>qualité des livrables</strong> (réponses IA non vérifiées envoyées à des clients).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Faut-il interdire ChatGPT au travail ?</h3>
+                <p>Non, et c'est même contre-productif. Interdire pousse les salariés à utiliser des comptes personnels en navigation privée. La bonne approche : déployer une <strong>licence d'équipe officielle</strong> (ChatGPT Team à 25€/utilisateur/mois ou équivalent) qui n'entraîne pas le modèle sur vos données, puis cadrer les usages via une charte interne d'une page A4.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Comment détecter le Shadow IA dans son entreprise ?</h3>
+                <p>Le moyen le plus efficace : un <strong>sondage anonyme</strong> auprès des collaborateurs, sans menace de sanction. Sur nos 15+ audits PME, 80 à 100% des équipes utilisent ChatGPT ou Claude hebdomadairement. Une analyse des logs réseau peut compléter (visites sur chat.openai.com, claude.ai, etc.) mais c'est l'aveu volontaire qui révèle l'étendue réelle.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Mon AI Act ne concerne que les grandes entreprises, non ?</h3>
+                <p>Faux. L'AI Act s'applique à <strong>toutes les organisations</strong> qui utilisent des systèmes IA, indépendamment de la taille. Les PME sont concernées dès qu'elles utilisent l'IA pour des cas dits "à risque" (recrutement, scoring client, surveillance salariés). L'obligation de transparence et de documentation existe depuis août 2026. Les sanctions peuvent atteindre 1,5 à 7% du CA mondial pour les infractions graves.</p>
+            </div>
+        </section>
+
+        <div class="article-cta">
+            <h2>Cadrez votre Shadow IA en 30 minutes</h2>
+            <p>Audit gratuit. Nous évaluons l'ampleur du Shadow IA dans votre PME, identifions les risques RGPD et AI Act, et vous proposons un plan de cadrage en 4 semaines avec charte d'usage prête à signer.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Réserver mon audit gratuit →</a>
+        </div>
+
+        <div class="article-related">
+            <h3>Aller plus loin</h3>
+            <p>Découvrez notre <a href="/blog/formation-equipe-ia">guide formation IA en 4 semaines</a>, les <a href="/blog/5-processus-automatiser">5 processus à automatiser dans une PME</a>, ou le tutoriel <a href="/blog/tri-mails-ia">tri de mails IA</a>. Pour la stack technique, voir le comparatif <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Make vs Zapier</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog/relance-impayes-ia">← Relance impayés IA</a>
+            <a href="/blog/">Retour au blog →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo"><img src="/logo-oakflow-v2.png" alt="Oakflow AI" class="logo-img" width="48" height="48" /></a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="/#features">Notre Expertise</a>
+                <a href="/#methode">Notre Méthode</a>
+                <a href="/#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="/#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales.html">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span></div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+</html>

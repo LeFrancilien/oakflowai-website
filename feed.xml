@@ -17,6 +17,42 @@
     </image>
 
     <item>
+      <title>Shadow IA en PME : ce que vos salariés utilisent à votre insu (2026)</title>
+      <link>https://www.oakflowai.com/blog/shadow-ia-pme</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/shadow-ia-pme</guid>
+      <pubDate>Fri, 01 May 2026 09:00:00 +0200</pubDate>
+      <description>27% des salariés utilisent l'IA chaque jour, 16% des dirigeants seulement. Risques RGPD, fuite de données, AI Act : guide pour cadrer le Shadow IA en PME française.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Stratégie</category>
+      <category>Gouvernance</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Relance impayés IA : -30 à -50% du DSO (cas client réel · 2026)</title>
+      <link>https://www.oakflowai.com/blog/relance-impayes-ia</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/relance-impayes-ia</guid>
+      <pubDate>Fri, 01 May 2026 09:00:00 +0200</pubDate>
+      <description>Workflow IA pour relancer les factures impayées : -30 à -50% du DSO en 4 mois. Architecture n8n + Pennylane + GPT, prompts personnalisés, cas client chiffré.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Cas client</category>
+      <category>Comptabilité</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Tri de mails IA : 5 à 10h/semaine économisées (workflow n8n + GPT)</title>
+      <link>https://www.oakflowai.com/blog/tri-mails-ia</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/tri-mails-ia</guid>
+      <pubDate>Fri, 01 May 2026 09:00:00 +0200</pubDate>
+      <description>Workflow n8n + GPT-4o pour trier, classer et pré-rédiger ses emails automatiquement. Setup 4 jours, 30€/mois, ROI mesuré sur 12 PME. Guide pas à pas.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Tutoriel</category>
+      <category>n8n</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
       <title>5 processus à automatiser dans une PME en 2026 (avec ROI chiffré)</title>
       <link>https://www.oakflowai.com/blog/5-processus-automatiser</link>
       <guid isPermaLink="true">https://www.oakflowai.com/blog/5-processus-automatiser</guid>
