@@ -63,8 +63,8 @@ window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
             if (nav) {
                 nav.style.background = window.scrollY > 60
-                    ? 'rgba(6,9,16,0.96)'
-                    : 'rgba(6,9,16,0.75)';
+                    ? 'rgba(6,9,16,0.30)'
+                    : 'rgba(6,9,16,0.10)';
             }
             _navTicking = false;
         });
