@@ -8,13 +8,37 @@
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
     <managingEditor>contact@oakflowai.com (Cyril DE LA RUE)</managingEditor>
     <webMaster>contact@oakflowai.com (Cyril DE LA RUE)</webMaster>
-    <lastBuildDate>Tue, 07 Apr 2026 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 09:00:00 +0200</lastBuildDate>
     <atom:link href="https://www.oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://www.oakflowai.com/logo-oakflow-v2.png</url>
       <title>Oakflow AI</title>
       <link>https://www.oakflowai.com</link>
     </image>
+
+    <item>
+      <title>5 processus à automatiser dans une PME en 2026 (avec ROI chiffré)</title>
+      <link>https://www.oakflowai.com/blog/5-processus-automatiser</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/5-processus-automatiser</guid>
+      <pubDate>Fri, 01 May 2026 09:00:00 +0200</pubDate>
+      <description>74% des PME françaises n'ont aucun processus automatisé en 2026. Voici 5 cas concrets — tri mails, qualification leads, relance impayés, génération devis, FAQ support — avec ROI mesuré sur le terrain.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Automatisation</category>
+      <category>IA PME</category>
+      <category>ROI</category>
+    </item>
+
+    <item>
+      <title>Former son équipe à l'IA : guide PME 2026 (Shadow IA inclus)</title>
+      <link>https://www.oakflowai.com/blog/formation-equipe-ia</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/formation-equipe-ia</guid>
+      <pubDate>Fri, 01 May 2026 09:00:00 +0200</pubDate>
+      <description>27% des salariés utilisent déjà l'IA quotidiennement, seulement 16% des dirigeants. Le décalage crée du Shadow IA et des risques RGPD. Programme de formation IA en 4 semaines pour PME, avec gouvernance et conformité AI Act.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Formation IA</category>
+      <category>IA PME</category>
+      <category>Gouvernance</category>
+    </item>
 
     <item>
       <title>CRM IA pour PME : 7 problèmes concrets qu'il résout (2026)</title>
