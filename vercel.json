@@ -25,6 +25,7 @@
         { "source": "/blog/formation-automatisation.html", "destination": "/blog/formation-equipe-ia", "permanent": true },
         { "source": "/blog/n8n-vs-make-vs-zapier.html", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
         { "source": "/blog/n8n-vs-make.html", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
+        { "source": "/blog/n8n-vs-make", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
         { "source": "/blog/guide-automatiser-comptabilite.html", "destination": "/blog/automatiser-comptabilite", "permanent": true },
         { "source": "/blog/n8n-vs-make-vs-zapier", "destination": "/blog/n8n-vs-zapier-vs-make", "permanent": true },
         { "source": "/blog/guide-automatiser-comptabilite", "destination": "/blog/automatiser-comptabilite", "permanent": true },
