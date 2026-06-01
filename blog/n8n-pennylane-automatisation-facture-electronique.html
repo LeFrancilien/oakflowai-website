@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>n8n + Pennylane : 5 automatisations avant la facture électronique (2026)</title>
+    <meta name="description" content="Connectez n8n à l'API Pennylane et automatisez votre comptabilité avant la réforme facture électronique de septembre 2026. 5 workflows concrets, ROI mesuré, guide pas à pas." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-06-01" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique" />
+    <meta property="og:title" content="n8n + Pennylane : 5 automatisations avant la facture électronique (2026)" />
+    <meta property="og:description" content="Connectez n8n à l'API Pennylane et automatisez votre comptabilité avant la réforme facture électronique de septembre 2026. 5 workflows concrets, ROI mesuré." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <!-- Schema — Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique#article",
+      "headline": "n8n + Pennylane : 5 automatisations avant la facture électronique (2026)",
+      "description": "Connectez n8n à l'API Pennylane pour automatiser facturation, relances impayés, réconciliation bancaire et reporting comptable avant la réforme de septembre 2026.",
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-06-01",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/logo-oakflow-v2.png"
+        }
+      },
+      "url": "https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique",
+      "inLanguage": "fr-FR",
+      "keywords": ["n8n pennylane", "pennylane n8n", "n8n pennylane integration", "automatisation facture electronique", "pennylane api automatisation", "facture electronique pme 2026", "automatisation comptabilite pennylane"],
+      "articleSection": "Guide"
+    }
+    </script>
+
+    <!-- Schema — FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment connecter n8n à Pennylane ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour connecter n8n à Pennylane, vous avez besoin d'une clé API Pennylane (disponible dans Paramètres > API de votre compte). Dans n8n, utilisez le noeud HTTP Request avec l'URL de base https://app.pennylane.com/api/external/v1/ et ajoutez votre clé en Authorization Bearer. Depuis cette connexion, vous pouvez lire et créer des factures, des clients, des fournisseurs et des transactions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pennylane est-il compatible avec la facture électronique obligatoire en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Pennylane est en cours de certification comme Plateforme de Dématérialisation Partenaire (PDP) pour la réforme facture électronique française. Cela signifie que les PME utilisant Pennylane pourront émettre et recevoir des factures électroniques au format légal (Factur-X, UBL) directement depuis leur logiciel, sans changer d'outil. La connexion n8n + Pennylane permet d'automatiser tout ce qui entoure la facture : création, envoi, relance, réconciliation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour mettre en place n8n + Pennylane ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comptez entre 2 et 5 jours de mise en place selon la complexité de votre process. La connexion API de base prend 2 à 3 heures. Un workflow complet (CRM vers Pennylane + relances + reporting) nécessite 3 à 5 jours. Dans nos déploiements pour PME françaises, le ROI est atteint en moins de 30 jours grâce aux heures économisées sur la saisie et les relances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le coût d'une automatisation n8n + Pennylane ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n en self-hosted coûte environ 10 à 20 euros par mois sur un VPS. Pennylane facture à partir de 29 euros par mois pour les PME. L'automatisation complète (5 workflows) représente entre 2 000 et 4 000 euros de mise en place selon la complexité, avec un retour sur investissement en moins de 60 jours pour une PME gérant plus de 50 factures par mois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "n8n peut-il lire et créer des factures dans Pennylane automatiquement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Via l'API REST de Pennylane, n8n peut créer des factures clients, lire les factures en attente de paiement, mettre à jour le statut des transactions, créer des contacts fournisseurs et clients, et déclencher des relances basées sur les dates d'échéance. Tout ce que vous faites manuellement dans Pennylane peut être automatisé via n8n."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"n8n + Pennylane : automatisation facture électronique"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap {
+            max-width: 760px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            background: rgba(0, 229, 176, 0.1);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .article-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .article-wrap h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(240, 244, 255, 0.7);
+            margin-bottom: 48px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+        .article-wrap h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 52px 0 16px;
+            letter-spacing: -0.5px;
+        }
+        .article-wrap h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        .article-wrap p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .article-wrap ul, .article-wrap ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-wrap li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box {
+            background: rgba(0, 229, 176, 0.06);
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { margin: 0; font-size: 15px; }
+        .warning-box {
+            background: rgba(255, 180, 0, 0.06);
+            border: 1px solid rgba(255, 180, 0, 0.25);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .warning-box p { margin: 0; font-size: 15px; }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+        .result-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .result-val {
+            font-family: var(--font-h);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -1px;
+            display: block;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .result-lbl { font-size: 13px; color: var(--muted); }
+        .problem-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .problem-card .problem-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .problem-card h3 { margin: 0 0 10px; font-size: 18px; }
+        .problem-card p { margin: 0; font-size: 15px; }
+        .verdict-box {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 32px 0;
+        }
+        .verdict-box h3 { margin-top: 0; color: var(--accent); }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 28px 0;
+            font-size: 15px;
+        }
+        .compare-table th {
+            background: rgba(0, 229, 176, 0.08);
+            color: var(--accent);
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 229, 176, 0.2);
+        }
+        .compare-table td {
+            padding: 12px 16px;
+            color: var(--muted);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .compare-table tr:last-child td { border-bottom: none; }
+        .compare-table td:first-child { color: var(--text); font-weight: 500; }
+        .workflow-steps {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+        .workflow-steps li {
+            counter-increment: step;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--muted);
+        }
+        .workflow-steps li::before {
+            content: counter(step);
+            background: rgba(0, 229, 176, 0.15);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 13px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .article-cta {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 40px;
+        }
+        .article-nav a {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-nav a:hover { color: var(--accent); }
+        .article-toc {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px 28px;
+            margin: 32px 0;
+        }
+        .article-toc strong { color: var(--text); display: block; margin-bottom: 12px; font-size: 15px; }
+        .article-toc ol { margin: 0; padding-left: 20px; }
+        .article-toc li { font-size: 14px; margin-bottom: 6px; color: var(--muted); }
+        .article-toc a { color: var(--accent); text-decoration: none; }
+        .article-toc a:hover { text-decoration: underline; }
+        .article-faq { margin: 48px 0; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 24px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 17px; margin: 0 0 10px; }
+        .faq-item p { margin: 0; font-size: 15px; }
+        .deadline-banner {
+            background: linear-gradient(135deg, rgba(255,80,80,0.08), rgba(255,140,0,0.08));
+            border: 1px solid rgba(255,100,50,0.3);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 32px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .deadline-banner .deadline-icon { font-size: 28px; flex-shrink: 0; }
+        .deadline-banner p { margin: 0; font-size: 15px; color: rgba(240,244,255,0.8); }
+        .deadline-banner strong { color: #fff; }
+        @media (max-width: 600px) {
+            .result-grid { grid-template-columns: 1fr 1fr; }
+            .article-cta { padding: 28px 20px; }
+            .compare-table { font-size: 13px; }
+            .compare-table th, .compare-table td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.png" alt="Oakflow AI" class="logo-img" width="48" height="48" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="/#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="/#features" class="mobile-menu-link">Services</a>
+            <a href="/#methode" class="mobile-menu-link">Méthode</a>
+            <a href="/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="/blog/" class="mobile-menu-link">Blog</a>
+            <a href="/#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">Réserver 30min</a>
+    </div>
+
+    <!-- ARTICLE -->
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
+
+        <div class="article-meta">
+            <span class="article-tag">Guide</span>
+            <span class="article-tag">Automatisation</span>
+            <span class="article-tag">Comptabilité</span>
+            <time class="article-date" datetime="2026-06-01">1 juin 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">n8n + Pennylane : 5 automatisations pour préparer votre PME à la facture électronique de septembre 2026</h1>
+
+        <p class="article-intro">La réforme de la facture électronique arrive. Septembre 2026 marque le début de l'obligation pour les grandes entreprises, et la mise en conformité progressive va concerner toutes les PME françaises. Pennylane, déjà utilisé par plus de 300 000 entrepreneurs français, se positionne comme la solution comptable de référence pour cette transition. Voici comment le connecter à n8n pour automatiser ce que vous faites encore à la main, avant que la contrainte réglementaire ne devienne une urgence.</p>
+
+        <div class="deadline-banner">
+            <div class="deadline-icon">⏳</div>
+            <p><strong>Septembre 2026 : la facture électronique devient obligatoire.</strong> Toutes les entreprises françaises devront pouvoir recevoir des factures au format électronique légal (Factur-X, UBL) via une plateforme certifiée. C'est maintenant qu'il faut automatiser vos process comptables, pas trois semaines avant la deadline.</p>
+        </div>
+
+        <div class="result-grid">
+            <div class="result-card">
+                <span class="result-val">6h</span>
+                <span class="result-lbl">économisées par semaine<br>en saisie comptable</span>
+            </div>
+            <div class="result-card">
+                <span class="result-val">-85%</span>
+                <span class="result-lbl">d'erreurs de saisie<br>avec l'automatisation</span>
+            </div>
+            <div class="result-card">
+                <span class="result-val">30j</span>
+                <span class="result-lbl">délai moyen de<br>retour sur investissement</span>
+            </div>
+        </div>
+
+        <div class="article-toc">
+            <strong>Sommaire</strong>
+            <ol>
+                <li><a href="#reforme">Ce que la réforme facture électronique change concrètement</a></li>
+                <li><a href="#api-pennylane">L'API Pennylane : ce qu'elle permet d'automatiser</a></li>
+                <li><a href="#auto-1">Automatisation 1 : Facturation automatique depuis le CRM</a></li>
+                <li><a href="#auto-2">Automatisation 2 : Réconciliation bancaire et matching des paiements</a></li>
+                <li><a href="#auto-3">Automatisation 3 : Relances impayés intelligentes</a></li>
+                <li><a href="#auto-4">Automatisation 4 : Import des factures fournisseurs par email</a></li>
+                <li><a href="#auto-5">Automatisation 5 : Reporting comptable hebdomadaire automatique</a></li>
+                <li><a href="#demarrage">Guide de démarrage : connecter n8n à Pennylane</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol>
+        </div>
+
+        <h2 id="reforme">Ce que la réforme facture électronique change concrètement pour les PME</h2>
+
+        <p>La réforme de la facturation électronique en France impose progressivement à toutes les entreprises de transiter vers des formats de factures dématérialisés et structurés (Factur-X, UBL, CII). L'objectif affiché est double : réduire la fraude à la TVA et moderniser les échanges commerciaux. Pour les PME, cela signifie une chose concrète : votre process comptable actuel va devoir changer.</p>
+
+        <p>Ce n'est pas qu'une contrainte administrative. C'est une opportunité. Les entreprises qui auront automatisé leur facturation avant la deadline seront en avance sur leurs concurrentes, traiteront leurs factures sans délai et réduiront leurs coûts de gestion comptable de 30 à 60%.</p>
+
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Situation actuelle (PME typique)</th>
+                    <th>Après automatisation n8n + Pennylane</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Saisie manuelle de chaque facture dans Pennylane</td>
+                    <td>Création automatique depuis le CRM ou par email</td>
+                </tr>
+                <tr>
+                    <td>Rapprochement bancaire fait à la main 1 fois/semaine</td>
+                    <td>Matching automatique quotidien, alertes sur anomalies</td>
+                </tr>
+                <tr>
+                    <td>Relances impayées oubliées ou irrégulières</td>
+                    <td>Séquence de relance automatique J+0/J+7/J+30</td>
+                </tr>
+                <tr>
+                    <td>Factures fournisseurs traitées par email et saisies à la main</td>
+                    <td>Extraction automatique PDF et import dans Pennylane</td>
+                </tr>
+                <tr>
+                    <td>Reporting comptable mensuel chronophage</td>
+                    <td>Rapport hebdomadaire automatique en Slack ou email</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Pennylane est déjà en cours de certification comme <strong>Plateforme de Dématérialisation Partenaire (PDP)</strong>, ce qui signifie qu'il sera directement compatible avec les obligations de la réforme. En connectant n8n à Pennylane aujourd'hui, vous construisez une infrastructure comptable qui sera conforme et automatisée le jour J.</p>
+
+        <h2 id="api-pennylane">L'API Pennylane : ce qu'elle permet de faire avec n8n</h2>
+
+        <p>Pennylane expose une API REST complète accessible depuis votre compte. Contrairement à ce que beaucoup pensent, elle ne se limite pas à la lecture de données : vous pouvez créer, modifier et déclencher des actions depuis n8n, Make ou n'importe quel outil d'automatisation capable d'effectuer des requêtes HTTP.</p>
+
+        <p>Les endpoints principaux couvrent l'ensemble du cycle de facturation. Pour les factures clients, vous pouvez créer une nouvelle facture avec toutes ses lignes, mettre à jour son statut, la marquer comme payée ou en attente. Pour les fournisseurs, vous pouvez importer des factures reçues, les rapprocher d'une transaction bancaire et notifier votre comptable. Pour la trésorerie, vous accédez aux transactions bancaires synchronisées et aux soldes en temps réel.</p>
+
+        <div class="verdict-box">
+            <h3>Ce que n8n peut faire via l'API Pennylane</h3>
+            <table class="compare-table" style="margin:0;">
+                <thead>
+                    <tr>
+                        <th>Ressource</th>
+                        <th>Actions disponibles</th>
+                        <th>Cas d'usage typique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Factures clients</td>
+                        <td>Créer, lire, mettre à jour, finaliser</td>
+                        <td>Facturation auto depuis CRM</td>
+                    </tr>
+                    <tr>
+                        <td>Factures fournisseurs</td>
+                        <td>Créer, lire, valider</td>
+                        <td>Import emails fournisseurs</td>
+                    </tr>
+                    <tr>
+                        <td>Clients / Fournisseurs</td>
+                        <td>Créer, rechercher, modifier</td>
+                        <td>Sync CRM vers Pennylane</td>
+                    </tr>
+                    <tr>
+                        <td>Transactions bancaires</td>
+                        <td>Lire, catégoriser, rapprocher</td>
+                        <td>Réconciliation automatique</td>
+                    </tr>
+                    <tr>
+                        <td>Produits / Services</td>
+                        <td>Créer, lire, modifier</td>
+                        <td>Catalogue produits synchronisé</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>L'authentification se fait par clé API Bearer, ce qui la rend simple à configurer dans n8n sans plugin supplémentaire : un noeud <strong>HTTP Request</strong> suffit pour tous les appels. Vous n'avez besoin d'aucune connaissance en développement pour construire les workflows décrits ci-dessous.</p>
+
+        <h2 id="auto-1">Automatisation 1 : Facturation automatique depuis le CRM</h2>
+
+        <div class="problem-card">
+            <div class="problem-label">Situation actuelle</div>
+            <h3>Un deal gagné dans le CRM ne génère pas automatiquement de facture dans Pennylane</h3>
+            <p>Le commercial ferme un deal dans HubSpot ou Pipedrive, puis envoie un email à l'admin ou au comptable qui crée la facture manuellement dans Pennylane. Double saisie, délai de 24 à 48h, risque d'erreur sur les montants ou les coordonnées.</p>
+        </div>
+
+        <p><strong>Ce que le workflow n8n résout :</strong> quand un deal passe au statut "Gagné" dans votre CRM, n8n déclenche automatiquement une séquence qui vérifie si le client existe déjà dans Pennylane (et le crée si nécessaire), construit la facture avec les lignes du deal (produits, quantités, prix, remises), la crée dans Pennylane et envoie une notification Slack à l'équipe.</p>
+
+        <ol class="workflow-steps">
+            <li>Déclencheur : webhook CRM (HubSpot, Pipedrive, Notion) sur passage au statut "Gagné"</li>
+            <li>Vérification client : GET /customers dans Pennylane avec filtre sur le nom ou le SIRET</li>
+            <li>Création client si absent : POST /customers avec les données du contact CRM</li>
+            <li>Construction des lignes de facture à partir des produits du deal</li>
+            <li>Création de la facture : POST /customer_invoices avec toutes les lignes</li>
+            <li>Notification Slack : lien direct vers la facture dans Pennylane pour validation</li>
+        </ol>
+
+        <div class="info-box">
+            <p><strong>Résultat observé :</strong> une entreprise de services B2B gérant 40 deals par mois a éliminé 8h de saisie hebdomadaire et réduit son délai de facturation de 48h à moins de 5 minutes. Le respect des délais de paiement a progressé de 23% grâce à l'émission plus rapide des factures.</p>
+        </div>
+
+        <h2 id="auto-2">Automatisation 2 : Réconciliation bancaire et matching des paiements</h2>
+
+        <div class="problem-card">
+            <div class="problem-label">Situation actuelle</div>
+            <h3>Le rapprochement bancaire se fait manuellement une fois par semaine, voire par mois</h3>
+            <p>Identifier quelle transaction correspond à quelle facture prend du temps. Les erreurs de rapprochement retardent la clôture mensuelle. Les écarts non détectés coûtent cher en fin de trimestre.</p>
+        </div>
+
+        <p><strong>Ce que le workflow n8n résout :</strong> chaque nuit, n8n récupère les nouvelles transactions bancaires via l'API Pennylane, compare les montants et références avec les factures en attente de paiement, et effectue le rapprochement automatiquement pour les correspondances exactes. Pour les cas ambigus (montant approchant, plusieurs factures possibles), il envoie une alerte à votre comptable avec les options proposées.</p>
+
+        <ol class="workflow-steps">
+            <li>Déclencheur : cron quotidien à 7h du matin</li>
+            <li>Récupération des transactions bancaires du jour via GET /transactions</li>
+            <li>Récupération des factures en attente de paiement via GET /customer_invoices?status=pending</li>
+            <li>Matching par montant exact et référence (numéro de facture dans le libellé)</li>
+            <li>Mise à jour automatique des factures rapprochées : PATCH /customer_invoices/{id}</li>
+            <li>Rapport des cas non résolus envoyé par email avec suggestions de correspondance</li>
+        </ol>
+
+        <div class="info-box">
+            <p><strong>Résultat observé :</strong> pour une PME e-commerce avec 200 transactions par mois, le temps de rapprochement est passé de 3h à 20 minutes (uniquement les cas ambigus). La clôture mensuelle, qui prenait 2 jours, se fait désormais en une demi-journée.</p>
+        </div>
+
+        <h2 id="auto-3">Automatisation 3 : Relances impayés intelligentes</h2>
+
+        <div class="problem-card">
+            <div class="problem-label">Situation actuelle</div>
+            <h3>Les relances impayées sont irrégulières, oubliées ou trop agressives</h3>
+            <p>Certaines factures en retard ne sont jamais relancées. D'autres reçoivent une relance générique qui froisse le client. Résultat : un DSO (délai de paiement) qui gonfle et une trésorerie sous pression.</p>
+        </div>
+
+        <p><strong>Ce que le workflow n8n résout :</strong> chaque matin, n8n vérifie les factures en retard dans Pennylane et déclenche une séquence de relance adaptée au délai de retard. La relance J+7 est un rappel courtois. La relance J+21 est plus directe. La relance J+45 inclut une mention des pénalités de retard légales. Chaque relance est rédigée par un LLM à partir du contexte du client, pas un template générique.</p>
+
+        <ol class="workflow-steps">
+            <li>Déclencheur : cron quotidien à 8h</li>
+            <li>Récupération des factures en retard : GET /customer_invoices?status=late</li>
+            <li>Calcul du délai de retard et sélection du niveau de relance (J+7, J+21, J+45)</li>
+            <li>Récupération de l'historique du client (transactions précédentes, montant total, ancienneté)</li>
+            <li>Génération de l'email de relance via LLM (Claude Haiku) adapté au contexte</li>
+            <li>Envoi de l'email via Gmail ou SMTP avec copie dans Pennylane (log de l'action)</li>
+            <li>Notification Slack si relance J+45 : escalade vers le dirigeant</li>
+        </ol>
+
+        <div class="info-box">
+            <p><strong>Résultat observé :</strong> un cabinet de conseil de 12 personnes a réduit son DSO moyen de 52 jours à 34 jours en 3 mois, soit 18 jours de trésorerie récupérés. Le taux de recouvrement sur les relances automatiques dépasse 78%. Voir aussi notre article sur la <a href="/blog/relance-impayes-ia">relance des impayés avec l'IA</a> pour le détail des séquences.</p>
+        </div>
+
+        <h2 id="auto-4">Automatisation 4 : Import des factures fournisseurs par email</h2>
+
+        <div class="problem-card">
+            <div class="problem-label">Situation actuelle</div>
+            <h3>Les factures fournisseurs arrivent par email et sont saisies manuellement une par une</h3>
+            <p>Chaque facture fournisseur reçue par email doit être ouverte, le montant et la date lus, puis saisis dans Pennylane. Pour une PME recevant 30 à 50 factures fournisseurs par mois, c'est 3 à 5 heures perdues chaque mois, avec des risques d'erreur et de factures oubliées.</p>
+        </div>
+
+        <p><strong>Ce que le workflow n8n résout :</strong> quand un email arrive sur une adresse dédiée (ex: factures@votreentreprise.com) avec une pièce jointe PDF, n8n extrait automatiquement le PDF, envoie son contenu à un LLM pour extraction des données structurées (fournisseur, montant HT/TTC, TVA, date d'échéance, numéro de facture), puis crée la facture fournisseur dans Pennylane. Un email de confirmation est envoyé avec un lien de validation.</p>
+
+        <ol class="workflow-steps">
+            <li>Déclencheur : email entrant sur adresse dédiée (via Gmail ou IMAP)</li>
+            <li>Détection et téléchargement de la pièce jointe PDF</li>
+            <li>Extraction du texte via OCR (si PDF scanné) ou lecture directe (PDF natif)</li>
+            <li>Envoi au LLM pour extraction structurée : montant, TVA, fournisseur, SIRET, échéance</li>
+            <li>Vérification du fournisseur dans Pennylane, création si absent</li>
+            <li>Création de la facture fournisseur : POST /supplier_invoices avec toutes les données</li>
+            <li>Email de confirmation avec lien vers la facture pour validation par le comptable</li>
+        </ol>
+
+        <div class="warning-box">
+            <p><strong>Point d'attention RGPD :</strong> les factures fournisseurs contiennent des données commerciales sensibles. Pour les PME soumises à des obligations de confidentialité renforcées, nous recommandons un LLM hébergé en Europe (Mistral AI, Azure OpenAI EU) ou n8n en self-hosted sur VPS français pour garantir que les données ne transitent pas hors de l'Union européenne.</p>
+        </div>
+
+        <h2 id="auto-5">Automatisation 5 : Reporting comptable hebdomadaire automatique</h2>
+
+        <div class="problem-card">
+            <div class="problem-label">Situation actuelle</div>
+            <h3>Le point comptable se fait manuellement, en fin de mois, avec des données souvent incomplètes</h3>
+            <p>Extraire les données de Pennylane, calculer le CA de la semaine, les encaissements, les factures en retard, le prévisionnel de trésorerie... ce travail de consolidation prend du temps et se fait trop rarement pour piloter efficacement.</p>
+        </div>
+
+        <p><strong>Ce que le workflow n8n résout :</strong> chaque lundi matin à 8h, un workflow consolide automatiquement les données comptables de la semaine écoulée depuis Pennylane et envoie un rapport structuré par Slack ou par email. Le rapport inclut le CA facturé, les encaissements effectifs, les factures en retard par montant et par client, et le solde de trésorerie en temps réel. Un LLM analyse les variations et rédige un commentaire en langage naturel sur les points d'attention.</p>
+
+        <ol class="workflow-steps">
+            <li>Déclencheur : cron lundi 8h</li>
+            <li>CA de la semaine : GET /customer_invoices filtré sur la période</li>
+            <li>Encaissements : GET /transactions filtré sur les 7 derniers jours</li>
+            <li>Impayés en cours : GET /customer_invoices?status=late avec calcul du total</li>
+            <li>Solde trésorerie : GET /bank_accounts pour le solde consolidé</li>
+            <li>Analyse LLM : variations notables, alertes, recommandations</li>
+            <li>Envoi du rapport formaté via Slack (bloc enrichi) ou email HTML</li>
+        </ol>
+
+        <div class="info-box">
+            <p><strong>Ce que le rapport contient en pratique :</strong> CA facturé cette semaine vs semaine précédente, encaissements vs émissions (écart de trésorerie), top 5 des clients en retard avec montant et délai, trésorerie disponible par compte bancaire, et un commentaire automatique du type "Attention : 3 factures pour un total de 12 400€ dépassent 30 jours de retard. Relances envoyées automatiquement."</p>
+        </div>
+
+        <h2 id="demarrage">Guide de démarrage : connecter n8n à l'API Pennylane</h2>
+
+        <p>La connexion entre n8n et Pennylane ne nécessite pas de compétences en développement. Voici les 4 étapes pour poser les bases de tous les workflows décrits ci-dessus.</p>
+
+        <h3>Étape 1 : Obtenir votre clé API Pennylane</h3>
+        <p>Dans votre compte Pennylane, allez dans <strong>Paramètres</strong> (icône engrenage en bas à gauche), puis <strong>Intégrations</strong> ou <strong>API</strong>. Générez une nouvelle clé API et conservez-la dans un gestionnaire de mots de passe sécurisé. Cette clé donne accès en lecture et écriture à toutes vos données comptables.</p>
+
+        <h3>Étape 2 : Créer une credential dans n8n</h3>
+        <p>Dans n8n, créez une nouvelle credential de type <strong>Header Auth</strong>. Nommez le champ "Authorization" et donnez-lui la valeur "Bearer VOTRE_CLE_API". Cette credential sera réutilisable dans tous vos workflows Pennylane sans avoir à ressaisir la clé à chaque fois.</p>
+
+        <h3>Étape 3 : Tester la connexion avec un premier appel</h3>
+        <p>Ajoutez un noeud <strong>HTTP Request</strong> dans un workflow de test. Configurez-le avec la méthode GET, l'URL <code>https://app.pennylane.com/api/external/v1/company</code> et la credential créée à l'étape 2. Si la connexion fonctionne, vous recevrez les informations de votre entreprise en JSON. C'est votre point de départ pour construire les 5 automatisations décrites dans cet article.</p>
+
+        <h3>Étape 4 : Choisir votre infrastructure n8n</h3>
+        <p>Pour les PME françaises soucieuses de la confidentialité des données comptables, nous recommandons <strong>n8n en self-hosted sur un VPS français</strong> (OVHcloud, Scaleway). Cela garantit que vos données ne transitent jamais hors de France. Comptez 10 à 20 euros par mois pour un VPS adapté. Pour démarrer rapidement, n8n Cloud propose une période d'essai qui permet de tester les workflows avant de passer en self-hosted.</p>
+
+        <div class="verdict-box">
+            <h3>Récapitulatif : ce que vous automatisez et le gain par workflow</h3>
+            <table class="compare-table" style="margin:0;">
+                <thead>
+                    <tr>
+                        <th>Automatisation</th>
+                        <th>Temps économisé</th>
+                        <th>Délai de mise en place</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Facturation depuis le CRM</td>
+                        <td>2 à 4h/semaine</td>
+                        <td>1 jour</td>
+                    </tr>
+                    <tr>
+                        <td>Réconciliation bancaire</td>
+                        <td>2 à 3h/semaine</td>
+                        <td>1 à 2 jours</td>
+                    </tr>
+                    <tr>
+                        <td>Relances impayés</td>
+                        <td>1 à 2h/semaine + DSO -15j</td>
+                        <td>1 jour</td>
+                    </tr>
+                    <tr>
+                        <td>Import factures fournisseurs</td>
+                        <td>1 à 3h/mois</td>
+                        <td>2 jours</td>
+                    </tr>
+                    <tr>
+                        <td>Reporting hebdomadaire</td>
+                        <td>2h/mois de consolidation</td>
+                        <td>1 jour</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <section id="faq" class="article-faq">
+            <h2>FAQ — n8n + Pennylane</h2>
+
+            <div class="faq-item">
+                <h3>Comment connecter n8n à Pennylane ?</h3>
+                <p>La connexion n8n vers Pennylane se fait via le noeud HTTP Request avec une authentification de type Header Auth (Bearer token). Récupérez votre clé API dans les paramètres de votre compte Pennylane, créez une credential Header Auth dans n8n avec la valeur "Bearer VOTRE_CLE", et testez avec un appel GET sur <code>/api/external/v1/company</code>. Tous les endpoints de l'API Pennylane deviennent ensuite accessibles depuis n8n.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Pennylane est-il compatible avec la facture électronique obligatoire en 2026 ?</h3>
+                <p>Oui. Pennylane est en cours de certification comme Plateforme de Dématérialisation Partenaire (PDP), ce qui lui permettra d'émettre et de recevoir des factures au format légal (Factur-X, UBL) directement depuis l'interface. Les automatisations n8n construites aujourd'hui fonctionneront avec ce nouveau format : l'API Pennylane gérera la conformité réglementaire de son côté.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Combien de temps pour mettre en place n8n + Pennylane ?</h3>
+                <p>La connexion de base (credential + premier appel) prend 2 à 3 heures. Un workflow simple comme la facturation automatique depuis le CRM se configure en 1 journée. L'ensemble des 5 automatisations décrites dans cet article représente 5 à 10 jours de mise en place selon la complexité de votre environnement CRM et comptable. Dans nos déploiements pour PME françaises, le ROI est atteint en moins de 30 jours.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Quel est le coût d'une automatisation n8n + Pennylane ?</h3>
+                <p>n8n en self-hosted coûte 10 à 20 euros par mois sur un VPS (OVHcloud, Scaleway). Pennylane démarre à 29 euros par mois. L'utilisation d'un LLM pour les relances et l'extraction de factures représente 5 à 15 euros par mois selon le volume. La mise en place par un intégrateur comme Oakflow AI coûte entre 2 000 et 4 000 euros pour les 5 automatisations complètes, avec un retour sur investissement en 30 à 60 jours pour une PME traitant plus de 50 factures par mois.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>n8n peut-il lire et créer des factures Pennylane automatiquement ?</h3>
+                <p>Oui, pleinement. Via l'API REST de Pennylane, n8n peut créer des factures clients avec toutes leurs lignes, lire les factures en attente de paiement ou en retard, mettre à jour le statut d'une transaction, créer ou modifier des contacts clients et fournisseurs, et accéder aux soldes bancaires synchronisés. Tout ce que vous faites manuellement dans l'interface Pennylane peut être déclenché automatiquement depuis n8n.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Ces automatisations fonctionnent-elles aussi avec Make ou Zapier ?</h3>
+                <p>Oui. Les workflows décrits dans cet article sont basés sur l'API REST de Pennylane, qui est accessible depuis n'importe quel outil d'automatisation (Make, Zapier, n8n, etc.). Nous recommandons n8n pour les PME françaises car il peut être hébergé en France (conformité RGPD sur les données comptables) et son modèle de tarification est plus avantageux à volume élevé. Pour un comparatif complet, voir notre article <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Make vs Zapier</a>.</p>
+            </div>
+        </section>
+
+        <div class="article-cta">
+            <h2>Prêt à automatiser votre comptabilité Pennylane avant septembre 2026 ?</h2>
+            <p>30 minutes d'audit gratuit. Nous analysons vos process comptables actuels et définissons ensemble les 2 ou 3 automatisations qui auront le plus d'impact sur votre PME.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Réserver mon audit gratuit →
+            </a>
+        </div>
+
+        <div class="article-related">
+            <h3>Aller plus loin</h3>
+            <p>Comparez les outils d'automatisation avec notre guide <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Make vs Zapier 2026</a>. Découvrez aussi comment <a href="/blog/automatiser-comptabilite">automatiser votre comptabilité avec l'IA</a> au-delà de Pennylane, ou comment <a href="/blog/relance-impayes-ia">réduire votre DSO de 30% avec des relances impayés automatiques</a>. Pour calculer le ROI de ces automatisations, utilisez notre <a href="/blog/roi-automatisation">guide ROI automatisation PME</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog/">← Retour au blog</a>
+            <a href="/blog/automatiser-comptabilite">Automatiser la comptabilité →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="/logo-oakflow-v2.png" alt="Oakflow AI" class="logo-img" width="48" height="48" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="/#features">Notre Expertise</a>
+                <a href="/#methode">Notre Méthode</a>
+                <a href="/#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="/#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales.html">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+
+</html>
