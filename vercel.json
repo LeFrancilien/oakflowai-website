@@ -16,6 +16,8 @@
         { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
     ],
     "redirects": [
+        { "source": "/blog/parcours-expert-ia", "destination": "/#about", "permanent": true },
+        { "source": "/blog/parcours-expert-ia.html", "destination": "/#about", "permanent": true },
         { "source": "/index.html", "destination": "/", "permanent": true },
         { "source": "/blog/index.html", "destination": "/blog", "permanent": true },
         { "source": "/blog/blog/:path*", "destination": "/blog", "permanent": true },
