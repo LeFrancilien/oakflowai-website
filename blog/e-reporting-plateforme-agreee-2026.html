@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-reporting & Plateforme Agréée : le guide PME 2026</title>
+    <meta name="description" content="e-reporting, Plateforme Agréée, formats Factur-X : ce que la réforme 2026 exige, et comment combler les trous de votre logiciel avec n8n.">
+    <meta name="author" content="Cyril DE LA RUE">
+    <link rel="canonical" href="https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="e-reporting & Plateforme Agréée : le guide PME 2026">
+    <meta property="og:description" content="e-reporting, Plateforme Agréée, formats Factur-X : ce que la réforme 2026 exige, et comment combler les trous de votre logiciel avec n8n.">
+    <meta property="og:url" content="https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026">
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.oakflowai.com/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026#article",
+      "headline": "e-reporting et Plateforme Agréée : le guide PME 2026",
+      "description": "Différence entre e-invoicing et e-reporting, rôle de la Plateforme Agréée, formats imposés, et comment combler les manques de votre logiciel avec n8n.",
+      "datePublished": "2026-06-13",
+      "dateModified": "2026-06-13",
+      "author": {"@type": "Person","name": "Cyril DE LA RUE","url": "https://www.linkedin.com/in/de-la-rue/"},
+      "publisher": {"@type": "Organization","name": "Oakflow AI","logo": {"@type": "ImageObject","url": "https://www.oakflowai.com/logo-oakflow-v2.webp"}},
+      "url": "https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026",
+      "image": {"@type": "ImageObject","url": "https://www.oakflowai.com/og-image.png"},
+      "mainEntityOfPage": {"@type": "WebPage","@id": "https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"e-reporting & Plateforme Agréée 2026"}]}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Quelle est la différence entre e-invoicing et e-reporting ?","acceptedAnswer":{"@type":"Answer","text":"L'e-invoicing (facturation électronique) concerne les factures entre entreprises françaises assujetties à la TVA : elles transitent au format structuré via une Plateforme Agréée. L'e-reporting concerne la transmission à l'administration des données de transactions non couvertes par l'e-invoicing (ventes aux particuliers, opérations avec l'étranger) et des données de paiement."}},
+        {"@type":"Question","name":"Qu'est-ce qu'une Plateforme Agréée (PA) ?","acceptedAnswer":{"@type":"Answer","text":"Une Plateforme Agréée est un opérateur immatriculé par l'administration fiscale, autorisé à émettre, recevoir et transmettre les factures électroniques au format structuré et à réaliser l'e-reporting. Passer par une PA est obligatoire. Pennylane est une Plateforme Agréée."}},
+        {"@type":"Question","name":"Que faire si mon logiciel ne gère pas l'e-reporting ?","acceptedAnswer":{"@type":"Answer","text":"On ajoute une couche d'orchestration n8n connectée à l'API de votre logiciel et de votre Plateforme Agréée. Elle déclenche l'e-reporting des données de paiement, convertit les formats manquants et fait le pont entre vos outils, sans imposer un changement de logiciel."}},
+        {"@type":"Question","name":"Quels formats de facture électronique sont acceptés ?","acceptedAnswer":{"@type":"Answer","text":"Les formats structurés du socle : Factur-X (format hybride PDF + données), UBL et CII. Une facture PDF simple envoyée par email ne constitue plus une facture électronique conforme."}}
+      ]
+    }
+    </script>
+    <style>
+    .article-wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 120px 22px 80px; }
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 22px; font-size: 0.85rem; color: var(--muted2, #a0b5b0); }
+    .article-tag { display: inline-block; padding: 4px 12px; border: 1px solid var(--border-h, rgba(0,229,176,.22)); border-radius: 999px; color: var(--accent, #00e5b0); font-family: var(--font-h, 'Space Grotesk', sans-serif); font-weight: 600; font-size: 0.75rem; letter-spacing: .02em; }
+    .article-date { color: var(--muted, #6b7e7a); }
+    .article-author { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .article-author img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+    .article-wrap h1 { font-family: var(--font-h, 'Space Grotesk', sans-serif); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 24px; color: var(--text, #eef2f0); }
+    .article-wrap h2 { font-family: var(--font-h, 'Space Grotesk', sans-serif); font-weight: 600; font-size: clamp(1.35rem, 3vw, 1.7rem); line-height: 1.25; margin: 48px 0 16px; color: var(--text, #eef2f0); }
+    .article-wrap h3 { font-family: var(--font-h, 'Space Grotesk', sans-serif); font-weight: 600; font-size: 1.15rem; margin: 28px 0 10px; color: var(--text, #eef2f0); }
+    .article-wrap p { margin-bottom: 18px; color: var(--muted2, #a0b5b0); }
+    .article-wrap a { color: var(--accent, #00e5b0); text-decoration: none; border-bottom: 1px solid var(--border-h, rgba(0,229,176,.22)); }
+    .article-wrap a:hover { color: var(--accent2, #00c49a); }
+    .article-wrap strong { color: var(--text, #eef2f0); }
+    .article-wrap ul, .article-wrap ol { margin: 0 0 18px 1.1rem; color: var(--muted2, #a0b5b0); }
+    .article-wrap li { margin-bottom: 8px; }
+    .article-intro { font-size: 1.1rem; line-height: 1.7; color: var(--muted2, #a0b5b0); border-left: 3px solid var(--accent, #00e5b0); padding-left: 18px; margin-bottom: 14px; }
+    .toc { background: var(--bg2, #0c1018); border: 1px solid var(--border, rgba(255,255,255,.07)); border-radius: var(--r, 14px); padding: 18px 22px; margin: 28px 0 8px; }
+    .toc strong { display: block; margin-bottom: 10px; font-family: var(--font-h, 'Space Grotesk', sans-serif); font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted, #6b7e7a); }
+    .toc ul { list-style: none; margin: 0; columns: 2; column-gap: 24px; }
+    .toc li { margin-bottom: 6px; }
+    .answer-box { background: linear-gradient(180deg, rgba(0,229,176,.06), rgba(0,229,176,.02)); border: 1px solid var(--border-h, rgba(0,229,176,.22)); border-radius: var(--r, 14px); padding: 20px 22px; margin: 8px 0 28px; }
+    .answer-box p { margin: 0; color: var(--text, #eef2f0); }
+    .answer-box .answer-label { font-family: var(--font-h, 'Space Grotesk', sans-serif); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent, #00e5b0); display: block; margin-bottom: 8px; }
+    .info-box { background: var(--bg3, #111620); border: 1px solid var(--border, rgba(255,255,255,.07)); border-left: 3px solid var(--purple, #7c3aff); border-radius: var(--r-sm, 8px); padding: 16px 20px; margin: 24px 0; }
+    .info-box p { margin: 0; color: var(--muted2, #a0b5b0); font-size: .95rem; }
+    .stack-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: .92rem; }
+    .stack-table th, .stack-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border, rgba(255,255,255,.07)); color: var(--muted2, #a0b5b0); }
+    .stack-table thead th { font-family: var(--font-h, 'Space Grotesk', sans-serif); color: var(--text, #eef2f0); font-weight: 600; background: var(--bg2, #0c1018); }
+    .stack-table td strong { color: var(--accent, #00e5b0); }
+    .step-block { display: flex; gap: 18px; margin: 22px 0; }
+    .step-num { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 10px; background: rgba(0,229,176,.08); border: 1px solid var(--border-h, rgba(0,229,176,.22)); color: var(--accent, #00e5b0); font-family: var(--font-h, 'Space Grotesk', sans-serif); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .step-content h3 { margin-top: 0; }
+    .step-content p { margin-bottom: 0; }
+    .article-cta { background: linear-gradient(180deg, var(--bg2, #0c1018), var(--bg, #060910)); border: 1px solid var(--border-h, rgba(0,229,176,.22)); border-radius: var(--r, 14px); padding: 34px 28px; text-align: center; margin: 48px 0 32px; }
+    .article-cta h2 { margin-top: 0; }
+    .article-related { border-top: 1px solid var(--border, rgba(255,255,255,.07)); padding-top: 24px; margin-top: 40px; }
+    .article-nav { display: flex; justify-content: space-between; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+    .article-nav a { font-size: .9rem; }
+    @media (max-width: 640px) { .toc ul { columns: 1; } .article-author { margin-left: 0; width: 100%; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <nav id="nav">
+        <a href="https://www.oakflowai.com/" class="nav-logo"><img src="https://www.oakflowai.com/logo-oakflow-v2.webp" alt="Oakflow AI" height="32"></a>
+        <ul class="nav-links">
+            <li><a href="https://www.oakflowai.com/#features">Services</a></li>
+            <li><a href="https://www.oakflowai.com/#methode">Méthode</a></li>
+            <li><a href="https://www.oakflowai.com/#usecases">Cas d'usage</a></li>
+            <li><a href="https://www.oakflowai.com/#pricing">Tarifs</a></li>
+            <li><a href="https://www.oakflowai.com/blog/">Blog</a></li>
+            <li><a href="https://www.oakflowai.com/#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mobileMenu');var o=m.style.display==='flex';m.style.display=o?'none':'flex';this.setAttribute('aria-expanded',!o);">☰</button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" style="display:none;">
+        <nav class="mobile-menu-nav">
+            <a href="https://www.oakflowai.com/#features" class="mobile-menu-link">Services</a>
+            <a href="https://www.oakflowai.com/#methode" class="mobile-menu-link">Méthode</a>
+            <a href="https://www.oakflowai.com/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="https://www.oakflowai.com/#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="https://www.oakflowai.com/blog/" class="mobile-menu-link">Blog</a>
+            <a href="https://www.oakflowai.com/#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+    <main id="main-content">
+        <article class="article-wrap">
+            <div class="article-meta">
+                <span class="article-tag">Conformité</span>
+                <span class="article-tag">Facturation</span>
+                <time class="article-date" datetime="2026-06-13">13 juin 2026</time>
+                <div class="article-author"><img src="https://www.oakflowai.com/cyril-de-la-rue.jpg" alt="Cyril DE LA RUE">Cyril DE LA RUE</div>
+            </div>
+            <h1>e-reporting et Plateforme Agréée : le guide PME 2026</h1>
+            <p class="article-intro">La réforme de la facture électronique a deux volets que beaucoup confondent : l'e-invoicing et l'e-reporting. <strong>Le piège, c'est de croire qu'un logiciel certifié suffit à tout couvrir.</strong> Souvent, il émet les factures mais ne fait pas l'e-reporting des paiements, ou ne gère pas tous les formats. Voici ce que la réforme exige vraiment, et comment combler les trous de votre stack avec n8n.</p>
+            <div class="answer-box">
+                <span class="answer-label">Réponse directe</span>
+                <p>L'<strong>e-invoicing</strong> couvre les factures entre entreprises françaises (format structuré via une <strong>Plateforme Agréée</strong>). L'<strong>e-reporting</strong> couvre la transmission à l'administration des données de transactions non facturées en B2B domestique (ventes aux particuliers, international) et des <strong>données de paiement</strong>. Les deux sont obligatoires et complémentaires. Si votre logiciel ne couvre qu'une partie, une couche n8n comble le reste.</p>
+            </div>
+            <div class="toc">
+                <strong>Dans cet article</strong>
+                <ul>
+                    <li><a href="#deux-volets">Les deux volets de la réforme</a></li>
+                    <li><a href="#pa">La Plateforme Agréée</a></li>
+                    <li><a href="#formats">Les formats imposés</a></li>
+                    <li><a href="#trous">Les trous fréquents des logiciels</a></li>
+                    <li><a href="#n8n">Combler avec n8n</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <h2 id="deux-volets">Les deux volets : e-invoicing et e-reporting</h2>
+            <p>La réforme ne se résume pas à « envoyer ses factures en PDF structuré ». Elle impose deux flux distincts vers l'administration.</p>
+            <table class="stack-table">
+                <thead><tr><th>Volet</th><th>Ce que ça couvre</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>e-invoicing</strong></td><td>Factures B2B entre entreprises françaises assujetties à la TVA, au format structuré, via une Plateforme Agréée</td></tr>
+                    <tr><td><strong>e-reporting</strong></td><td>Données des transactions hors périmètre e-invoicing (ventes aux particuliers / B2C, opérations internationales) + données de paiement</td></tr>
+                </tbody>
+            </table>
+            <p>Autrement dit : même une PME qui vend surtout à des particuliers est concernée — par l'e-reporting, pas par l'e-invoicing. Personne n'est totalement hors périmètre.</p>
+            <h2 id="pa">La Plateforme Agréée (PA), pièce centrale</h2>
+            <p>La PA est un opérateur immatriculé par l'administration, autorisé à émettre, recevoir et transmettre les factures structurées et à réaliser l'e-reporting. Passer par une PA est obligatoire. Des solutions comme Pennylane sont des Plateformes Agréées et couvrent l'essentiel pour une TPE. Le calendrier de la réforme (réception au 1er septembre 2026 pour toutes les entreprises) est détaillé dans notre article <a href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique">n8n + Pennylane et la facture électronique</a>.</p>
+            <h2 id="formats">Les formats imposés</h2>
+            <p>Une facture PDF classique envoyée par email ne sera plus conforme. Les formats du socle sont :</p>
+            <ul>
+                <li><strong>Factur-X</strong> : format hybride (un PDF lisible + des données XML embarquées). Le plus courant en France.</li>
+                <li><strong>UBL</strong> : format XML international.</li>
+                <li><strong>CII</strong> : format XML cross-industry.</li>
+            </ul>
+            <h2 id="trous">Les trous fréquents de votre logiciel</h2>
+            <p>En auditant des PME, on retrouve toujours les mêmes manques :</p>
+            <ul>
+                <li>Le logiciel <strong>émet</strong> au bon format mais ne déclenche pas l'<strong>e-reporting des paiements</strong>.</li>
+                <li>Il gère le B2B mais pas le reporting des ventes <strong>B2C</strong> ou <strong>internationales</strong>.</li>
+                <li>Il ne <strong>convertit pas</strong> les formats entrants hétérogènes (vieux PDF, scans fournisseurs).</li>
+                <li>Il ne <strong>communique pas</strong> avec votre logiciel métier ou votre CRM, d'où de la double saisie.</li>
+            </ul>
+            <h2 id="n8n">Combler les trous avec n8n</h2>
+            <p>Plutôt que de tout migrer en urgence, on ajoute une couche d'orchestration n8n autour de votre PA et de vos outils.</p>
+            <div class="step-block"><div class="step-num">01</div><div class="step-content"><h3>e-reporting des paiements</h3><p>n8n détecte les encaissements (banque, processeur de paiement) et déclenche automatiquement la transmission des données de paiement via l'API de la PA.</p></div></div>
+            <div class="step-block"><div class="step-num">02</div><div class="step-content"><h3>Conversion de formats</h3><p>Un nœud de traitement convertit les factures entrantes non conformes vers Factur-X, ou extrait leurs données avec un LLM avant intégration.</p></div></div>
+            <div class="step-block"><div class="step-num">03</div><div class="step-content"><h3>Pont entre logiciels</h3><p>n8n relie votre logiciel métier ou CRM à votre PA via les API : la facture se crée d'un côté, se transmet de l'autre, sans ressaisie.</p></div></div>
+            <div class="info-box"><p><strong>Concrètement :</strong> pour la mise en œuvre technique avec Pennylane, voir notre article <a href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique">n8n + Pennylane : automatiser la facture électronique</a>. n8n self-hosted sur VPS français garde vos données financières sous votre contrôle (RGPD).</p></div>
+            <h2 id="faq">FAQ — e-reporting et Plateforme Agréée</h2>
+            <div class="faq"><div class="faq-list">
+                <div class="faq-item"><h3>Quelle différence entre e-invoicing et e-reporting ?</h3><p>L'e-invoicing concerne les factures B2B entre entreprises françaises (format structuré via PA). L'e-reporting concerne les données des transactions hors de ce périmètre (B2C, international) et les données de paiement. Les deux sont obligatoires.</p></div>
+                <div class="faq-item"><h3>Qu'est-ce qu'une Plateforme Agréée ?</h3><p>Un opérateur immatriculé par l'administration, autorisé à émettre, recevoir, transmettre les factures structurées et réaliser l'e-reporting. Y recourir est obligatoire.</p></div>
+                <div class="faq-item"><h3>Que faire si mon logiciel ne gère pas l'e-reporting ?</h3><p>On ajoute une couche n8n connectée à votre logiciel et votre PA : elle déclenche l'e-reporting des paiements, convertit les formats et fait le pont entre vos outils, sans changer de logiciel en urgence.</p></div>
+                <div class="faq-item"><h3>Quels formats sont acceptés ?</h3><p>Factur-X (hybride PDF + données), UBL et CII. Un PDF simple par email n'est plus conforme.</p></div>
+            </div></div>
+            <div class="article-cta">
+                <h2>Votre stack couvre-t-elle vraiment l'e-reporting ?</h2>
+                <p>30 minutes d'audit gratuit. On vérifie ce que votre logiciel couvre, on identifie les trous (e-reporting, formats, B2C) et on vous propose une architecture n8n pour être 100% conforme.</p>
+                <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">Réserver mon audit gratuit →</a>
+            </div>
+            <div class="article-related">
+                <h3>Aller plus loin</h3>
+                <p>Comprenez le calendrier complet dans <a href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique">n8n + Pennylane : facture électronique 2026</a>, et voyez le workflow factures complet dans <a href="https://www.oakflowai.com/blog/automatiser-comptabilite">automatiser la comptabilité</a>.</p>
+            </div>
+            <div class="article-nav">
+                <a href="https://www.oakflowai.com/blog/">← Retour au blog</a>
+                <a href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique">Facture électronique 2026 →</a>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="https://www.oakflowai.com/" class="nav-logo"><img src="https://www.oakflowai.com/logo-oakflow-v2.webp" alt="Oakflow AI" height="32"></a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <a href="https://www.oakflowai.com/#features">Notre Expertise</a>
+                <a href="https://www.oakflowai.com/#methode">Notre Méthode</a>
+                <a href="https://www.oakflowai.com/#pricing">Tarifs</a>
+            </div>
+            <div>
+                <h4>Société</h4>
+                <a href="https://www.oakflowai.com/#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.oakflowai.com/mentions-legales">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</div>
+    </footer>
+</body>
+</html>
