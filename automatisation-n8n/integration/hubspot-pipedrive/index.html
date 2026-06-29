@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intégration n8n avec HubSpot et Pipedrive : automatiser votre CRM | Oakflow AI</title>
+    <meta name="description" content="Automatisez votre CRM avec n8n, HubSpot et Pipedrive : synchronisation des leads, relances commerciales automatiques, reporting en temps réel. Expert n8n CRM pour PME françaises.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.oakflowai.com/automatisation-n8n/integration/hubspot-pipedrive">
+    <meta property="og:site_name" content="Oakflow AI">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.oakflowai.com/automatisation-n8n/integration/hubspot-pipedrive">
+    <meta property="og:title" content="Intégration n8n avec HubSpot et Pipedrive : automatiser votre CRM | Oakflow AI">
+    <meta property="og:description" content="Automatisez votre CRM avec n8n, HubSpot et Pipedrive : synchronisation des leads, relances commerciales, reporting.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Automatisation n8n","item":"https://www.oakflowai.com/automatisation-n8n"},{"@type":"ListItem","position":3,"name":"Intégration HubSpot et Pipedrive","item":"https://www.oakflowai.com/automatisation-n8n/integration/hubspot-pipedrive"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"n8n est-il compatible avec HubSpot et Pipedrive ?","acceptedAnswer":{"@type":"Answer","text":"Oui. n8n dispose de noeuds natifs pour HubSpot et Pipedrive qui permettent de lire, creer et modifier des contacts, deals et activites. La connexion se fait via les API officielles de chaque CRM avec authentification OAuth."}},{"@type":"Question","name":"Qu'est-ce qu'on peut automatiser entre n8n et HubSpot ?","acceptedAnswer":{"@type":"Answer","text":"Enrichissement automatique des contacts, creation d'une deal a chaque nouveau lead entrant, sequences de relance par email declenchees par le statut dans le pipeline, alertes Slack a chaque nouveau deal, et synchronisation des contacts avec votre base de facturation."}},{"@type":"Question","name":"Peut-on synchroniser HubSpot et Pipedrive avec n8n ?","acceptedAnswer":{"@type":"Answer","text":"Oui. n8n peut jouer le role de pont entre HubSpot et Pipedrive si votre equipe utilise les deux. Les contacts et deals sont synchronises en temps reel selon des regles que vous definissez. C'est aussi possible avec d'autres CRM comme Salesforce ou Zoho."}},{"@type":"Question","name":"Combien de temps faut-il pour automatiser son CRM avec n8n ?","acceptedAnswer":{"@type":"Answer","text":"Une automatisation CRM de base (creation de deals depuis un formulaire web) prend 1 a 2 jours. Un projet complet incluant sequences de relance, synchronisation multi-outils et reporting prend 2 a 4 semaines."}},{"@type":"Question","name":"Peut-on connecter le CRM a la facturation et aux emails ?","acceptedAnswer":{"@type":"Answer","text":"Absolument. C'est meme l'un des cas les plus frequents : n8n connecte votre CRM (HubSpot ou Pipedrive) a Pennylane pour la facturation, Gmail ou Outlook pour les emails, et Slack pour les alertes internes. Vous avez une vue complete de chaque client en un seul workflow."}},{"@type":"Question","name":"L'automatisation CRM respecte-t-elle le RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Avec n8n self-hosted, les donnees de vos prospects et clients restent sur votre serveur en France. Les workflows respectent vos politiques de retention et de consentement. Nous vous aidons a configurer les regles RGPD dans vos automatisations."}}]}
+    </script>
+</head>
+<body>
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="max-width:900px;margin:0 auto;padding:100px 24px 0;">
+        <ol style="display:flex;gap:8px;list-style:none;padding:0;margin:0;flex-wrap:wrap;font-size:0.9rem;opacity:0.7;">
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Intégration HubSpot et Pipedrive</li>
+        </ol>
+    </nav>
+
+    <header class="section glass-section" style="padding-top:150px;">
+        <div class="container relative z-10" style="max-width:900px;">
+            <div class="badge fade-up">Intégration CRM + n8n</div>
+            <h1 class="hero-title fade-up">Intégration n8n avec HubSpot et Pipedrive : automatiser votre CRM</h1>
+            <p class="hero-subtitle fade-up">Vos commerciaux passent trop de temps à saisir des données dans le CRM et à relancer manuellement des prospects. n8n connecté à HubSpot ou Pipedrive automatise ces tâches et permet à votre équipe de se concentrer sur ce qui compte : la relation client et la vente.</p>
+            <div class="hero-cta fade-up" style="margin-top:2rem;">
+                <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    Réserver un audit gratuit 30min →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="automatisations-crm">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Ce que n8n automatise dans votre CRM</h2>
+                <p>n8n dispose de connecteurs natifs pour HubSpot et Pipedrive. Voici les automatisations que nous mettons en place le plus fréquemment pour nos clients PME :</p>
+
+                <h3 style="margin-top:1.5rem;">Synchronisation automatique des leads</h3>
+                <p>Chaque nouveau lead entrant (formulaire web, LinkedIn, campagne email, téléphone) est automatiquement créé dans votre CRM avec les informations enrichies. Plus aucun lead ne tombe dans les oubliettes faute de saisie manuelle.</p>
+
+                <h3 style="margin-top:1.5rem;">Séquences de relance commerciale</h3>
+                <p>n8n surveille l'état de vos deals dans le pipeline et déclenche des emails de relance personnalisés selon le statut et l'ancienneté. Un prospect sans réponse depuis 5 jours reçoit automatiquement un email de suivi. Un deal bloqué depuis 2 semaines génère une alerte Slack pour votre commercial.</p>
+
+                <h3 style="margin-top:1.5rem;">Reporting et tableaux de bord automatiques</h3>
+                <p>Chaque lundi matin, votre équipe reçoit par email un récapitulatif des deals en cours, des relances à effectuer et des objectifs de la semaine. Ce rapport est généré automatiquement depuis les données de votre CRM, sans manipulation manuelle.</p>
+
+                <h3 style="margin-top:1.5rem;">Connexion CRM + facturation + emails</h3>
+                <p>Quand un deal passe au statut "Gagné" dans HubSpot ou Pipedrive, n8n crée automatiquement la facture dans Pennylane, envoie un email de bienvenue au client et notifie l'équipe sur Slack. Tout le cycle commercial est automatisé de la signature au premier paiement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="mise-en-place">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Comment nous mettons en place l'intégration CRM</h2>
+                <p>Chaque projet commence par un audit de vos processus commerciaux actuels : comment entrent les leads, quelles sont les étapes du pipeline, où se perdent les opportunités. Sur cette base, nous concevons les workflows qui répondent à vos priorités réelles.</p>
+                <p>La mise en place technique prend en général 1 à 2 semaines : connexion des API, création des workflows, tests en conditions réelles, formation de votre équipe commerciale. Vous repartez avec des automatisations en production et la documentation pour les faire évoluer.</p>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Automatiser votre CRM avec n8n →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur l'intégration n8n, HubSpot et Pipedrive</h2>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">n8n est-il compatible avec HubSpot et Pipedrive ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. n8n dispose de noeuds natifs pour HubSpot et Pipedrive qui permettent de lire, créer et modifier des contacts, deals et activités. La connexion se fait via les API officielles de chaque CRM avec authentification OAuth.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Qu'est-ce qu'on peut automatiser entre n8n et HubSpot ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Enrichissement automatique des contacts, création d'un deal à chaque nouveau lead entrant, séquences de relance par email déclenchées par le statut dans le pipeline, alertes Slack à chaque nouveau deal, et synchronisation des contacts avec votre base de facturation.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Peut-on synchroniser HubSpot et Pipedrive avec n8n ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. n8n peut jouer le rôle de pont entre HubSpot et Pipedrive si votre équipe utilise les deux. Les contacts et deals sont synchronisés en temps réel selon des règles que vous définissez. C'est aussi possible avec d'autres CRM comme Salesforce ou Zoho.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Combien de temps faut-il pour automatiser son CRM avec n8n ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Une automatisation CRM de base (création de deals depuis un formulaire web) prend 1 à 2 jours. Un projet complet incluant séquences de relance, synchronisation multi-outils et reporting prend 2 à 4 semaines.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Peut-on connecter le CRM à la facturation et aux emails ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Absolument. C'est même l'un des cas les plus fréquents : n8n connecte votre CRM (HubSpot ou Pipedrive) à Pennylane pour la facturation, Gmail ou Outlook pour les emails, et Slack pour les alertes internes. Vous avez une vue complète de chaque client en un seul workflow.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">L'automatisation CRM respecte-t-elle le RGPD ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Avec n8n self-hosted, les données de vos prospects et clients restent sur votre serveur en France. Les workflows respectent vos politiques de rétention et de consentement. Nous vous aidons à configurer les règles RGPD dans vos automatisations.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Aller plus loin</h2>
+                <ul style="line-height:2.2;">
+                    <li><a href="/automatisation-n8n">Automatisation n8n pour PME et TPE : vue d'ensemble</a></li>
+                    <li><a href="/automatisation-n8n/formation-mentoring">Formation n8n : maîtrisez l'automatisation en 4 semaines</a></li>
+                    <li><a href="/automatisation-n8n/comparatif-make-zapier">Comparatif n8n / Make / Zapier : quel outil choisir ?</a></li>
+                    <li><a href="/automatisation-n8n/integration/pennylane">Intégration n8n et Pennylane : automatiser la facturation</a></li>
+                    <li><a href="/automatisation-n8n/integration/openai-gpt4">Intégration n8n avec OpenAI et GPT-4</a></li>
+                </ul>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Réserver un audit gratuit →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Accueil</a>
+                <a href="/automatisation-n8n" class="footer-link">Automatisation n8n</a>
+                <a href="/blog" class="footer-link">Blog</a>
+                <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
+                <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
+            </div>
+            <p>© 2026 Oakflow AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
