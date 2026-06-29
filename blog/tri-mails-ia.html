@@ -173,7 +173,7 @@
 
         <h1 itemprop="headline">Tri de mails IA : 5 à 10h/semaine économisées (workflow n8n + GPT)</h1>
 
-        <p class="article-intro">Un commercial passe en moyenne <strong>2h par jour dans sa boîte mail</strong>. Un assistant administratif, jusqu'à 3h. Avec un workflow n8n + GPT-4o-mini bien configuré, on peut <strong>récupérer 5 à 10 heures par semaine et par collaborateur</strong> — pour 30€/mois et 4 jours de mise en place. Voici l'architecture exacte que nous déployons en PME, ROI inclus.</p>
+        <p class="article-intro">Un commercial passe en moyenne <strong>2h par jour dans sa boîte mail</strong>. Un assistant administratif, jusqu'à 3h. Avec un workflow n8n + GPT-4o-mini bien configuré, on peut <strong>récupérer 5 à 10 heures par semaine et par collaborateur</strong> - pour 30€/mois et 4 jours de mise en place. Voici l'architecture exacte que nous déployons en PME, ROI inclus.</p>
 
         <div class="article-toc">
             <strong>Sommaire</strong>
@@ -206,12 +206,12 @@
 
         <h2 id="architecture">Architecture du workflow (n8n + Gmail + GPT)</h2>
 
-        <p>L'architecture canonique repose sur 5 briques connectées via n8n. Aucune ne nécessite de code — tout passe par les nodes natifs n8n.</p>
+        <p>L'architecture canonique repose sur 5 briques connectées via n8n. Aucune ne nécessite de code - tout passe par les nodes natifs n8n.</p>
 
         <div class="verdict-box">
             <h3>Stack technique du workflow</h3>
             <ul>
-                <li><strong>Trigger :</strong> Gmail Trigger (n8n) — déclenché à chaque nouvel email entrant</li>
+                <li><strong>Trigger :</strong> Gmail Trigger (n8n) - déclenché à chaque nouvel email entrant</li>
                 <li><strong>Filtre amont :</strong> ignore les newsletters, notifications automatiques, spams déjà classés</li>
                 <li><strong>Classification IA :</strong> appel à GPT-4o-mini avec un prompt système structuré (voir plus bas)</li>
                 <li><strong>Étiquetage Gmail :</strong> applique automatiquement le label correspondant (Commercial / SAV / Facturation / RH / Spam suspect)</li>
@@ -251,7 +251,7 @@
         <div class="step-card">
             <div class="step-label">Étape 5</div>
             <h3>Pré-rédaction de réponse pour les cas standards</h3>
-            <p>Pour les catégories "réponse standard" (demande de devis, accusé réception, FAQ classique), un second appel LLM rédige un brouillon de réponse dans le ton de l'entreprise. Le brouillon apparaît dans Gmail "Brouillons" — le collaborateur valide en 1 clic ou ajuste avant envoi. <strong>Aucun envoi automatique</strong>.</p>
+            <p>Pour les catégories "réponse standard" (demande de devis, accusé réception, FAQ classique), un second appel LLM rédige un brouillon de réponse dans le ton de l'entreprise. Le brouillon apparaît dans Gmail "Brouillons" - le collaborateur valide en 1 clic ou ajuste avant envoi. <strong>Aucun envoi automatique</strong>.</p>
         </div>
 
         <div class="info-box">
@@ -275,7 +275,7 @@
             <p>N'invente jamais d'information. Si le contenu est ambigu, mets <code>action: "escalader_humain"</code>.</p>
         </div>
 
-        <p>Ce prompt génère un JSON systématique que n8n peut router avec un node <em>Switch</em>. Pour les profils techniques, on peut ajouter une couche de "few-shot examples" propres à votre métier (3-5 exemples d'emails déjà classés) — ça améliore la précision de 5 à 10% sur les cas complexes.</p>
+        <p>Ce prompt génère un JSON systématique que n8n peut router avec un node <em>Switch</em>. Pour les profils techniques, on peut ajouter une couche de "few-shot examples" propres à votre métier (3-5 exemples d'emails déjà classés) - ça améliore la précision de 5 à 10% sur les cas complexes.</p>
 
         <h2 id="roi">ROI mesuré sur 12 PME (2026)</h2>
 
@@ -306,7 +306,7 @@
         <p>Pour les PME soumises à des contraintes RGPD strictes (santé, juridique, RH), nous recommandons <strong>Mistral Le Chat Pro Enterprise</strong> avec hébergement souverain français, ou un LLM open-source (Llama 3.3, Qwen) déployé sur votre propre VPS. Voir notre article <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Make vs Zapier</a> pour le détail des architectures conformes.</p>
 
         <section id="faq" class="article-faq">
-            <h2>FAQ — Tri de mails IA</h2>
+            <h2>FAQ - Tri de mails IA</h2>
 
             <div class="faq-item">
                 <h3>Combien de temps fait-on gagner avec un tri de mails IA ?</h3>
@@ -373,7 +373,7 @@
                 <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
             </div>
         </div>
-        <div class="footer-bottom"><span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span></div>
+        <div class="footer-bottom"><span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span></div>
     </footer>
 
     <script src="../main.js" defer></script>
