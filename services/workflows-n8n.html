@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Analytics — chargé uniquement après consentement RGPD -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -13,76 +12,113 @@
     <title>Workflows n8n PME France | Agence Oakflow AI</title>
     <meta name="description" content="Création de workflows n8n sur-mesure pour PME en France. Automatisez vos tâches chronophages, connectez vos outils et gagnez jusqu'à 30h/mois avec Oakflow AI.">
     <link rel="stylesheet" href="/style.css">
-    
-    <!-- SEO Meta Tags -->
     <link rel="canonical" href="https://www.oakflowai.com/services/workflows-n8n">
     <meta property="og:site_name" content="Oakflow AI">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.oakflowai.com/services/workflows-n8n">
     <meta property="og:title" content="Automatisation et Workflows n8n pour PME">
     <meta property="og:description" content="Libérez-vous des tâches répétitives grâce à nos workflows n8n sécurisés. Audit gratuit de 30min.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
     <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-
-    <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Schema.org Service -->
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
       "serviceType": "Automatisation de workflows n8n",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Oakflow AI"
-      },
+      "provider": { "@type": "LocalBusiness", "name": "Oakflow AI" },
       "areaServed": "FR",
       "description": "Création et maintenance de workflows cloud avec n8n pour connecter CRM, ERP et autres logiciels d'entreprise.",
       "offers": {
         "@type": "Offer",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "priceCurrency": "EUR",
-          "price": "490"
-        }
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "EUR", "price": "490" }
       }
     }
     </script>
     <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.oakflowai.com/#features"},{"@type":"ListItem","position":3,"name":"Workflows n8n"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.oakflowai.com/#features"},{"@type":"ListItem","position":3,"name":"Workflows n8n"}]}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que n8n et pourquoi l'utiliser plutot que Zapier ou Make ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n est une plateforme d'automatisation open-source qui permet de connecter plus de 400 applications. Contrairement a Zapier ou Make, n8n ne facture pas a l'action mais a l'usage de la plateforme. Cela le rend beaucoup plus economique pour les PME avec des volumes importants. Il permet aussi des workflows tres complexes (boucles, conditions, code personnalise) que les autres outils ne savent pas gerer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coute un workflow n8n pour une PME ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le cout d'un workflow n8n depends de sa complexite. Un workflow simple (formulaire vers CRM) coute entre 490 et 800 euros en prestation unique. Un workflow avance avec IA et plusieurs intégrations (CRM + facturation + notifications) est facture entre 800 et 2 500 euros. La maintenance mensuelle optionnelle est a partir de 149 euros/mois. L'hebergement n8n en self-hosted revient a environ 10 a 20 euros/mois sur VPS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il des competences techniques pour gerer un workflow n8n au quotidien ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Une fois le workflow deploye par Oakflow AI, il tourne en autonomie. Vous n'avez rien a faire au quotidien. En cas de modification (ajout d'une etape, changement de logiciel), nous intervenons dans le cadre de notre contrat de maintenance. L'interface n8n est visuelle et accessible, mais la configuration initiale requiert une expertise technique que nous apportons."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils peut-on connecter avec n8n ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n dispose de plus de 400 connecteurs natifs : HubSpot, Pipedrive, Salesforce, Notion, Airtable, Slack, Teams, Gmail, Outlook, Pennylane, QuickBooks, Sage, Shopify, WooCommerce, et des centaines d'autres. Pour tout outil disposant d'une API (meme sans connecteur natif), on peut construire un connecteur sur mesure via des requetes HTTP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que n8n est securise et conforme au RGPD ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. n8n peut etre deploye en self-hosted sur un serveur français (OVH, Scaleway), ce qui signifie que vos donnees ne quittent jamais votre infrastructure. C'est la configuration que nous recommandons pour toutes les PME traitant des donnees personnelles. n8n cloud est egalement disponible avec hebergement en Europe. Dans les deux cas, les communications sont chiffrees (HTTPS/TLS)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le delai de mise en place d'un workflow n8n ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un workflow simple est deploye en 3 a 5 jours ouvres apres l'audit initial. Un workflow complexe avec intégrations multiples et IA prend 2 a 4 semaines. Nous livrons d'abord un prototype que vous pouvez tester en equipe avant la mise en production. La maintenance et les ajustements post-lancement sont couverts pendant 30 jours inclus dans la prestation."
+          }
+        }
+      ]
+    }
     </script>
 </head>
 <body>
 
-    <!-- ── NAV ── -->
     <nav id="nav">
         <a href="/" class="nav-logo">
             <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
         </a>
-
         <ul class="nav-links">
             <li><a href="/#features">Services</a></li>
-            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
             <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
             <li><a href="/#pricing">Tarifs</a></li>
-            <li><a href="/#contact">Contact</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="/#newsletter">Newsletter</a></li>
         </ul>
-
         <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
-
         <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
     </nav>
 
-    <!-- HERO -->
     <header class="section glass-section" style="padding-top: 150px;">
         <div class="container relative z-10" style="max-width: 800px; text-align: center;">
             <div class="badge fade-up">Service N°1 — Automatisation Connectée</div>
@@ -98,14 +134,13 @@
         </div>
     </header>
 
-    <!-- CONTENT -->
     <section class="section">
         <div class="container" style="max-width: 800px;">
             <div class="glass-card fade-up">
                 <h2>Pourquoi choisir n8n pour votre entreprise ?</h2>
                 <p>Dans de nombreuses PME, les collaborateurs perdent un temps précieux à copier-coller des informations d'un logiciel à l'autre (de la boîte mail vers le CRM, du CRM vers la facturation, etc.).</p>
                 <p><strong>n8n</strong> est une plateforme d'automatisation des flux de travail qui nous permet de connecter plus de 400 applications différentes. Contrairement à des solutions comme Zapier, n8n permet des workflows extrêmement complexes avec des boucles, des conditions, et l'exécution de code sur mesure, sans que les coûts n'explosent en fonction du volume d'actions.</p>
-                
+
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Cas d'usages fréquents</h3>
                 <ul style="list-style-position: inside; color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
                     <li><strong>Synchronisation CRM :</strong> Création automatique de dossiers clients dans HubSpot ou Pipedrive à la réception d'un formulaire.</li>
@@ -115,8 +150,8 @@
                 </ul>
 
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Notre approche d'intégration</h3>
-                <p>En tant qu'experts, nous auditons d'abord vos processus pour identifier **le goulot d'étranglement qui coûte le plus cher** à votre TPE/PME. Ensuite, nous construisons un prototype (Proof of Concept) sur n8n, nous intégrons les API nécessaires, et nous déployons l'automatisation en production avec un monitoring des erreurs.</p>
-                
+                <p>En tant qu'experts, nous auditons d'abord vos processus pour identifier le goulot d'étranglement qui coûte le plus cher à votre TPE/PME. Ensuite, nous construisons un prototype sur n8n, nous intégrons les API nécessaires, et nous déployons l'automatisation en production avec un monitoring des erreurs.</p>
+
                 <div style="margin-top: 3rem; text-align: center;">
                     <a href="https://calendly.com/oakflowai/30min" class="btn-secondary" target="_blank" rel="noopener noreferrer">Obtenir un devis d'intégration n8n</a>
                 </div>
@@ -124,18 +159,66 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FAQ -->
+    <section class="section" id="faq" style="padding-top: 0;">
+        <div class="container" style="max-width: 800px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur n8n pour PME</h2>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Qu'est-ce que n8n et pourquoi l'utiliser plutôt que Zapier ou Make ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">n8n est une plateforme d'automatisation open-source qui connecte plus de 400 applications. Contrairement à Zapier ou Make, il ne facture pas à l'action mais à l'usage de la plateforme — beaucoup plus économique pour les PME avec des volumes importants. Il permet aussi des workflows complexes (boucles, conditions, code sur mesure) que les autres outils ne savent pas gérer.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Combien coûte un workflow n8n pour une PME ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Un workflow simple (formulaire vers CRM) : 490 à 800 euros en prestation unique. Un workflow avancé avec IA et plusieurs intégrations : 800 à 2 500 euros. Maintenance mensuelle optionnelle à partir de 149 euros/mois. L'hébergement n8n self-hosted revient à 10-20 euros/mois sur VPS français.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Faut-il des compétences techniques pour gérer un workflow n8n ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Non. Une fois le workflow déployé par Oakflow AI, il tourne en autonomie. Vous n'avez rien à faire au quotidien. En cas de modification, nous intervenons dans le cadre de notre contrat de maintenance. La configuration initiale requiert une expertise technique que nous apportons.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Quels outils peut-on connecter avec n8n ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Plus de 400 connecteurs natifs : HubSpot, Pipedrive, Salesforce, Notion, Airtable, Slack, Teams, Gmail, Outlook, Pennylane, QuickBooks, Sage, Shopify, WooCommerce, et des centaines d'autres. Pour tout outil avec une API, on peut construire un connecteur sur mesure.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Est-ce que n8n est sécurisé et conforme au RGPD ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Oui. n8n peut être déployé en self-hosted sur un serveur français (OVH, Scaleway) — vos données ne quittent jamais votre infrastructure. C'est la configuration recommandée pour toutes les PME traitant des données personnelles. Communications chiffrées HTTPS/TLS.</p>
+                </div>
+
+                <div style="padding: 20px 0 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Quel est le délai de mise en place d'un workflow n8n ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Un workflow simple est déployé en 3 à 5 jours ouvrés après l'audit. Un workflow complexe prend 2 à 4 semaines. Nous livrons d'abord un prototype testable avant la mise en production. La maintenance post-lancement est incluse pendant 30 jours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="site-footer">
         <div class="site-footer-inner">
             <div class="footer-links">
                 <a href="/" class="footer-link">Accueil</a>
                 <a href="/blog" class="footer-link">Blog</a>
+                <a href="/votre-expert" class="footer-link">À propos</a>
                 <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
                 <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
             </div>
-            <p> 2026 Oakflow AI. Tous droits réservés. L'agence d'automatisation IA pour les entreprises.</p>
+            <p>© 2026 Oakflow AI. Tous droits réservés. L'agence d'automatisation IA pour les entreprises.</p>
         </div>
     </footer>
 
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
 </body>
 </html>
