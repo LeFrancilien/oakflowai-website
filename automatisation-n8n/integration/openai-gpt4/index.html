@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intégration n8n avec OpenAI et GPT-4 : automatiser avec l'IA | Oakflow AI</title>
+    <meta name="description" content="Connectez n8n à OpenAI et GPT-4 pour automatiser avec l'IA : extraction PDF, classification d'emails, génération de contenu, agents autonomes. Expert IA pour PME françaises.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.oakflowai.com/automatisation-n8n/integration/openai-gpt4">
+    <meta property="og:site_name" content="Oakflow AI">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.oakflowai.com/automatisation-n8n/integration/openai-gpt4">
+    <meta property="og:title" content="Intégration n8n avec OpenAI et GPT-4 : automatiser avec l'IA | Oakflow AI">
+    <meta property="og:description" content="Connectez n8n à OpenAI et GPT-4 pour automatiser avec l'IA : extraction PDF, classification d'emails, génération de contenu.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Automatisation n8n","item":"https://www.oakflowai.com/automatisation-n8n"},{"@type":"ListItem","position":3,"name":"Intégration OpenAI et GPT-4","item":"https://www.oakflowai.com/automatisation-n8n/integration/openai-gpt4"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment n8n se connecte a OpenAI ?","acceptedAnswer":{"@type":"Answer","text":"n8n dispose d'un noeud natif OpenAI qui se connecte a l'API via votre cle API. Vous pouvez appeler GPT-4, GPT-4o, Claude, Mistral ou n'importe quel modele LLM depuis un noeud HTTP. La configuration prend moins d'une heure."}},{"@type":"Question","name":"Quels cas d'usage PME sont possibles avec n8n et GPT-4 ?","acceptedAnswer":{"@type":"Answer","text":"Extraction automatique de donnees dans des PDFs (bons de commande, contrats), classification et triage d'emails entrants, generation de reponses standardisees, creation de comptes-rendus de reunions, resume de documents longs, et agents autonomes qui prennent des decisions selon des regles metier."}},{"@type":"Question","name":"Mes donnees sont-elles envoyees a OpenAI ?","acceptedAnswer":{"@type":"Answer","text":"Oui, les donnees traitees par GPT-4 transitent par les serveurs OpenAI. Pour les donnees sensibles (clients, comptabilite, RH), nous recommandons d'utiliser des modeles locaux via LM Studio ou Ollama, integres a n8n de la meme facon. Vos donnees restent alors sur votre infrastructure."}},{"@type":"Question","name":"Peut-on creer des agents IA autonomes avec n8n et OpenAI ?","acceptedAnswer":{"@type":"Answer","text":"Oui. n8n permet de creer des agents qui combinent un LLM (GPT-4 ou autre) avec des outils (recherche web, base de donnees, email, CRM). L'agent recoit une instruction, choisit les outils a utiliser, execute des actions et retourne un resultat - sans intervention humaine."}},{"@type":"Question","name":"Combien coute l'utilisation d'OpenAI via n8n ?","acceptedAnswer":{"@type":"Answer","text":"Les couts OpenAI dependent du volume de requetes et du modele utilise. GPT-4o mini coute environ 0.15 dollar pour 1 million de tokens en entree. Pour la plupart des PME, le cout mensuel des appels API reste entre 10 et 50 euros selon l'usage. Nous optimisons les prompts pour minimiser les couts."}},{"@type":"Question","name":"Peut-on utiliser d'autres modeles IA que GPT-4 avec n8n ?","acceptedAnswer":{"@type":"Answer","text":"Oui. n8n supporte OpenAI, Anthropic Claude, Google Gemini, Mistral, et les modeles locaux via Ollama ou LM Studio. Vous choisissez le modele le plus adapte a chaque tache : GPT-4o pour la complexite, Claude pour la redaction, un modele local pour les donnees confidentielles."}}]}
+    </script>
+</head>
+<body>
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="max-width:900px;margin:0 auto;padding:100px 24px 0;">
+        <ol style="display:flex;gap:8px;list-style:none;padding:0;margin:0;flex-wrap:wrap;font-size:0.9rem;opacity:0.7;">
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Intégration OpenAI et GPT-4</li>
+        </ol>
+    </nav>
+
+    <header class="section glass-section" style="padding-top:150px;">
+        <div class="container relative z-10" style="max-width:900px;">
+            <div class="badge fade-up">Intégration n8n + IA</div>
+            <h1 class="hero-title fade-up">Intégration n8n avec OpenAI et GPT-4 : automatiser avec l'IA</h1>
+            <p class="hero-subtitle fade-up">Les LLM comme GPT-4 lisent des documents, classifient des emails et rédigent des réponses. n8n les intègre dans vos processus métier existants : l'IA n'est plus une expérimentation, c'est un outil opérationnel qui travaille pour votre PME 24h/24.</p>
+            <div class="hero-cta fade-up" style="margin-top:2rem;">
+                <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    Réserver un audit gratuit 30min →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="cas-usage">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Cas d'usage concrets : n8n + OpenAI pour les PME</h2>
+                <p>Combiner n8n et un LLM comme GPT-4 ouvre des automatisations impossibles avec des outils classiques. Voici ce que nous déployons chez nos clients :</p>
+
+                <h3 style="margin-top:1.5rem;">Extraction automatique depuis des PDFs</h3>
+                <p>Vos clients vous envoient des bons de commande, des devis ou des contrats en PDF. n8n détecte chaque nouveau document reçu par email, l'envoie à GPT-4 pour extraction des données clés (montants, références, dates, noms), puis crée automatiquement les entrées dans votre CRM et votre outil de facturation. Plus aucune saisie manuelle.</p>
+
+                <h3 style="margin-top:1.5rem;">Triage et classification d'emails entrants</h3>
+                <p>n8n surveille votre boite email. Chaque nouveau message est analysé par GPT-4 : type de demande (devis, réclamation, question technique, candidature), urgence, sentiment. Selon la classification, le message est assigné à la bonne personne, la bonne réponse type est suggérée, et les données utiles sont extraites vers votre CRM.</p>
+
+                <h3 style="margin-top:1.5rem;">Génération de contenu et de rapports</h3>
+                <p>n8n collecte vos données (ventes de la semaine, stats site, retours clients) et demande à GPT-4 de rédiger un compte-rendu hebdomadaire personnalisé pour chaque manager. Ce rapport est envoyé automatiquement chaque lundi matin. Vous gagnez 2 à 3 heures de reporting par semaine.</p>
+
+                <h3 style="margin-top:1.5rem;">Agents IA autonomes</h3>
+                <p>n8n permet de créer des agents qui combinent un LLM avec des outils concrets (recherche web, lecture de base de données, envoi d'email). L'agent reçoit une instruction ("traite toutes les demandes d'information reçues ce matin"), choisit ses outils, exécute les actions et rend compte. Aucune intervention humaine pour les cas standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="securite">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Sécurité des données : ce qu'il faut savoir</h2>
+                <p>Quand vous utilisez GPT-4 via l'API OpenAI, les données que vous envoyez transitent par les serveurs d'OpenAI (USA). Pour les informations non sensibles (rédaction, mise en forme, recherche), c'est acceptable. Pour les données confidentielles (comptabilité, RH, données clients), nous recommandons des modèles locaux.</p>
+                <p>n8n s'intègre avec les mêmes modèles locaux via Ollama ou LM Studio : Mistral, Llama, Gemma ou d'autres modèles s'exécutent sur votre propre serveur, vos données ne quittent jamais votre infrastructure. Les performances sont légèrement inférieures à GPT-4, mais amplement suffisantes pour la majorité des cas d'usage PME.</p>
+                <p>Nous définissons avec vous la bonne architecture selon vos contraintes de confidentialité : GPT-4 pour les tâches génériques, modèle local pour les données sensibles.</p>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Intégrer l'IA dans vos processus →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur l'intégration n8n et OpenAI</h2>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Comment n8n se connecte à OpenAI ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">n8n dispose d'un noeud natif OpenAI qui se connecte à l'API via votre clé API. Vous pouvez appeler GPT-4, GPT-4o, Claude, Mistral ou n'importe quel modèle LLM depuis un noeud HTTP. La configuration prend moins d'une heure.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Quels cas d'usage PME sont possibles avec n8n et GPT-4 ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Extraction automatique de données dans des PDFs (bons de commande, contrats), classification et triage d'emails entrants, génération de réponses standardisées, création de comptes-rendus de réunions, résumé de documents longs, et agents autonomes qui prennent des décisions selon des règles métier.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Mes données sont-elles envoyées à OpenAI ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui, les données traitées par GPT-4 transitent par les serveurs OpenAI. Pour les données sensibles (clients, comptabilité, RH), nous recommandons d'utiliser des modèles locaux via LM Studio ou Ollama, intégrés à n8n de la même façon. Vos données restent alors sur votre infrastructure.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Peut-on créer des agents IA autonomes avec n8n et OpenAI ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. n8n permet de créer des agents qui combinent un LLM (GPT-4 ou autre) avec des outils (recherche web, base de données, email, CRM). L'agent reçoit une instruction, choisit les outils à utiliser, exécute des actions et retourne un résultat - sans intervention humaine.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Combien coûte l'utilisation d'OpenAI via n8n ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Les coûts OpenAI dépendent du volume de requêtes et du modèle utilisé. GPT-4o mini coûte environ 0,15 dollar pour 1 million de tokens en entrée. Pour la plupart des PME, le coût mensuel des appels API reste entre 10 et 50 euros selon l'usage. Nous optimisons les prompts pour minimiser les coûts.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Peut-on utiliser d'autres modèles IA que GPT-4 avec n8n ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. n8n supporte OpenAI, Anthropic Claude, Google Gemini, Mistral, et les modèles locaux via Ollama ou LM Studio. Vous choisissez le modèle le plus adapté à chaque tâche : GPT-4o pour la complexité, Claude pour la rédaction, un modèle local pour les données confidentielles.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Aller plus loin</h2>
+                <ul style="line-height:2.2;">
+                    <li><a href="/automatisation-n8n">Automatisation n8n pour PME et TPE : vue d'ensemble</a></li>
+                    <li><a href="/automatisation-n8n/formation-mentoring">Formation n8n : maîtrisez l'automatisation en 4 semaines</a></li>
+                    <li><a href="/automatisation-n8n/comparatif-make-zapier">Comparatif n8n / Make / Zapier : quel outil choisir ?</a></li>
+                    <li><a href="/automatisation-n8n/integration/pennylane">Intégration n8n et Pennylane : automatiser la facturation</a></li>
+                    <li><a href="/automatisation-n8n/integration/hubspot-pipedrive">Intégration n8n avec HubSpot et Pipedrive</a></li>
+                </ul>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Réserver un audit gratuit →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Accueil</a>
+                <a href="/automatisation-n8n" class="footer-link">Automatisation n8n</a>
+                <a href="/blog" class="footer-link">Blog</a>
+                <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
+                <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
+            </div>
+            <p>© 2026 Oakflow AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
