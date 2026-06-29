@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n vs Make vs Zapier : quel outil choisir pour votre PME ? | Oakflow AI</title>
+    <meta name="description" content="Comparatif complet n8n vs Make vs Zapier : prix, fonctionnalités, hébergement des données, complexité. Quelle solution d'automatisation choisir pour une PME française en 2024 ?">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.oakflowai.com/automatisation-n8n/comparatif-make-zapier">
+    <meta property="og:site_name" content="Oakflow AI">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.oakflowai.com/automatisation-n8n/comparatif-make-zapier">
+    <meta property="og:title" content="n8n vs Make vs Zapier : quel outil choisir pour votre PME ? | Oakflow AI">
+    <meta property="og:description" content="Comparatif complet n8n vs Make vs Zapier : prix, fonctionnalités, hébergement des données, complexité.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Automatisation n8n","item":"https://www.oakflowai.com/automatisation-n8n"},{"@type":"ListItem","position":3,"name":"Comparatif Make / Zapier","item":"https://www.oakflowai.com/automatisation-n8n/comparatif-make-zapier"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelle est la principale difference entre n8n et Zapier ?","acceptedAnswer":{"@type":"Answer","text":"n8n est open source et peut s'heberger sur votre propre serveur, vos donnees ne quittent pas votre infrastructure. Zapier est un SaaS americain, vos donnees transitent par leurs serveurs. Pour les PME avec des donnees sensibles, n8n est le choix naturel."}},{"@type":"Question","name":"n8n est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"La version self-hosted de n8n est gratuite (open source). La version cloud n8n.cloud demarre a 20 euros par mois. Compare a Zapier qui facture 74 dollars par mois pour des fonctionnalites equivalentes, n8n est nettement plus economique a volume egal."}},{"@type":"Question","name":"Make est-il mieux que Zapier ?","acceptedAnswer":{"@type":"Answer","text":"Make (anciennement Integromat) est generalement plus puissant que Zapier pour les workflows complexes, et moins cher a volume equivalent. Mais ni l'un ni l'autre ne permettent l'hebergement sur site, contrairement a n8n. Pour une PME francaise soucieuse de ses donnees, n8n reste superieur."}},{"@type":"Question","name":"Quel outil est le plus facile a prendre en main ?","acceptedAnswer":{"@type":"Answer","text":"Zapier est le plus simple pour les workflows basiques. Make offre plus de puissance avec une courbe d'apprentissage moderee. n8n demande un peu plus d'investissement initial mais sa flexibilite compenst largement. Avec un accompagnement, n8n devient accessible a tous."}},{"@type":"Question","name":"Peut-on migrer de Zapier ou Make vers n8n ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La migration est possible et souvent rentable sur le long terme. Les workflows existants sont recrees dans n8n, generalement en 1 a 2 journees selon le nombre de zaps ou scenarios. Nous accompagnons les migrations de A a Z."}},{"@type":"Question","name":"Quel outil choisir pour une PME francaise soumise au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"n8n en self-hosted est la reponse la plus solide pour le RGPD : vos donnees restent sur votre serveur en France, pas de transfert vers des serveurs americains. C'est un argument fort pour les secteurs comptable, juridique, medical ou RH."}}]}
+    </script>
+</head>
+<body>
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="max-width:900px;margin:0 auto;padding:100px 24px 0;">
+        <ol style="display:flex;gap:8px;list-style:none;padding:0;margin:0;flex-wrap:wrap;font-size:0.9rem;opacity:0.7;">
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Comparatif Make / Zapier</li>
+        </ol>
+    </nav>
+
+    <header class="section glass-section" style="padding-top:150px;">
+        <div class="container relative z-10" style="max-width:900px;">
+            <div class="badge fade-up">Comparatif objectif 2024</div>
+            <h1 class="hero-title fade-up">n8n vs Make vs Zapier : quel outil choisir pour automatiser votre PME ?</h1>
+            <p class="hero-subtitle fade-up">Trois outils, trois logiques différentes. Zapier pour la simplicité, Make pour la puissance, n8n pour la souveraineté des données et le meilleur rapport coût/flexibilité sur le long terme. Voici comment choisir selon votre situation.</p>
+            <div class="hero-cta fade-up" style="margin-top:2rem;">
+                <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    Réserver un audit gratuit 30min →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="comparatif">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Tableau comparatif : n8n vs Make vs Zapier</h2>
+                <div style="overflow-x:auto;margin-top:1.5rem;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+                        <thead>
+                            <tr style="border-bottom:2px solid rgba(255,255,255,0.15);">
+                                <th style="text-align:left;padding:0.75rem;"></th>
+                                <th style="text-align:center;padding:0.75rem;color:var(--accent, #00E5B0);">n8n</th>
+                                <th style="text-align:center;padding:0.75rem;">Make</th>
+                                <th style="text-align:center;padding:0.75rem;">Zapier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                                <td style="padding:0.75rem;font-weight:500;">Prix de départ</td>
+                                <td style="text-align:center;padding:0.75rem;">Gratuit (self-hosted)</td>
+                                <td style="text-align:center;padding:0.75rem;">9 €/mois</td>
+                                <td style="text-align:center;padding:0.75rem;">20 $/mois</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                                <td style="padding:0.75rem;font-weight:500;">Hébergement données</td>
+                                <td style="text-align:center;padding:0.75rem;color:var(--accent, #00E5B0);">Votre serveur (FR)</td>
+                                <td style="text-align:center;padding:0.75rem;">Cloud EU disponible</td>
+                                <td style="text-align:center;padding:0.75rem;">USA uniquement</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                                <td style="padding:0.75rem;font-weight:500;">Nombre d'intégrations</td>
+                                <td style="text-align:center;padding:0.75rem;">400+</td>
+                                <td style="text-align:center;padding:0.75rem;">1 000+</td>
+                                <td style="text-align:center;padding:0.75rem;">6 000+</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                                <td style="padding:0.75rem;font-weight:500;">Logique conditionnelle avancée</td>
+                                <td style="text-align:center;padding:0.75rem;">Oui</td>
+                                <td style="text-align:center;padding:0.75rem;">Oui</td>
+                                <td style="text-align:center;padding:0.75rem;">Limité</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                                <td style="padding:0.75rem;font-weight:500;">Code personnalisé</td>
+                                <td style="text-align:center;padding:0.75rem;">JavaScript natif</td>
+                                <td style="text-align:center;padding:0.75rem;">Oui (limité)</td>
+                                <td style="text-align:center;padding:0.75rem;">Non</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                                <td style="padding:0.75rem;font-weight:500;">Open source</td>
+                                <td style="text-align:center;padding:0.75rem;color:var(--accent, #00E5B0);">Oui</td>
+                                <td style="text-align:center;padding:0.75rem;">Non</td>
+                                <td style="text-align:center;padding:0.75rem;">Non</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.75rem;font-weight:500;">Facilité de prise en main</td>
+                                <td style="text-align:center;padding:0.75rem;">Intermédiaire</td>
+                                <td style="text-align:center;padding:0.75rem;">Intermédiaire</td>
+                                <td style="text-align:center;padding:0.75rem;">Facile</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="recommandation">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Pourquoi n8n gagne sur le long terme pour les PME françaises</h2>
+                <p>Zapier convient pour démarrer rapidement avec des cas simples. Mais son modèle de facturation à la tâche devient vite coûteux : une PME qui automatise sérieusement dépasse rapidement les 100 dollars par mois. Make est plus puissant et moins cher à volume équivalent, mais vos données transitent quand même par un service tiers.</p>
+                <p>n8n change de logique : une fois installé sur votre serveur (ou sur un VPS à 10 euros/mois), le coût marginal de chaque automatisation supplémentaire est nul. Vos données restent en France. Vous pouvez créer des logiques aussi complexes que nécessaire avec du JavaScript natif. Et si n8n ajoute une fonctionnalité dont vous avez besoin, vous pouvez l'installer vous-même ou attendre la prochaine version open source.</p>
+                <p>Notre recommandation : si vous avez moins de 5 automatisations simples et que vos données ne sont pas sensibles, Zapier peut suffire au départ. Dans tous les autres cas, n8n est l'investissement le plus rentable sur 12 mois.</p>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Choisir l'outil adapté à votre PME →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur le choix entre n8n, Make et Zapier</h2>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Quelle est la principale différence entre n8n et Zapier ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">n8n est open source et peut s'héberger sur votre propre serveur : vos données ne quittent pas votre infrastructure. Zapier est un SaaS américain, vos données transitent par leurs serveurs. Pour les PME avec des données sensibles, n8n est le choix naturel.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">n8n est-il gratuit ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">La version self-hosted de n8n est gratuite (open source). La version cloud n8n.cloud démarre à 20 euros par mois. Comparé à Zapier qui facture 74 dollars par mois pour des fonctionnalités équivalentes, n8n est nettement plus économique à volume égal.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Make est-il mieux que Zapier ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Make est généralement plus puissant que Zapier pour les workflows complexes, et moins cher à volume équivalent. Mais ni l'un ni l'autre ne permettent l'hébergement sur site, contrairement à n8n. Pour une PME française soucieuse de ses données, n8n reste supérieur.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Quel outil est le plus facile à prendre en main ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Zapier est le plus simple pour les workflows basiques. Make offre plus de puissance avec une courbe d'apprentissage modérée. n8n demande un peu plus d'investissement initial mais sa flexibilité compense largement. Avec un accompagnement, n8n devient accessible à tous.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Peut-on migrer de Zapier ou Make vers n8n ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. La migration est possible et souvent rentable sur le long terme. Les workflows existants sont recréés dans n8n, généralement en 1 à 2 journées selon le nombre de zaps ou scénarios. Nous accompagnons les migrations de A à Z.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Quel outil choisir pour une PME française soumise au RGPD ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">n8n en self-hosted est la réponse la plus solide pour le RGPD : vos données restent sur votre serveur en France, sans transfert vers des serveurs américains. C'est un argument fort pour les secteurs comptable, juridique, médical ou RH.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Aller plus loin</h2>
+                <ul style="line-height:2.2;">
+                    <li><a href="/automatisation-n8n">Automatisation n8n pour PME et TPE : vue d'ensemble</a></li>
+                    <li><a href="/automatisation-n8n/formation-mentoring">Formation n8n : maîtrisez l'automatisation en 4 semaines</a></li>
+                    <li><a href="/automatisation-n8n/integration/pennylane">Intégration n8n et Pennylane : automatiser la facturation</a></li>
+                    <li><a href="/automatisation-n8n/integration/hubspot-pipedrive">Intégration n8n avec HubSpot et Pipedrive</a></li>
+                    <li><a href="/automatisation-n8n/integration/openai-gpt4">Intégration n8n avec OpenAI et GPT-4</a></li>
+                </ul>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Réserver un audit gratuit →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Accueil</a>
+                <a href="/automatisation-n8n" class="footer-link">Automatisation n8n</a>
+                <a href="/blog" class="footer-link">Blog</a>
+                <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
+                <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
+            </div>
+            <p>© 2026 Oakflow AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
