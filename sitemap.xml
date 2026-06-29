@@ -6,6 +6,82 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Silo 1 : Automatisation n8n -->
+  <url>
+    <loc>https://www.oakflowai.com/automatisation-n8n</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/automatisation-n8n/formation-mentoring</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/automatisation-n8n/comparatif-make-zapier</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/automatisation-n8n/integration/pennylane</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/automatisation-n8n/integration/hubspot-pipedrive</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/automatisation-n8n/integration/openai-gpt4</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Silo 2 : Solutions IA Entreprise -->
+  <url>
+    <loc>https://www.oakflowai.com/solutions-ia-entreprise</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/solutions-ia-entreprise/chatbot-ia-sur-mesure</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/solutions-ia-entreprise/assistant-vocal-intelligent</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/solutions-ia-entreprise/agents-ia-orchestrateurs</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/solutions-ia-entreprise/audit-ia-gratuit</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Page E-E-A-T Expert -->
+  <url>
+    <loc>https://www.oakflowai.com/votre-expert</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blog -->
   <url>
     <loc>https://www.oakflowai.com/blog</loc>
     <lastmod>2026-06-13</lastmod>
@@ -15,8 +91,38 @@
   <url>
     <loc>https://www.oakflowai.com/blog/oakflow-ai-os-beta</loc>
     <lastmod>2026-06-13</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/souverainete-ia-pme-multi-modeles</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/ai-act-2026-conformite-pme</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/agents-ia-autonomes-pme-2026</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.oakflowai.com/blog/crm-ia-pme</loc>
@@ -32,7 +138,7 @@
   </url>
   <url>
     <loc>https://www.oakflowai.com/blog/automatiser-prospection-commerciale</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -78,58 +184,29 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- Pages services existantes -->
   <url>
     <loc>https://www.oakflowai.com/services/workflows-n8n</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.oakflowai.com/services/chatbot-personnalise</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.oakflowai.com/services/integration-llm</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.oakflowai.com/services/assistant-vocal</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.oakflowai.com/blog/souverainete-ia-pme-multi-modeles</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.oakflowai.com/blog/ai-act-2026-conformite-pme</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.oakflowai.com/blog/agents-ia-autonomes-pme-2026</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
