@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intégration n8n et Pennylane : automatiser la facturation et la comptabilité | Oakflow AI</title>
+    <meta name="description" content="Connectez n8n et Pennylane pour automatiser votre facturation, vos relances impayés et vos exports comptables. Économisez jusqu'à 15h par mois sur les tâches comptables répétitives.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.oakflowai.com/automatisation-n8n/integration/pennylane">
+    <meta property="og:site_name" content="Oakflow AI">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.oakflowai.com/automatisation-n8n/integration/pennylane">
+    <meta property="og:title" content="Intégration n8n et Pennylane : automatiser la facturation | Oakflow AI">
+    <meta property="og:description" content="Connectez n8n et Pennylane pour automatiser votre facturation, vos relances impayés et vos exports comptables.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Automatisation n8n","item":"https://www.oakflowai.com/automatisation-n8n"},{"@type":"ListItem","position":3,"name":"Intégration Pennylane","item":"https://www.oakflowai.com/automatisation-n8n/integration/pennylane"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Pennylane a-t-il une API que n8n peut utiliser ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Pennylane dispose d'une API REST documentee qui permet de creer des factures, consulter les clients, recuperer les transactions et declencher des relances. n8n se connecte a cette API via un noeud HTTP personnalise ou via les noeuds natifs disponibles."}},{"@type":"Question","name":"Qu'est-ce qu'on peut automatiser entre n8n et Pennylane ?","acceptedAnswer":{"@type":"Answer","text":"Creation automatique de factures depuis votre CRM ou boutique en ligne, relances automatiques des impaises a J+30 et J+60, exports comptables hebdomadaires vers votre expert-comptable, rapprochement bancaire automatise, et alertes en temps reel sur les paiements recus."}},{"@type":"Question","name":"Combien de temps faut-il pour mettre en place l'integration n8n Pennylane ?","acceptedAnswer":{"@type":"Answer","text":"Une integration basique (creation de factures automatique) prend 1 a 2 jours. Un projet complet incluant relances, rapprochement et exports prend 1 a 2 semaines selon la complexite de vos processus existants."}},{"@type":"Question","name":"L'integration est-elle securisee ? Mes donnees comptables sont-elles protegees ?","acceptedAnswer":{"@type":"Answer","text":"Oui. n8n s'installe sur votre serveur en France, les donnees ne transitent pas par une plateforme tierce. La connexion a l'API Pennylane utilise un token OAuth securise. Vos donnees comptables restent sous votre controle."}},{"@type":"Question","name":"Peut-on connecter d'autres outils en plus de Pennylane ?","acceptedAnswer":{"@type":"Answer","text":"Absolument. Un workflow typique connecte Pennylane avec votre CRM (HubSpot, Pipedrive), votre boutique e-commerce (WooCommerce, Shopify), votre messagerie (Gmail, Outlook) et des alertes Slack. n8n joue le role de chef d'orchestre entre tous ces outils."}},{"@type":"Question","name":"Faut-il un abonnement Pennylane specifique pour utiliser l'API ?","acceptedAnswer":{"@type":"Answer","text":"L'acces API Pennylane est disponible sur les plans payants. Verifiez avec Pennylane les conditions d'acces API selon votre abonnement actuel. En general, les plans PME incluent l'API sans supplement."}}]}
+    </script>
+</head>
+<body>
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="max-width:900px;margin:0 auto;padding:100px 24px 0;">
+        <ol style="display:flex;gap:8px;list-style:none;padding:0;margin:0;flex-wrap:wrap;font-size:0.9rem;opacity:0.7;">
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Intégration Pennylane</li>
+        </ol>
+    </nav>
+
+    <header class="section glass-section" style="padding-top:150px;">
+        <div class="container relative z-10" style="max-width:900px;">
+            <div class="badge fade-up">Intégration n8n + Pennylane</div>
+            <h1 class="hero-title fade-up">Intégration n8n et Pennylane : automatiser la facturation et la comptabilité</h1>
+            <p class="hero-subtitle fade-up">Chaque semaine, votre équipe saisit manuellement des factures, envoie des relances et prépare des exports pour votre comptable. n8n connecté à Pennylane élimine ces tâches répétitives et garantit que vos données comptables sont toujours à jour, sans intervention humaine.</p>
+            <div class="hero-cta fade-up" style="margin-top:2rem;">
+                <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    Réserver un audit gratuit 30min →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="ce-que-permet">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Ce que permet l'intégration n8n + Pennylane</h2>
+                <p>Pennylane est la solution comptable de référence pour les PME françaises. Son API permet à n8n de lire, créer et modifier des données comptables en temps réel. Voici les automatisations les plus courantes que nous mettons en place pour nos clients :</p>
+                <h3 style="margin-top:1.5rem;">Facturation automatique</h3>
+                <p>À chaque nouvelle commande validée dans votre CRM, votre boutique en ligne ou votre outil de devis, n8n crée automatiquement la facture correspondante dans Pennylane. Plus aucune double saisie, plus aucun oubli de facturation.</p>
+                <h3 style="margin-top:1.5rem;">Relances automatiques des impayés</h3>
+                <p>n8n surveille les factures en attente dans Pennylane et envoie des emails de relance personnalisés à J+15, J+30 et J+60. Le ton du message s'adapte selon l'ancienneté du retard. Vous récupérez vos créances plus vite sans aucune action manuelle.</p>
+                <h3 style="margin-top:1.5rem;">Exports comptables et rapprochement bancaire</h3>
+                <p>Chaque semaine, n8n génère automatiquement les exports comptables au format demandé par votre expert-comptable et les envoie par email ou les dépose dans un dossier partagé. Le rapprochement bancaire est déclenché automatiquement à réception des relevés.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="mise-en-place">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Étapes de mise en place de l'intégration</h2>
+                <ol style="line-height:2.2;padding-left:1.5rem;">
+                    <li><strong>Audit des processus :</strong> on cartographie vos flux comptables actuels et on identifie les 3 automatisations prioritaires.</li>
+                    <li><strong>Configuration API :</strong> connexion sécurisée de n8n à l'API Pennylane via token OAuth.</li>
+                    <li><strong>Construction des workflows :</strong> création des automatisations, tests sur données réelles, ajustements.</li>
+                    <li><strong>Mise en production et formation :</strong> déploiement, documentation des workflows, formation de votre équipe à la supervision.</li>
+                </ol>
+                <p style="margin-top:1.5rem;">Une intégration basique (facturation automatique depuis un outil) est opérationnelle en 1 à 2 jours. Un projet complet prend 1 à 2 semaines. Les PME que nous accompagnons économisent en moyenne 10 à 15 heures par mois sur les seules tâches comptables.</p>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Discuter de votre intégration Pennylane →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur l'intégration n8n et Pennylane</h2>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Pennylane a-t-il une API que n8n peut utiliser ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. Pennylane dispose d'une API REST documentée qui permet de créer des factures, consulter les clients, récupérer les transactions et déclencher des relances. n8n se connecte à cette API via un noeud HTTP personnalisé ou via les noeuds natifs disponibles.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Qu'est-ce qu'on peut automatiser entre n8n et Pennylane ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Création automatique de factures depuis votre CRM ou boutique en ligne, relances automatiques des impayés à J+30 et J+60, exports comptables hebdomadaires vers votre expert-comptable, rapprochement bancaire automatisé, et alertes en temps réel sur les paiements reçus.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Combien de temps faut-il pour mettre en place l'intégration n8n Pennylane ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Une intégration basique (création de factures automatique) prend 1 à 2 jours. Un projet complet incluant relances, rapprochement et exports prend 1 à 2 semaines selon la complexité de vos processus existants.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">L'intégration est-elle sécurisée ? Mes données comptables sont-elles protégées ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Oui. n8n s'installe sur votre serveur en France, les données ne transitent pas par une plateforme tierce. La connexion à l'API Pennylane utilise un token OAuth sécurisé. Vos données comptables restent sous votre contrôle.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Peut-on connecter d'autres outils en plus de Pennylane ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">Absolument. Un workflow typique connecte Pennylane avec votre CRM (HubSpot, Pipedrive), votre boutique e-commerce (WooCommerce, Shopify), votre messagerie (Gmail, Outlook) et des alertes Slack. n8n joue le rôle de chef d'orchestre entre tous ces outils.</p>
+                </details>
+                <details style="margin-bottom:1rem;">
+                    <summary style="cursor:pointer;font-weight:600;padding:0.5rem 0;">Faut-il un abonnement Pennylane spécifique pour utiliser l'API ?</summary>
+                    <p style="padding:0.5rem 0 0 1rem;">L'accès API Pennylane est disponible sur les plans payants. Vérifiez avec Pennylane les conditions d'accès API selon votre abonnement actuel. En général, les plans PME incluent l'API sans supplément.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Aller plus loin</h2>
+                <ul style="line-height:2.2;">
+                    <li><a href="/automatisation-n8n">Automatisation n8n pour PME et TPE : vue d'ensemble</a></li>
+                    <li><a href="/automatisation-n8n/formation-mentoring">Formation n8n : maîtrisez l'automatisation en 4 semaines</a></li>
+                    <li><a href="/automatisation-n8n/comparatif-make-zapier">Comparatif n8n / Make / Zapier : quel outil choisir ?</a></li>
+                    <li><a href="/automatisation-n8n/integration/hubspot-pipedrive">Intégration n8n avec HubSpot et Pipedrive</a></li>
+                    <li><a href="/automatisation-n8n/integration/openai-gpt4">Intégration n8n avec OpenAI et GPT-4</a></li>
+                </ul>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Réserver un audit gratuit →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Accueil</a>
+                <a href="/automatisation-n8n" class="footer-link">Automatisation n8n</a>
+                <a href="/blog" class="footer-link">Blog</a>
+                <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
+                <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
+            </div>
+            <p>© 2026 Oakflow AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
