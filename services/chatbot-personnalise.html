@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Analytics — chargé uniquement après consentement RGPD -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -13,76 +12,113 @@
     <title>Création de Chatbot IA Personnalisé pour PME | Agence Oakflow AI</title>
     <meta name="description" content="Développement et déploiement de chatbot IA personnalisé (GPT-4) pour qualifier vos leads et diviser par deux le volume de votre support client.">
     <link rel="stylesheet" href="/style.css">
-    
-    <!-- SEO Meta Tags -->
     <link rel="canonical" href="https://www.oakflowai.com/services/chatbot-personnalise">
     <meta property="og:site_name" content="Oakflow AI">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.oakflowai.com/services/chatbot-personnalise">
     <meta property="og:title" content="Création de Chatbot IA Personnalisé & Support Client">
     <meta property="og:description" content="Boostez votre conversion avec un chatbot sur mesure entraîné sur vos données. Qualification de leads et support client 24/7.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
     <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-
-    <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Schema.org Service -->
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
       "serviceType": "Création Chatbot IA Personnalisé",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Oakflow AI"
-      },
+      "provider": { "@type": "LocalBusiness", "name": "Oakflow AI" },
       "areaServed": "FR",
       "description": "Création et intégration de chatbots intelligents basés sur l'IA (LLM) entraînés sur les données de l'entreprise pour qualifier les leads et répondre aux questions fréquentes.",
       "offers": {
         "@type": "Offer",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "priceCurrency": "EUR",
-          "price": "600"
-        }
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "EUR", "price": "600" }
       }
     }
     </script>
     <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.oakflowai.com/#features"},{"@type":"ListItem","position":3,"name":"Chatbot IA Personnalisé"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.oakflowai.com/#features"},{"@type":"ListItem","position":3,"name":"Chatbot IA Personnalisé"}]}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne un chatbot IA personnalise pour PME ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chatbot IA personnalise fonctionne en trois etapes : (1) on extrait et indexe votre contenu (site web, PDF, FAQ, documentation) via une technologie RAG ; (2) un modele de langage (GPT-4o ou Claude) est instruite avec un prompt systeme specifique a votre entreprise (ton, limites, objectifs) ; (3) le chatbot est deploye sur votre site en quelques lignes de code. Il repond en langage naturel en s'appuyant sur votre contenu indexe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coute la creation d'un chatbot IA pour une PME ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La creation d'un chatbot IA sur mesure est facturee entre 600 et 2 000 euros selon la complexite (nombre de sources de donnees, intégrations CRM, personnalisation poussee). L'utilisation du LLM (API OpenAI ou Anthropic) coute entre 10 et 100 euros/mois selon le volume de conversations. La maintenance optionnelle est a partir de 99 euros/mois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le chatbot peut-il etre integre sur mon site WordPress, Webflow ou Shopify ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Le chatbot s'integre sur n'importe quel site via un simple script JavaScript (balise script). Il est compatible avec WordPress, Webflow, Shopify, Wix, et tout site HTML statique. L'integration ne necessite aucune modification du backend de votre site. Elle prend moins de 30 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment le chatbot apprend-il les informations de mon entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nous utilisons la technologie RAG (Retrieval-Augmented Generation) : nous aspirons et indexons votre site web, vos PDF, vos FAQ et vos documentations dans une base vectorielle. Lors de chaque question, le chatbot recherche les passages les plus pertinents dans votre contenu avant de formuler sa reponse. Vous pouvez mettre a jour les sources a tout moment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le chatbot IA peut-il remplacer mon equipe support ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, le chatbot IA ne remplace pas votre equipe — il la decharge des questions repetitives. En moyenne, 40 a 60% des tickets support portent sur des questions auxquelles le chatbot peut repondre seul (horaires, tarifs, suivi commande, mode d'emploi). Votre equipe se concentre alors sur les cas complexes a forte valeur. Le chatbot peut aussi escalader automatiquement vers un humain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour deployer un chatbot IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chatbot fonctionnel est deploye en 5 a 10 jours ouvres. La phase d'indexation et de configuration du prompt prend 2 a 3 jours, les tests et ajustements 2 a 5 jours, puis l'installation sur votre site moins d'une journee. Vous recevez un acces prive pour tester le bot en equipe avant le lancement public."
+          }
+        }
+      ]
+    }
     </script>
 </head>
 <body>
 
-    <!-- ── NAV ── -->
     <nav id="nav">
         <a href="/" class="nav-logo">
             <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
         </a>
-
         <ul class="nav-links">
             <li><a href="/#features">Services</a></li>
-            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
             <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
             <li><a href="/#pricing">Tarifs</a></li>
-            <li><a href="/#contact">Contact</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="/#newsletter">Newsletter</a></li>
         </ul>
-
         <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
-
         <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
     </nav>
 
-    <!-- HERO -->
     <header class="section glass-section" style="padding-top: 150px;">
         <div class="container relative z-10" style="max-width: 800px; text-align: center;">
             <div class="badge fade-up">Service N°3 — Relation Client & Conversion</div>
@@ -98,7 +134,6 @@
         </div>
     </header>
 
-    <!-- CONTENT -->
     <section class="section">
         <div class="container" style="max-width: 800px;">
             <div class="glass-card fade-up">
@@ -110,7 +145,6 @@
                 <div class="grid" style="grid-template-columns: 1fr 1fr;">
                     <div class="glass-card" style="padding: 1.5rem; background: rgba(0, 229, 176, 0.02); height: 100%;">
                         <div class="feature-icon" style="background: rgba(0, 229, 176, 0.15);">
-                            <!-- Target Icon -->
                             <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
@@ -120,7 +154,6 @@
                     </div>
                     <div class="glass-card" style="padding: 1.5rem; background: rgba(0, 229, 176, 0.02); height: 100%;">
                         <div class="feature-icon" style="background: rgba(0, 229, 176, 0.15);">
-                            <!-- Support Icon -->
                             <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
                             </svg>
@@ -130,12 +163,12 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Notre Pédagogie de Mise en Œuvre</h3>
+                <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Notre Pédagogie de Mise en Oeuvre</h3>
                 <ul style="list-style-position: inside; color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
                     <li><strong>Audit et Extraction :</strong> Nous aspirons le contenu de votre site, de vos documentations, vos FAQ et vos PDFs (technologie RAG).</li>
-                    <li><strong>Création du Prompt Système :</strong> Nous donnons des ordres stricts au bot ("Tu es le vendeur de l'entreprise. Ne réponds jamais aux questions de politique. Tu vouvoies toujours.").</li>
+                    <li><strong>Création du Prompt Système :</strong> Nous donnons des ordres stricts au bot ("Tu es le vendeur de l'entreprise. Tu vouvoies toujours.").</li>
                     <li><strong>Tests & Recettage :</strong> Vous testez l'agent en équipe privée avant tout déploiement public.</li>
-                    <li><strong>Installation sur votre site web :</strong> Un simple script Javascript, compatible Webflow, WordPress, Shopify, Shopify, etc.</li>
+                    <li><strong>Installation sur votre site web :</strong> Un simple script Javascript, compatible Webflow, WordPress, Shopify, etc.</li>
                 </ul>
 
                 <div style="margin-top: 3rem; text-align: center;">
@@ -145,18 +178,66 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FAQ -->
+    <section class="section" id="faq" style="padding-top: 0;">
+        <div class="container" style="max-width: 800px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur les chatbots IA pour PME</h2>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Comment fonctionne un chatbot IA personnalisé ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">En trois étapes : (1) indexation de votre contenu (site, PDF, FAQ) via RAG, (2) configuration d'un prompt système avec les règles de votre entreprise, (3) déploiement sur votre site via un script JavaScript. Le chatbot répond en langage naturel en s'appuyant sur votre contenu.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Combien coûte la création d'un chatbot IA ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Prestation de création : 600 à 2 000 euros selon la complexité. Coût d'utilisation du LLM : 10 à 100 euros/mois selon le volume de conversations (API OpenAI ou Anthropic). Maintenance optionnelle à partir de 99 euros/mois.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Le chatbot est-il compatible avec WordPress, Webflow ou Shopify ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Oui. Le chatbot s'intègre via un simple script JavaScript, compatible avec tous les CMS (WordPress, Webflow, Shopify, Wix) et tout site HTML. L'intégration ne modifie pas le backend et prend moins de 30 minutes.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Comment le chatbot apprend-il les informations de mon entreprise ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Via la technologie RAG (Retrieval-Augmented Generation) : nous indexons votre contenu dans une base vectorielle. À chaque question, le chatbot recherche les passages pertinents avant de répondre. Les sources peuvent être mises à jour à tout moment.</p>
+                </div>
+
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Le chatbot peut-il remplacer mon équipe support ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Non, il la décharge des questions répétitives. En moyenne, 40 à 60% des tickets portent sur des questions auxquelles le chatbot répond seul. Votre équipe se concentre sur les cas complexes. Le chatbot peut aussi escalader automatiquement vers un humain.</p>
+                </div>
+
+                <div style="padding: 20px 0 0;">
+                    <h3 style="font-size: 17px; margin: 0 0 10px;">Combien de temps faut-il pour déployer un chatbot IA ?</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--muted);">5 à 10 jours ouvrés. Indexation et configuration du prompt : 2 à 3 jours. Tests et ajustements : 2 à 5 jours. Installation sur votre site : moins d'une journée. Vous recevez un accès privé pour tester avant le lancement public.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="site-footer">
         <div class="site-footer-inner">
             <div class="footer-links">
                 <a href="/" class="footer-link">Accueil</a>
                 <a href="/blog" class="footer-link">Blog</a>
+                <a href="/votre-expert" class="footer-link">À propos</a>
                 <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
                 <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
             </div>
-            <p> 2026 Oakflow AI. Tous droits réservés. L'agence d'automatisation IA pour les entreprises.</p>
+            <p>© 2026 Oakflow AI. Tous droits réservés. L'agence d'automatisation IA pour les entreprises.</p>
         </div>
     </footer>
 
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
 </body>
 </html>
