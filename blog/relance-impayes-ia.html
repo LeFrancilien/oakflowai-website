@@ -57,7 +57,7 @@
         {"@type": "Question", "name": "Le ton des relances IA paraît-il robotique ?",
          "acceptedAnswer": {"@type": "Answer", "text": "Non, à condition d'utiliser un prompt système qui prend en compte l'historique du client, le contexte (montant, ancienneté, retards précédents) et le ton de l'entreprise. Sur nos déploiements, les clients ne distinguent pas les relances automatisées des relances humaines. Plusieurs nous ont même remerciés pour le 'professionnalisme' du suivi."}},
         {"@type": "Question", "name": "Faut-il automatiser TOUTES les relances ou garder l'humain ?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Notre règle terrain : automatiser jusqu'à J+20 maximum. Au-delà (relance ferme, mise en demeure), un humain doit prendre le relais — c'est à la fois plus efficace pour le recouvrement et juridiquement plus sécurisé. L'IA gère les étapes 1, 2 et 3 (mail courtois, relance ferme, notification au dirigeant). L'humain gère les étapes 4 (appel personnel) et 5 (mise en demeure)."}}
+         "acceptedAnswer": {"@type": "Answer", "text": "Notre règle terrain : automatiser jusqu'à J+20 maximum. Au-delà (relance ferme, mise en demeure), un humain doit prendre le relais - c'est à la fois plus efficace pour le recouvrement et juridiquement plus sécurisé. L'IA gère les étapes 1, 2 et 3 (mail courtois, relance ferme, notification au dirigeant). L'humain gère les étapes 4 (appel personnel) et 5 (mise en demeure)."}}
       ]
     }
     </script>
@@ -176,7 +176,7 @@
 
         <h1 itemprop="headline">Agent IA de relance d'impayés : -30 à -50% du DSO (cas client réel)</h1>
 
-        <p class="article-intro">Le DSO moyen des PME françaises tourne autour de <strong>52 jours</strong> en 2026. Pour beaucoup, c'est un cauchemar de trésorerie. Avec un agent IA bien conçu — relances graduées, messages personnalisés selon l'historique, escalade automatique — nous avons fait passer le DSO d'un cabinet d'expertise comptable de 62 à 38 jours en 4 mois. Voici l'architecture, le retour terrain et les pièges à éviter.</p>
+        <p class="article-intro">Le DSO moyen des PME françaises tourne autour de <strong>52 jours</strong> en 2026. Pour beaucoup, c'est un cauchemar de trésorerie. Avec un agent IA bien conçu - relances graduées, messages personnalisés selon l'historique, escalade automatique - nous avons fait passer le DSO d'un cabinet d'expertise comptable de 62 à 38 jours en 4 mois. Voici l'architecture, le retour terrain et les pièges à éviter.</p>
 
         <div class="answer-box">
             <span class="answer-label">En bref</span>
@@ -217,18 +217,18 @@
         <div class="day-card">
             <div class="day-label">J-3 avant échéance</div>
             <h3>Mail de pré-relance courtoise (rappel)</h3>
-            <p>Mail automatique amical : "Petit rappel — la facture #X arrive à échéance le [date]. Si tout est en ordre, merci de votre confiance. Sinon, n'hésitez pas à me solliciter." Personnalisé en fonction du client (ton plus formel pour grands comptes, plus direct pour partenaires de longue date).</p>
+            <p>Mail automatique amical : "Petit rappel - la facture #X arrive à échéance le [date]. Si tout est en ordre, merci de votre confiance. Sinon, n'hésitez pas à me solliciter." Personnalisé en fonction du client (ton plus formel pour grands comptes, plus direct pour partenaires de longue date).</p>
         </div>
 
         <div class="day-card">
             <div class="day-label">J+3 après échéance</div>
-            <h3>Mail de relance n°1 — courtois mais explicite</h3>
+            <h3>Mail de relance n°1 - courtois mais explicite</h3>
             <p>"Bonjour [Prénom], il semblerait que la facture #X échue depuis le [date] n'ait pas encore été réglée. Peut-être un oubli ? Vous trouverez le PDF en pièce jointe." Le LLM ajuste le ton selon l'historique : client habituellement à l'heure → ton léger ; client en retard récurrent → ton plus ferme dès le J+3.</p>
         </div>
 
         <div class="day-card">
             <div class="day-label">J+10 après échéance</div>
-            <h3>Mail de relance n°2 — plus ferme + PDF</h3>
+            <h3>Mail de relance n°2 - plus ferme + PDF</h3>
             <p>"Bonjour [Prénom], malgré notre précédente relance du [date], votre facture #X reste impayée à ce jour. Merci de procéder au règlement sous 7 jours, ou de nous contacter rapidement en cas de difficulté." PDF de la facture jointe automatiquement.</p>
         </div>
 
@@ -247,16 +247,16 @@
         <div class="verdict-box">
             <h3>Stack technique</h3>
             <ul>
-                <li><strong>Source de vérité :</strong> Pennylane (ou QuickBooks, Sage, Stripe) — exposition de l'API factures</li>
-                <li><strong>Orchestration :</strong> n8n self-hosted (10€/mois) — planification quotidienne (cron 9h chaque matin)</li>
-                <li><strong>Génération messages :</strong> GPT-4o-mini ou Claude Haiku via API — coût ~0,001€ par mail</li>
+                <li><strong>Source de vérité :</strong> Pennylane (ou QuickBooks, Sage, Stripe) - exposition de l'API factures</li>
+                <li><strong>Orchestration :</strong> n8n self-hosted (10€/mois) - planification quotidienne (cron 9h chaque matin)</li>
+                <li><strong>Génération messages :</strong> GPT-4o-mini ou Claude Haiku via API - coût ~0,001€ par mail</li>
                 <li><strong>Envoi :</strong> SMTP de l'entreprise (Gmail, Outlook, Brevo) ou API Pennylane natif</li>
                 <li><strong>Notification dirigeant :</strong> webhook Slack ou Teams</li>
                 <li><strong>Logging :</strong> base Airtable ou Supabase pour historique complet et reporting</li>
             </ul>
         </div>
 
-        <p>Le workflow tourne en cron une fois par jour à 9h. n8n récupère via l'API Pennylane toutes les factures avec statut "Envoyée" et date d'échéance &lt; aujourd'hui — selon l'âge du retard, déclenche la relance correspondante. Toutes les relances sont loguées (date, contenu, destinataire) pour traçabilité.</p>
+        <p>Le workflow tourne en cron une fois par jour à 9h. n8n récupère via l'API Pennylane toutes les factures avec statut "Envoyée" et date d'échéance &lt; aujourd'hui - selon l'âge du retard, déclenche la relance correspondante. Toutes les relances sont loguées (date, contenu, destinataire) pour traçabilité.</p>
 
         <h2 id="cas-client">Cas client détaillé (cabinet d'expertise comptable, 8 personnes)</h2>
 
@@ -266,7 +266,7 @@
             <li>Cabinet d'expertise comptable, 8 collaborateurs, 240 clients PME en portefeuille</li>
             <li>CA annuel : 800k€, dont 60% en honoraires récurrents (mensuels ou trimestriels)</li>
             <li>Relances faites manuellement par la secrétaire : 1 mail tous les 30 jours, parfois oublié</li>
-            <li><strong>DSO de départ : 62 jours</strong> — soit ~135k€ bloqués en permanence sur les comptes clients</li>
+            <li><strong>DSO de départ : 62 jours</strong> - soit ~135k€ bloqués en permanence sur les comptes clients</li>
         </ul>
 
         <p><strong>Mise en place de l'agent IA :</strong></p>
@@ -285,7 +285,7 @@
             <div class="result-card"><span class="result-val">52k€</span><span class="result-lbl">de trésorerie<br>libérée</span></div>
         </div>
 
-        <p>Bonus côté équipe : <strong>la secrétaire a récupéré 6h/semaine</strong> sur les relances manuelles, qu'elle réinvestit en accueil client et préparation de dossiers. Le ressenti est positif : "je ne suis plus la méchante qui relance, c'est l'outil — moi je gère les cas humains".</p>
+        <p>Bonus côté équipe : <strong>la secrétaire a récupéré 6h/semaine</strong> sur les relances manuelles, qu'elle réinvestit en accueil client et préparation de dossiers. Le ressenti est positif : "je ne suis plus la méchante qui relance, c'est l'outil - moi je gère les cas humains".</p>
 
         <h2 id="prompt">Prompt système pour relances personnalisées</h2>
 
@@ -312,11 +312,11 @@
             <li><strong>Oublier les exceptions.</strong> Certains clients (grands comptes stratégiques, partenaires personnels du dirigeant) doivent être exclus de l'automatisation. Liste blanche à maintenir.</li>
             <li><strong>Ne pas connecter au dépôt de chèques / virements.</strong> Si un client paie le matin, la relance auto ne doit pas partir l'après-midi. Connexion Pennylane → règlements en temps réel obligatoire.</li>
             <li><strong>Aller trop loin en automatique.</strong> S'arrêter à J+20 max. Au-delà, l'humain doit reprendre la main pour préserver la relation et la sécurité juridique.</li>
-            <li><strong>Négliger la traçabilité.</strong> Logger tous les envois (date, contenu, destinataire, accusé de réception) dans une base dédiée — utile en cas de contentieux ultérieur.</li>
+            <li><strong>Négliger la traçabilité.</strong> Logger tous les envois (date, contenu, destinataire, accusé de réception) dans une base dédiée - utile en cas de contentieux ultérieur.</li>
         </ol>
 
         <section id="faq" class="article-faq">
-            <h2>FAQ — Agent IA de relance d'impayés</h2>
+            <h2>FAQ - Agent IA de relance d'impayés</h2>
 
             <div class="faq-item">
                 <h3>Combien peut-on réduire son DSO avec une relance IA automatisée ?</h3>
@@ -335,7 +335,7 @@
 
             <div class="faq-item">
                 <h3>Faut-il automatiser TOUTES les relances ou garder l'humain ?</h3>
-                <p>Notre règle terrain : <strong>automatiser jusqu'à J+20 maximum</strong>. Au-delà (relance ferme, mise en demeure), un humain doit prendre le relais — c'est plus efficace pour le recouvrement et juridiquement plus sécurisé. L'IA gère les étapes 1 à 3, l'humain gère les étapes 4 (appel) et 5 (mise en demeure).</p>
+                <p>Notre règle terrain : <strong>automatiser jusqu'à J+20 maximum</strong>. Au-delà (relance ferme, mise en demeure), un humain doit prendre le relais - c'est plus efficace pour le recouvrement et juridiquement plus sécurisé. L'IA gère les étapes 1 à 3, l'humain gère les étapes 4 (appel) et 5 (mise en demeure).</p>
             </div>
 
             <div class="faq-item">
@@ -388,7 +388,7 @@
                 <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
             </div>
         </div>
-        <div class="footer-bottom"><span>© 2026 Oakflow AI — Cyril DE LA RUE · Tous droits réservés</span></div>
+        <div class="footer-bottom"><span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span></div>
     </footer>
 
     <script src="../main.js" defer></script>
