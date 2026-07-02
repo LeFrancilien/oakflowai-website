@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n Cloud : tarifs 2026, limites et quand l'utiliser | Oakflow AI</title>
+    <meta name="description" content="n8n Cloud en 2026 : tarifs réels (Starter, Pro, Business), facturation à l'exécution, sécurité RGPD et critères pour choisir entre le cloud et le self-hosted.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.oakflowai.com/automatisation-n8n/n8n-cloud">
+    <meta property="og:site_name" content="Oakflow AI">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.oakflowai.com/automatisation-n8n/n8n-cloud">
+    <meta property="og:title" content="n8n Cloud : tarifs 2026, limites et quand l'utiliser">
+    <meta property="og:description" content="Tarifs réels de n8n Cloud, facturation à l'exécution, RGPD et critères de choix cloud vs self-hosted pour une PME.">
+    <meta property="og:image" content="https://www.oakflowai.com/cyril-de-la-rue.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Automatisation n8n","item":"https://www.oakflowai.com/automatisation-n8n"},{"@type":"ListItem","position":3,"name":"n8n Cloud","item":"https://www.oakflowai.com/automatisation-n8n/n8n-cloud"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coute n8n Cloud ?","acceptedAnswer":{"@type":"Answer","text":"n8n Cloud demarre a 20 euros par mois (plan Starter, 2 500 executions/mois), puis 50 euros par mois (plan Pro, 10 000 executions) et 667 euros par mois (plan Business, 40 000 executions), en facturation annuelle. Un plan Enterprise sur devis existe pour les gros volumes. La facturation se fait a l'execution de workflow, quel que soit le nombre d'etapes."}},{"@type":"Question","name":"n8n Cloud facture-t-il a l'operation comme Zapier ?","acceptedAnswer":{"@type":"Answer","text":"Non. n8n facture a l'execution : un lancement complet d'un workflow compte pour une seule execution, peu importe le nombre d'etapes ou le volume de donnees traite. C'est un avantage majeur face a Zapier (facturation a la tache) et Make (facturation a l'operation), surtout pour les workflows a nombreuses etapes."}},{"@type":"Question","name":"n8n Cloud est-il conforme au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"n8n Cloud propose un hebergement des donnees dans l'Union europeenne, avec chiffrement des communications. C'est conforme au RGPD pour la plupart des usages PME. Pour une souverainete totale (donnees qui ne quittent jamais votre infrastructure), le self-hosted sur serveur francais reste la solution la plus stricte."}},{"@type":"Question","name":"Faut-il choisir n8n Cloud ou le self-hosted ?","acceptedAnswer":{"@type":"Answer","text":"n8n Cloud convient pour demarrer vite, sans maintenance, sur des volumes maitrises. Le self-hosted devient plus avantageux des que les volumes d'executions montent (executions illimitees pour le prix d'un VPS a 10-20 euros/mois), ou quand la souverainete des donnees est critique. Beaucoup de PME commencent sur le Cloud puis basculent."}},{"@type":"Question","name":"Y a-t-il un plan gratuit sur n8n Cloud ?","acceptedAnswer":{"@type":"Answer","text":"n8n Cloud propose un essai gratuit, mais pas de plan gratuit permanent. La seule version reellement gratuite de n8n est la version self-hosted (open source), que vous installez sur votre propre serveur. Vous ne payez alors que l'hebergement."}}]}
+    </script>
+</head>
+<body>
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/votre-expert">À propos</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="max-width:900px;margin:0 auto;padding:100px 24px 0;">
+        <ol style="display:flex;gap:8px;list-style:none;padding:0;margin:0;flex-wrap:wrap;font-size:0.9rem;opacity:0.7;">
+            <li><a href="/">Accueil</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/automatisation-n8n">Automatisation n8n</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">n8n Cloud</li>
+        </ol>
+    </nav>
+
+    <header class="section glass-section" style="padding-top:150px;">
+        <div class="container relative z-10" style="max-width:900px;">
+            <div class="badge fade-up">Guide tarifs &amp; décision 2026</div>
+            <h1 class="hero-title fade-up">n8n Cloud : tarifs 2026, limites et quand l'utiliser</h1>
+            <p class="hero-subtitle fade-up">n8n Cloud, c'est la version hébergée et sans maintenance de n8n. Pratique pour démarrer, mais facturée à l'exécution et plafonnée. Voici les tarifs réels, les limites à connaître, et les critères concrets pour choisir entre le cloud et l'auto-hébergement.</p>
+            <div class="hero-cta fade-up" style="margin-top:2rem;">
+                <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    Réserver un audit gratuit 30min →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="cloud-intro">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>n8n Cloud, c'est quoi exactement ?</h2>
+                <p><strong>n8n Cloud</strong> est l'offre hébergée par l'éditeur de n8n. Vous n'installez rien : vous ouvrez un compte, et vos workflows tournent sur l'infrastructure de n8n, avec les mises à jour et la maintenance gérées pour vous. C'est l'inverse du <a href="/blog/guide-configuration-serveur-n8n">self-hosted, où vous déployez n8n sur votre propre serveur</a>.</p>
+                <p>Point clé à comprendre avant de parler prix : <strong>n8n facture à l'exécution</strong>, pas à l'opération. Un lancement complet d'un workflow compte pour une seule exécution, quel que soit le nombre d'étapes (10 ou 100) ou le volume de données traité. C'est un avantage structurel face à Zapier (facturation à la tâche) et Make (facturation à l'opération), détaillé dans notre <a href="/blog/n8n-vs-zapier-vs-make">comparatif n8n vs Zapier vs Make</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="tarifs">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Tarifs n8n Cloud 2026</h2>
+                <p>Voici les plans n8n Cloud (tarifs en facturation annuelle, au moment de la rédaction). Les prix évoluent : vérifiez toujours la grille à jour sur n8n.io avant de vous engager.</p>
+                <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.95rem;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;padding:10px 14px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.08);">Plan</th>
+                            <th style="text-align:left;padding:10px 14px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.08);">Prix / mois</th>
+                            <th style="text-align:left;padding:10px 14px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.08);">Exécutions / mois</th>
+                            <th style="text-align:left;padding:10px 14px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.08);">Pour qui ?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent);font-weight:500;">Starter</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">20 €</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">2 500</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">Premiers workflows, petits volumes</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent);font-weight:500;">Pro</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">50 €</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">10 000</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">PME avec plusieurs workflows actifs</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent);font-weight:500;">Business</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">667 €</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">40 000</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">Gros volumes, besoins avancés</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 14px;color:var(--accent);font-weight:500;">Enterprise</td>
+                            <td style="padding:10px 14px;">Sur devis</td>
+                            <td style="padding:10px 14px;">Personnalisé</td>
+                            <td style="padding:10px 14px;">Grandes équipes, SLA, SSO</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="margin-top:1.5rem;">Le nombre d'<strong>workflows actifs est illimité</strong> sur tous les plans : ce qui compte, c'est le total d'exécutions mensuelles. C'est donc le <strong>volume</strong>, pas le nombre d'automatisations, qui détermine votre facture.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="avantages-limites">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Avantages et limites de n8n Cloud</h2>
+                <h3 style="margin-top:0.5rem;">Ce que le cloud vous apporte</h3>
+                <ul style="line-height:2;">
+                    <li><strong>Zéro maintenance :</strong> pas de serveur à gérer, mises à jour et sauvegardes incluses.</li>
+                    <li><strong>Démarrage immédiat :</strong> un compte, et vous construisez vos premiers workflows en minutes.</li>
+                    <li><strong>Support éditeur :</strong> assistance officielle selon votre plan.</li>
+                </ul>
+                <h3 style="margin-top:1.5rem;">Les limites à connaître</h3>
+                <ul style="line-height:2;">
+                    <li><strong>Plafond d'exécutions :</strong> au-delà du quota, il faut passer au plan supérieur. Sur des volumes élevés, le coût grimpe vite face à un self-hosted.</li>
+                    <li><strong>Moins de contrôle :</strong> vos données transitent par l'infrastructure de l'éditeur, et vous dépendez de sa disponibilité.</li>
+                    <li><strong>Coût au volume :</strong> un workflow déclenché très fréquemment (webhooks, polling) peut consommer beaucoup d'exécutions.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="rgpd">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Sécurité des données et RGPD</h2>
+                <p>n8n Cloud propose un <strong>hébergement des données dans l'Union européenne</strong>, avec des communications chiffrées. Pour la majorité des usages PME, c'est conforme au RGPD. Mais si vous traitez des données particulièrement sensibles (santé, RH, juridique) et que vous voulez la garantie que <strong>rien ne quitte votre propre infrastructure</strong>, le self-hosted sur serveur français reste la configuration la plus stricte. Nous détaillons les deux dans notre <a href="/blog/guide-configuration-serveur-n8n">guide d'hébergement d'un serveur n8n</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="decision">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Cloud ou self-hosted : comment décider ?</h2>
+                <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.95rem;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;padding:10px 14px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.08);">Votre situation</th>
+                            <th style="text-align:left;padding:10px 14px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.08);">Recommandation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">Vous testez, petits volumes, pas d'équipe technique</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent);">n8n Cloud (Starter/Pro)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">Volumes d'exécutions élevés et croissants</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent);">Self-hosted (VPS ~10-20 €/mois, exécutions illimitées)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);">Données sensibles, souveraineté critique</td>
+                            <td style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent);">Self-hosted sur serveur français</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 14px;">Vous voulez zéro maintenance, budget prévisible</td>
+                            <td style="padding:10px 14px;color:var(--accent);">n8n Cloud</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="margin-top:1.5rem;">La bascule cloud → self-hosted est fréquente : on démarre sur le Cloud pour valider, puis on migre quand les volumes montent. Si vous voulez l'alternative auto-hébergée gratuite, suivez notre <a href="/blog/guide-configuration-serveur-n8n">guide pour déployer n8n sur votre serveur</a>. Et pour situer n8n face aux autres outils, voyez le <a href="/automatisation-n8n/comparatif-make-zapier">comparatif n8n / Make / Zapier</a>.</p>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        On choisit ensemble : audit gratuit 30min →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Questions fréquentes sur n8n Cloud</h2>
+                <details class="faq-item">
+                    <summary>Combien coûte n8n Cloud ?</summary>
+                    <p>n8n Cloud démarre à 20 €/mois (Starter, 2 500 exécutions), puis 50 €/mois (Pro, 10 000 exécutions) et 667 €/mois (Business, 40 000 exécutions), en facturation annuelle. Un plan Enterprise sur devis existe pour les gros volumes. La facturation se fait à l'exécution de workflow, quel que soit le nombre d'étapes.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>n8n Cloud facture-t-il à l'opération comme Zapier ?</summary>
+                    <p>Non. n8n facture à l'exécution : un lancement complet d'un workflow compte pour une seule exécution, peu importe le nombre d'étapes ou le volume de données. C'est un avantage majeur face à Zapier (à la tâche) et Make (à l'opération), surtout pour les workflows à nombreuses étapes.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>n8n Cloud est-il conforme au RGPD ?</summary>
+                    <p>n8n Cloud propose un hébergement des données dans l'Union européenne, avec chiffrement des communications. C'est conforme au RGPD pour la plupart des usages PME. Pour une souveraineté totale, le self-hosted sur serveur français reste la solution la plus stricte.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Faut-il choisir n8n Cloud ou le self-hosted ?</summary>
+                    <p>n8n Cloud convient pour démarrer vite, sans maintenance, sur des volumes maîtrisés. Le self-hosted devient plus avantageux dès que les volumes montent (exécutions illimitées pour le prix d'un VPS à 10-20 €/mois) ou quand la souveraineté des données est critique. Beaucoup de PME commencent sur le Cloud puis basculent.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Y a-t-il un plan gratuit sur n8n Cloud ?</summary>
+                    <p>n8n Cloud propose un essai gratuit, mais pas de plan gratuit permanent. La seule version réellement gratuite de n8n est la version self-hosted (open source), que vous installez sur votre propre serveur : vous ne payez alors que l'hébergement.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width:900px;">
+            <div class="glass-card fade-up">
+                <h2>Aller plus loin avec n8n</h2>
+                <ul style="line-height:2.2;">
+                    <li><a href="/automatisation-n8n">Automatisation n8n pour PME : le guide complet</a></li>
+                    <li><a href="/blog/guide-configuration-serveur-n8n">Héberger n8n sur son serveur : self-hosted vs cloud</a></li>
+                    <li><a href="/automatisation-n8n/comparatif-make-zapier">Comparatif n8n / Make / Zapier</a></li>
+                    <li><a href="/services/workflows-n8n">Notre offre de workflows n8n sur-mesure</a></li>
+                </ul>
+                <div style="margin-top:2rem;">
+                    <a href="https://calendly.com/oakflowai/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Réserver un audit gratuit →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Accueil</a>
+                <a href="/automatisation-n8n" class="footer-link">Automatisation n8n</a>
+                <a href="/blog" class="footer-link">Blog</a>
+                <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
+                <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
+            </div>
+            <p>© 2026 Oakflow AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
