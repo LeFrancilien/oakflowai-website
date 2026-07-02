@@ -25,6 +25,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
+    <style>
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .faq-item > summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 0;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .faq-item > summary::-webkit-details-marker { display: none; }
+        .faq-item > summary::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--accent);
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] > summary::after { transform: rotate(45deg); }
+        .faq-item > p {
+            margin: 0 0 20px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+    </style>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -169,30 +202,30 @@
             <div class="glass-card fade-up">
                 <h2>Questions fréquentes sur l'automatisation Make pour PME</h2>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Qu'est-ce qu'une agence d'automatisation Make ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Une agence d'automatisation Make conçoit, déploie et maintient vos scénarios sur la plateforme Make (ex-Integromat). Oakflow AI audite vos process, identifie les tâches répétitives les plus coûteuses, puis construit les scénarios qui connectent vos outils et les font tourner en autonomie, sans que vous ayez à coder.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Qu'est-ce qu'une agence d'automatisation Make ?</summary>
+                    <p>Une agence d'automatisation Make conçoit, déploie et maintient vos scénarios sur la plateforme Make (ex-Integromat). Oakflow AI audite vos process, identifie les tâches répétitives les plus coûteuses, puis construit les scénarios qui connectent vos outils et les font tourner en autonomie, sans que vous ayez à coder.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Combien coûte l'automatisation de mes process avec Make ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Un scénario simple : 490 à 800 euros en prestation unique. Un scénario avancé avec IA et plusieurs intégrations : 800 à 2 500 euros. L'abonnement Make démarre à 9 dollars/mois, et la maintenance mensuelle optionnelle est disponible à partir de 149 euros/mois.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Combien coûte l'automatisation de mes process avec Make ?</summary>
+                    <p>Un scénario simple : 490 à 800 euros en prestation unique. Un scénario avancé avec IA et plusieurs intégrations : 800 à 2 500 euros. L'abonnement Make démarre à 9 dollars/mois, et la maintenance mensuelle optionnelle est disponible à partir de 149 euros/mois.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Make ou n8n : quelle plateforme choisir pour ma PME ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Make est idéal pour une équipe qui veut une interface visuelle riche et l'autonomie sur des cas simples à moyens. n8n est plus adapté aux workflows très complexes, au contrôle total des données (self-hosted en France) ou aux gros volumes. Nous maîtrisons les deux et vous recommandons la bonne plateforme lors de l'audit.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Make ou n8n : quelle plateforme choisir pour ma PME ?</summary>
+                    <p>Make est idéal pour une équipe qui veut une interface visuelle riche et l'autonomie sur des cas simples à moyens. n8n est plus adapté aux workflows très complexes, au contrôle total des données (self-hosted en France) ou aux gros volumes. Nous maîtrisons les deux et vous recommandons la bonne plateforme lors de l'audit.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Make est-il conforme au RGPD ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Oui. Make propose un hébergement des données dans l'Union européenne sur ses plans payants, avec communications chiffrées HTTPS/TLS. Pour une souveraineté totale sur des données sensibles, nous recommandons plutôt un déploiement n8n self-hosted sur serveur français.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Make est-il conforme au RGPD ?</summary>
+                    <p>Oui. Make propose un hébergement des données dans l'Union européenne sur ses plans payants, avec communications chiffrées HTTPS/TLS. Pour une souveraineté totale sur des données sensibles, nous recommandons plutôt un déploiement n8n self-hosted sur serveur français.</p>
+                </details>
 
-                <div style="padding: 20px 0 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Combien de temps pour déployer une automatisation Make ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Un scénario simple est déployé en 2 à 5 jours ouvrés après l'audit. Un scénario complexe prend 1 à 3 semaines. Nous livrons d'abord un prototype testable avant la mise en production, avec 30 jours d'ajustements inclus.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Combien de temps pour déployer une automatisation Make ?</summary>
+                    <p>Un scénario simple est déployé en 2 à 5 jours ouvrés après l'audit. Un scénario complexe prend 1 à 3 semaines. Nous livrons d'abord un prototype testable avant la mise en production, avec 30 jours d'ajustements inclus.</p>
+                </details>
             </div>
         </div>
     </section>
