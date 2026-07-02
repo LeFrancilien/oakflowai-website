@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Installer n8n sur son serveur : self-hosted vs cloud (2026)</title>
+    <meta name="description" content="Guide 2026 pour déployer n8n sur votre propre serveur : Cloud vs self-hosted, installation Docker sur un VPS, sécurité RGPD et Queue Mode pour la performance." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-07-02" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/guide-configuration-serveur-n8n" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/guide-configuration-serveur-n8n" />
+    <meta property="og:title" content="Installer n8n sur son serveur : self-hosted vs cloud (2026)" />
+    <meta property="og:description" content="Guide 2026 pour déployer n8n sur votre propre serveur : Cloud vs self-hosted, installation Docker sur un VPS, sécurité RGPD et Queue Mode." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <!-- Schema - Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://www.oakflowai.com/blog/guide-configuration-serveur-n8n#article",
+      "headline": "Hébergement n8n : le guide pour déployer n8n sur votre serveur (2026)",
+      "description": "n8n Cloud ou self-hosted ? Guide complet pour déployer n8n via Docker sur un VPS, sécuriser vos données en France et optimiser les performances avec le Queue Mode.",
+      "datePublished": "2026-07-02",
+      "dateModified": "2026-07-02",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/logo-oakflow-v2.webp"
+        }
+      },
+      "url": "https://www.oakflowai.com/blog/guide-configuration-serveur-n8n",
+      "inLanguage": "fr-FR",
+      "keywords": ["serveur n8n", "installer n8n", "n8n self-hosted", "n8n docker", "n8n vps", "hébergement n8n", "n8n queue mode"],
+      "articleSection": "Tutoriel"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Hébergement n8n sur son serveur"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap {
+            max-width: 760px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            background: rgba(0, 229, 176, 0.1);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .article-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .article-wrap h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(240, 244, 255, 0.7);
+            margin-bottom: 48px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+        .article-wrap h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 52px 0 16px;
+            letter-spacing: -0.5px;
+        }
+        .article-wrap h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        .article-wrap p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .article-wrap ul, .article-wrap ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-wrap li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box {
+            background: rgba(0, 229, 176, 0.06);
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { margin: 0; font-size: 15px; }
+        .answer-box {
+            background: linear-gradient(135deg, rgba(0,229,176,0.1), rgba(99,102,241,0.06));
+            border: 1px solid rgba(0, 229, 176, 0.28);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 0 0 40px;
+        }
+        .answer-box p { margin: 0; font-size: 16px; color: var(--text); }
+        .answer-box .answer-label { display:block; font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .code-block {
+            background: #0b0f14;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #cdeee2;
+            white-space: pre;
+        }
+        .stack-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 15px;
+        }
+        .stack-table th {
+            text-align: left;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .stack-table td {
+            padding: 10px 16px;
+            color: var(--muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+        }
+        .stack-table td:first-child { color: var(--accent); font-weight: 500; }
+        .article-cta {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 40px;
+        }
+        .article-nav a {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-nav a:hover { color: var(--accent); }
+        @media (max-width: 600px) {
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                style="height: 48px; width: auto; border-radius: 8px;" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="../index.html#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="../index.html#features" class="mobile-menu-link">Services</a>
+            <a href="../index.html#methode" class="mobile-menu-link">Méthode</a>
+            <a href="../index.html#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="../index.html#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── ARTICLE ── -->
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/Article">
+
+        <div class="article-meta">
+            <span class="article-tag">n8n</span>
+            <span class="article-tag">Tutoriel</span>
+            <time class="article-date" datetime="2026-07-02">2 juillet 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">Hébergement n8n : le guide pour déployer n8n sur votre serveur</h1>
+
+        <p class="article-intro">Vous voulez installer <strong>n8n sur votre propre serveur</strong> plutôt que de payer un abonnement cloud ? C'est le bon choix pour garder la maîtrise de vos données et maîtriser vos coûts. Ce guide 2026 compare le <strong>n8n Cloud vs self-hosted</strong>, détaille le déploiement via <strong>Docker sur un VPS</strong>, et explique comment tenir la charge grâce au <strong>Queue Mode</strong>. Après 40+ déploiements en PME, voici la méthode que nous appliquons.</p>
+
+        <div class="answer-box">
+            <span class="answer-label">En bref</span>
+            <p>Pour une PME, <strong>n8n self-hosted sur un VPS français</strong> (Docker + PostgreSQL) coûte 10 à 20 €/mois, garde vos données sous votre contrôle (RGPD) et supprime les limites d'exécutions du cloud. Comptez 1 à 2 h de mise en place pour un serveur mono-instance, et un passage en <strong>Queue Mode</strong> dès que vos workflows deviennent intensifs.</p>
+        </div>
+
+        <h2>n8n Cloud vs n8n Self-Hosted : quel modèle choisir pour la sécurité de vos données ?</h2>
+
+        <p>n8n existe sous deux formes : la version <strong>Cloud</strong>, hébergée et maintenue par l'éditeur, et la version <strong>self-hosted</strong> (auto-hébergée), que vous installez sur votre propre serveur. Les deux exécutent exactement le même moteur de workflows ; la différence tient à qui contrôle l'infrastructure, les données et la facture.</p>
+
+        <table class="stack-table">
+            <thead>
+                <tr>
+                    <th>Critère</th>
+                    <th>n8n Cloud</th>
+                    <th>n8n Self-Hosted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Coût</td>
+                    <td>À partir de ~20 €/mois, croît avec le nombre d'exécutions</td>
+                    <td>10 à 20 €/mois de VPS, exécutions illimitées</td>
+                </tr>
+                <tr>
+                    <td>Données</td>
+                    <td>Hébergées par l'éditeur (zone EU disponible)</td>
+                    <td>Sur votre serveur, sous votre contrôle total</td>
+                </tr>
+                <tr>
+                    <td>Mise en place</td>
+                    <td>Immédiate, zéro maintenance</td>
+                    <td>1 à 2 h, maintenance à votre charge</td>
+                </tr>
+                <tr>
+                    <td>Souveraineté / RGPD</td>
+                    <td>Bonne (contrat éditeur)</td>
+                    <td>Maximale (serveur français, aucune donnée ne sort)</td>
+                </tr>
+                <tr>
+                    <td>Idéal pour</td>
+                    <td>Démarrer vite, tester, petits volumes</td>
+                    <td>Volumes réels, données sensibles, coûts maîtrisés</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Notre recommandation en PME : <strong>commencez sur le Cloud pour valider vos premiers workflows</strong>, puis basculez en self-hosted dès que les volumes montent ou que vous traitez des données personnelles. La souveraineté est un vrai sujet : nous avons détaillé pourquoi dans notre article sur la <a href="/blog/souverainete-ia-pme-multi-modeles">souveraineté IA et l'architecture multi-modèles</a>.</p>
+
+        <h2>Guide de déploiement n8n via Docker sur un VPS (serveur n8n)</h2>
+
+        <p>La méthode la plus fiable pour un serveur n8n de production est Docker avec une base PostgreSQL (jamais SQLite en production) et un reverse proxy pour le HTTPS. Voici les étapes que nous suivons.</p>
+
+        <h3>1. Prérequis</h3>
+        <ul>
+            <li>Un VPS chez un hébergeur français (OVH, Scaleway) : 2 vCPU / 4 Go de RAM suffisent pour démarrer.</li>
+            <li>Un nom de domaine pointé vers l'IP du serveur (ex. <strong>n8n.votre-entreprise.fr</strong>).</li>
+            <li>Docker et Docker Compose installés sur le serveur (Ubuntu 22.04 ou 24.04).</li>
+        </ul>
+
+        <h3>2. Le fichier docker-compose.yml</h3>
+        <p>Ce fichier lance n8n avec une base PostgreSQL persistante. Adaptez les mots de passe et le domaine.</p>
+
+        <div class="code-block"><code>services:
+  postgres:
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=motdepasse_solide
+      - POSTGRES_DB=n8n
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=motdepasse_solide
+      - N8N_HOST=n8n.votre-entreprise.fr
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://n8n.votre-entreprise.fr/
+      - GENERIC_TIMEZONE=Europe/Paris
+      - N8N_ENCRYPTION_KEY=une_cle_secrete_longue
+    volumes:
+      - ./n8n-data:/home/node/.n8n
+    depends_on:
+      - postgres</code></div>
+
+        <h3>3. Lancer le serveur</h3>
+        <p>Depuis le dossier contenant le fichier, une seule commande démarre l'ensemble :</p>
+
+        <div class="code-block"><code>docker compose up -d</code></div>
+
+        <div class="info-box">
+            <p><strong>Point critique :</strong> la variable <strong>N8N_ENCRYPTION_KEY</strong> chiffre vos identifiants (credentials). Sauvegardez-la précieusement : si vous la perdez, tous vos accès stockés deviennent illisibles après une réinstallation.</p>
+        </div>
+
+        <h3>4. Sécuriser en HTTPS</h3>
+        <p>N'exposez jamais le port 5678 en clair. Placez un reverse proxy (Caddy ou Traefik) devant n8n pour gérer automatiquement le certificat SSL. Caddy le fait en quelques lignes : il génère et renouvelle le certificat Let's Encrypt tout seul, et vos webhooks passent alors en HTTPS, condition indispensable pour la plupart des intégrations.</p>
+
+        <h2>Optimisation des performances et gestion des files d'attente (Queue Mode)</h2>
+
+        <p>Par défaut, n8n exécute les workflows dans un seul processus (<strong>Main Mode</strong>). C'est suffisant pour quelques dizaines d'exécutions par jour. Mais dès que vous multipliez les workflows lourds ou les pics de webhooks, ce mode sature : les exécutions s'empilent et l'interface ralentit.</p>
+
+        <p>La solution est le <strong>Queue Mode</strong>. n8n sépare alors le processus principal (qui reçoit les déclencheurs) des <strong>workers</strong> (qui exécutent les workflows), avec Redis comme file d'attente. Vous pouvez ajouter des workers pour absorber la charge horizontalement.</p>
+
+        <div class="code-block"><code># Variables clés pour activer le Queue Mode
+EXECUTIONS_MODE=queue
+QUEUE_BULL_REDIS_HOST=redis
+QUEUE_HEALTH_CHECK_ACTIVE=true</code></div>
+
+        <p>Trois réglages complémentaires évitent que la base de données ne gonfle indéfiniment :</p>
+        <ul>
+            <li><strong>EXECUTIONS_DATA_PRUNE=true</strong> : active la purge automatique des anciennes exécutions.</li>
+            <li><strong>EXECUTIONS_DATA_MAX_AGE</strong> : durée de rétention (en heures) des logs d'exécution.</li>
+            <li><strong>N8N_CONCURRENCY_PRODUCTION_LIMIT</strong> : plafonne le nombre d'exécutions simultanées par worker.</li>
+        </ul>
+
+        <div class="info-box">
+            <p><strong>Règle terrain :</strong> passez en Queue Mode dès que vous dépassez ~1 000 exécutions/jour ou que vos workflows font des appels API longs. En dessous, le Main Mode sur un petit VPS suffit largement.</p>
+        </div>
+
+        <h2>Faut-il vraiment auto-héberger ?</h2>
+
+        <p>Le self-hosting n8n n'a rien de sorcier, mais il implique une responsabilité : sauvegardes, mises à jour de sécurité, surveillance des workers. Pour une PME sans équipe technique dédiée, deux options sont saines :</p>
+        <ul>
+            <li>Faire installer et maintenir votre serveur n8n par un prestataire, avec monitoring et sauvegardes automatiques.</li>
+            <li>Rester sur n8n Cloud tant que les volumes et la sensibilité des données ne justifient pas la bascule.</li>
+        </ul>
+
+        <p>Si vous hésitez sur la plateforme elle-même, notre <a href="/blog/n8n-vs-zapier-vs-make">comparatif n8n vs Zapier vs Make</a> vous aidera à trancher avant même de parler d'hébergement.</p>
+
+        <div class="article-cta">
+            <h2>On installe et on maintient votre serveur n8n</h2>
+            <p>Serveur n8n self-hosted en France, sécurisé, sauvegardé et monitoré. On déploie, vous automatisez. Audit gratuit de 30 minutes pour cadrer vos besoins.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Réserver mon audit gratuit →
+            </a>
+        </div>
+
+        <div class="article-related">
+            <h3>Approfondir le sujet</h3>
+            <p>Découvrez notre <a href="/services/workflows-n8n">offre de workflows n8n pour PME</a>, notre <a href="/services/agence-automatisation-make">accompagnement agence Make</a> pour les besoins no-code, et le <a href="/blog/roi-automatisation">ROI réel de l'automatisation sur 40+ projets</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog">← Retour au blog</a>
+            <a href="/blog/n8n-vs-zapier-vs-make">Comparatif n8n / Zapier / Make →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                        style="height: 48px; width: auto; border-radius: 8px;" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="../index.html#features">Notre Expertise</a>
+                <a href="../index.html#methode">Notre Méthode</a>
+                <a href="../index.html#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="../index.html#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+
+</html>

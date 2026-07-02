@@ -84,8 +84,20 @@
   <!-- Blog -->
   <url>
     <loc>https://www.oakflowai.com/blog</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/claude-code-installation-guide</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/blog/guide-configuration-serveur-n8n</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -190,6 +202,12 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.oakflowai.com/services/agence-automatisation-make</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.oakflowai.com/services/chatbot-personnalise</loc>
