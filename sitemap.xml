@@ -101,6 +101,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.oakflowai.com/blog/claude-code-skill-guide</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.oakflowai.com/blog/guide-configuration-serveur-n8n</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
