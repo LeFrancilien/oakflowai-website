@@ -172,35 +172,35 @@
             <div class="glass-card fade-up">
                 <h2>Questions fréquentes sur les assistants vocaux IA pour PME</h2>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Comment fonctionne un assistant vocal IA ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Trois technologies combinées : (1) la reconnaissance vocale (Speech-to-Text) transcrit les paroles, (2) un LLM comprend la demande et génère une réponse, (3) un moteur de synthèse vocale (ElevenLabs, Vapi) restitue la réponse en voix naturelle. Latence inférieure à 800ms pour une conversation fluide.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Comment fonctionne un assistant vocal IA ?</summary>
+                    <p>Trois technologies combinées : (1) la reconnaissance vocale (Speech-to-Text) transcrit les paroles, (2) un LLM comprend la demande et génère une réponse, (3) un moteur de synthèse vocale (ElevenLabs, Vapi) restitue la réponse en voix naturelle. Latence inférieure à 800ms pour une conversation fluide.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Combien coûte un assistant vocal IA pour une PME ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Déploiement : 890 à 3 000 euros selon la complexité. Coût récurrent mensuel : téléphonie (30 à 80 euros), LLM (20 à 100 euros), moteur vocal (20 à 50 euros). Total récurrent : 70 à 230 euros/mois selon le volume d'appels.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Combien coûte un assistant vocal IA pour une PME ?</summary>
+                    <p>Déploiement : 890 à 3 000 euros selon la complexité. Coût récurrent mensuel : téléphonie (30 à 80 euros), LLM (20 à 100 euros), moteur vocal (20 à 50 euros). Total récurrent : 70 à 230 euros/mois selon le volume d'appels.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">L'assistant vocal parle-t-il un français naturel ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Oui. Les moteurs vocaux actuels (ElevenLabs, Vapi) produisent un français fluide, avec intonation naturelle et sans accent robotique. Choix parmi des dizaines de voix. Clonage de voix possible avec seulement 5 minutes d'audio source.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>L'assistant vocal parle-t-il un français naturel ?</summary>
+                    <p>Oui. Les moteurs vocaux actuels (ElevenLabs, Vapi) produisent un français fluide, avec intonation naturelle et sans accent robotique. Choix parmi des dizaines de voix. Clonage de voix possible avec seulement 5 minutes d'audio source.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Peut-on connecter l'assistant vocal à mon agenda et mon CRM ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Oui. Via n8n ou webhooks Twilio, l'assistant vocal consulte et modifie votre agenda (Google Calendar, Outlook) en temps réel pour poser ou annuler des rendez-vous. Il peut aussi créer ou mettre à jour des fiches dans votre CRM (HubSpot, Pipedrive) à l'issue de chaque appel.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Peut-on connecter l'assistant vocal à mon agenda et mon CRM ?</summary>
+                    <p>Oui. Via n8n ou webhooks Twilio, l'assistant vocal consulte et modifie votre agenda (Google Calendar, Outlook) en temps réel pour poser ou annuler des rendez-vous. Il peut aussi créer ou mettre à jour des fiches dans votre CRM (HubSpot, Pipedrive) à l'issue de chaque appel.</p>
+                </details>
 
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">L'assistant vocal IA est-il conforme au RGPD ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">Oui. Nous configurons un message d'information RGPD au début de chaque appel. Les enregistrements sont stockés sur des serveurs UE. La durée de conservation est paramétrable. Les données collectées sont traitées conformément au RGPD.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>L'assistant vocal IA est-il conforme au RGPD ?</summary>
+                    <p>Oui. Nous configurons un message d'information RGPD au début de chaque appel. Les enregistrements sont stockés sur des serveurs UE. La durée de conservation est paramétrable. Les données collectées sont traitées conformément au RGPD.</p>
+                </details>
 
-                <div style="padding: 20px 0 0;">
-                    <h3 style="font-size: 17px; margin: 0 0 10px;">Quel est le délai de déploiement d'un assistant vocal IA ?</h3>
-                    <p style="margin: 0; font-size: 15px; color: var(--muted);">2 à 4 semaines. Provisionnement téléphonique (3 à 5 jours), configuration LLM et logique conversationnelle (5 à 7 jours), tests et recettage (3 à 5 jours), mise en production progressive. Vous pouvez appeler l'assistant en test avant tout déploiement public.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Quel est le délai de déploiement d'un assistant vocal IA ?</summary>
+                    <p>2 à 4 semaines. Provisionnement téléphonique (3 à 5 jours), configuration LLM et logique conversationnelle (5 à 7 jours), tests et recettage (3 à 5 jours), mise en production progressive. Vous pouvez appeler l'assistant en test avant tout déploiement public.</p>
+                </details>
             </div>
         </div>
     </section>
