@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Installer Claude Code (CLI Anthropic) : le guide 2026</title>
+    <meta name="description" content="Guide pas-à-pas pour installer Claude Code, la CLI d'Anthropic : prérequis Node.js, clé API, commandes terminal. Plus notre retour d'expérience en entreprise." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-07-02" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/claude-code-installation-guide" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/claude-code-installation-guide" />
+    <meta property="og:title" content="Installer Claude Code (CLI Anthropic) : le guide 2026" />
+    <meta property="og:description" content="Guide pas-à-pas pour installer Claude Code, la CLI d'Anthropic : prérequis, commandes, et comment on l'utilise chez Oakflow AI pour livrer plus vite." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <!-- Schema - Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://www.oakflowai.com/blog/claude-code-installation-guide#article",
+      "headline": "Installer Claude Code (CLI Anthropic) : guide complet 2026",
+      "description": "Tutoriel pas-à-pas pour installer et configurer Claude Code, la CLI d'Anthropic, et retour d'expérience sur son usage en agence d'automatisation.",
+      "datePublished": "2026-07-02",
+      "dateModified": "2026-07-02",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/logo-oakflow-v2.webp"
+        }
+      },
+      "url": "https://www.oakflowai.com/blog/claude-code-installation-guide",
+      "inLanguage": "fr-FR",
+      "keywords": ["claude code install", "installer claude code", "claude code installation", "claude cli install", "anthropic cli", "claude code npm"],
+      "articleSection": "Tutoriel"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Installer Claude Code"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap {
+            max-width: 760px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            background: rgba(0, 229, 176, 0.1);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .article-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .article-wrap h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(240, 244, 255, 0.7);
+            margin-bottom: 48px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+        .article-wrap h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 52px 0 16px;
+            letter-spacing: -0.5px;
+        }
+        .article-wrap h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        .article-wrap p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .article-wrap ul, .article-wrap ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-wrap li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box {
+            background: rgba(0, 229, 176, 0.06);
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { margin: 0; font-size: 15px; }
+        .bridge-box {
+            background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(0,229,176,0.08));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin: 36px 0;
+        }
+        .bridge-box p { margin: 0; font-size: 15.5px; color: var(--text); }
+        .answer-box {
+            background: linear-gradient(135deg, rgba(0,229,176,0.1), rgba(99,102,241,0.06));
+            border: 1px solid rgba(0, 229, 176, 0.28);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 0 0 40px;
+        }
+        .answer-box p { margin: 0; font-size: 16px; color: var(--text); }
+        .answer-box .answer-label { display:block; font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .code-block {
+            background: #0b0f14;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #cdeee2;
+            white-space: pre;
+        }
+        .article-cta {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 40px;
+        }
+        .article-nav a {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-nav a:hover { color: var(--accent); }
+        @media (max-width: 600px) {
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                style="height: 48px; width: auto; border-radius: 8px;" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="../index.html#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="../index.html#features" class="mobile-menu-link">Services</a>
+            <a href="../index.html#methode" class="mobile-menu-link">Méthode</a>
+            <a href="../index.html#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="../index.html#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── ARTICLE ── -->
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/TechArticle">
+
+        <div class="article-meta">
+            <span class="article-tag">Claude Code</span>
+            <span class="article-tag">Tutoriel</span>
+            <time class="article-date" datetime="2026-07-02">2 juillet 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">Installer Claude Code (CLI Anthropic) : guide complet + retour d'expérience 2026</h1>
+
+        <p class="article-intro">Vous voulez <strong>installer Claude Code</strong>, l'assistant de code en ligne de commande d'Anthropic ? Ce guide couvre l'installation pas-à-pas (prérequis, commande, authentification) et, surtout, ce que la doc officielle ne vous dira pas : <strong>comment nous l'utilisons chez Oakflow AI pour livrer les projets d'automatisation de nos clients plus vite</strong>. Un outil, pas une religion : voici l'essentiel pour être opérationnel en 10 minutes.</p>
+
+        <div class="answer-box">
+            <span class="answer-label">En bref</span>
+            <p>Claude Code s'installe en une commande : <strong>npm install -g @anthropic-ai/claude-code</strong>. Prérequis : Node.js 18+ et un compte Anthropic (abonnement Claude ou clé API). Une fois installé, lancez <strong>claude</strong> dans le dossier de votre projet et l'agent lit, écrit et exécute du code dans votre terminal.</p>
+        </div>
+
+        <h2>1. Qu'est-ce que Claude Code et pourquoi l'utiliser en 2026 ?</h2>
+
+        <p>Claude Code est un <strong>agent de développement en ligne de commande</strong> édité par Anthropic. Contrairement à un simple autocomplétion dans l'éditeur, il travaille au niveau du projet entier : il lit votre code, comprend l'arborescence, modifie plusieurs fichiers, lance des commandes shell et des tests, et itère jusqu'à ce que le résultat fonctionne.</p>
+
+        <p>Pour une équipe technique, l'intérêt n'est pas de « faire écrire le code par l'IA » mais de <strong>compresser les tâches à faible valeur</strong> : écrire des tests, migrer un fichier de config, refactorer, débugger une erreur, générer un script d'intégration. C'est du temps rendu aux tâches qui comptent vraiment.</p>
+
+        <h2>2. Prérequis techniques avant l'installation</h2>
+
+        <h3>Installation de Node.js et gestion du terminal</h3>
+        <p>Claude Code se distribue comme paquet npm : il vous faut donc <strong>Node.js en version 18 ou supérieure</strong> (LTS recommandée) et son gestionnaire de paquets npm. Vérifiez votre version :</p>
+
+        <div class="code-block"><code>node --version
+npm --version</code></div>
+
+        <p>Claude Code fonctionne nativement sur macOS et Linux. Sous Windows, l'usage via WSL (Windows Subsystem for Linux) reste le plus confortable, même si le support natif s'est nettement amélioré.</p>
+
+        <h3>Configuration et accès Anthropic</h3>
+        <p>Pour authentifier l'outil, deux options :</p>
+        <ul>
+            <li><strong>Abonnement Claude (Pro ou Max)</strong> : vous vous connectez avec votre compte, l'usage est inclus dans l'abonnement. C'est le plus simple pour un usage régulier.</li>
+            <li><strong>Clé API Anthropic</strong> : générée dans la console Anthropic, facturée à l'usage (tokens). Adaptée aux environnements CI/CD ou aux équipes qui veulent piloter le budget finement.</li>
+        </ul>
+
+        <h2>3. Tutoriel d'installation pas-à-pas (commandes CLI)</h2>
+
+        <p>L'installation se fait en une seule commande, en global :</p>
+
+        <div class="code-block"><code>npm install -g @anthropic-ai/claude-code</code></div>
+
+        <p>Placez-vous ensuite dans le dossier de votre projet et lancez l'agent :</p>
+
+        <div class="code-block"><code>cd mon-projet
+claude</code></div>
+
+        <p>Au premier lancement, Claude Code vous guide pour l'authentification (connexion au compte ou saisie de la clé API). Une fois connecté, vous décrivez votre tâche en langage naturel et l'agent propose ses actions, que vous validez au fur et à mesure.</p>
+
+        <div class="info-box">
+            <p><strong>Bon réflexe :</strong> ajoutez un fichier <strong>CLAUDE.md</strong> à la racine de votre projet. Il sert de mémoire de contexte (conventions, commandes de build, règles internes) que l'agent lit à chaque session. C'est le meilleur levier pour des résultats fiables et cohérents.</p>
+        </div>
+
+        <h2>4. Premiers pas et automatisation de workflows de code</h2>
+
+        <p>Quelques usages qui rentabilisent l'outil dès la première heure :</p>
+        <ul>
+            <li><strong>Comprendre un projet inconnu</strong> : « explique-moi l'architecture de ce dépôt et où se trouve la logique d'authentification ».</li>
+            <li><strong>Écrire les tests d'abord</strong> : « écris un test pour l'entrée invalide de cette fonction, puis fais-le passer ».</li>
+            <li><strong>Corriger une erreur</strong> : collez le message d'erreur, l'agent trace la cause et propose le correctif.</li>
+            <li><strong>Automatiser le répétitif</strong> : migration de fichiers de config, génération de scripts d'intégration, mise à jour de dépendances.</li>
+        </ul>
+
+        <h2>5. Résolution des erreurs courantes (troubleshooting)</h2>
+
+        <ul>
+            <li><strong>« command not found: claude »</strong> : le dossier des binaires globaux npm n'est pas dans votre PATH. Vérifiez <strong>npm config get prefix</strong> et ajoutez le sous-dossier <strong>bin</strong> à votre PATH.</li>
+            <li><strong>Erreur EACCES à l'installation globale</strong> : évitez <strong>sudo</strong>. Configurez plutôt un préfixe npm dans votre répertoire utilisateur, ou utilisez un gestionnaire de version Node (nvm).</li>
+            <li><strong>Version de Node trop ancienne</strong> : mettez à jour vers la LTS. Une version inférieure à 18 provoque des erreurs au lancement.</li>
+            <li><strong>Problème d'authentification / clé API</strong> : vérifiez que la clé est valide dans la console Anthropic et que la variable d'environnement attendue est bien définie.</li>
+        </ul>
+
+        <h2>Comment nous utilisons Claude Code chez Oakflow AI</h2>
+
+        <p>Nous ne vendons pas Claude Code : nous nous en servons tous les jours. Concrètement, il est intégré à notre chaîne de production d'automatisations. Quand nous construisons un <strong>workflow n8n</strong> ou une intégration sur-mesure pour un client, l'agent nous aide à générer les nœuds de code, écrire les fonctions de transformation, produire les tests et documenter le tout. Résultat : le temps de mise en place d'un projet type a fortement diminué, et la qualité de livraison est plus régulière parce que rien ne part sans tests.</p>
+
+        <p>La leçon la plus importante après des mois d'usage quotidien : <strong>l'IA accélère un processus clair, elle n'invente pas de méthode</strong>. Les gains vont à ceux qui savent déjà ce qu'ils veulent construire. C'est exactement pourquoi nous auditons toujours le processus avant d'écrire la moindre ligne. Si le sujet vous parle côté rentabilité, voyez comment <a href="/blog/roi-automatisation">calculer le retour sur investissement de l'IA</a> sur un projet concret.</p>
+
+        <div class="bridge-box">
+            <p>💡 <strong>Vous gérez la tech de votre PME et vos scripts d'automatisation deviennent ingérables ?</strong> Découvrez comment notre <a href="/services/agence-automatisation-make">agence d'automatisation Make</a> centralise et sécurise vos workflows, sans surcharger vos équipes de code.</p>
+        </div>
+
+        <div class="article-cta">
+            <h2>Envie d'automatiser sans tout coder vous-même ?</h2>
+            <p>On conçoit vos automatisations IA de bout en bout : workflows n8n, intégrations, agents. Audit gratuit de 30 minutes pour identifier vos meilleurs quick wins.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Réserver mon audit gratuit →
+            </a>
+        </div>
+
+        <div class="article-related">
+            <h3>Approfondir le sujet</h3>
+            <p>Pour aller plus loin : notre <a href="/blog/guide-configuration-serveur-n8n">guide d'hébergement d'un serveur n8n</a>, le <a href="/blog/n8n-vs-zapier-vs-make">comparatif n8n vs Zapier vs Make</a>, et nos <a href="/blog/agents-ia-autonomes-pme-2026">5 agents IA autonomes déployables en 2026</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog">← Retour au blog</a>
+            <a href="/blog/guide-configuration-serveur-n8n">Héberger n8n sur son serveur →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                        style="height: 48px; width: auto; border-radius: 8px;" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="../index.html#features">Notre Expertise</a>
+                <a href="../index.html#methode">Notre Méthode</a>
+                <a href="../index.html#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="../index.html#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+
+</html>

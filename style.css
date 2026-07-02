@@ -422,6 +422,10 @@ h1 .hl {
     isolation: isolate;
 }
 
+/* Fix : dans les articles, .article-wrap a { color: accent } rendait le texte
+   du bouton CTA invisible (turquoise sur turquoise). On restaure la couleur sombre. */
+.article-wrap a.btn-primary { color: #040e0b; }
+
 .btn-primary::before {
     content: '';
     position: absolute;
