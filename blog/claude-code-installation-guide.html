@@ -53,7 +53,7 @@
       },
       "url": "https://www.oakflowai.com/blog/claude-code-installation-guide",
       "inLanguage": "fr-FR",
-      "keywords": ["claude code install", "installer claude code", "claude code installation", "claude cli install", "anthropic cli", "claude code npm"],
+      "keywords": ["claude code install", "installer claude code", "claude code installation", "claude cli install", "anthropic cli", "claude code npm", "claude code windows", "claude code linux", "update claude code", "claude code skill"],
       "articleSection": "Tutoriel"
     }
     </script>
@@ -309,7 +309,14 @@
         <div class="code-block"><code>node --version
 npm --version</code></div>
 
-        <p>Claude Code fonctionne nativement sur macOS et Linux. Sous Windows, l'usage via WSL (Windows Subsystem for Linux) reste le plus confortable, même si le support natif s'est nettement amélioré.</p>
+        <h3>Installer Claude Code sur Windows, macOS et Linux</h3>
+        <p>Claude Code fonctionne nativement sur <strong>macOS</strong> et <strong>Linux</strong> : une fois Node.js 18+ en place, la commande npm globale (section suivante) suffit, sans étape supplémentaire.</p>
+        <p><strong>Installer Claude Code sur Windows</strong> — deux voies possibles :</p>
+        <ul>
+            <li><strong>WSL (recommandé)</strong> : activez Windows Subsystem for Linux avec <strong>wsl --install</strong> dans un PowerShell administrateur, redémarrez, puis installez Node.js 18+ et Claude Code depuis votre distribution Linux (Ubuntu). C'est l'environnement le plus stable pour les outils en ligne de commande.</li>
+            <li><strong>PowerShell natif</strong> : le support Windows natif s'est nettement amélioré. Installez Node.js 18+ (installeur officiel ou <strong>winget install OpenJS.NodeJS.LTS</strong>), ouvrez PowerShell et lancez la même commande npm globale. Suffisant pour la plupart des usages.</li>
+        </ul>
+        <p><strong>Installer Claude Code sur Linux</strong> (Ubuntu, Debian, Fedora…) : installez Node.js 18+ via votre gestionnaire de paquets ou via nvm, puis la commande npm globale. Aucune configuration spécifique n'est nécessaire.</p>
 
         <h3>Configuration et accès Anthropic</h3>
         <p>Pour authentifier l'outil, deux options :</p>
@@ -354,6 +361,14 @@ claude</code></div>
             <li><strong>Problème d'authentification / clé API</strong> : vérifiez que la clé est valide dans la console Anthropic et que la variable d'environnement attendue est bien définie.</li>
         </ul>
 
+        <h2>Mettre à jour Claude Code</h2>
+
+        <p>Claude Code évolue vite (nouveaux modèles, skills, correctifs). Pour passer à la dernière version, relancez la commande de mise à jour globale :</p>
+
+        <div class="code-block"><code>npm update -g @anthropic-ai/claude-code</code></div>
+
+        <p>Vous pouvez aussi forcer explicitement la dernière version avec <strong>npm install -g @anthropic-ai/claude-code@latest</strong>, puis vérifier la version installée avec <strong>claude --version</strong>. Mettez à jour régulièrement pour profiter des nouveautés, notamment le système de <a href="/blog/claude-code-skill-guide">skills personnalisés</a> qui permet de connecter Claude Code à vos propres outils.</p>
+
         <h2>Comment nous utilisons Claude Code chez Oakflow AI</h2>
 
         <p>Nous ne vendons pas Claude Code : nous nous en servons tous les jours. Concrètement, il est intégré à notre chaîne de production d'automatisations. Quand nous construisons un <strong>workflow n8n</strong> ou une intégration sur-mesure pour un client, l'agent nous aide à générer les nœuds de code, écrire les fonctions de transformation, produire les tests et documenter le tout. Résultat : le temps de mise en place d'un projet type a fortement diminué, et la qualité de livraison est plus régulière parce que rien ne part sans tests.</p>
@@ -374,7 +389,7 @@ claude</code></div>
 
         <div class="article-related">
             <h3>Approfondir le sujet</h3>
-            <p>Pour aller plus loin : notre <a href="/blog/guide-configuration-serveur-n8n">guide d'hébergement d'un serveur n8n</a>, le <a href="/blog/n8n-vs-zapier-vs-make">comparatif n8n vs Zapier vs Make</a>, et nos <a href="/blog/agents-ia-autonomes-pme-2026">5 agents IA autonomes déployables en 2026</a>.</p>
+            <p>Pour aller plus loin : notre <a href="/blog/claude-code-skill-guide">guide pour créer un skill Claude Code sur-mesure</a>, notre <a href="/blog/guide-configuration-serveur-n8n">guide d'hébergement d'un serveur n8n</a>, le <a href="/blog/n8n-vs-zapier-vs-make">comparatif n8n vs Zapier vs Make</a>, et nos <a href="/blog/agents-ia-autonomes-pme-2026">5 agents IA autonomes déployables en 2026</a>.</p>
         </div>
 
         <div class="article-nav">
