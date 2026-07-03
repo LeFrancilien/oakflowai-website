@@ -210,6 +210,12 @@
   </url>
   <!-- Pages services existantes -->
   <url>
+    <loc>https://www.oakflowai.com/blog/claude-code-thinking-mode</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.oakflowai.com/services/workflows-n8n</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
