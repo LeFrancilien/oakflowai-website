@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Thinking Mode et Plan Mode de Claude Code : le guide (2026)</title>
+    <meta name="description" content="Guide des deux modes de Claude Code : le thinking mode (think, ultrathink) pour un raisonnement plus profond, et le plan mode pour valider un plan avant toute modification. Exemples et retour d'expérience." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-07-03" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/claude-code-thinking-mode" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/claude-code-thinking-mode" />
+    <meta property="og:title" content="Thinking Mode et Plan Mode de Claude Code : le guide (2026)" />
+    <meta property="og:description" content="Le thinking mode (think, ultrathink) pour raisonner plus profond, et le plan mode pour valider un plan avant toute modification. Guide et retour d'expérience." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <!-- Schema - Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://www.oakflowai.com/blog/claude-code-thinking-mode#article",
+      "headline": "Thinking Mode et Plan Mode de Claude Code : le guide",
+      "description": "Guide des deux modes de Claude Code : le thinking mode (think, ultrathink) pour un raisonnement plus profond, et le plan mode pour valider un plan avant toute modification.",
+      "datePublished": "2026-07-03",
+      "dateModified": "2026-07-03",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/logo-oakflow-v2.webp"
+        }
+      },
+      "url": "https://www.oakflowai.com/blog/claude-code-thinking-mode",
+      "inLanguage": "fr-FR",
+      "keywords": ["claude code thinking mode", "claude code plan", "claude code plan mode", "claude code plans", "ultrathink", "claude code modes"],
+      "articleSection": "Tutoriel"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Thinking Mode et Plan Mode de Claude Code"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que le thinking mode de Claude Code ?","acceptedAnswer":{"@type":"Answer","text":"Le thinking mode active le raisonnement etendu de Claude Code : au lieu de repondre immediatement, l'agent prend un budget de reflexion pour analyser le probleme avant d'agir. On le declenche en glissant le mot think dans la demande, et on augmente le budget avec des intensificateurs : think hard, think harder, puis ultrathink pour le maximum. Utile pour l'architecture, le debug complexe et la planification."}},{"@type":"Question","name":"Comment activer le plan mode dans Claude Code ?","acceptedAnswer":{"@type":"Answer","text":"Appuyez sur Shift+Tab pour faire defiler les modes de permission jusqu'au plan mode. Dans ce mode, Claude Code est en lecture seule : il explore le code et propose un plan detaille sans modifier aucun fichier ni lancer de commande. Vous validez le plan, puis l'agent l'execute. On peut aussi le lancer directement avec le drapeau claude --permission-mode plan."}},{"@type":"Question","name":"Quelle difference entre thinking mode et plan mode ?","acceptedAnswer":{"@type":"Answer","text":"Le thinking mode agit sur la profondeur de raisonnement : il fait reflechir Claude plus longtemps avant de repondre. Le plan mode agit sur les permissions : il empeche toute modification tant que vous n'avez pas valide le plan propose. Les deux se combinent : on demande a Claude de reflechir (ultrathink) en plan mode pour obtenir un plan robuste avant d'ecrire la moindre ligne."}},{"@type":"Question","name":"Le mot ultrathink change-t-il vraiment quelque chose ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les mots-cles think, think hard, think harder et ultrathink allouent progressivement plus de budget de reflexion a l'agent. Plus le budget est eleve, plus Claude explore d'hypotheses avant de trancher, ce qui ameliore nettement les taches complexes. En contrepartie, la reponse est plus lente et consomme plus de tokens : on reserve ultrathink aux problemes qui le meritent."}}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap {
+            max-width: 760px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            background: rgba(0, 229, 176, 0.1);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .article-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .article-wrap h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(240, 244, 255, 0.7);
+            margin-bottom: 48px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+        .article-wrap h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 52px 0 16px;
+            letter-spacing: -0.5px;
+        }
+        .article-wrap h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        .article-wrap p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .article-wrap ul, .article-wrap ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-wrap li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box {
+            background: rgba(0, 229, 176, 0.06);
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { margin: 0; font-size: 15px; }
+        .answer-box {
+            background: linear-gradient(135deg, rgba(0,229,176,0.1), rgba(99,102,241,0.06));
+            border: 1px solid rgba(0, 229, 176, 0.28);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 0 0 40px;
+        }
+        .answer-box p { margin: 0; font-size: 16px; color: var(--text); }
+        .answer-box .answer-label { display:block; font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .code-block {
+            background: #0b0f14;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #cdeee2;
+            white-space: pre;
+        }
+        .article-cta {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 40px;
+        }
+        .article-nav a {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-nav a:hover { color: var(--accent); }
+        @media (max-width: 600px) {
+            .article-cta { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                style="height: 48px; width: auto; border-radius: 8px;" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="../index.html#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="../index.html#features" class="mobile-menu-link">Services</a>
+            <a href="../index.html#methode" class="mobile-menu-link">Méthode</a>
+            <a href="../index.html#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="../index.html#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── ARTICLE ── -->
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/TechArticle">
+
+        <div class="article-meta">
+            <span class="article-tag">Claude Code</span>
+            <span class="article-tag">Tutoriel</span>
+            <time class="article-date" datetime="2026-07-03">3 juillet 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">Thinking Mode et Plan Mode de Claude Code : le guide</h1>
+
+        <p class="article-intro">Claude Code a deux leviers trop souvent ignorés : le <strong>thinking mode</strong>, qui fait réfléchir l'agent plus longtemps avant d'agir, et le <strong>plan mode</strong>, qui l'oblige à proposer un plan validé <em>avant</em> de toucher au moindre fichier. Bien utilisés, ces deux modes transforment Claude Code d'un exécutant rapide en un vrai copilote fiable. Ce guide explique quand et comment activer chacun, avec le retour d'expérience de notre production chez Oakflow AI.</p>
+
+        <div class="answer-box">
+            <span class="answer-label">En bref</span>
+            <p>Le <strong>thinking mode</strong> s'active en glissant le mot <strong>think</strong> dans votre demande, avec une échelle croissante : <strong>think</strong> → <strong>think hard</strong> → <strong>think harder</strong> → <strong>ultrathink</strong>. Le <strong>plan mode</strong> s'active avec <strong>Shift+Tab</strong> : Claude passe en lecture seule, propose un plan, et n'exécute qu'après votre validation. Le premier joue sur la <em>profondeur de raisonnement</em>, le second sur les <em>permissions</em> — et ils se combinent.</p>
+        </div>
+
+        <h2>Les modes de Claude Code, et pourquoi ça compte</h2>
+
+        <p>Par défaut, Claude Code répond vite et modifie vos fichiers au fil de l'eau. C'est parfait pour les petites tâches. Mais dès que le problème devient sérieux — refonte d'architecture, bug retors, migration — deux besoins apparaissent : faire <strong>réfléchir</strong> l'agent davantage, et <strong>contrôler</strong> ce qu'il fait avant qu'il ne le fasse. C'est exactement ce que couvrent le thinking mode et le plan mode. Les deux sont natifs, gratuits, et activables en une frappe ou un mot.</p>
+
+        <h2>Thinking Mode : faire réfléchir Claude plus longtemps</h2>
+
+        <p>Le <strong>thinking mode</strong> (raisonnement étendu) donne à Claude Code un <strong>budget de réflexion</strong> avant de répondre. Au lieu de foncer, l'agent explore plusieurs pistes, vérifie ses hypothèses, puis agit. On le déclenche simplement en incluant le mot <strong>think</strong> dans la demande, et on augmente son intensité avec des mots-clés dédiés :</p>
+
+        <div class="code-block"><code>think          → réflexion de base
+think hard     → budget accru
+think harder   → budget encore plus élevé
+ultrathink     → budget maximal</code></div>
+
+        <p>Concrètement, plus le niveau est haut, plus l'agent s'autorise à raisonner avant d'écrire du code. Un exemple de prompt en <strong>ultrathink</strong> pour un problème d'architecture :</p>
+
+        <div class="code-block"><code>&gt; ultrathink : compare deux approches pour découpler
+  l'envoi d'emails de mon API — file d'attente Redis
+  vs webhook n8n. Donne les compromis, puis recommande.</code></div>
+
+        <p>Quand l'utiliser ? Pour tout ce qui demande un vrai arbitrage : conception d'architecture, choix de dépendances, <a href="/blog/claude-code-installation-guide">débogage</a> d'un comportement qu'on ne comprend pas, ou revue de code sensible. Pour une correction triviale ou une commande simple, laissez tomber : la réflexion étendue ralentit la réponse et consomme plus de tokens pour rien.</p>
+
+        <div class="info-box">
+            <p><strong>Retour d'expérience :</strong> chez nous, la règle est simple — <strong>ultrathink pour décider, mode normal pour exécuter</strong>. On demande un raisonnement profond au moment de choisir une approche, puis on repasse en mode rapide pour l'implémentation, une fois la direction claire.</p>
+        </div>
+
+        <h2>Plan Mode : un plan validé avant toute modification</h2>
+
+        <p>Le <strong>plan mode</strong> (ou plan de Claude Code) répond à une autre inquiétude : « et s'il modifie mes fichiers dans la mauvaise direction ? ». En plan mode, Claude Code passe en <strong>lecture seule</strong> — il explore votre code, lit les fichiers, comprend le contexte, puis rédige un <strong>plan détaillé</strong> de ce qu'il compte faire. Aucune écriture, aucune commande destructrice tant que vous n'avez pas validé.</p>
+
+        <p>Pour l'activer, appuyez sur <strong>Shift+Tab</strong> : la touche fait défiler les modes de permission de Claude Code, jusqu'à afficher <strong>plan mode</strong>. Vous pouvez aussi le lancer directement au démarrage :</p>
+
+        <div class="code-block"><code># Démarrer une session directement en plan mode
+claude --permission-mode plan</code></div>
+
+        <p>Le déroulé type est en trois temps : Claude <strong>enquête</strong> (il lit le code concerné), il <strong>propose</strong> un plan étape par étape, et vous <strong>validez</strong> — après quoi il bascule en exécution et applique le plan. Vous gardez la main sur la direction avant que la moindre ligne soit modifiée.</p>
+
+        <div class="info-box">
+            <p><strong>Bon réflexe :</strong> sur une tâche à risque (refactor large, migration, code que vous connaissez mal), commencez <em>toujours</em> en plan mode. Lire un plan de dix lignes coûte trente secondes ; défaire une série de modifications parties dans le mauvais sens coûte beaucoup plus.</p>
+        </div>
+
+        <h2>Thinking Mode + Plan Mode : la combinaison qu'on utilise chez Oakflow AI</h2>
+
+        <p>Les deux modes ne s'opposent pas, ils se complètent. Le thinking mode agit sur la <strong>profondeur de raisonnement</strong> ; le plan mode agit sur les <strong>permissions</strong>. Notre combinaison par défaut pour une tâche sérieuse : passer en <strong>plan mode</strong> (Shift+Tab), puis demander à Claude de <strong>réfléchir à fond</strong> avant de proposer son plan.</p>
+
+        <div class="code-block"><code># En plan mode (Shift+Tab), puis :
+&gt; ultrathink : voici la spec de la fonctionnalité.
+  Explore le code existant et propose un plan
+  d'implémentation détaillé, sans rien modifier.</code></div>
+
+        <p>Résultat : un plan mûrement réfléchi, produit sans qu'aucun fichier n'ait bougé. On le lit, on l'ajuste, on valide — et seulement là Claude exécute. C'est cette discipline « réfléchir puis planifier avant d'agir » qui rend l'agent réellement fiable sur des projets qui comptent. C'est aussi ce qui distingue le prototypage assisté par IA de l'<a href="/services/agence-automatisation-make">automatisation industrialisée</a> : d'abord penser, ensuite construire.</p>
+
+        <h2>Quand utiliser quel mode ?</h2>
+
+        <ul>
+            <li><strong>Thinking mode (think / ultrathink)</strong> : choix d'architecture, arbitrage entre plusieurs solutions, débogage complexe, revue de code sensible.</li>
+            <li><strong>Plan mode (Shift+Tab)</strong> : refactor large, migration, première intervention sur un code inconnu, tout changement où l'on veut valider la direction avant exécution.</li>
+            <li><strong>Les deux ensemble</strong> : nouvelle fonctionnalité à partir d'une spec, chantier structurant — on veut à la fois un raisonnement profond et un plan validé.</li>
+            <li><strong>Aucun des deux (mode normal)</strong> : correction triviale, commande simple, itération rapide où la vitesse prime.</li>
+        </ul>
+
+        <p>Ces modes supposent d'avoir Claude Code correctement installé et à jour : si ce n'est pas encore fait, suivez notre <a href="/blog/claude-code-installation-guide">guide d'installation de Claude Code</a>. Et pour aller plus loin, apprenez à <a href="/blog/claude-code-skill-guide">créer un skill sur-mesure</a> qui connecte l'agent à vos propres outils.</p>
+
+        <div class="article-cta">
+            <h2>Envie d'aller au-delà de l'outil de dev ?</h2>
+            <p>On transforme vos idées en workflows fiables et industrialisés (n8n, Make, agents IA). Audit gratuit de 30 minutes pour cadrer le bon outil et la bonne approche.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Réserver mon audit gratuit →
+            </a>
+        </div>
+
+        <h2>Questions fréquentes</h2>
+
+        <details class="faq-item">
+            <summary>Qu'est-ce que le thinking mode de Claude Code ?</summary>
+            <p>Le thinking mode active le raisonnement étendu : au lieu de répondre immédiatement, l'agent prend un budget de réflexion pour analyser le problème avant d'agir. On le déclenche en glissant le mot <strong>think</strong> dans la demande, et on augmente le budget avec des intensificateurs : <strong>think hard</strong>, <strong>think harder</strong>, puis <strong>ultrathink</strong> pour le maximum. Utile pour l'architecture, le débogage complexe et la planification.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Comment activer le plan mode dans Claude Code ?</summary>
+            <p>Appuyez sur <strong>Shift+Tab</strong> pour faire défiler les modes de permission jusqu'au plan mode. Dans ce mode, Claude Code est en lecture seule : il explore le code et propose un plan détaillé sans modifier aucun fichier ni lancer de commande. Vous validez le plan, puis l'agent l'exécute. On peut aussi le lancer directement avec <strong>claude --permission-mode plan</strong>.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Quelle différence entre thinking mode et plan mode ?</summary>
+            <p>Le thinking mode agit sur la profondeur de raisonnement : il fait réfléchir Claude plus longtemps avant de répondre. Le plan mode agit sur les permissions : il empêche toute modification tant que vous n'avez pas validé le plan proposé. Les deux se combinent : on demande à Claude de réfléchir (ultrathink) en plan mode pour obtenir un plan robuste avant d'écrire la moindre ligne.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Le mot ultrathink change-t-il vraiment quelque chose ?</summary>
+            <p>Oui. Les mots-clés <strong>think</strong>, <strong>think hard</strong>, <strong>think harder</strong> et <strong>ultrathink</strong> allouent progressivement plus de budget de réflexion à l'agent. Plus le budget est élevé, plus Claude explore d'hypothèses avant de trancher, ce qui améliore nettement les tâches complexes. En contrepartie, la réponse est plus lente et consomme plus de tokens : on réserve ultrathink aux problèmes qui le méritent.</p>
+        </details>
+
+        <div class="article-related">
+            <h3>Approfondir le sujet</h3>
+            <p>Pour aller plus loin : notre <a href="/blog/claude-code-installation-guide">guide d'installation de Claude Code</a>, le guide pour <a href="/blog/claude-code-skill-guide">créer un skill Claude Code sur-mesure</a>, notre page pilier <a href="/automatisation-n8n">automatisation n8n pour PME</a>, et notre <a href="/services/agence-automatisation-make">offre d'agence d'automatisation Make</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog">← Retour au blog</a>
+            <a href="/blog/claude-code-skill-guide">Créer un skill Claude Code →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                        style="height: 48px; width: auto; border-radius: 8px;" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="../index.html#features">Notre Expertise</a>
+                <a href="../index.html#methode">Notre Méthode</a>
+                <a href="../index.html#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="../index.html#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+
+</html>
