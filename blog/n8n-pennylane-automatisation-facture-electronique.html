@@ -13,7 +13,7 @@
     <title>n8n + Pennylane : 5 automatisations avant la facture électronique (2026)</title>
     <meta name="description" content="Connectez n8n à l'API Pennylane et automatisez votre comptabilité avant la réforme facture électronique de septembre 2026. 5 workflows concrets, ROI mesuré, guide pas à pas." />
     <meta name="author" content="Cyril DE LA RUE" />
-    <meta name="last-modified" content="2026-06-01" />
+    <meta name="last-modified" content="2026-07-03" />
     <link rel="canonical" href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
@@ -37,7 +37,7 @@
       "headline": "n8n + Pennylane : 5 automatisations avant la facture électronique (2026)",
       "description": "Connectez n8n à l'API Pennylane pour automatiser facturation, relances impayés, réconciliation bancaire et reporting comptable avant la réforme de septembre 2026.",
       "datePublished": "2026-06-01",
-      "dateModified": "2026-06-01",
+      "dateModified": "2026-07-03",
       "author": {
         "@type": "Person",
         "name": "Cyril DE LA RUE",
@@ -604,7 +604,7 @@
             <p>Identifier quelle transaction correspond à quelle facture prend du temps. Les erreurs de rapprochement retardent la clôture mensuelle. Les écarts non détectés coûtent cher en fin de trimestre.</p>
         </div>
 
-        <p><strong>Ce que le workflow n8n résout :</strong> chaque nuit, n8n récupère les nouvelles transactions bancaires via l'API Pennylane, compare les montants et références avec les factures en attente de paiement, et effectue le rapprochement automatiquement pour les correspondances exactes. Pour les cas ambigus (montant approchant, plusieurs factures possibles), il envoie une alerte à votre comptable avec les options proposées.</p>
+        <p><strong>Ce que le workflow n8n résout :</strong> chaque nuit, n8n récupère les nouvelles transactions bancaires via l'API Pennylane, compare les montants et références avec les factures en attente de paiement, et effectue le rapprochement automatiquement pour les correspondances exactes. C'est ce qu'on appelle l'<strong>invoice matching</strong> : rapprocher chaque facture de la transaction qui lui correspond, sans saisie manuelle. Pour les cas ambigus (montant approchant, plusieurs factures possibles), il envoie une alerte à votre comptable avec les options proposées.</p>
 
         <ol class="workflow-steps">
             <li>Déclencheur : cron quotidien à 7h du matin</li>
