@@ -10,3 +10,5 @@ hyperframes/dist/
 hyperframes/.cache/
 hyperframes/output/
 hyperframes/*.mp4
+
+.playwright-mcp/

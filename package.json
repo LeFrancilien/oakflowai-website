@@ -1,6 +1,12 @@
 {
+  "scripts": {
+    "build": "node build.js"
+  },
   "dependencies": {
     "sharp": "^0.34.5",
     "simple-icons": "^16.10.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
   }
 }
