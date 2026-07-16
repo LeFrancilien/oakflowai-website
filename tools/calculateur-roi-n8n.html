@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Analytics : chargé uniquement après consentement RGPD -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Calculateur de ROI Automatisation n8n pour PME | Oakflow AI</title>
+    <meta name="description" content="Calculez en 30 secondes le ROI de l'automatisation n8n pour votre PME : heures économisées par an et gain net en euros, selon votre équipe et votre coût horaire." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <link rel="canonical" href="https://www.oakflowai.com/tools/calculateur-roi-n8n" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.oakflowai.com/tools/calculateur-roi-n8n" />
+    <meta property="og:title" content="Calculateur de ROI Automatisation n8n pour PME" />
+    <meta property="og:description" content="Combien votre PME peut-elle économiser avec l'automatisation ? Réponse en 30 secondes avec 3 curseurs." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur de ROI Automatisation n8n",
+      "url": "https://www.oakflowai.com/tools/calculateur-roi-n8n",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": { "@type": "ImageObject", "url": "https://www.oakflowai.com/logo-oakflow-v2.webp" }
+      },
+      "inLanguage": "fr-FR"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Calculateur ROI n8n"}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .calc-wrap {
+            max-width: 720px;
+            margin: 130px auto 80px;
+            padding: 0 24px;
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .calc-header h1 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .calc-header p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── Carte centrale ── */
+        .calc-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+        }
+
+        /* ── Curseurs ── */
+        .calc-field {
+            margin-bottom: 34px;
+        }
+
+        .calc-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .calc-label span {
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .calc-value {
+            font-family: var(--font-h, 'Space Grotesk', sans-serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent, #00E5B0);
+            white-space: nowrap;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 100px;
+            background: linear-gradient(to right, #00E5B0 0%, #00E5B0 var(--fill, 50%), rgba(255, 255, 255, 0.12) var(--fill, 50%), rgba(255, 255, 255, 0.12) 100%);
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #00E5B0;
+            border: 3px solid #060910;
+            box-shadow: 0 0 0 2px rgba(0, 229, 176, 0.5), 0 4px 12px rgba(0, 229, 176, 0.35);
+            transition: transform 0.15s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #00E5B0;
+            border: 3px solid #060910;
+            box-shadow: 0 0 0 2px rgba(0, 229, 176, 0.5), 0 4px 12px rgba(0, 229, 176, 0.35);
+            cursor: pointer;
+        }
+
+        .calc-bounds {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(240, 244, 255, 0.35);
+            margin-top: 8px;
+        }
+
+        /* ── Zone de résultats ── */
+        .calc-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 42px;
+        }
+
+        .calc-result-card {
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .calc-result-card.highlight {
+            background: linear-gradient(135deg, rgba(0, 229, 176, 0.12), rgba(124, 58, 255, 0.10));
+            border: 1px solid rgba(0, 229, 176, 0.35);
+        }
+
+        .calc-result-val {
+            font-family: var(--font-h, 'Space Grotesk', sans-serif);
+            font-size: clamp(30px, 5vw, 42px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: var(--text);
+            display: block;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .calc-result-card.highlight .calc-result-val {
+            color: var(--accent, #00E5B0);
+        }
+
+        .calc-result-lbl {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .calc-note {
+            font-size: 12.5px;
+            color: rgba(240, 244, 255, 0.4);
+            text-align: center;
+            margin-top: 18px;
+            line-height: 1.6;
+        }
+
+        /* ── CTA ── */
+        .calc-cta {
+            display: block;
+            margin-top: 32px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 18px 32px;
+            border-radius: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            .calc-card { padding: 28px 20px; }
+            .calc-results { grid-template-columns: 1fr; }
+            .calc-wrap { margin-top: 110px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ── SKIP LINK ── -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                style="height: 48px; width: auto; border-radius: 8px;" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">Services</a></li>
+            <li><a href="/#methode">Méthode</a></li>
+            <li><a href="/#usecases">Cas d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="/#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un Audit</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="/#features" class="mobile-menu-link">Services</a>
+            <a href="/#methode" class="mobile-menu-link">Méthode</a>
+            <a href="/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="/#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="/#contact" class="mobile-menu-link">Contact</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── CALCULATEUR ── -->
+    <main id="main-content">
+    <div class="calc-wrap">
+
+        <div class="calc-header">
+            <div class="badge">Outil gratuit</div>
+            <h1>Calculateur de ROI <span class="gradient-text">Automatisation n8n</span></h1>
+            <p>Combien votre PME perd-elle chaque année en tâches répétitives ? Ajustez les 3 curseurs et découvrez votre gain potentiel, instantanément.</p>
+        </div>
+
+        <div class="calc-card">
+
+            <!-- Curseur 1 : collaborateurs -->
+            <div class="calc-field">
+                <div class="calc-label">
+                    <span>Nombre de collaborateurs concernés</span>
+                    <span class="calc-value" id="valEmployees">5</span>
+                </div>
+                <input type="range" id="sliderEmployees" min="1" max="50" step="1" value="5"
+                    aria-label="Nombre de collaborateurs concernés" />
+                <div class="calc-bounds"><span>1</span><span>50</span></div>
+            </div>
+
+            <!-- Curseur 2 : heures perdues / semaine / personne -->
+            <div class="calc-field">
+                <div class="calc-label">
+                    <span>Heures perdues par semaine et par personne</span>
+                    <span class="calc-value" id="valHours">4 h</span>
+                </div>
+                <input type="range" id="sliderHours" min="1" max="20" step="1" value="4"
+                    aria-label="Heures perdues par semaine et par personne" />
+                <div class="calc-bounds"><span>1 h</span><span>20 h</span></div>
+            </div>
+
+            <!-- Curseur 3 : coût horaire chargé -->
+            <div class="calc-field">
+                <div class="calc-label">
+                    <span>Coût horaire chargé moyen</span>
+                    <span class="calc-value" id="valRate">35 €</span>
+                </div>
+                <input type="range" id="sliderRate" min="20" max="100" step="1" value="35"
+                    aria-label="Coût horaire chargé moyen en euros" />
+                <div class="calc-bounds"><span>20 €</span><span>100 €</span></div>
+            </div>
+
+            <!-- Résultats dynamiques -->
+            <div class="calc-results">
+                <div class="calc-result-card">
+                    <span class="calc-result-val" id="resultHours">940 h</span>
+                    <span class="calc-result-lbl">heures économisées par an</span>
+                </div>
+                <div class="calc-result-card highlight">
+                    <span class="calc-result-val" id="resultMoney">32 300 €</span>
+                    <span class="calc-result-lbl">de gain net par an*</span>
+                </div>
+            </div>
+
+            <p class="calc-note">* Base : 47 semaines travaillées/an, après déduction de 600 € de frais fixes annuels (hébergement n8n + API IA). Estimation indicative, affinée lors de l'audit.</p>
+
+            <!-- CTA -->
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+                class="btn-primary calc-cta">
+                Planifier un audit d'automatisation gratuit (30 min) →
+            </a>
+
+        </div>
+
+    </div>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                        style="height: 48px; width: auto; border-radius: 8px;" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="/#features">Notre Expertise</a>
+                <a href="/#methode">Notre Méthode</a>
+                <a href="/#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="/#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script>
+        // ══════════════════════════════════════════════════════════
+        // Calculateur de ROI automatisation n8n
+        // Logique : recalcul instantané à chaque mouvement de curseur,
+        // aucun rechargement de page, aucune dépendance externe.
+        // ══════════════════════════════════════════════════════════
+
+        // Constantes métier
+        const WEEKS_PER_YEAR = 47;   // semaines travaillées/an (congés déduits)
+        const FIXED_COSTS = 600;     // frais fixes annuels : hébergement n8n + API IA (€)
+
+        // Références DOM : curseurs, affichages de valeur, résultats
+        const sliders = {
+            employees: document.getElementById('sliderEmployees'),
+            hours: document.getElementById('sliderHours'),
+            rate: document.getElementById('sliderRate')
+        };
+        const labels = {
+            employees: document.getElementById('valEmployees'),
+            hours: document.getElementById('valHours'),
+            rate: document.getElementById('valRate')
+        };
+        const results = {
+            hours: document.getElementById('resultHours'),
+            money: document.getElementById('resultMoney')
+        };
+
+        // Formatage FR : espace comme séparateur de milliers (12 500 €)
+        const fmt = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
+
+        // Colorie la piste du curseur jusqu'à la position du pouce
+        // (via la variable CSS --fill utilisée dans le linear-gradient)
+        function paintTrack(slider) {
+            const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+            slider.style.setProperty('--fill', pct + '%');
+        }
+
+        // Cœur du calcul, appelé à chaque input
+        function computeROI() {
+            const employees = Number(sliders.employees.value);
+            const hoursPerWeek = Number(sliders.hours.value);
+            const hourlyRate = Number(sliders.rate.value);
+
+            // 1. Heures économisées/an = collaborateurs × h perdues/semaine × semaines travaillées
+            const yearlyHours = employees * hoursPerWeek * WEEKS_PER_YEAR;
+
+            // 2. Gain net/an = valeur des heures récupérées − frais fixes n8n/IA
+            //    (borné à 0 : pas de "gain négatif" affiché sur les toutes petites configs)
+            const netGain = Math.max(0, yearlyHours * hourlyRate - FIXED_COSTS);
+
+            // 3. Mise à jour de l'affichage
+            labels.employees.textContent = fmt.format(employees);
+            labels.hours.textContent = fmt.format(hoursPerWeek) + ' h';
+            labels.rate.textContent = fmt.format(hourlyRate) + ' €';
+            results.hours.textContent = fmt.format(yearlyHours) + ' h';
+            results.money.textContent = fmt.format(netGain) + ' €';
+        }
+
+        // Écouteurs : 'input' se déclenche pendant le glissement → mise à jour temps réel
+        Object.values(sliders).forEach(function (slider) {
+            slider.addEventListener('input', function () {
+                paintTrack(slider);
+                computeROI();
+            });
+            paintTrack(slider); // état initial de la piste
+        });
+
+        computeROI(); // premier rendu avec les valeurs par défaut
+    </script>
+    <script src="../main.js" defer></script>
+</body>
+
+</html>

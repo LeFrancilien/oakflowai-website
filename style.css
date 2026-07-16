@@ -3035,3 +3035,7 @@ footer {
 .footer-link:hover { color: #00ff88; }
 .footer-link-active { color: #00ff88; text-decoration: none;
 }
+
+/* ── Skip link (accessibilité) : caché hors écran, visible au focus clavier ── */
+.skip-link { position: absolute; left: -9999px; top: 0; background: #00E5B0; color: #060910; padding: 10px 18px; border-radius: 0 0 10px 0; font-weight: 600; z-index: 1000; }
+.skip-link:focus { left: 0; }
