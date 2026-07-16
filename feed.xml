@@ -8,13 +8,25 @@
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
     <managingEditor>contact@oakflowai.com (Cyril DE LA RUE)</managingEditor>
     <webMaster>contact@oakflowai.com (Cyril DE LA RUE)</webMaster>
-    <lastBuildDate>Thu, 16 Jul 2026 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 10:00:00 +0200</lastBuildDate>
     <atom:link href="https://www.oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://www.oakflowai.com/logo-oakflow-v2.png</url>
       <title>Oakflow AI</title>
       <link>https://www.oakflowai.com</link>
     </image>
+
+    <item>
+      <title>How to Integrate OpenAI API with n8n: A Guide for SMEs (2026)</title>
+      <link>https://www.oakflowai.com/blog/how-to-integrate-openai-api-with-n8n</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/how-to-integrate-openai-api-with-n8n</guid>
+      <pubDate>Thu, 16 Jul 2026 10:00:00 +0200</pubDate>
+      <description>Step-by-step guide to integrate the OpenAI API with n8n: API key setup, OpenAI node configuration, prompt management, and best practices to keep your token budget under control. Written for SMEs.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Tutorial</category>
+      <category>n8n</category>
+      <category>OpenAI</category>
+    </item>
 
     <item>
       <title>Automatisation du suivi des covenants bancaires : le guide n8n + IA (2026)</title>
