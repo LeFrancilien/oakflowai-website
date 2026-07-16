@@ -11,19 +11,19 @@
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
     </script>
-    <title>Automatiser la comptabilité PME avec n8n et Pennylane</title>
-    <meta name="description" content="Workflow n8n + Pennylane + GPT-4o pour automatiser factures, relances, écritures. Cas client : -82% d'erreurs de saisie, 8h/semaine économisées. Tutoriel pas à pas, conformité RGPD." />
+    <title>Automatisation du suivi des covenants bancaires (n8n + IA)</title>
+    <meta name="description" content="Automatisation du suivi des covenants bancaires : workflow n8n + IA pour calculer vos ratios (levier, DSCR, gearing), détecter les risques de breach en avance et pré-remplir vos certificats de conformité." />
     <meta name="author" content="Cyril DE LA RUE" />
-    <meta name="last-modified" content="2026-05-18" />
-    <link rel="canonical" href="https://www.oakflowai.com/blog/automatiser-comptabilite" />
+    <meta name="last-modified" content="2026-07-16" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/automatisation-suivi-covenants" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://www.oakflowai.com/blog/automatiser-comptabilite" />
-    <meta property="og:title" content="Automatiser la comptabilité PME : n8n + Pennylane, -82% d'erreurs (2026)" />
-    <meta property="og:description" content="Workflow n8n + Pennylane + GPT-4o pour automatiser factures, relances, écritures. Cas client : -82% d'erreurs de saisie, 8h/semaine économisées. Tutoriel pas à pas, conformité RGPD." />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/automatisation-suivi-covenants" />
+    <meta property="og:title" content="Automatisation du suivi des covenants bancaires : n8n + IA (2026)" />
+    <meta property="og:description" content="Workflow n8n + IA pour automatiser le suivi de vos covenants : calcul des ratios, alertes précoces avant breach, certificats de conformité pré-remplis." />
     <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
     <meta property="og:locale" content="fr_FR" />
 
@@ -34,11 +34,11 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "@id": "https://www.oakflowai.com/blog/automatiser-comptabilite#article",
-      "headline": "Automatiser le traitement des factures fournisseurs avec n8n : Guide PME 2026",
-      "description": "Guide complet pour automatiser le traitement des factures fournisseurs en PME avec n8n et GPT-4o. Workflow étape par étape, outils, coûts et résultats réels.",
-      "datePublished": "2026-03-07",
-      "dateModified": "2026-05-18",
+      "@id": "https://www.oakflowai.com/blog/automatisation-suivi-covenants#article",
+      "headline": "Automatisation du suivi des covenants bancaires : le guide n8n + IA (2026)",
+      "description": "Guide complet pour automatiser le suivi des covenants bancaires en PME : calcul automatique des ratios financiers, alertes précoces avant breach, certificats de conformité pré-remplis par l'IA.",
+      "datePublished": "2026-07-16",
+      "dateModified": "2026-07-16",
       "author": {
         "@type": "Person",
         "name": "Cyril DE LA RUE",
@@ -52,7 +52,7 @@
           "url": "https://www.oakflowai.com/logo-oakflow-v2.webp"
         }
       },
-      "url": "https://www.oakflowai.com/blog/automatiser-comptabilite",
+      "url": "https://www.oakflowai.com/blog/automatisation-suivi-covenants",
       "image": {
         "@type": "ImageObject",
         "url": "https://www.oakflowai.com/og-image.png",
@@ -60,12 +60,54 @@
         "height": 630
       },
       "inLanguage": "fr-FR",
-      "keywords": ["automatisation factures", "n8n PME", "traitement factures IA", "GPT-4o comptabilité", "workflow n8n"],
+      "keywords": ["automatisation du suivi des covenants", "covenants bancaires", "suivi covenants PME", "ratio de levier automatisé", "DSCR automatisation", "certificat de conformité bancaire", "n8n finance"],
       "articleSection": "Automatisation"
     }
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Automatiser les factures avec n8n"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Automatisation du suivi des covenants"}]}
+    </script>
+
+    <!-- Schema - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'automatisation du suivi des covenants bancaires ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est le remplacement du suivi manuel (tableur Excel mis à jour à la main) par un workflow qui récupère automatiquement les données comptables, calcule les ratios contractuels (levier, DSCR, gearing), les compare aux seuils négociés avec la banque et alerte le dirigeant ou le DAF dès qu'un ratio s'approche de sa limite, avant tout risque de breach."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels covenants peut-on suivre automatiquement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tous les covenants financiers calculables à partir de la comptabilité : ratio de levier (dette nette / EBITDA), DSCR (couverture du service de la dette), gearing (dette / fonds propres), fonds propres minimums, capex maximum. Les covenants non financiers (clauses d'information, changement de contrôle) peuvent être suivis via un calendrier d'échéances automatisé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels outils faut-il pour automatiser le suivi des covenants ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un orchestrateur comme n8n (self-hosted, environ 5 à 10 euros par mois de serveur), une connexion à votre logiciel comptable (Pennylane, Sage, QuickBooks via API), un LLM (Claude ou GPT) pour générer les commentaires de gestion et pré-remplir les certificats de conformité, et un canal d'alerte (email, Slack, Teams). Aucun logiciel de trésorerie coûteux n'est indispensable pour une PME."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il en cas de bris de covenant (breach) ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un breach non anticipé peut rendre la dette exigible immédiatement ou déclencher une renégociation défavorable (waiver payant, hausse de marge). L'intérêt de l'automatisation est justement l'alerte précoce : détecter un ratio qui se dégrade 2 ou 3 clôtures avant le franchissement du seuil laisse le temps de corriger la trajectoire ou de négocier sereinement avec la banque."
+          }
+        }
+      ]
+    }
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -381,49 +423,56 @@
 
         <div class="article-meta">
             <span class="article-tag">Automatisation</span>
-            <span class="article-tag">Comptabilité</span>
-            <time class="article-date" datetime="2026-03-07">7 mars 2026</time>
+            <span class="article-tag">Finance</span>
+            <time class="article-date" datetime="2026-07-16">16 juillet 2026</time>
             <div class="article-author">
                 <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" />
                 <span>Cyril DE LA RUE</span>
             </div>
         </div>
 
-        <h1 itemprop="headline">Automatiser la comptabilité PME : -82% d'erreurs de saisie (n8n + Pennylane 2026)</h1>
+        <h1 itemprop="headline">Automatisation du suivi des covenants bancaires : le guide n8n + IA (2026)</h1>
 
-        <p class="article-intro">Une PME française reçoit en moyenne 150 à 500 factures fournisseurs par mois. Chaque facture traitée manuellement prend entre 4 et 8 minutes : saisie, vérification, validation, archivage. À 500 factures/mois, c'est <strong>30 à 60 heures de travail</strong> qui disparaissent dans une tâche sans valeur ajoutée - avec en prime un taux d'erreur de saisie de 3 à 5%. Sur le cas client détaillé plus bas, l'automatisation a fait passer ce taux à <strong>0,5%</strong> (soit -82% d'erreurs) tout en libérant 8h/semaine sur le poste comptable. Voici comment, avec n8n + Pennylane + GPT-4o, pour moins de 350€/mois.</p>
+        <p class="article-intro">L'automatisation du suivi des covenants est encore rare en PME : dans la plupart des entreprises endettées, ce suivi vit dans un tableur Excel mis à jour à la main, quelques jours avant la date de remise du certificat de conformité à la banque. Le problème, c'est qu'un covenant ne prévient pas quand il se dégrade. Un ratio de levier qui franchit son seuil, découvert trop tard, peut rendre la dette exigible ou coûter un waiver négocié en position de faiblesse. Voici comment un workflow n8n branché sur votre comptabilité, complété par un LLM pour la partie rédactionnelle, transforme ce suivi subi en pilotage continu.</p>
 
-        <h2>Pourquoi automatiser le traitement des factures en PME ?</h2>
+        <h2>Covenants bancaires : de quoi parle-t-on exactement ?</h2>
 
-        <p>La comptabilité fournisseurs est l'un des processus les plus chronophages et les plus sujets aux erreurs dans une PME. Les problèmes récurrents sont toujours les mêmes :</p>
+        <p>Les covenants sont les engagements pris auprès de votre banque (ou pool bancaire) dans un contrat de financement : crédit moyen terme, dette LBO, crédit syndiqué, ligne de trésorerie confirmée. On distingue :</p>
 
         <ul>
-            <li><strong>Erreurs de saisie</strong> : un chiffre mal recopié, un fournisseur mal orthographié, une TVA incorrecte.</li>
-            <li><strong>Délais de traitement</strong> : les factures s'accumulent, les relances fournisseurs arrivent, le stress monte.</li>
-            <li><strong>Perte de documents</strong> : factures noyées dans la boîte mail, doublons, versions multiples.</li>
-            <li><strong>Absence de visibilité</strong> : impossible de savoir en temps réel ce qui est validé, en attente ou en litige.</li>
+            <li><strong>Les covenants financiers</strong> : des ratios à respecter à chaque clôture (trimestrielle ou annuelle). Les plus courants : ratio de levier (dette nette / EBITDA), DSCR (cash-flow disponible / service de la dette), gearing (dette / fonds propres), fonds propres minimums, plafond de capex.</li>
+            <li><strong>Les covenants non financiers</strong> : obligations d'information (remise des comptes sous X jours), clauses de changement de contrôle, restrictions sur les dividendes ou les cessions d'actifs.</li>
         </ul>
 
-        <p>L'automatisation avec n8n et un LLM comme GPT-4o résout ces quatre problèmes simultanément, sans changer vos outils existants (logiciel comptable, messagerie, cloud).</p>
+        <p>Le respect des covenants financiers se prouve par un <strong>certificat de conformité</strong> (compliance certificate) : un document signé par la direction, remis à la banque à chaque échéance, avec le détail des calculs.</p>
+
+        <h2>Pourquoi le suivi manuel des covenants est un risque</h2>
+
+        <ul>
+            <li><strong>Le calcul arrive trop tard</strong> : les ratios sont calculés au moment de produire le certificat, alors que la dégradation était visible dans les chiffres deux clôtures plus tôt.</li>
+            <li><strong>Les définitions contractuelles sont piégeuses</strong> : l'EBITDA "bancaire" du contrat (avec retraitements) n'est presque jamais l'EBITDA de votre logiciel comptable. Un calcul Excel approximatif crée un faux sentiment de sécurité.</li>
+            <li><strong>Les échéances s'oublient</strong> : une remise de comptes en retard est techniquement un cas de défaut, même si tous les ratios sont respectés.</li>
+            <li><strong>La connaissance repose sur une personne</strong> : si le DAF ou l'expert-comptable qui "connaît le contrat" part, le suivi part avec lui.</li>
+        </ul>
 
         <div class="result-grid">
             <div class="result-card">
-                <span class="result-val">500</span>
-                <span class="result-lbl">factures/mois traitées</span>
+                <span class="result-val">J+2</span>
+                <span class="result-lbl">ratios à jour après chaque clôture</span>
             </div>
             <div class="result-card">
-                <span class="result-val">30h</span>
-                <span class="result-lbl">économisées/mois</span>
+                <span class="result-val">100%</span>
+                <span class="result-lbl">des échéances contractuelles suivies</span>
             </div>
             <div class="result-card">
-                <span class="result-val">0</span>
-                <span class="result-lbl">erreur de saisie</span>
+                <span class="result-val">-90%</span>
+                <span class="result-lbl">de temps sur le certificat de conformité</span>
             </div>
         </div>
 
-        <h2>La stack technique utilisée</h2>
+        <h2>La stack technique pour automatiser le suivi des covenants</h2>
 
-        <p>Ce workflow repose sur des outils accessibles, souverains et sans abonnement excessif :</p>
+        <p>Pas besoin d'un logiciel de trésorerie à 1 000€/mois : la stack repose sur les mêmes briques que nos autres workflows finance, souveraines et peu coûteuses.</p>
 
         <table class="stack-table">
             <thead>
@@ -436,128 +485,111 @@
             <tbody>
                 <tr>
                     <td>n8n (self-hosted VPS)</td>
-                    <td>Orchestrateur du workflow</td>
-                    <td>~5€/mois (VPS)</td>
+                    <td>Orchestrateur : collecte, calculs, alertes</td>
+                    <td>~5-10€/mois (VPS)</td>
                 </tr>
                 <tr>
-                    <td>OpenAI GPT-4o</td>
-                    <td>Extraction des données facture</td>
-                    <td>~2-8€/mois selon volume</td>
+                    <td>Pennylane / Sage / QuickBooks (API)</td>
+                    <td>Source des données comptables (balance, dette, EBITDA)</td>
+                    <td>Inclus dans votre abonnement</td>
                 </tr>
                 <tr>
-                    <td>Gmail / Outlook</td>
-                    <td>Réception des factures par email</td>
-                    <td>Inclus</td>
-                </tr>
-                <tr>
-                    <td>Google Drive</td>
-                    <td>Archivage des PDFs</td>
-                    <td>Inclus</td>
+                    <td>Claude ou GPT (API)</td>
+                    <td>Commentaire de gestion, pré-remplissage du certificat</td>
+                    <td>~2-10€/mois</td>
                 </tr>
                 <tr>
                     <td>Google Sheets / Notion</td>
-                    <td>Base de données des factures traitées</td>
+                    <td>Tableau de bord covenants et historique des ratios</td>
                     <td>Inclus / Gratuit</td>
                 </tr>
                 <tr>
-                    <td>Slack / Email</td>
-                    <td>Alertes et notifications</td>
+                    <td>Slack / Teams / Email</td>
+                    <td>Alertes précoces au dirigeant et au DAF</td>
                     <td>Inclus</td>
                 </tr>
             </tbody>
         </table>
 
         <div class="info-box">
-            <p>💡 <strong>Souveraineté des données :</strong> n8n hébergé sur votre propre VPS (OVH, Scaleway, Hostinger) signifie que vos factures ne transitent jamais par un serveur tiers. Seul le texte extrait est envoyé à l'API OpenAI - jamais le PDF original. Conforme RGPD.</p>
+            <p>💡 <strong>Souveraineté des données :</strong> vos données financières sont sensibles. n8n self-hosted sur votre VPS (OVH, Scaleway, Hostinger) garantit qu'elles ne transitent par aucune plateforme tierce. Seuls les agrégats nécessaires au commentaire de gestion sont envoyés au LLM, jamais la balance complète.</p>
         </div>
 
-        <h2>Comment fonctionne le workflow n8n, étape par étape</h2>
-
-        <p>Le workflow complet se décompose en 6 étapes automatiques, déclenchées dès qu'une facture arrive dans votre boîte mail :</p>
+        <h2>Le workflow n8n, étape par étape</h2>
 
         <div class="step-block">
             <div class="step-num">01</div>
             <div class="step-content">
-                <h3>Détection de la facture</h3>
-                <p>Un nœud <strong>Gmail Trigger</strong> (ou Outlook) surveille votre boîte mail en temps réel. Dès qu'un email contient une pièce jointe PDF avec un objet contenant "facture", "invoice" ou "avoir", le workflow se déclenche automatiquement. Les spams et emails non pertinents sont filtrés par une règle de pré-traitement.</p>
+                <h3>Transcription des covenants du contrat en règles</h3>
+                <p>Étape fondatrice, faite une seule fois : chaque covenant du contrat de crédit est transcrit en règle de calcul explicite, avec sa définition contractuelle exacte (retraitements EBITDA inclus), son seuil, sa fréquence de test et sa date de remise. Ces règles vivent dans une table de configuration (Sheets ou Notion), relue par votre expert-comptable ou votre avocat.</p>
             </div>
         </div>
 
         <div class="step-block">
             <div class="step-num">02</div>
             <div class="step-content">
-                <h3>Extraction des données par GPT-4o</h3>
-                <p>Le PDF est converti en texte puis envoyé à l'API <strong>OpenAI GPT-4o</strong> avec un prompt structuré demandant d'extraire : nom du fournisseur, numéro de facture, date d'émission, date d'échéance, montant HT, TVA, montant TTC, IBAN si présent, et référence commande. GPT-4o retourne un JSON propre, même sur des formats de factures non standardisés.</p>
+                <h3>Collecte automatique des données comptables</h3>
+                <p>À chaque clôture mensuelle (ou sur déclencheur planifié), n8n interroge l'API de votre logiciel comptable : balance générale, endettement, trésorerie, agrégats du compte de résultat. Aucune ressaisie, aucune extraction manuelle.</p>
             </div>
         </div>
 
         <div class="step-block">
             <div class="step-num">03</div>
             <div class="step-content">
-                <h3>Validation et détection des anomalies</h3>
-                <p>Un nœud de logique conditionnelle vérifie la cohérence des données extraites : montant TTC = HT + TVA, date d'échéance dans le futur, fournisseur présent dans votre base. Si une anomalie est détectée (montant manquant, fournisseur inconnu, doublon), une alerte est envoyée sur <strong>Slack ou par email</strong> pour traitement manuel. Les factures conformes passent automatiquement à l'étape suivante.</p>
+                <h3>Calcul des ratios et comparaison aux seuils</h3>
+                <p>Le workflow applique les règles de l'étape 1 : dette nette / EBITDA, DSCR, gearing, etc. Chaque ratio est comparé à son seuil contractuel <strong>et à un seuil d'alerte précoce</strong> (typiquement 85-90% de la limite). L'historique est archivé pour visualiser la trajectoire sur 12-24 mois.</p>
             </div>
         </div>
 
         <div class="step-block">
             <div class="step-num">04</div>
             <div class="step-content">
-                <h3>Archivage dans Google Drive</h3>
-                <p>Le PDF original est archivé dans <strong>Google Drive</strong> selon une arborescence automatique : <code>Factures / 2026 / Mars / Fournisseur_NomFacture.pdf</code>. Plus aucun document perdu, une organisation cohérente et consultable en quelques secondes depuis n'importe quel appareil.</p>
+                <h3>Alertes précoces avant tout risque de breach</h3>
+                <p>Ratio dans le vert : simple ligne dans le tableau de bord. Ratio en zone d'alerte : notification Slack ou email au dirigeant et au DAF avec le détail du calcul et la tendance. Vous découvrez une dégradation <strong>2 à 3 clôtures avant le franchissement du seuil</strong>, quand il est encore temps d'agir sur le BFR, les capex ou d'ouvrir le dialogue avec la banque.</p>
             </div>
         </div>
 
         <div class="step-block">
             <div class="step-num">05</div>
             <div class="step-content">
-                <h3>Enregistrement dans le registre comptable</h3>
-                <p>Les données structurées sont insérées dans un <strong>Google Sheets</strong> (ou Notion, Airtable, votre CRM) servant de registre comptable : date de réception, fournisseur, numéro de facture, montants, statut (À payer / Payée / Litige), date d'échéance. Votre comptable ou expert-comptable a accès en lecture à ce registre en temps réel.</p>
+                <h3>Certificat de conformité pré-rempli par l'IA</h3>
+                <p>À chaque date de test contractuelle, le LLM génère un projet de certificat de conformité : ratios calculés, comparaison aux seuils, commentaire de gestion expliquant les variations. La direction relit, ajuste, signe. Ce qui prenait une demi-journée devient une relecture de 20 minutes.</p>
             </div>
         </div>
 
         <div class="step-block">
             <div class="step-num">06</div>
             <div class="step-content">
-                <h3>Notification et reporting</h3>
-                <p>Un récapitulatif quotidien est envoyé chaque matin à 8h : nouvelles factures reçues, échéances à venir dans les 7 jours, anomalies en attente de traitement. Un tableau de bord Google Sheets se met à jour en temps réel avec les indicateurs clés : encours fournisseurs, délai moyen de paiement, fournisseurs les plus actifs.</p>
+                <h3>Calendrier des obligations d'information</h3>
+                <p>Le même workflow suit les covenants non financiers : rappels automatiques avant chaque échéance de remise (comptes annuels, situations intermédiaires, budget), avec escalade si le document n'est pas marqué comme envoyé. Plus aucun défaut technique pour un simple oubli de calendrier.</p>
             </div>
         </div>
 
-        <h2>Résultats réels chez nos clients</h2>
+        <h2>Pour quelles entreprises ce workflow a-t-il du sens ?</h2>
 
-        <p>Ce workflow a été déployé pour plusieurs cabinets comptables et PME françaises. Voici les résultats constatés après 30 jours de production :</p>
+        <p>L'automatisation du suivi des covenants est pertinente dès que :</p>
+        <ul>
+            <li>Vous portez une <strong>dette bancaire structurée</strong> : crédit moyen terme avec covenants, dette LBO, crédit syndiqué, financement d'acquisition.</li>
+            <li>Votre contrat prévoit des <strong>tests trimestriels ou semestriels</strong> avec certificat de conformité.</li>
+            <li>Votre comptabilité est tenue sur un outil disposant d'une API (Pennylane, Sage, QuickBooks, ACD, voire un export automatisé).</li>
+            <li>Le suivi repose aujourd'hui sur <strong>une seule personne et un fichier Excel</strong>.</li>
+        </ul>
 
-        <p><strong>Cabinet comptable, Levallois (92)</strong> - 400 factures fournisseurs par mois, traitées manuellement par une collaboratrice à temps plein. Après déploiement du workflow n8n : temps de traitement réduit de 30 heures à moins de 2 heures de supervision. La collaboratrice a été réaffectée à des missions à plus forte valeur ajoutée (conseil client, déclarations fiscales).</p>
+        <p>C'est aussi un excellent chantier pour les <strong>cabinets d'expertise comptable</strong> et les <strong>DAF externalisés</strong> qui suivent les covenants de plusieurs clients : le même workflow se duplique par client, avec sa propre table de règles.</p>
 
-        <p><strong>PME industrielle, Nanterre (92)</strong> - 180 factures/mois de 12 fournisseurs différents avec des formats très hétérogènes (PDF, scan, Word). GPT-4o a atteint 97% de précision d'extraction dès la première semaine. Les 3% d'anomalies sont traités manuellement en moins de 10 minutes par jour.</p>
-
-        <h2>Combien de temps faut-il pour déployer ce workflow ?</h2>
+        <h2>Combien de temps pour déployer ce workflow ?</h2>
 
         <p>Avec Oakflow AI, le déploiement complet prend <strong>2 à 3 semaines</strong> :</p>
 
         <ul>
-            <li><strong>Semaine 1</strong> : audit de vos processus actuels, identification des sources de factures (email, portail fournisseur, EDI), choix des outils cibles.</li>
-            <li><strong>Semaine 2</strong> : développement du workflow n8n, configuration de GPT-4o, tests sur un échantillon de vos factures réelles.</li>
-            <li><strong>Semaine 3</strong> : mise en production progressive, formation de votre équipe (1h), ajustements selon les retours terrain.</li>
+            <li><strong>Semaine 1</strong> : lecture du contrat de crédit avec vous (et votre expert-comptable), transcription des covenants en règles de calcul, validation des définitions contractuelles.</li>
+            <li><strong>Semaine 2</strong> : développement du workflow n8n, connexion à votre logiciel comptable, calculs testés sur vos 4 dernières clôtures pour vérifier la cohérence avec vos certificats passés.</li>
+            <li><strong>Semaine 3</strong> : mise en production, paramétrage des alertes et du calendrier d'échéances, formation de votre équipe.</li>
         </ul>
-
-        <p>Le ROI est atteint en moins d'un mois dans la quasi-totalité des cas. Pour une PME économisant 20 heures de travail mensuel à un coût horaire de 25€, le gain est de 500€/mois - bien au-dessus du coût d'implémentation amorti sur 12 mois.</p>
-
-        <h2>Ce workflow est-il adapté à votre situation ?</h2>
-
-        <p>Ce type d'automatisation convient parfaitement si :</p>
-        <ul>
-            <li>Vous recevez plus de <strong>50 factures fournisseurs par mois</strong>.</li>
-            <li>Vos factures arrivent principalement par <strong>email</strong> (ou portail web).</li>
-            <li>Vous utilisez Gmail, Outlook, Google Drive, Notion ou un CRM standard.</li>
-            <li>Vous cherchez à réduire les erreurs de saisie et les délais de paiement.</li>
-        </ul>
-
-        <p>Si vous recevez moins de 50 factures/mois, un workflow simplifié (sans extraction LLM) peut déjà vous faire gagner 5 à 8 heures par mois pour quelques dizaines d'euros.</p>
 
         <div class="article-cta">
-            <h2>Votre PME traite encore ses factures à la main ?</h2>
-            <p>Réservez un audit gratuit de 30 minutes. Nous analysons votre processus actuel et vous proposons un chiffrage précis sous 48h.</p>
+            <h2>Vos covenants vivent encore dans un Excel ?</h2>
+            <p>Réservez un échange gratuit de 30 minutes. Nous analysons votre contrat de financement et vous proposons un chiffrage précis sous 48h.</p>
             <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
                 Réserver mon audit gratuit →
             </a>
@@ -565,12 +597,12 @@
 
         <div class="article-related">
             <h3>Nos services associés</h3>
-            <p>Vous souhaitez aller plus loin ? Découvrez <a href="/services/workflows-n8n">nos workflows n8n sur-mesure pour PME</a> ou <a href="/services/integration-llm">l'intégration LLM dans vos processus métiers</a>. Côté réglementaire, lisez aussi notre guide sur <a href="/blog/e-reporting-plateforme-agreee-2026">l'e-reporting et les plateformes agréées 2026</a>. Pour la mise en œuvre technique, suivez notre guide pour <a href="/blog/n8n-pennylane-automatisation-facture-electronique">automatiser la comptabilité avec n8n et Pennylane</a>. Si votre PME porte une dette bancaire, découvrez aussi notre guide sur <a href="/blog/automatisation-suivi-covenants">l'automatisation du suivi des covenants bancaires</a>.</p>
+            <p>Vous souhaitez aller plus loin ? Découvrez <a href="/services/workflows-n8n">nos workflows n8n sur-mesure pour PME</a> ou <a href="/services/integration-llm">l'intégration LLM dans vos processus métiers</a>. Sur le même périmètre finance, lisez aussi comment <a href="/blog/automatiser-comptabilite">automatiser le traitement des factures fournisseurs</a> et comment <a href="/blog/relance-impayes-ia">réduire votre DSO avec la relance d'impayés par IA</a>.</p>
         </div>
 
         <div class="article-nav">
             <a href="/blog">← Retour au blog</a>
-            <a href="/blog/automatiser-prospection-commerciale">Automatiser la prospection commerciale →</a>
+            <a href="/blog/automatiser-comptabilite">Automatiser la comptabilité PME →</a>
         </div>
 
     </article>
