@@ -18,6 +18,12 @@
         { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
     ],
     "redirects": [
+        {
+            "source": "/:path*",
+            "has": [{ "type": "host", "value": "oakflowai.com" }],
+            "destination": "https://www.oakflowai.com/:path*",
+            "permanent": true
+        },
         { "source": "/blog/parcours-expert-ia", "destination": "/#about", "permanent": true },
         { "source": "/blog/parcours-expert-ia.html", "destination": "/#about", "permanent": true },
         { "source": "/index.html", "destination": "/", "permanent": true },
