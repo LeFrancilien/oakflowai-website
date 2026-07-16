@@ -10,10 +10,10 @@
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
     </script>
-    <title>n8n + Pennylane : automatiser la facture électronique 2026</title>
+    <title>n8n + Pennylane : facture électronique 2026 [Template Inclus]</title>
     <meta name="description" content="Connectez n8n à l'API Pennylane et automatisez votre comptabilité avant la réforme facture électronique de septembre 2026. 5 workflows concrets, ROI mesuré, guide pas à pas." />
     <meta name="author" content="Cyril DE LA RUE" />
-    <meta name="last-modified" content="2026-07-03" />
+    <meta name="last-modified" content="2026-07-16" />
     <link rel="canonical" href="https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
@@ -37,7 +37,7 @@
       "headline": "n8n + Pennylane : 5 automatisations avant la facture électronique (2026)",
       "description": "Connectez n8n à l'API Pennylane pour automatiser facturation, relances impayés, réconciliation bancaire et reporting comptable avant la réforme de septembre 2026.",
       "datePublished": "2026-06-01",
-      "dateModified": "2026-07-03",
+      "dateModified": "2026-07-16",
       "author": {
         "@type": "Person",
         "name": "Cyril DE LA RUE",
@@ -217,6 +217,42 @@
             margin: 28px 0;
         }
         .warning-box p { margin: 0; font-size: 15px; }
+        .template-box {
+            background: rgba(0, 229, 176, 0.05);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+        .template-box pre {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            overflow-x: auto;
+            max-height: 420px;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        .template-box code {
+            color: rgba(240, 244, 255, 0.85);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 12.5px;
+            line-height: 1.55;
+            white-space: pre;
+        }
+        .btn-copy-json {
+            background: var(--accent);
+            color: #0a0f1a;
+            border: none;
+            border-radius: 100px;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        .btn-copy-json:hover { opacity: 0.85; }
         .result-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -479,6 +515,7 @@
                 <li><a href="#auto-1">Automatisation 1 : Facturation automatique depuis le CRM</a></li>
                 <li><a href="#auto-2">Automatisation 2 : Réconciliation bancaire et matching des paiements</a></li>
                 <li><a href="#auto-3">Automatisation 3 : Relances impayés intelligentes</a></li>
+                <li><a href="#template">🎁 Template n8n x Pennylane gratuit à télécharger</a></li>
                 <li><a href="#auto-4">Automatisation 4 : Import des factures fournisseurs par email</a></li>
                 <li><a href="#auto-5">Automatisation 5 : Reporting comptable hebdomadaire automatique</a></li>
                 <li><a href="#demarrage">Guide de démarrage : connecter n8n à Pennylane</a></li>
@@ -642,6 +679,132 @@
         <div class="info-box">
             <p><strong>Résultat observé :</strong> un cabinet de conseil de 12 personnes a réduit son DSO moyen de 52 jours à 34 jours en 3 mois, soit 18 jours de trésorerie récupérés. Le taux de recouvrement sur les relances automatiques dépasse 78%. Voir aussi notre article sur la <a href="/blog/relance-impayes-ia">relance des impayés avec l'IA</a> pour le détail des séquences.</p>
         </div>
+
+        <h2 id="template">🎁 Téléchargez notre Template n8n x Pennylane gratuit</h2>
+
+        <p>Plutôt que de partir de zéro, importez directement ce workflow dans votre instance n8n. C'est une version simplifiée de l'automatisation 3 : chaque matin à 8h, il interroge l'API Pennylane, isole les factures impayées dont l'échéance est dépassée, et envoie une relance par email. Il ne vous reste qu'à brancher vos identifiants (clé API Pennylane en Bearer, compte Gmail) et à personnaliser le message.</p>
+
+        <p><strong>Comment l'importer :</strong> copiez le JSON ci-dessous avec le bouton, puis dans n8n faites simplement <strong>Ctrl+V</strong> sur le canvas d'un workflow vide (ou menu ⋯ → "Import from clipboard"). Aucune donnée sensible n'est incluse : vous connectez vos propres credentials.</p>
+
+        <div class="template-box">
+            <button class="btn-copy-json" id="copyWorkflowJson">📋 Copier le JSON du Workflow</button>
+            <pre><code id="workflowJsonTemplate">{
+  "name": "[TEMPLATE] Relance factures impayées Pennylane - Oakflow AI",
+  "nodes": [
+    {
+      "id": "schedule-trigger",
+      "name": "Tous les matins 8h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "days", "daysInterval": 1, "triggerAtHour": 8, "triggerAtMinute": 0 }]
+        }
+      }
+    },
+    {
+      "id": "http-pennylane",
+      "name": "Pennylane - Factures impayées",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [540, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "https://app.pennylane.com/api/external/v1/customer_invoices",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendQuery": true,
+        "specifyQuery": "keypair",
+        "queryParameters": {
+          "parameters": [
+            { "name": "filter", "value": "[{\"field\":\"status\",\"operator\":\"eq\",\"value\":\"unpaid\"}]" },
+            { "name": "per_page", "value": "100" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "split-invoices",
+      "name": "Une facture par item",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [840, 300],
+      "parameters": { "fieldToSplitOut": "invoices" }
+    },
+    {
+      "id": "if-overdue",
+      "name": "Échéance dépassée ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [1140, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.deadline }}",
+              "operator": { "type": "dateTime", "operation": "before" },
+              "rightValue": "={{ $today }}"
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "gmail-reminder",
+      "name": "Relance par email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [1440, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "compta@votre-entreprise.fr",
+        "subject": "=Relance facture {{ $json.invoice_number }} - échéance dépassée",
+        "emailType": "html",
+        "message": "=&lt;p&gt;Bonjour,&lt;/p&gt;&lt;p&gt;La facture &lt;strong&gt;{{ $json.invoice_number }}&lt;/strong&gt; ({{ $json.amount }} {{ $json.currency }}) émise pour &lt;strong&gt;{{ $json.customer.name }}&lt;/strong&gt; est arrivée à échéance le &lt;strong&gt;{{ $json.deadline }}&lt;/strong&gt; et reste impayée.&lt;/p&gt;&lt;p&gt;Lien : {{ $json.public_file_url }}&lt;/p&gt;&lt;p&gt;-- Relance automatique n8n x Pennylane (Oakflow AI)&lt;/p&gt;"
+      }
+    },
+    {
+      "id": "sticky-guide",
+      "name": "Guide de configuration",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [190, 250],
+      "parameters": {
+        "content": "## Relance factures impayées Pennylane\n1. Créez une credential Bearer avec votre clé API Pennylane\n2. Connectez votre compte Gmail\n3. Renseignez le destinataire de la relance\nTemplate offert par oakflowai.com",
+        "color": 4,
+        "width": 600,
+        "height": 200
+      }
+    }
+  ],
+  "connections": {
+    "Tous les matins 8h": { "main": [[{ "node": "Pennylane - Factures impayées", "type": "main", "index": 0 }]] },
+    "Pennylane - Factures impayées": { "main": [[{ "node": "Une facture par item", "type": "main", "index": 0 }]] },
+    "Une facture par item": { "main": [[{ "node": "Échéance dépassée ?", "type": "main", "index": 0 }]] },
+    "Échéance dépassée ?": { "main": [[{ "node": "Relance par email", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}</code></pre>
+            <p style="margin: 0; font-size: 14px;">💡 Pour aller plus loin (séquences J+7/J+21/J+45, relances rédigées par IA, escalade Slack), c'est exactement ce que nous déployons en prestation — ou consultez notre article sur la <a href="/blog/relance-impayes-ia">relance des impayés avec l'IA</a>.</p>
+        </div>
+
+        <script>
+            document.getElementById('copyWorkflowJson').addEventListener('click', function () {
+                var btn = this;
+                var json = document.getElementById('workflowJsonTemplate').textContent;
+                navigator.clipboard.writeText(json).then(function () {
+                    btn.textContent = '✅ Copié ! Collez-le dans n8n (Ctrl+V)';
+                    setTimeout(function () { btn.textContent = '📋 Copier le JSON du Workflow'; }, 3000);
+                }).catch(function () {
+                    btn.textContent = '❌ Copie impossible - sélectionnez le texte manuellement';
+                });
+            });
+        </script>
 
         <h2 id="auto-4">Automatisation 4 : Import des factures fournisseurs par email</h2>
 
