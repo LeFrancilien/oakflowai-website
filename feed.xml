@@ -8,13 +8,145 @@
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
     <managingEditor>contact@oakflowai.com (Cyril DE LA RUE)</managingEditor>
     <webMaster>contact@oakflowai.com (Cyril DE LA RUE)</webMaster>
-    <lastBuildDate>Fri, 01 May 2026 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 09:00:00 +0200</lastBuildDate>
     <atom:link href="https://www.oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://www.oakflowai.com/logo-oakflow-v2.png</url>
       <title>Oakflow AI</title>
       <link>https://www.oakflowai.com</link>
     </image>
+
+    <item>
+      <title>Automatisation du suivi des covenants bancaires : le guide n8n + IA (2026)</title>
+      <link>https://www.oakflowai.com/blog/automatisation-suivi-covenants</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/automatisation-suivi-covenants</guid>
+      <pubDate>Thu, 16 Jul 2026 09:00:00 +0200</pubDate>
+      <description>Automatisation du suivi des covenants bancaires : workflow n8n + IA pour calculer vos ratios (levier, DSCR, gearing), détecter les risques de breach en avance et pré-remplir vos certificats de conformité.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Automatisation</category>
+      <category>Finance</category>
+      <category>n8n</category>
+    </item>
+
+    <item>
+      <title>Thinking Mode et Plan Mode de Claude Code : le guide (2026)</title>
+      <link>https://www.oakflowai.com/blog/claude-code-thinking-mode</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/claude-code-thinking-mode</guid>
+      <pubDate>Fri, 03 Jul 2026 09:00:00 +0200</pubDate>
+      <description>Guide des deux modes de Claude Code : le thinking mode (think, ultrathink) pour un raisonnement plus profond, et le plan mode pour valider un plan avant toute modification. Exemples et retour d'expérience.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Tutoriel</category>
+      <category>Claude Code</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Claude Code Skill : créer un skill sur-mesure (guide 2026)</title>
+      <link>https://www.oakflowai.com/blog/claude-code-skill-guide</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/claude-code-skill-guide</guid>
+      <pubDate>Thu, 02 Jul 2026 10:00:00 +0200</pubDate>
+      <description>Guide expert pour créer, packager et déployer un skill Claude Code sur-mesure qui connecte l'agent à vos API d'entreprise. Structure SKILL.md, exemple concret, déploiement.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Tutoriel</category>
+      <category>Claude Code</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Installer Claude Code (CLI Anthropic) : le guide 2026</title>
+      <link>https://www.oakflowai.com/blog/claude-code-installation-guide</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/claude-code-installation-guide</guid>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 +0200</pubDate>
+      <description>Guide pas-à-pas pour installer Claude Code, la CLI d'Anthropic : prérequis Node.js, clé API, commandes terminal. Plus notre retour d'expérience en entreprise.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Tutoriel</category>
+      <category>Claude Code</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Installer n8n sur son serveur : self-hosted vs cloud (2026)</title>
+      <link>https://www.oakflowai.com/blog/guide-configuration-serveur-n8n</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/guide-configuration-serveur-n8n</guid>
+      <pubDate>Thu, 02 Jul 2026 08:00:00 +0200</pubDate>
+      <description>Guide 2026 pour déployer n8n sur votre propre serveur : Cloud vs self-hosted, installation Docker sur un VPS, sécurité RGPD et Queue Mode pour la performance.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Tutoriel</category>
+      <category>n8n</category>
+      <category>RGPD</category>
+    </item>
+
+    <item>
+      <title>Oakflow AI OS : l'assistante de direction IA des PME (beta)</title>
+      <link>https://www.oakflowai.com/blog/oakflow-ai-os-beta</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/oakflow-ai-os-beta</guid>
+      <pubDate>Sat, 13 Jun 2026 12:00:00 +0200</pubDate>
+      <description>Oakflow AI OS ouvre sa beta le 16 juin : 8 agents IA pour libérer les dirigeants de PME des tâches d'organisation. 10 places, 30 jours, sans carte bancaire.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Produit</category>
+      <category>Agents IA</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Souveraineté IA : et si votre fournisseur coupait l'accès ?</title>
+      <link>https://www.oakflowai.com/blog/souverainete-ia-pme-multi-modeles</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/souverainete-ia-pme-multi-modeles</guid>
+      <pubDate>Sat, 13 Jun 2026 11:00:00 +0200</pubDate>
+      <description>Une directive US a coupé l'accès à des modèles d'IA hors USA. Pourquoi votre PME a besoin d'une architecture multi-modèles et self-hosted avec n8n.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Stratégie</category>
+      <category>Souveraineté</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>AI Act 2026 : le guide de conformité pour les PME</title>
+      <link>https://www.oakflowai.com/blog/ai-act-2026-conformite-pme</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/ai-act-2026-conformite-pme</guid>
+      <pubDate>Sat, 13 Jun 2026 10:00:00 +0200</pubDate>
+      <description>Calendrier, obligations et checklist AI Act pour les PME : AI literacy, transparence, haut risque. Ce qu'il faut faire avant le 2 août 2026.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Gouvernance</category>
+      <category>AI Act</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>Agents IA pour PME : 5 cas déployables en 2026 (n8n)</title>
+      <link>https://www.oakflowai.com/blog/agents-ia-autonomes-pme-2026</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/agents-ia-autonomes-pme-2026</guid>
+      <pubDate>Sat, 13 Jun 2026 09:00:00 +0200</pubDate>
+      <description>5 agents IA autonomes déployables en PME avec n8n : relance d'impayés, qualification de leads, support, devis, veille. Cas concrets, ROI et pièges.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Agents IA</category>
+      <category>n8n</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>e-reporting &amp; Plateforme Agréée : le guide PME 2026</title>
+      <link>https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/e-reporting-plateforme-agreee-2026</guid>
+      <pubDate>Sat, 13 Jun 2026 08:00:00 +0200</pubDate>
+      <description>e-reporting, Plateforme Agréée, formats Factur-X : ce que la réforme 2026 exige, et comment combler les trous de votre logiciel avec n8n.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Comptabilité</category>
+      <category>Facture électronique</category>
+      <category>IA PME</category>
+    </item>
+
+    <item>
+      <title>n8n + Pennylane : automatiser la facture électronique 2026</title>
+      <link>https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/n8n-pennylane-automatisation-facture-electronique</guid>
+      <pubDate>Mon, 01 Jun 2026 09:00:00 +0200</pubDate>
+      <description>Connectez n8n à l'API Pennylane et automatisez votre comptabilité avant la réforme facture électronique de septembre 2026. 5 workflows concrets, ROI mesuré, guide pas à pas.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Comptabilité</category>
+      <category>n8n</category>
+      <category>Pennylane</category>
+    </item>
 
     <item>
       <title>Shadow IA en PME : ce que vos salariés utilisent à votre insu (2026)</title>
