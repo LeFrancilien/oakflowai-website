@@ -318,6 +318,7 @@
         @media (max-width: 600px) {
             .result-grid { grid-template-columns: 1fr 1fr; }
             .article-cta { padding: 28px 20px; }
+            .stack-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
         }
     </style>
 </head>
@@ -387,7 +388,7 @@
                 <li><a href="#make">Make : le meilleur rapport qualité-prix</a></li>
                 <li><a href="#n8n">n8n : l'outil des workflows IA</a></li>
                 <li><a href="#n8n-vs-make">n8n ou Make : comparaison directe</a></li>
-                <li><a href="#prix">Comparatif des prix réels</a></li>
+                <li><a href="#prix">Prix n8n vs Zapier vs Make : le coût réel</a></li>
                 <li><a href="#verdict">Quel outil choisir ?</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ol>
@@ -605,7 +606,53 @@
             <p>Dans notre pratique terrain : nous déployons n8n pour <strong>~80% de nos clients PME</strong> en France. Make est notre recommandation pour les 20% restants qui veulent être autonomes rapidement sur des cas simples.</p>
         </div>
 
-        <h2 id="prix">Comparatif des prix réels pour une PME française</h2>
+        <h2 id="prix">Prix n8n vs Zapier vs Make : quel est le coût réel ?</h2>
+
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table class="stack-table" style="min-width: 640px;">
+            <thead>
+                <tr>
+                    <th>Critère / Outil</th>
+                    <th>Zapier (Starter)</th>
+                    <th>Make (Pro)</th>
+                    <th>n8n Cloud</th>
+                    <th>n8n Self-Hosted (conseillé PME)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Prix de départ</td>
+                    <td>~20$/mois (facturation annuelle)</td>
+                    <td>~16$/mois</td>
+                    <td>20€/mois</td>
+                    <td>0€/mois (gratuit, open-source)</td>
+                </tr>
+                <tr>
+                    <td>Coût d'infrastructure</td>
+                    <td>Inclus</td>
+                    <td>Inclus</td>
+                    <td>Inclus</td>
+                    <td>~5 à 15€/mois (hébergement VPS français)</td>
+                </tr>
+                <tr>
+                    <td>Volume d'exécutions</td>
+                    <td>Limité (payé à la tâche)</td>
+                    <td>Limité (payé à l'opération)</td>
+                    <td>Limité par plan</td>
+                    <td>Illimité (aucun frais au volume)</td>
+                </tr>
+                <tr>
+                    <td>Souveraineté des données</td>
+                    <td>Non (SaaS fermé)</td>
+                    <td>Non (SaaS fermé)</td>
+                    <td>Non (SaaS)</td>
+                    <td>Oui (100 % hébergé chez vous)</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <p><strong>Notre analyse d'experts :</strong> si le prix de n8n Cloud est très proche de ses concurrents, le véritable avantage réside dans la version <strong>n8n self-hosted</strong>. En hébergeant n8n sur votre propre VPS, vous éliminez la barrière du coût au volume. C'est précisément l'architecture que nous déployons pour nos clients PME chez Oakflow AI : un outil ultra-puissant, sécurisé, pour le prix d'un simple serveur à 10€ par mois.</p>
 
         <p>Combien coûte n8n en version cloud vs self-hosted, face aux abonnements Zapier et Make ? Prenons un cas concret : une PME avec 3 workflows actifs - traitement de factures, qualification de leads, et notifications automatiques - générant <strong>10 000 actions par mois</strong>.</p>
 
