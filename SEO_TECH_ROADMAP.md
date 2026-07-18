@@ -62,7 +62,7 @@
 
 ## 🟦 Priorité 3 : Les Avis (Crawl Budget & Maillage)
 
-### [ ] Tâche 3.1 : Rapatrier en local les ressources externes bloquées (24 ressources)
+### [x] Tâche 3.1 : Rapatrier en local les ressources externes bloquées (24 ressources) — vérifié le 18/07 : plus aucun appel api.iconify.design dans le HTML, 42 références vers /assets/icons/ locaux
 * **Problème :** Semrush détecte que Googlebot est bloqué par le fichier `robots.txt` d'un tiers lorsqu'il tente de lire tes icônes de logos (`https://api.iconify.design/...`). Cela nuit au rendu de ta page.
 * **Ressources concernées :** `pipedrive.svg`, `hubspot.svg`, `microsoft-teams.svg`, `lucide:shield-check`, `google-gmail.svg`, etc.
 * **Instructions pour Fable V :**
@@ -70,13 +70,13 @@
   2. Télécharge ces fichiers `.svg` directement dans le dossier local de ton projet (ex: `/assets/logos/`).
   3. Modifie les chemins dans ton code HTML pour pointer vers tes fichiers locaux (Exemple : `<img src="/assets/logos/hubspot.svg" ... />`).
 
-### [ ] Tâche 3.2 : Corriger les 5 liens internes avec redirections permanentes (301)
+### [x] Tâche 3.2 : Corriger les 5 liens internes avec redirections permanentes (301) — fait le 18/07 : scan complet (http, non-www, .html, slash final, anciens slugs) = HTML et sitemap propres ; 1 lien /blog/ corrigé dans feed.xml
 * **Problème :** Ton site fait des liens internes vers des pages en faisant travailler inutilement le robot (Exemple : pointer vers `http` au lieu de `https`, ou oublier le slash de fin, forçant une redirection).
 * **Instructions pour Fable V :**
   1. Trouve les liens internes qui pointent vers des anciennes versions d'URL.
   2. Mets à jour le code source pour pointer directement vers l'URL finale en `https://www.` sans passer par la case redirection.
 
-### [ ] Tâche 3.3 : Renforcer les 3 pages "orphelines" (1 seul lien interne entrant)
+### [x] Tâche 3.3 : Renforcer les 3 pages "orphelines" (1 seul lien interne entrant) — fait le 18/07 : +6 liens contextuels, toutes les pages ont désormais ≥ 3 liens internes entrants (article OpenAI EN, n8n-cloud, covenants, assistant-vocal)
 * **Problème :** 3 pages de ton site ne reçoivent qu'un seul lien depuis le reste de ton site. Elles manquent de "jus de lien".
 * **Instructions pour Fable V :**
   1. Identifie ces 3 pages (généralement des articles récents du blog).

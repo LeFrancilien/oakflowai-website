@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oakflow AI — Blog Automatisation IA pour PME</title>
-    <link>https://www.oakflowai.com/blog/</link>
+    <link>https://www.oakflowai.com/blog</link>
     <description>Guides pratiques, retours d'expérience et outils pour automatiser votre PME avec n8n, l'IA et les LLM.</description>
     <language>fr-FR</language>
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
