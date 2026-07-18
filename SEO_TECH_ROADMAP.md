@@ -8,7 +8,7 @@
 ## 🟥 Priorité 1 : Les Erreurs Critiques (Données Structurées)
 > **Statut global :** 5 éléments de données structurées `LocalBusiness` ne sont pas valides (1 champ obligatoire manquant).
 
-### [ ] Tâche 1.1 : Corriger le Schéma `LocalBusiness` sur les 5 URL cibles
+### [x] Tâche 1.1 : Corriger le Schéma `LocalBusiness` sur les 5 URL cibles — fait (c492b10, 16/07 : telephone + priceRange ajoutés ; vérifié en live le 18/07, relancer l'audit Semrush)
 * **URLs impactées :**
   1. `https://www.oakflowai.com/` (Page d'accueil)
   2. `/services/assistant-vocal`
@@ -40,20 +40,20 @@
 
 ## 🟧 Priorité 2 : Les Avertissements (On-Page & Performance)
 
-### [ ] Tâche 2.1 : Traiter les 45 fichiers CSS et JS non minimisés
+### [x] Tâche 2.1 : Traiter les 45 fichiers CSS et JS non minimisés — fait (build.js + esbuild minifient style.css et main.js au build Vercel ; minification vérifiée en prod le 18/07)
 * **Ressources critiques identifiées :** `style.css` et `main.js`.
 * **Instructions pour Fable V :** 
   1. Examine si l'environnement Vercel utilise un bundler (Vite, PostCSS, Terser) lors du build.
   2. Si le projet est en HTML/CSS brut, applique une minification des fichiers `/style.css` et `/main.js` pour éliminer les espaces et commentaires inutiles, ou configure l'étape d'optimisation automatique dans le script de déploiement.
 
-### [ ] Tâche 2.2 : Réduire la longueur des balises `<title>` (7 pages)
+### [x] Tâche 2.2 : Réduire la longueur des balises `<title>` (7 pages) — fait le 18/07 (4 titles restants raccourcis ≤ 60 caractères, les 3 autres déjà retravaillés par les commits SEO du 17/07)
 * **Problème :** Balises de titre trop longues qui risquent d'être tronquées (coupées) dans les résultats de recherche Google.
 * **Instructions pour Fable V :** 
   1. Scane l'ensemble des fichiers HTML du projet.
   2. Repère les 7 pages dont le `<title>` dépasse **60 caractères**.
   3. Réécris-les de façon concise en conservant le mot-clé principal au début (Exemple : `Agence Automatisation Make pour PME | OakFlowAI`).
 
-### [ ] Tâche 2.3 : Résoudre les doublons H1 / Title (4 pages)
+### [x] Tâche 2.3 : Résoudre les doublons H1 / Title (4 pages) — vérifié le 18/07 : plus aucun title strictement identique à son H1 sur les 45 pages (résolu par les refontes de titles précédentes)
 * **Problème :** 4 pages possèdent exactement la même chaîne de texte dans leur balise `<title>` et leur balise `<h1>`. 
 * **Instructions pour Fable V :**
   1. Modifie le `<h1>` ou le `<title>` de ces 4 pages pour apporter de la nuance sémantique (Le titre doit cibler le clic utilisateur, le H1 doit introduire la lecture de la page).
