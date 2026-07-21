@@ -327,6 +327,36 @@
     }
     </script>
 
+    <!-- JSON-LD Schema - VideoObject (démonstration LocalFlow Pro).
+         duration au format ISO 8601 : PT32S pour 31,83 s réelles, arrondi
+         supérieur comme le veut la documentation Google. contentUrl pointe
+         vers getlocalflowpro.com, où le fichier est réellement servi — un
+         contentUrl qui ne répond pas fait rejeter le balisage entier. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "LocalFlow Pro — démonstration de la dictée vocale IA 100 % locale",
+      "description": "Démonstration de LocalFlow Pro : dictée vocale sur Windows par simple raccourci, transcription et correction exécutées entièrement sur la machine de l'utilisateur, et serveur MCP permettant aux agents IA de déclencher la dictée et de répondre à voix haute. Aucune donnée vocale ne transite par le cloud.",
+      "thumbnailUrl": "https://www.getlocalflowpro.com/assets/video/promo-poster.jpg",
+      "uploadDate": "2026-07-21T15:05:00+02:00",
+      "duration": "PT32S",
+      "contentUrl": "https://www.getlocalflowpro.com/assets/video/localflow-promo-horizontal.mp4",
+      "inLanguage": "fr-FR",
+      "isFamilyFriendly": true,
+      "creator": { "@id": "https://www.oakflowai.com/#organization" },
+      "publisher": { "@id": "https://www.oakflowai.com/#organization" },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LocalFlow Pro",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows 10, Windows 11",
+        "softwareVersion": "1.1.1",
+        "url": "https://www.getlocalflowpro.com/"
+      }
+    }
+    </script>
+
     <!-- JSON-LD Schema - FAQPage (Rich Snippets Google) -->
     <script type="application/ld+json">
     {
@@ -1195,19 +1225,34 @@
         <div class="container">
             <div class="label cs-label reveal" style="justify-content:center;">Étude de cas · Projet phare</div>
             <h2 class="reveal">LocalFlow Pro : Conception et Déploiement<br />d'une <span class="cs-hl">Infrastructure IA Souveraine</span></h2>
-            <p class="sec-desc reveal" style="text-align:center; max-width:680px; margin:0 auto 56px;">
+            <p class="sec-desc reveal" style="text-align:center; max-width:680px; margin:0 auto 24px;">
                 De l'optimisation des modèles locaux à l'automatisation globale de la distribution.
             </p>
 
-            <!-- Zone vidéo -->
+            <!-- Annonce de version : l'étude de cas décrivait le produit figé à son
+                 lancement, alors qu'il a continué d'évoluer. -->
+            <p class="cs-news reveal">
+                <span class="cs-news-tag">Nouveau · v1.1.0</span>
+                Serveur MCP embarqué : les agents IA — Claude&nbsp;Code, Cursor, Codex —
+                déclenchent la dictée et répondent à voix haute. Toujours 100&nbsp;% en local.
+                <a href="https://www.getlocalflowpro.com/#mcp" target="_blank"
+                    rel="noopener noreferrer">Voir la démonstration&nbsp;→</a>
+            </p>
+
+            <!-- Zone vidéo. Le fichier est servi depuis getlocalflowpro.com plutôt
+                 que dupliqué ici : 8 Mo de binaire versionnés une seule fois, et
+                 toute nouvelle version du montage se propage automatiquement.
+                 Contrepartie assumée : cette section dépend d'un domaine tiers.
+                 preload="metadata" : la vidéo est loin sous la ligne de flottaison,
+                 il ne faut pas lui faire payer 8 Mo au chargement de la page. -->
             <div class="cs-video reveal">
                 <div class="cs-video-frame">
-                    <div class="cs-wave" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <button class="cs-play" type="button" aria-label="Lire la vidéo de démonstration LocalFlow Pro">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                    </button>
+                    <video class="cs-video-player" controls playsinline preload="metadata"
+                        poster="https://www.getlocalflowpro.com/assets/video/promo-poster.jpg">
+                        <source src="https://www.getlocalflowpro.com/assets/video/localflow-promo-horizontal.mp4"
+                            type="video/mp4" />
+                        Votre navigateur ne prend pas en charge la vidéo HTML5.
+                    </video>
                     <span class="cs-video-badge">100% Local · 0 requête cloud</span>
                 </div>
                 <p class="cs-video-caption">Découvrez la puissance de la dictée IA 100% locale</p>
