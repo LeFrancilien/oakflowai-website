@@ -10,8 +10,8 @@
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
     </script>
-    <title>Claude Code Skill : créer un skill sur-mesure (guide 2026)</title>
-    <meta name="description" content="Guide expert pour créer, packager et déployer un skill Claude Code sur-mesure qui connecte l'agent à vos API d'entreprise. Structure SKILL.md, exemple concret, déploiement." />
+    <title>Guide Claude Code Skills : Tutoriel &amp; Config skill.md (2026)</title>
+    <meta name="description" content="Découvrez comment créer et configurer vos compétences personnalisées (skill.md) dans Claude Code. Tutoriel pas à pas avec exemples pratiques pour booster vos agents." />
     <meta name="author" content="Cyril DE LA RUE" />
     <meta name="last-modified" content="2026-07-02" />
     <link rel="canonical" href="https://www.oakflowai.com/blog/claude-code-skill-guide" />
@@ -21,8 +21,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.oakflowai.com/blog/claude-code-skill-guide" />
-    <meta property="og:title" content="Claude Code Skill : créer un skill sur-mesure (guide 2026)" />
-    <meta property="og:description" content="Créer, packager et déployer un skill Claude Code qui connecte l'agent à vos API d'entreprise. Structure, exemple concret et déploiement." />
+    <meta property="og:title" content="Guide Claude Code Skills : Tutoriel &amp; Config skill.md (2026)" />
+    <meta property="og:description" content="Découvrez comment créer et configurer vos compétences personnalisées (skill.md) dans Claude Code. Tutoriel pas à pas avec exemples pratiques pour booster vos agents." />
     <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
     <meta property="og:locale" content="fr_FR" />
 
@@ -363,7 +363,7 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
         <p>Concrètement, le SKILL.md décrit la cible (secteur, zone géographique), et les scripts embarqués appellent tour à tour les API concernées. Quand nous lançons une session de prospection, l'agent enchaîne les étapes sans que nous ayons à réécrire quoi que ce soit. C'est exactement la logique « API d'entreprise » décrite plus haut, appliquée à notre métier. Le même principe alimente notre <a href="/services/workflows-n8n">chaîne de production d'automatisations</a>.</p>
 
         <div class="info-box">
-            <p><strong>Retour d'expérience :</strong> le facteur numéro un de fiabilité d'un skill n'est pas le code, c'est la <strong>clarté des instructions</strong> dans le SKILL.md. Un skill bien écrit se comporte de façon prévisible ; un skill flou produit des résultats erratiques. On passe plus de temps sur les instructions que sur les scripts.</p>
+            <p><strong>Retour d'expérience :</strong> le facteur numéro un de fiabilité d'un skill n'est pas le code, c'est la <strong>clarté des instructions</strong> dans le SKILL.md. Un skill bien écrit se comporte de façon prévisible ; un skill flou produit des résultats erratiques. On passe plus de temps sur les instructions que sur les scripts. Pour déboguer un skill capricieux, activez le <a href="/blog/claude-code-thinking-mode">mode thinking de Claude Code</a> : l'agent explicite son raisonnement avant d'agir, ce qui rend visibles les ambiguïtés du SKILL.md.</p>
         </div>
 
         <h2>Packager et déployer un skill dans votre équipe</h2>
