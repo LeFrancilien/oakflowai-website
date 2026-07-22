@@ -53,11 +53,11 @@
     </item>
 
     <item>
-      <title>Claude Code Skill : créer un skill sur-mesure (guide 2026)</title>
+      <title>Guide Claude Code Skills : créer, packager et configurer un skill.md</title>
       <link>https://www.oakflowai.com/blog/claude-code-skill-guide</link>
       <guid isPermaLink="true">https://www.oakflowai.com/blog/claude-code-skill-guide</guid>
       <pubDate>Thu, 02 Jul 2026 10:00:00 +0200</pubDate>
-      <description>Guide expert pour créer, packager et déployer un skill Claude Code sur-mesure qui connecte l'agent à vos API d'entreprise. Structure SKILL.md, exemple concret, déploiement.</description>
+      <description>Découvrez comment créer et configurer vos compétences personnalisées (skill.md) dans Claude Code. Tutoriel pas à pas avec exemples pratiques pour booster vos agents.</description>
       <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
       <category>Tutoriel</category>
       <category>Claude Code</category>
