@@ -8,13 +8,25 @@
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
     <managingEditor>contact@oakflowai.com (Cyril DE LA RUE)</managingEditor>
     <webMaster>contact@oakflowai.com (Cyril DE LA RUE)</webMaster>
-    <lastBuildDate>Thu, 23 Jul 2026 10:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 11:00:00 +0200</lastBuildDate>
     <atom:link href="https://www.oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://www.oakflowai.com/logo-oakflow-v2.png</url>
       <title>Oakflow AI</title>
       <link>https://www.oakflowai.com</link>
     </image>
+
+    <item>
+      <title>Comment créer un agent IA personnalisé pour le support client ? (2026)</title>
+      <link>https://www.oakflowai.com/solutions-ia-entreprise/comment-creer-agent-ia-personnalise-support-client</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/solutions-ia-entreprise/comment-creer-agent-ia-personnalise-support-client</guid>
+      <pubDate>Thu, 23 Jul 2026 11:00:00 +0200</pubDate>
+      <description>La méthode en 7 étapes pour créer un agent IA support client qui répond sans halluciner : LLM, base de connaissances (RAG) et orchestration n8n. Comparatif des 3 approches, cas client anonymisé et le piège du chemin d'échec à concevoir en priorité.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Solutions IA</category>
+      <category>Support client</category>
+      <category>Agent IA</category>
+    </item>
 
     <item>
       <title>Combien coûte une automatisation n8n pour une PME ? (2026)</title>
