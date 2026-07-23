@@ -442,7 +442,7 @@
 
         <p>Ces montants incluent généralement le cadrage, le développement des workflows, les tests et une phase de formation courte. Ils n'incluent pas toujours les coûts d'API tierces (OpenAI, Twilio, services de téléphonie) qui varient avec le volume d'usage réel, ni la maintenance au-delà de la garantie initiale.</p>
 
-        <p>Si votre besoin est spécifiquement lié à l'automatisation de la saisie de factures, la fourchette « automatisation avancée avec IA » est la plus pertinente : nous détaillons ce cas d'usage dans notre article dédié <a href="/blog/n8n-pennylane-automatisation-facture-electronique">comment automatiser la saisie de factures avec n8n et IA</a>.</p>
+        <p>Si votre besoin est spécifiquement lié à l'automatisation de la saisie de factures, la fourchette « automatisation avancée avec IA » est la plus pertinente : nous détaillons ce cas d'usage dans notre page dédiée <a href="/automatisation-n8n/integration/pennylane">intégration n8n + Pennylane pour la comptabilité</a>.</p>
 
         <h2 id="methode">Comment se construit le prix d'un projet n8n : la méthode</h2>
 
@@ -452,7 +452,7 @@
             <li><strong>Audit des processus existants.</strong> Avant tout chiffrage, il faut comprendre le processus actuel : combien d'étapes manuelles, quels outils, quels formats de données. Un audit mal fait est la première cause de devis qui explose ensuite, car des cas non identifiés apparaissent en cours de développement.</li>
             <li><strong>Recensement des connecteurs nécessaires.</strong> Un connecteur natif n8n (Slack, Notion, HubSpot) coûte peu de temps de développement. Un connecteur sur mesure vers une API interne ou un ERP ancien peut représenter plusieurs jours de travail supplémentaires, et c'est souvent ce poste qui est sous-estimé dans les devis low-cost.</li>
             <li><strong>Complexité de la logique métier.</strong> Un workflow linéaire (déclencheur, action) coûte peu. Dès qu'apparaissent des conditions multiples, des boucles, des validations humaines intermédiaires ou des règles métier spécifiques à votre secteur, le temps de développement et de test augmente sensiblement.</li>
-            <li><strong>Volume et fréquence d'exécution.</strong> Un workflow exécuté 10 fois par jour n'a pas les mêmes contraintes d'hébergement qu'un workflow exécuté 5 000 fois par jour. Ce volume influence le choix entre n8n cloud et une instance self-hosted, et donc le coût d'infrastructure mensuel. Pour un comparatif plus large des choix d'outils, voir notre article <a href="/blog/n8n-vs-zapier-vs-make">avantages n8n vs Zapier pour les PME</a>.</li>
+            <li><strong>Volume et fréquence d'exécution.</strong> Un workflow exécuté 10 fois par jour n'a pas les mêmes contraintes d'hébergement qu'un workflow exécuté 5 000 fois par jour. Ce volume influence le choix entre n8n cloud et une instance self-hosted, et donc le coût d'infrastructure mensuel. Pour peser cloud contre self-hosted selon votre volume, voir notre page <a href="/automatisation-n8n/n8n-cloud">n8n Cloud : tarifs, limites et alternatives</a>.</li>
             <li><strong>Niveau d'intégration IA.</strong> Ajouter un LLM (classification, extraction, génération de réponse) ajoute un coût de développement (prompt engineering, gestion des erreurs de modèle) et un coût d'usage récurrent lié aux appels API, facturés le plus souvent au volume de tokens consommés.</li>
             <li><strong>Formation et documentation.</strong> Un projet livré sans documentation ni formation de l'équipe interne se traduit presque toujours par une dépendance totale au prestataire, et donc par des coûts de maintenance plus élevés sur la durée.</li>
             <li><strong>Maintenance et évolutions.</strong> C'est le poste le plus souvent oublié dans les comparaisons de devis, alors qu'il conditionne la durée de vie réelle de l'automatisation.</li>
@@ -468,9 +468,9 @@
 
         <p><strong>Négliger la maintenance.</strong> Une automatisation n'est pas un logiciel figé : les API tierces changent, les formats de données évoluent, les règles métier bougent. Sans budget de maintenance, même modeste, le workflow finit par se dégrader silencieusement.</p>
 
-        <p><strong>Vouloir tout automatiser d'un coup.</strong> Les projets les plus coûteux et les plus risqués sont ceux qui tentent d'automatiser un processus complet dès la première itération. Prioriser par impact et par facilité de mise en œuvre limite le risque financier. Pour objectiver cette priorisation, notre <a href="/blog/roi-automatisation">calculateur de ROI automatisation</a> permet d'estimer le gain avant d'engager le budget.</p>
+        <p><strong>Vouloir tout automatiser d'un coup.</strong> Les projets les plus coûteux et les plus risqués sont ceux qui tentent d'automatiser un processus complet dès la première itération. Prioriser par impact et par facilité de mise en œuvre limite le risque financier. Pour objectiver cette priorisation, notre <a href="/tools/calculateur-roi-n8n">calculateur de ROI automatisation</a> permet d'estimer le gain avant d'engager le budget.</p>
 
-        <p><strong>Choisir uniquement sur le prix le plus bas.</strong> Un devis anormalement bas omet souvent la gestion des erreurs, les logs, ou la sécurisation des accès aux données. Ces manques se paient plus tard, parfois plus cher que l'écart de prix initial. Sur ce point, nos <a href="/blog/guide-configuration-serveur-n8n">meilleures pratiques pour sécuriser ses workflows n8n</a> donnent des repères concrets sur ce qui devrait être inclus par défaut.</p>
+        <p><strong>Choisir uniquement sur le prix le plus bas.</strong> Un devis anormalement bas omet souvent la gestion des erreurs, les logs, ou la sécurisation des accès aux données. Ces manques se paient plus tard, parfois plus cher que l'écart de prix initial. Sur ce point, notre page <a href="/automatisation-n8n/n8n-cloud">n8n Cloud vs self-hosted (RGPD et sécurité des données)</a> donne des repères concrets sur ce qui devrait être inclus par défaut.</p>
 
         <p>Si vous avez déjà eu une mauvaise expérience avec un devis qui a dérapé, une clause utile à demander est le pourcentage du périmètre susceptible de faire l'objet d'un avenant. Sur ce type de projet, un avenant concerne généralement 10 à 20% du périmètre initial, lié à des cas non identifiés lors du cadrage, pas davantage si l'audit a été mené sérieusement.</p>
 
@@ -514,7 +514,7 @@
 
             <div class="faq-item">
                 <h3>Combien de temps avant de rentabiliser mon investissement en automatisation n8n ?</h3>
-                <p>Cela dépend fortement du processus automatisé et du temps qu'il faisait perdre auparavant. Pour objectiver ce délai sur votre cas précis plutôt que sur une moyenne générique, notre <a href="/blog/roi-automatisation">calculateur de ROI automatisation</a> permet d'estimer un retour sur investissement chiffré à partir de vos données actuelles.</p>
+                <p>Cela dépend fortement du processus automatisé et du temps qu'il faisait perdre auparavant. Pour objectiver ce délai sur votre cas précis plutôt que sur une moyenne générique, notre <a href="/tools/calculateur-roi-n8n">calculateur de ROI automatisation</a> permet d'estimer un retour sur investissement chiffré à partir de vos données actuelles.</p>
             </div>
         </section>
 
@@ -528,12 +528,12 @@
 
         <div class="article-related">
             <h3>Aller plus loin</h3>
-            <p>Pour affiner votre budget : comparez les outils dans <a href="/blog/n8n-vs-zapier-vs-make">n8n vs Zapier vs Make</a>, chiffrez le gain attendu avec notre <a href="/blog/roi-automatisation">analyse du ROI de l'automatisation</a>, et découvrez un cas d'usage concret dans <a href="/blog/n8n-pennylane-automatisation-facture-electronique">n8n + Pennylane : automatiser la facture électronique</a>.</p>
+            <p>Pour affiner votre budget : comparez les outils dans <a href="/automatisation-n8n/comparatif-make-zapier">n8n vs Make vs Zapier</a>, chiffrez le gain attendu avec notre <a href="/tools/calculateur-roi-n8n">calculateur de ROI n8n</a>, et sécurisez le déploiement grâce à notre <a href="/automatisation-n8n/formation-mentoring">formation n8n pour PME</a>. Vue d'ensemble : notre page <a href="/automatisation-n8n">automatisation n8n pour PME</a>.</p>
         </div>
 
         <div class="article-nav">
-            <a href="/blog">← Retour au blog</a>
-            <a href="/blog/n8n-vs-zapier-vs-make">Comparatif des outils →</a>
+            <a href="/automatisation-n8n">← Automatisation n8n</a>
+            <a href="/automatisation-n8n/comparatif-make-zapier">Comparatif des outils →</a>
         </div>
 
     </article>
