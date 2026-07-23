@@ -360,7 +360,7 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
 
         <p>Nous ne parlons pas en théorie : chez Oakflow AI, nous construisons nos propres skills Claude Code pour outiller notre production. Un exemple réel est notre skill de <strong>prospection sur le département 92</strong> : il orchestre une chaîne complète (sourcing des entreprises via une API d'enrichissement, écriture dans notre base <strong>Supabase</strong> de leads, mise à jour d'un Google Sheet, puis génération de brouillons d'e-mails de premier contact).</p>
 
-        <p>Concrètement, le SKILL.md décrit la cible (secteur, zone géographique), et les scripts embarqués appellent tour à tour les API concernées. Quand nous lançons une session de prospection, l'agent enchaîne les étapes sans que nous ayons à réécrire quoi que ce soit. C'est exactement la logique « API d'entreprise » décrite plus haut, appliquée à notre métier. Le même principe alimente notre <a href="/services/workflows-n8n">chaîne de production d'automatisations</a>.</p>
+        <p>Concrètement, le SKILL.md décrit la cible (secteur, zone géographique), et les scripts embarqués appellent tour à tour les API concernées. Quand nous lançons une session de prospection, l'agent enchaîne les étapes sans que nous ayons à réécrire quoi que ce soit. C'est exactement la logique « API d'entreprise » décrite plus haut, appliquée à notre métier. Le même principe alimente notre <a href="/automatisation-n8n">chaîne de production d'automatisations</a>.</p>
 
         <div class="info-box">
             <p><strong>Retour d'expérience :</strong> le facteur numéro un de fiabilité d'un skill n'est pas le code, c'est la <strong>clarté des instructions</strong> dans le SKILL.md. Un skill bien écrit se comporte de façon prévisible ; un skill flou produit des résultats erratiques. On passe plus de temps sur les instructions que sur les scripts. Pour déboguer un skill capricieux, activez le <a href="/blog/claude-code-thinking-mode">mode thinking de Claude Code</a> : l'agent explicite son raisonnement avant d'agir, ce qui rend visibles les ambiguïtés du SKILL.md.</p>
@@ -377,9 +377,9 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
 
         <h2>Skill Claude Code ou n8n : lequel pour quoi ?</h2>
 
-        <p>Un skill outille l'agent <strong>pendant que vous travaillez</strong> : il est parfait pour le développement, l'exploration, les tâches ponctuelles pilotées par un humain. Mais dès qu'un processus doit tourner <strong>en production, en autonomie, 24/7</strong> (relances, synchronisations, traitements planifiés), ce n'est plus le rôle d'un skill : c'est celui d'un moteur d'automatisation comme <a href="/automatisation-n8n">n8n</a> ou <a href="/services/agence-automatisation-make">Make</a>.</p>
+        <p>Un skill outille l'agent <strong>pendant que vous travaillez</strong> : il est parfait pour le développement, l'exploration, les tâches ponctuelles pilotées par un humain. Mais dès qu'un processus doit tourner <strong>en production, en autonomie, 24/7</strong> (relances, synchronisations, traitements planifiés), ce n'est plus le rôle d'un skill : c'est celui d'un moteur d'automatisation comme <a href="/automatisation-n8n">n8n</a> ou <a href="/automatisation-n8n">Make</a>.</p>
 
-        <p>La bonne pratique que nous appliquons : on <strong>prototype</strong> une logique avec Claude Code et un skill, puis on <strong>industrialise</strong> le workflow récurrent dans n8n. Le skill reste l'outil du développeur ; n8n devient l'ouvrier qui tourne sans surveillance. Si vous voulez automatiser un process métier de bout en bout sans surcharger vos équipes de code, notre <a href="/services/agence-automatisation-make">agence d'automatisation</a> prend le relais.</p>
+        <p>La bonne pratique que nous appliquons : on <strong>prototype</strong> une logique avec Claude Code et un skill, puis on <strong>industrialise</strong> le workflow récurrent dans n8n. Le skill reste l'outil du développeur ; n8n devient l'ouvrier qui tourne sans surveillance. Si vous voulez automatiser un process métier de bout en bout sans surcharger vos équipes de code, notre <a href="/automatisation-n8n">agence d'automatisation</a> prend le relais.</p>
 
         <div class="article-cta">
             <h2>Un process à automatiser au-delà du prototype ?</h2>
@@ -410,7 +410,7 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
 
         <div class="article-related">
             <h3>Approfondir le sujet</h3>
-            <p>Pour aller plus loin : notre <a href="/blog/claude-code-installation-guide">guide d'installation de Claude Code</a>, le guide des <a href="/blog/claude-code-thinking-mode">modes thinking et plan de Claude Code</a>, notre page pilier <a href="/automatisation-n8n">automatisation n8n pour PME</a>, et notre <a href="/services/agence-automatisation-make">offre d'agence d'automatisation Make</a> pour industrialiser vos process.</p>
+            <p>Pour aller plus loin : notre <a href="/blog/claude-code-installation-guide">guide d'installation de Claude Code</a>, le guide des <a href="/blog/claude-code-thinking-mode">modes thinking et plan de Claude Code</a>, notre page pilier <a href="/automatisation-n8n">automatisation n8n pour PME</a>, et notre <a href="/automatisation-n8n">offre d'agence d'automatisation Make</a> pour industrialiser vos process.</p>
         </div>
 
         <div class="article-nav">

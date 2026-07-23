@@ -42,6 +42,8 @@
         { "source": "/blog/formation-automatisation", "destination": "/blog/formation-equipe-ia", "permanent": true },
         { "source": "/blog/directeur-expert-ia/:path*", "destination": "/blog", "permanent": true },
         { "source": "/blog/guide-automatiser-comptabilite/:path*", "destination": "/blog/automatiser-comptabilite", "permanent": true },
+        { "source": "/automatisation-n8n/combien-coute-automatisation-n8n-pme", "destination": "/blog/combien-coute-automatisation-n8n-pme", "permanent": true },
+        { "source": "/solutions-ia-entreprise/comment-creer-agent-ia-personnalise-support-client", "destination": "/blog/comment-creer-agent-ia-personnalise-support-client", "permanent": true },
         { "source": "/blog/:slug.html", "destination": "/blog/:slug", "permanent": true },
         { "source": "/mentions-legales.html", "destination": "/mentions-legales", "permanent": true },
         { "source": "/cdn-cgi/:path*", "destination": "/", "permanent": true }
