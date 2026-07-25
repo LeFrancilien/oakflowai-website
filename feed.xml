@@ -8,13 +8,25 @@
     <copyright>© 2026 Oakflow AI — Cyril DE LA RUE</copyright>
     <managingEditor>contact@oakflowai.com (Cyril DE LA RUE)</managingEditor>
     <webMaster>contact@oakflowai.com (Cyril DE LA RUE)</webMaster>
-    <lastBuildDate>Thu, 23 Jul 2026 11:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 10:00:00 +0200</lastBuildDate>
     <atom:link href="https://www.oakflowai.com/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://www.oakflowai.com/logo-oakflow-v2.png</url>
       <title>Oakflow AI</title>
       <link>https://www.oakflowai.com</link>
     </image>
+
+    <item>
+      <title>Claude Skills : les 10 meilleurs skills à installer en 2026</title>
+      <link>https://www.oakflowai.com/blog/meilleurs-skills-claude</link>
+      <guid isPermaLink="true">https://www.oakflowai.com/blog/meilleurs-skills-claude</guid>
+      <pubDate>Fri, 24 Jul 2026 10:00:00 +0200</pubDate>
+      <description>Quels skills Claude installer en 2026 ? Sélection commentée des skills officiels Anthropic, coût réel en tokens, pièges d'installation selon l'environnement et usages concrets en PME.</description>
+      <author>contact@oakflowai.com (Cyril DE LA RUE)</author>
+      <category>Comparatif</category>
+      <category>Claude Code</category>
+      <category>IA PME</category>
+    </item>
 
     <item>
       <title>Comment créer un agent IA personnalisé pour le support client ? (2026)</title>

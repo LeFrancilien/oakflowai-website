@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    </script>
+    <title>Claude Skills : les 10 meilleurs skills à installer en 2026</title>
+    <meta name="description" content="Quels skills Claude installer en 2026 ? Sélection commentée des skills officiels Anthropic, coût réel en tokens, pièges d'installation et usages PME." />
+    <meta name="author" content="Cyril DE LA RUE" />
+    <meta name="last-modified" content="2026-07-24" />
+    <link rel="canonical" href="https://www.oakflowai.com/blog/meilleurs-skills-claude" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.oakflowai.com/blog/meilleurs-skills-claude" />
+    <meta property="og:title" content="Claude Skills : les 10 meilleurs skills à installer en 2026" />
+    <meta property="og:description" content="Quels skills Claude installer en 2026 ? Sélection commentée des skills officiels Anthropic, coût réel en tokens, pièges d'installation et usages PME." />
+    <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog Oakflow AI" href="https://www.oakflowai.com/feed.xml" />
+
+    <!-- Schema - Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://www.oakflowai.com/blog/meilleurs-skills-claude#article",
+      "headline": "Claude Skills : les 10 meilleurs skills à installer en 2026",
+      "description": "Sélection commentée des meilleurs skills Claude, avec le coût réel en tokens, les contraintes d'installation par environnement et les usages concrets en PME.",
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "author": {
+        "@type": "Person",
+        "name": "Cyril DE LA RUE",
+        "url": "https://www.linkedin.com/in/de-la-rue/",
+        "jobTitle": "Consultant IA & Automatisation"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oakflow AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.oakflowai.com/logo-oakflow-v2.webp"
+        }
+      },
+      "url": "https://www.oakflowai.com/blog/meilleurs-skills-claude",
+      "inLanguage": "fr-FR",
+      "keywords": ["claude skills", "meilleurs skills claude", "skills claude", "installer skill claude", "agent skills anthropic"],
+      "articleSection": "Comparatif",
+      "citation": [
+        {"@type": "CreativeWork", "name": "Agent Skills - Documentation Anthropic", "url": "https://platform.claude.com/docs/fr/agents-and-tools/agent-skills/overview"},
+        {"@type": "CreativeWork", "name": "Dépôt open source anthropics/skills", "url": "https://github.com/anthropics/skills"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Les meilleurs skills Claude"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quels sont les meilleurs skills Claude ?","acceptedAnswer":{"@type":"Answer","text":"Les quatre skills documentaires preconstruits d'Anthropic (xlsx, pdf, docx, pptx) couvrent l'essentiel des besoins bureautiques sans configuration. Cote developpement, skill-creator genere vos propres skills, mcp-builder connecte vos outils via MCP, frontend-design ameliore la qualite des interfaces, webapp-testing automatise les tests, et brand-guidelines applique votre charte graphique. Le bon choix depend surtout de l'environnement utilise, car les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code."}},{"@type":"Question","name":"Combien un skill Claude coute-t-il en tokens ?","acceptedAnswer":{"@type":"Answer","text":"D'apres la documentation d'Anthropic, un skill non declenche coute environ 100 tokens : seuls son nom et sa description sont charges au demarrage. Quand le skill se declenche, le corps du SKILL.md entre dans le contexte pour moins de 5 000 tokens. Les fichiers de reference et les scripts embarques ne coutent rien tant qu'ils ne sont pas lus, et la sortie d'un script consomme des tokens sans que son code n'entre dans le contexte."}},{"@type":"Question","name":"Ou trouver des skills Claude fiables ?","acceptedAnswer":{"@type":"Answer","text":"Deux sources sures : les skills preconstruits d'Anthropic, disponibles sur claude.ai et l'API, et le depot open source github.com/anthropics/skills, publie sous licence Apache 2.0 pour la majorite des skills. Les marketplaces communautaires agregent des skills tiers utiles pour s'inspirer, mais Anthropic recommande de n'utiliser que des sources de confiance car un skill execute du code."}},{"@type":"Question","name":"Comment installer un skill Claude ?","acceptedAnswer":{"@type":"Answer","text":"Dans Claude Code, deposez le dossier du skill dans ~/.claude/skills/ pour un usage personnel ou .claude/skills/ pour un projet : aucun televersement n'est necessaire. Sur claude.ai, televersez un fichier zip via Parametres puis Fonctionnalites, sur un forfait Pro, Max, Team ou Enterprise avec l'execution de code activee. Via l'API Claude, referencez le skill_id dans le parametre container avec l'outil d'execution de code et l'en-tete beta skills-2025-10-02."}},{"@type":"Question","name":"Les skills Claude fonctionnent-ils partout ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les skills personnalises ne se synchronisent pas entre les surfaces : un skill televerse sur claude.ai n'est pas disponible via l'API, et les skills de Claude Code sont independants des deux autres. Les skills documentaires preconstruits (pptx, xlsx, docx, pdf) sont disponibles sur claude.ai et l'API mais pas dans Claude Code. Il faut donc deployer un meme skill autant de fois qu'on utilise de surfaces."}}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        .article-wrap {
+            max-width: 760px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            background: rgba(0, 229, 176, 0.1);
+            border: 1px solid rgba(0, 229, 176, 0.25);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .article-date { font-size: 13px; color: var(--muted); }
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .article-author img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .article-wrap h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        .article-intro {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(240, 244, 255, 0.7);
+            margin-bottom: 48px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+        .article-wrap h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 52px 0 16px;
+            letter-spacing: -0.5px;
+        }
+        .article-wrap h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        .article-wrap p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .article-wrap ul, .article-wrap ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .article-wrap li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .article-wrap strong { color: var(--text); font-weight: 600; }
+        .article-wrap a { color: var(--accent); text-decoration: none; }
+        .article-wrap a:hover { text-decoration: underline; }
+        .info-box {
+            background: rgba(0, 229, 176, 0.06);
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { margin: 0; font-size: 15px; }
+        .answer-box {
+            background: linear-gradient(135deg, rgba(0,229,176,0.1), rgba(99,102,241,0.06));
+            border: 1px solid rgba(0, 229, 176, 0.28);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 0 0 40px;
+        }
+        .answer-box p { margin: 0; font-size: 16px; color: var(--text); }
+        .answer-box .answer-label { display:block; font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .article-toc {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 22px 28px;
+            margin: 0 0 44px;
+        }
+        .article-toc h2 {
+            font-size: 15px !important;
+            margin: 0 0 12px !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+        .article-toc ol { margin: 0; padding-left: 20px; }
+        .article-toc li { font-size: 15px; line-height: 1.6; margin-bottom: 6px; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 28px 0;
+            font-size: 15px;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 14px;
+            text-align: left;
+            color: var(--muted);
+        }
+        .data-table th { color: var(--text); font-weight: 600; background: rgba(0,229,176,0.06); }
+        .code-block {
+            background: #0b0f14;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #cdeee2;
+            white-space: pre;
+        }
+        .cta-inline {
+            border-left: 3px solid var(--accent);
+            background: rgba(0,229,176,0.05);
+            border-radius: 0 12px 12px 0;
+            padding: 16px 22px;
+            margin: 28px 0;
+        }
+        .cta-inline p { margin: 0; font-size: 15.5px; }
+        .cta-inline a { font-weight: 600; }
+        .author-box {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 48px 0 24px;
+        }
+        .author-box img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .author-box h3 { margin: 0 0 6px; font-size: 17px; }
+        .author-box p { margin: 0; font-size: 14.5px; line-height: 1.7; }
+        .article-cta {
+            background: linear-gradient(135deg, rgba(0,229,176,0.08), rgba(99,102,241,0.08));
+            border: 1px solid rgba(0, 229, 176, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .article-cta h2 { margin-top: 0; font-size: 26px; }
+        .article-cta p { max-width: 480px; margin: 0 auto 28px; }
+        .article-related {
+            background: rgba(0,229,176,0.05);
+            border: 1px solid rgba(0, 229, 176, 0.15);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 40px 0;
+        }
+        .article-related h3 { margin-top: 0; font-size: 18px; }
+        .article-related a { color: var(--accent); text-decoration: none; }
+        .article-related a:hover { text-decoration: underline; }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 40px;
+        }
+        .article-nav a {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-nav a:hover { color: var(--accent); }
+        @media (max-width: 600px) {
+            .article-cta { padding: 28px 20px; }
+            .author-box { flex-direction: column; gap: 14px; }
+        }
+    </style>
+    <!-- Microsoft Clarity Tracking Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xqyn849zfm");
+    </script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ── NAV ── -->
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                style="height: 48px; width: auto; border-radius: 8px;" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/solutions-ia-entreprise">Solutions&nbsp;IA</a></li>
+            <li><a href="/automatisation-n8n">Automatisation&nbsp;n8n</a></li>
+            <li><a href="/votre-expert">Expert&nbsp;IA</a></li>
+            <li><a href="/#usecases">Cas&nbsp;d'usage</a></li>
+            <li><a href="/#pricing">Tarifs</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="/solutions-ia-entreprise" class="mobile-menu-link">Solutions IA</a>
+            <a href="/automatisation-n8n" class="mobile-menu-link">Automatisation n8n</a>
+            <a href="/votre-expert" class="mobile-menu-link">Expert IA</a>
+            <a href="/#usecases" class="mobile-menu-link">Cas d'usage</a>
+            <a href="/#pricing" class="mobile-menu-link">Tarifs</a>
+            <a href="/blog" class="mobile-menu-link">Blog</a>
+        </nav>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer"
+            class="btn-primary mobile-menu-cta">📅 Réserver 30min</a>
+    </div>
+
+    <!-- ── ARTICLE ── -->
+    <main id="main-content">
+    <article class="article-wrap" itemscope itemtype="https://schema.org/TechArticle">
+
+        <div class="article-meta">
+            <span class="article-tag">Claude</span>
+            <span class="article-tag">Comparatif</span>
+            <time class="article-date" datetime="2026-07-24">24 juillet 2026</time>
+            <div class="article-author">
+                <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+                <span>Cyril DE LA RUE</span>
+            </div>
+        </div>
+
+        <h1 itemprop="headline">Claude Skills : les 10 meilleurs skills à installer en 2026</h1>
+
+        <div class="answer-box">
+            <span class="answer-label">Réponse directe</span>
+            <p>Les meilleurs skills Claude sont les quatre skills documentaires officiels d'Anthropic — <strong>xlsx</strong>, <strong>pdf</strong>, <strong>docx</strong>, <strong>pptx</strong> — pour la bureautique, et <strong>skill-creator</strong>, <strong>mcp-builder</strong>, <strong>claude-api-skill</strong>, <strong>frontend-design</strong>, <strong>brand-guidelines</strong> et <strong>webapp-testing</strong> pour le travail technique. Le critère qui compte le plus n'est pas la popularité d'un skill mais votre environnement : les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code, et les skills documentaires ne fonctionnent pas dans Claude Code.</p>
+        </div>
+
+        <p class="article-intro">Depuis l'arrivée des Agent Skills, la question n'est plus « comment en créer un » mais « lesquels valent la peine d'être installés ». Cet article tranche, avec les chiffres de la documentation officielle plutôt que des impressions : coût réel en tokens, contraintes par environnement, et ce que chaque skill apporte concrètement à une PME.</p>
+
+        <nav class="article-toc" aria-label="Sommaire">
+            <h2>Sommaire</h2>
+            <ol>
+                <li><a href="#definition">Qu'est-ce qu'un skill Claude, concrètement ?</a></li>
+                <li><a href="#methode">Comment avons-nous sélectionné ces skills ?</a></li>
+                <li><a href="#top10">Quels sont les 10 meilleurs skills Claude en 2026 ?</a></li>
+                <li><a href="#tokens">Combien un skill coûte-t-il vraiment en tokens ?</a></li>
+                <li><a href="#surfaces">Pourquoi vos skills ne fonctionnent-ils pas partout ?</a></li>
+                <li><a href="#installer">Comment installer un skill Claude ?</a></li>
+                <li><a href="#pme">Quel skill pour quelle fonction dans une PME ?</a></li>
+                <li><a href="#securite">Faut-il se méfier des skills communautaires ?</a></li>
+                <li><a href="#faq">Questions fréquentes</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="definition">Qu'est-ce qu'un skill Claude, concrètement ?</h2>
+
+        <p>Un skill Claude est un dossier contenant un fichier <strong>SKILL.md</strong>, que l'agent déclenche automatiquement quand votre demande correspond à sa description. Il ne s'agit pas d'un prompt enregistré : un skill peut embarquer des scripts exécutables et des fichiers de référence, et Claude y accède depuis un système de fichiers via des commandes bash. C'est cette architecture qui permet à un skill de faire des choses qu'un prompt ne peut pas faire, comme remplir un formulaire PDF ou interroger une API.</p>
+
+        <p>La <a href="https://platform.claude.com/docs/fr/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener noreferrer">documentation d'Anthropic</a> impose deux champs obligatoires en YAML : <strong>name</strong> (64 caractères maximum, minuscules, chiffres et tirets, sans les mots « anthropic » ni « claude ») et <strong>description</strong> (1 024 caractères maximum). Ces contraintes paraissent anecdotiques mais expliquent beaucoup d'échecs d'installation.</p>
+
+        <div class="cta-inline">
+            <p>C'est précisément là que ça devient intéressant pour une entreprise : un skill peut interroger vos propres outils, pas seulement produire du texte. <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer">Voir à quoi ça ressemble sur votre stack →</a></p>
+        </div>
+
+        <h2 id="methode">Comment avons-nous sélectionné ces skills ?</h2>
+
+        <p>Trois critères, appliqués dans cet ordre. D'abord la <strong>traçabilité de la source</strong> : nous ne retenons que des skills publiés par Anthropic, soit en préconstruits, soit dans le dépôt open source <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener noreferrer">anthropics/skills</a>. Ensuite la <strong>stabilité</strong> : un skill communautaire peut disparaître ou changer de comportement du jour au lendemain, ce qui est disqualifiant pour un usage professionnel. Enfin l'<strong>utilité réelle en PME</strong>, notre terrain quotidien, plutôt que la performance sur des cas de démonstration.</p>
+
+        <p>Conséquence assumée : pas de classement par étoiles GitHub ni par engagement social. Ces métriques mesurent la visibilité d'un skill, pas sa fiabilité — un skill très partagé mais non maintenu reste un risque.</p>
+
+        <h2 id="top10">Quels sont les 10 meilleurs skills Claude en 2026 ?</h2>
+
+        <h3>1. xlsx — le tableur augmenté</h3>
+        <p>Skill préconstruit d'Anthropic. Il crée des feuilles de calcul, analyse des jeux de données et génère des rapports avec graphiques. C'est le skill au meilleur rapport valeur/effort pour une PME : la production de tableaux de bord récurrents, jusque-là confiée à un modèle de fichier bricolé, devient une demande en langage naturel. Disponible sur claude.ai et l'API Claude, sans configuration.</p>
+
+        <h3>2. pdf — génération et extraction documentaire</h3>
+        <p>Skill préconstruit également. Il génère des documents et rapports PDF mis en forme, et sert de socle aux traitements documentaires. Pour toute structure qui produit des devis, comptes rendus ou dossiers formatés, c'est le skill qui supprime le plus d'étapes manuelles. Comme les trois autres skills documentaires, il n'est pas disponible dans Claude Code.</p>
+
+        <h3>3. docx — les documents Word</h3>
+        <p>Création de documents, modification de contenu et mise en forme. Utile dès qu'un livrable doit repartir chez un client dans un format éditable, ce qui reste la norme dans la plupart des échanges professionnels français. Combiné à <strong>brand-guidelines</strong>, il produit des documents déjà conformes à votre charte.</p>
+
+        <h3>4. pptx — les présentations</h3>
+        <p>Création de présentations, modification de diapositives et analyse de présentations existantes. Le plus spectaculaire en démonstration, le plus inégal en production : gain considérable sur la structure, bien moindre sur le design fin. À utiliser comme accélérateur de première version.</p>
+
+        <h3>5. skill-creator — le méta-skill</h3>
+        <p>Publié dans le dépôt open source d'Anthropic, ce skill sert à en créer d'autres. Il guide la rédaction du SKILL.md, la structure du dossier et les bonnes pratiques de description. C'est le premier à installer si vous comptez écrire vos propres skills : il évite l'erreur la plus fréquente, une description trop vague pour que l'agent déclenche le skill au bon moment. Voir notre <a href="/blog/claude-code-skill-guide">guide complet pour créer un skill Claude Code</a>.</p>
+
+        <h3>6. mcp-builder — connecter vos outils métier</h3>
+        <p>Toujours dans le dépôt officiel, ce skill assiste la création de serveurs MCP, le protocole qui permet à Claude de dialoguer avec des applications tierces. Pour une PME, c'est la porte d'entrée vers un agent qui lit réellement votre CRM ou votre outil de facturation, au lieu de raisonner dans le vide. C'est aussi le point de jonction naturel avec une <a href="/automatisation-n8n">chaîne d'automatisation n8n</a>.</p>
+
+        <h3>7. claude-api-skill — la documentation à jour</h3>
+        <p>Ce skill open source fournit à Claude des références API, de la documentation SDK et des bonnes pratiques pour huit langages de programmation. Il est livré directement avec Claude Code et installable depuis le dépôt. Son intérêt : il corrige la tendance du modèle à s'appuyer sur une documentation périmée, principale source d'erreurs silencieuses en développement.</p>
+
+        <h3>8. frontend-design — des interfaces qui ne sentent pas l'IA</h3>
+        <p>Skill open source de la catégorie création et design. Il oriente la production d'interfaces vers des choix visuels intentionnels plutôt que vers les valeurs par défaut reconnaissables des interfaces générées. Utile pour toute équipe qui produit des pages ou des composants sans designer dédié.</p>
+
+        <h3>9. brand-guidelines — votre charte en règles applicables</h3>
+        <p>Skill open source de la catégorie entreprise et communication. Il encode votre identité visuelle et vos règles de marque pour que chaque livrable les respecte sans rappel manuel. C'est le complément indispensable des skills documentaires : sans lui, chaque document repart des styles par défaut.</p>
+
+        <h3>10. webapp-testing — les tests automatisés</h3>
+        <p>Skill open source de la catégorie développement. Il permet de tester automatiquement une application web, en pilotant un navigateur pour vérifier des parcours. Il ferme la boucle entre écrire du code et vérifier qu'il fonctionne, sans quoi un agent produit du code plausible mais non validé.</p>
+
+        <div class="info-box">
+            <p><strong>À connaître aussi :</strong> le dépôt d'Anthropic contient d'autres skills selon quatre catégories — création et design, développement et technique, entreprise et communication, et documents. On y trouve notamment <strong>internal-comms</strong> pour la communication interne et <strong>canvas-design</strong> pour la création visuelle. La majorité est publiée sous licence Apache 2.0 ; les quatre skills documentaires sont en source-available et non open source.</p>
+        </div>
+
+        <h2 id="tokens">Combien un skill coûte-t-il vraiment en tokens ?</h2>
+
+        <p>C'est la question que presque personne ne pose, alors qu'elle détermine combien de skills vous pouvez installer sans dégrader vos sessions. La documentation d'Anthropic donne des chiffres précis, organisés en trois niveaux de chargement progressif.</p>
+
+        <table class="data-table">
+            <thead>
+                <tr><th>Niveau</th><th>Moment du chargement</th><th>Coût en tokens</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Métadonnées (name + description)</td><td>Toujours, au démarrage</td><td>~100 tokens par skill</td></tr>
+                <tr><td>Instructions (corps du SKILL.md)</td><td>Au déclenchement du skill</td><td>Moins de 5 000 tokens</td></tr>
+                <tr><td>Ressources et scripts</td><td>À la demande uniquement</td><td>Aucun jusqu'à l'accès</td></tr>
+            </tbody>
+        </table>
+
+        <p>La conséquence pratique est nette : installer trente skills coûte environ 3 000 tokens de contexte permanent, soit une fraction négligeable d'une fenêtre moderne. Vous pouvez donc être généreux sur le nombre de skills installés, à condition que leurs descriptions soient distinctes — sinon l'agent hésite entre plusieurs skills et en déclenche un mauvais.</p>
+
+        <p>Point important sur les scripts : quand Claude exécute un script embarqué, <strong>son code n'entre jamais dans la fenêtre de contexte</strong>, seule sa sortie consomme des tokens. Un skill qui délègue à un script est donc structurellement moins coûteux qu'un skill qui fait régénérer le code à chaque fois.</p>
+
+        <h2 id="surfaces">Pourquoi vos skills ne fonctionnent-ils pas partout ?</h2>
+
+        <p>C'est le piège le plus coûteux et il n'est mentionné dans aucun des comparatifs francophones actuellement en tête sur cette requête. Les skills personnalisés <strong>ne se synchronisent pas entre les surfaces Claude</strong>. Un skill téléversé sur claude.ai n'est pas disponible via l'API. Un skill créé dans Claude Code n'existe ni sur claude.ai ni dans l'API. Si vous voulez le même skill dans les trois environnements, vous devez le déployer trois fois et le maintenir trois fois.</p>
+
+        <p>S'ajoute une asymétrie sur les skills préconstruits : les quatre skills documentaires sont disponibles sur claude.ai et l'API Claude, mais <strong>pas dans Claude Code</strong>. Beaucoup d'utilisateurs cherchent le skill Excel dans leur terminal et concluent à un bug. Ce n'en est pas un.</p>
+
+        <p>Dernière différence structurante, sur l'exécution : dans Claude Code, un skill dispose du même accès réseau que n'importe quel programme de votre machine. Via l'API, il tourne dans un bac à sable <strong>sans accès réseau et sans possibilité d'installer des paquets à l'exécution</strong>. Un skill qui appelle une API externe fonctionnera donc en local et échouera silencieusement via l'API si vous ne l'avez pas anticipé.</p>
+
+        <div class="article-cta">
+            <h2>Vous voulez des skills connectés à vos vrais outils ?</h2>
+            <p>Nous construisons des skills et des workflows qui interrogent votre CRM, votre facturation ou votre ERP — et qui tournent ensuite en production. Audit gratuit de 30 minutes pour cadrer le bon périmètre.</p>
+            <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Réserver mon audit gratuit →
+            </a>
+        </div>
+
+        <h2 id="installer">Comment installer un skill Claude ?</h2>
+
+        <p>La procédure dépend entièrement de l'environnement. Dans <strong>Claude Code</strong>, il n'y a rien à téléverser : les skills sont basés sur le système de fichiers. Vous déposez le dossier dans <strong>~/.claude/skills/</strong> pour un usage personnel, ou dans <strong>.claude/skills/</strong> à la racine d'un dépôt pour le partager avec l'équipe via Git. L'agent les découvre seul au démarrage.</p>
+
+        <div class="code-block"><code>~/.claude/skills/
+└── mon-skill/
+    ├── SKILL.md          # obligatoire : name + description en YAML
+    ├── references/       # chargés seulement si referencés
+    └── scripts/          # executes via bash, code hors contexte</code></div>
+
+        <p>Sur <strong>claude.ai</strong>, les skills personnalisés se téléversent au format zip via <strong>Paramètres &gt; Fonctionnalités</strong>. Cela nécessite un forfait Pro, Max, Team ou Enterprise avec l'exécution de code activée. Attention : les skills y sont individuels par utilisateur, sans partage à l'échelle de l'organisation ni gestion centralisée par un administrateur. Via l'<strong>API Claude</strong>, vous référencez le <strong>skill_id</strong> dans le paramètre <strong>container</strong>, avec l'outil d'exécution de code et l'en-tête bêta <strong>skills-2025-10-02</strong>. Les skills téléversés via l'API sont partagés à l'échelle de l'espace de travail.</p>
+
+        <h2 id="pme">Quel skill pour quelle fonction dans une PME ?</h2>
+
+        <p>Les classements existants s'adressent à des développeurs. Voici la lecture par fonction, telle que nous la déployons chez nos clients PME et TPE.</p>
+
+        <table class="data-table">
+            <thead>
+                <tr><th>Fonction</th><th>Skills à installer</th><th>Gain visé</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Comptabilité / administratif</td><td>xlsx, pdf, docx</td><td>Rapports et documents formatés sans ressaisie</td></tr>
+                <tr><td>Direction / pilotage</td><td>xlsx, pptx</td><td>Tableaux de bord et comités préparés plus vite</td></tr>
+                <tr><td>Marketing / communication</td><td>brand-guidelines, docx, canvas-design</td><td>Livrables conformes à la charte dès la v1</td></tr>
+                <tr><td>Équipe technique</td><td>skill-creator, mcp-builder, claude-api-skill, webapp-testing</td><td>Agent connecté aux outils et code vérifié</td></tr>
+                <tr><td>Production web</td><td>frontend-design, webapp-testing</td><td>Interfaces soignées et parcours testés</td></tr>
+            </tbody>
+        </table>
+
+        <p>Séquencement : commencez par un seul skill, sur la fonction qui produit le plus de documents répétitifs — presque toujours la comptabilité ou l'administratif. L'erreur classique est d'en déployer huit d'un coup, ce qui ne laisse à personne le temps de changer ses habitudes. Pour aller au-delà de l'outillage individuel, voir nos <a href="/solutions-ia-entreprise">solutions IA pour entreprise</a>.</p>
+
+        <h2 id="securite">Faut-il se méfier des skills communautaires ?</h2>
+
+        <p>Oui, et la mise en garde vient d'Anthropic elle-même. Sa documentation recommande de n'utiliser que des skills provenant de sources de confiance, celles que vous avez créées ou obtenues auprès d'Anthropic. La raison est structurelle : un skill ne se contente pas de donner des instructions, il apporte du code que l'agent exécute. Un skill malveillant peut donc amener Claude à invoquer des outils ou exécuter du code sans rapport avec son objectif déclaré.</p>
+
+        <p>Les risques cités explicitement sont l'exfiltration de données, l'accès système non autorisé et l'usage détourné des outils. Anthropic signale un cas particulièrement sensible : les skills qui récupèrent des données depuis des URL externes, puisque le contenu récupéré peut lui-même contenir des instructions malveillantes. Même un skill fiable peut être compromis si ses dépendances changent avec le temps.</p>
+
+        <p>La règle pratique : traitez l'installation d'un skill comme celle d'un logiciel. Ouvrez le SKILL.md, lisez les scripts, vérifiez les appels réseau — et redoublez de prudence avant d'intégrer un skill tiers dans un système ayant accès à des données clients.</p>
+
+        <div class="cta-inline">
+            <p>Vous savez maintenant quoi installer et où sont les pièges. Reste la seule question qui change vos journées : lesquels brancher sur vos données, et lesquels basculer en production pour qu'ils tournent sans vous. <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer">Réserver 30 minutes pour en décider →</a></p>
+        </div>
+
+        <div class="author-box">
+            <img src="../cyril-de-la-rue.jpg" alt="Cyril DE LA RUE" loading="lazy" />
+            <div>
+                <h3>Cyril DE LA RUE</h3>
+                <p>Consultant en automatisation et IA, fondateur d'Oakflow AI. Il déploie des agents et des workflows n8n pour des PME et TPE françaises, principalement en hôtellerie, comptabilité et e-commerce. Il utilise Claude Code et ses skills quotidiennement en production. <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="/votre-expert">En savoir plus</a></p>
+            </div>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+
+        <details class="faq-item">
+            <summary>Quels sont les meilleurs skills Claude ?</summary>
+            <p>Les quatre skills documentaires préconstruits d'Anthropic (xlsx, pdf, docx, pptx) couvrent l'essentiel des besoins bureautiques sans configuration. Côté développement, skill-creator génère vos propres skills, mcp-builder connecte vos outils via MCP, frontend-design améliore la qualité des interfaces, webapp-testing automatise les tests, et brand-guidelines applique votre charte graphique. Le bon choix dépend surtout de l'environnement utilisé, car les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Combien un skill Claude coûte-t-il en tokens ?</summary>
+            <p>D'après la documentation d'Anthropic, un skill non déclenché coûte environ 100 tokens : seuls son nom et sa description sont chargés au démarrage. Quand le skill se déclenche, le corps du SKILL.md entre dans le contexte pour moins de 5 000 tokens. Les fichiers de référence et les scripts embarqués ne coûtent rien tant qu'ils ne sont pas lus, et la sortie d'un script consomme des tokens sans que son code n'entre dans le contexte.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Où trouver des skills Claude fiables ?</summary>
+            <p>Deux sources sûres : les skills préconstruits d'Anthropic, disponibles sur claude.ai et l'API, et le dépôt open source github.com/anthropics/skills, publié sous licence Apache 2.0 pour la majorité des skills. Les marketplaces communautaires agrègent des skills tiers utiles pour s'inspirer, mais Anthropic recommande de n'utiliser que des sources de confiance car un skill exécute du code.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Comment installer un skill Claude ?</summary>
+            <p>Dans Claude Code, déposez le dossier du skill dans ~/.claude/skills/ pour un usage personnel ou .claude/skills/ pour un projet : aucun téléversement n'est nécessaire. Sur claude.ai, téléversez un fichier zip via Paramètres puis Fonctionnalités, sur un forfait Pro, Max, Team ou Enterprise avec l'exécution de code activée. Via l'API Claude, référencez le skill_id dans le paramètre container avec l'outil d'exécution de code et l'en-tête bêta skills-2025-10-02.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Les skills Claude fonctionnent-ils partout ?</summary>
+            <p>Non. Les skills personnalisés ne se synchronisent pas entre les surfaces : un skill téléversé sur claude.ai n'est pas disponible via l'API, et les skills de Claude Code sont indépendants des deux autres. Les skills documentaires préconstruits (pptx, xlsx, docx, pdf) sont disponibles sur claude.ai et l'API mais pas dans Claude Code. Il faut donc déployer un même skill autant de fois qu'on utilise de surfaces.</p>
+        </details>
+
+        <div class="article-related">
+            <h3>Approfondir le sujet</h3>
+            <p>Pour aller plus loin : notre <a href="/blog/claude-code-skill-guide">guide pour créer un skill Claude Code sur-mesure</a>, le <a href="/blog/claude-code-installation-guide">guide d'installation de Claude Code</a>, les <a href="/blog/claude-code-thinking-mode">modes thinking et plan de Claude Code</a>, notre page pilier <a href="/automatisation-n8n">automatisation n8n pour PME</a>, et nos <a href="/solutions-ia-entreprise">solutions IA pour entreprise</a>.</p>
+        </div>
+
+        <div class="article-nav">
+            <a href="/blog">← Retour au blog</a>
+            <a href="/blog/claude-code-skill-guide">Créer votre propre skill →</a>
+        </div>
+
+    </article>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <img src="../logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img"
+                        style="height: 48px; width: auto; border-radius: 8px;" />
+                </a>
+                <p>Votre consultant en IA &amp; Automatisation. Solutions sur-mesure pour les PME/TPE françaises.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <a href="/#features">Notre Expertise</a>
+                <a href="/#methode">Notre Méthode</a>
+                <a href="/#pricing">Tarifs</a>
+            </div>
+            <div class="footer-col">
+                <h3>Société</h3>
+                <a href="/#about">À propos</a>
+                <a href="mailto:contact@oakflowai.com">Contact</a>
+                <a href="https://www.linkedin.com/in/de-la-rue/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/mentions-legales">Mentions Légales &amp; RGPD</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Oakflow AI - Cyril DE LA RUE · Tous droits réservés</span>
+        </div>
+    </footer>
+
+    <script src="../main.js" defer></script>
+</body>
+
+</html>
