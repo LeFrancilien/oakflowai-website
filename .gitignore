@@ -12,6 +12,7 @@ hyperframes/output/
 hyperframes/*.mp4
 
 .playwright-mcp/
+.firecrawl/
 
 # Secrets / cles de service (ne jamais committer)
 *.json.key
