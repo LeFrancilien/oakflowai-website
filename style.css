@@ -542,73 +542,6 @@ h1 .hl {
     transform: translateY(-2px);
 }
 
-.hero-social-proof {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 56px;
-    position: relative;
-    z-index: 1;
-    animation: fade-up 0.8s 0.4s ease both;
-    flex-wrap: wrap;
-}
-
-.proof-avatars {
-    display: flex;
-}
-
-.proof-avatars .av {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid var(--bg);
-    margin-left: -8px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg3);
-    object-fit: cover;
-}
-
-.proof-avatars .av:first-child {
-    margin-left: 0;
-}
-
-.proof-text {
-    font-size: 13px;
-    color: var(--muted2);
-}
-
-.proof-text strong {
-    color: var(--text);
-}
-
-.proof-sep {
-    width: 1px;
-    height: 28px;
-    background: var(--border);
-}
-
-.proof-checks {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.check-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--muted2);
-}
-
-.check-item svg {
-    color: var(--accent);
-    flex-shrink: 0;
-}
-
 
 /* ── TICKER ── */
 #ticker {
@@ -2402,10 +2335,6 @@ footer {
     }
 
     .hero-left .hero-ctas {
-        justify-content: center;
-    }
-
-    .hero-left .hero-social-proof {
         justify-content: center;
     }
 
