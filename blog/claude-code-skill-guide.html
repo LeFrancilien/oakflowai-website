@@ -10,8 +10,8 @@
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
     </script>
-    <title>Guide Claude Code Skills : Tutoriel &amp; Config skill.md (2026)</title>
-    <meta name="description" content="Découvrez comment créer et configurer vos compétences personnalisées (skill.md) dans Claude Code. Tutoriel pas à pas avec exemples pratiques pour booster vos agents." />
+    <title>Claude Code Skills : créer un skill.md en 4 étapes (2026)</title>
+    <meta name="description" content="Structure du dossier, skill.md commenté, appel d'une API interne, packaging et déploiement en équipe. Le tutoriel complet avec un exemple en production." />
     <meta name="author" content="Cyril DE LA RUE" />
     <meta name="last-modified" content="2026-07-24" />
     <link rel="canonical" href="https://www.oakflowai.com/blog/claude-code-skill-guide" />
@@ -21,8 +21,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.oakflowai.com/blog/claude-code-skill-guide" />
-    <meta property="og:title" content="Guide Claude Code Skills : Tutoriel &amp; Config skill.md (2026)" />
-    <meta property="og:description" content="Découvrez comment créer et configurer vos compétences personnalisées (skill.md) dans Claude Code. Tutoriel pas à pas avec exemples pratiques pour booster vos agents." />
+    <meta property="og:title" content="Claude Code Skills : créer un skill.md en 4 étapes (2026)" />
+    <meta property="og:description" content="Structure du dossier, skill.md commenté, appel d'une API interne, packaging et déploiement en équipe. Le tutoriel complet avec un exemple en production." />
     <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
     <meta property="og:locale" content="fr_FR" />
 
@@ -303,19 +303,13 @@
 
         <h2>Où trouver des skills Claude prêts à l'emploi</h2>
 
-        <p>Avant d'écrire le vôtre, sachez que beaucoup de besoins courants sont déjà couverts. Il existe trois sources, très inégales en fiabilité :</p>
-
-        <ul>
-            <li><strong>Les skills préconstruits d'Anthropic</strong> : quatre skills documentaires (<strong>pptx</strong>, <strong>xlsx</strong>, <strong>docx</strong>, <strong>pdf</strong>) disponibles sur claude.ai et l'API Claude. Attention : d'après la <a href="https://platform.claude.com/docs/fr/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener noreferrer">documentation officielle</a>, ils ne sont <em>pas</em> disponibles dans Claude Code.</li>
-            <li><strong>Le dépôt open source d'Anthropic</strong> : <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener noreferrer">github.com/anthropics/skills</a> regroupe des skills d'exemple (création, technique, communication d'entreprise), une spécification et un template de départ. La majorité est sous licence Apache 2.0 ; les skills documentaires sont en source-available.</li>
-            <li><strong>Les marketplaces communautaires</strong> : plusieurs plateformes agrègent des skills publiés par la communauté. Elles sont utiles pour s'inspirer, mais Anthropic recommande explicitement de n'utiliser que des skills issus de sources de confiance.</li>
-        </ul>
+        <p>Avant d'écrire le vôtre, vérifiez que le besoin n'est pas déjà couvert. Anthropic publie quatre skills documentaires préconstruits (<strong>pptx</strong>, <strong>xlsx</strong>, <strong>docx</strong>, <strong>pdf</strong>), disponibles sur claude.ai et l'API mais <em>pas</em> dans Claude Code d'après la <a href="https://platform.claude.com/docs/fr/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener noreferrer">documentation officielle</a>, ainsi qu'un <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener noreferrer">dépôt open source</a> majoritairement sous licence Apache 2.0. Lesquels valent réellement le détour, et pourquoi : voir notre <a href="/blog/meilleurs-skills-claude">sélection des 10 meilleurs skills Claude</a>.</p>
 
         <div class="info-box">
-            <p><strong>Sécurité :</strong> un skill n'est pas un simple prompt, il embarque du code que l'agent exécute. La documentation d'Anthropic est sans ambiguïté sur ce point : un skill malveillant peut provoquer une exfiltration de données ou un accès système non autorisé. Traitez l'installation d'un skill communautaire comme l'installation d'un logiciel — auditez le SKILL.md, les scripts et les appels réseau avant de le lancer. Nous détaillons cette sélection dans notre comparatif des <a href="/blog/meilleurs-skills-claude">meilleurs skills Claude à installer</a>.</p>
+            <p><strong>Sécurité :</strong> un skill n'est pas un simple prompt, il embarque du code que l'agent exécute. La documentation d'Anthropic est sans ambiguïté sur ce point : un skill malveillant peut provoquer une exfiltration de données ou un accès système non autorisé. Traitez l'installation d'un skill communautaire comme l'installation d'un logiciel : auditez le SKILL.md, les scripts et les appels réseau avant de le lancer.</p>
         </div>
 
-        <h2>Comment activer un skill selon votre environnement</h2>
+        <h2>Étape 1. Activer un skill selon votre environnement</h2>
 
         <p>Le mode d'activation change complètement selon l'endroit où vous travaillez. C'est la source de confusion numéro un chez ceux qui débutent :</p>
 
@@ -329,7 +323,7 @@
             <p><strong>Le piège à connaître :</strong> les skills personnalisés <strong>ne se synchronisent pas entre ces trois surfaces</strong>. Un skill téléversé sur claude.ai n'est pas disponible dans l'API, et les skills de Claude Code sont indépendants des deux autres. Si vous voulez le même skill partout, vous devez le déployer trois fois. Autre différence structurante : dans Claude Code, un skill a le même accès réseau que n'importe quel programme de votre machine, alors que dans l'API il tourne dans un bac à sable <em>sans</em> accès réseau ni installation de paquets.</p>
         </div>
 
-        <h2>Anatomie d'un skill : la structure de dossier</h2>
+        <h2>Étape 2. Anatomie d'un skill : la structure de dossier</h2>
 
         <p>Un skill est un simple dossier, nommé en <strong>kebab-case</strong>, contenant au minimum un <strong>SKILL.md</strong>. Il peut aussi embarquer des scripts et des ressources :</p>
 
@@ -361,7 +355,7 @@ Quand l'utilisateur demande des informations sur un client :
             <p><strong>Règle d'or de la description :</strong> elle doit dire <em>quand</em> utiliser le skill, avec les mots que vous employez naturellement. C'est le seul signal dont dispose l'agent pour choisir de le déclencher. Une description vague = un skill jamais utilisé.</p>
         </div>
 
-        <h2>Créer un skill qui appelle une API d'entreprise</h2>
+        <h2>Étape 3. Créer un skill qui appelle une API d'entreprise</h2>
 
         <p>C'est l'usage le plus puissant : donner à Claude Code un accès <strong>contrôlé</strong> à vos outils métier. Le principe est toujours le même en trois temps :</p>
 
@@ -399,7 +393,7 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
             <p><strong>Retour d'expérience :</strong> le facteur numéro un de fiabilité d'un skill n'est pas le code, c'est la <strong>clarté des instructions</strong> dans le SKILL.md. Un skill bien écrit se comporte de façon prévisible ; un skill flou produit des résultats erratiques. On passe plus de temps sur les instructions que sur les scripts. Pour déboguer un skill capricieux, activez le <a href="/blog/claude-code-thinking-mode">mode thinking de Claude Code</a> : l'agent explicite son raisonnement avant d'agir, ce qui rend visibles les ambiguïtés du SKILL.md.</p>
         </div>
 
-        <h2>Packager et déployer un skill dans votre équipe</h2>
+        <h2>Étape 4. Packager et déployer un skill dans votre équipe</h2>
 
         <p>Un skill personnel vit dans <strong>~/.claude/skills/</strong>. Pour le partager avec toute une équipe, deux approches :</p>
         <ul>
