@@ -88,43 +88,50 @@
 
 > **Source :** `docs/SEO_PERFORMANCE_JUILLET_2026.md` (80 clics, 4 280 impressions, CTR 1,87 %, position moyenne 11,6), données brutes dans `docs/data/`. Volumes de recherche mesurés via Google Ads le 03/08.
 
-### [ ] Tâche 4.1 : Réécrire le `<title>` et la `<meta description>` de `/blog/crm-ia-pme`
-* **État actuel :** la page cumule 287 impressions et 0 clic. Les 10 requêtes qui la déclenchent la placent entre les positions 1,14 et 9,14, dont `problèmes pme logiciel crm` en position 1,24 avec 41 impressions.
-* **Réserve à connaître avant d'agir :** aucune de ces 10 requêtes ne remonte de volume Google Ads, et toutes ont une forme d'invite rédigée. Ce sont des impressions de citation générative, sans lien cliquable. **Le gain attendu de cette tâche sur ces requêtes est nul.** L'intérêt réel de la réécriture porte sur `crm ia` (18 impressions, position 24,06), la seule requête du lot de forme humaine, et sur la préparation d'un futur gain de position.
-* **Balises actuelles :**
-  * Title : `CRM IA pour PME : 7 problèmes résolus (guide 2026)`
-  * Description : `Saisie, relances, scoring, reporting : les 7 problèmes commerciaux qu'un CRM IA résout en PME. Cas concrets + stack à 50€/mois. Audit gratuit 30 min.`
-* **Instructions pour Fable V :**
-  1. Remplacer le title par : `CRM IA pour PME : 7 problèmes résolus et le coût réel (2026)` (60 caractères, `CRM IA` conservé en tête pour la requête cible, ajout du signal prix qui correspond à l'intention commerciale).
-  2. Remplacer la description par : `Un CRM IA règle-t-il la saisie, les relances et les deals dormants en PME ? 7 cas concrets, la stack à 50 €/mois et les limites. Audit gratuit 30 min.` (148 caractères, reprise de `deals dormants` qui ressort en position 5,5).
-  3. Répercuter sur `og:title` et `og:description`.
-  4. **Ne pas s'arrêter là.** La position 24 sur `crm ia` est un problème de classement, pas de balise. Ouvrir un chantier de contenu distinct si la requête reste prioritaire.
+### [x] Tâche 4.1 : Réécrire le `<title>` et la `<meta description>` de `/blog/crm-ia-pme` — fait le 03/08 (`8da29da` puis `b6c2e6f`)
+* **État avant :** la page cumulait 287 impressions et 0 clic. Les 10 requêtes qui la déclenchent la placent entre les positions 1,14 et 9,14, dont `problèmes pme logiciel crm` en position 1,24 avec 41 impressions.
+* **Réserve maintenue :** aucune de ces 10 requêtes ne remonte de volume Google Ads, et toutes ont une forme d'invite rédigée. Ce sont des impressions de citation générative, sans lien cliquable. **Le gain attendu sur ces requêtes reste nul.** L'intérêt réel porte sur `crm ia` (18 impressions, position 24,06), la seule requête du lot de forme humaine.
+* **Balises livrées** (choisies par Cyril, différentes de la proposition initiale de cette fiche) :
+  * Title : `Problèmes PME et logiciel CRM : 7 cas résolus par l'IA` (54 caractères)
+  * Description : `Vos équipes perdent du temps sur un CRM inadapté ? Voici les 7 problèmes majeurs des PME et comment l'automatisation IA les règle.` (130 caractères)
+  * `og:description` alignée sur la meta. `og:title` laissé inchangé, il diverge du title par choix et reprend le H1.
+* **Incident corrigé en cours de route :** la première version livrée (`8da29da`) annonçait 3 solutions dans le title et 5 problèmes dans la meta, alors que la page livre 7 cas numérotés. Les trois chiffres ont été alignés sur 7 dans `b6c2e6f`. À retenir : vérifier qu'un chiffre annoncé dans une balise correspond au décompte réel des sections de la page.
+* **Reste ouvert :** la position 24 sur `crm ia` est un problème de classement, pas de balise. Un chantier de contenu distinct reste à ouvrir si la requête devient prioritaire.
 * **Vérification :** relever la position de `crm ia` dans GSC fin septembre. Ne pas juger la tâche sur le CTR des requêtes génératives.
 
-### [ ] Tâche 4.2 : Ajouter 2 liens internes contextuels depuis `/blog/meilleurs-skills-claude` vers `/votre-expert`
+### [x] Tâche 4.2 : Ajouter 2 liens internes contextuels depuis `/blog/meilleurs-skills-claude` vers `/votre-expert` — fait le 03/08 (`cfbde09`)
 * **Pourquoi cette page :** elle a produit 30 des 80 clics du mois en 8 jours, avec un CTR de 14,08 % à la position 6,81. C'est la seule page du site qui transforme correctement ses impressions, et la seule qui peut transmettre de l'autorité utile.
-* **État actuel :** 3 liens vers `/votre-expert` sur la page, dont 2 dans la navigation (ligne 317 en desktop, ligne 332 en menu mobile) et 1 en "En savoir plus" dans l'encart auteur (ligne 513). **Aucun lien contextuel dans le corps de l'article.**
-* **Instructions pour Fable V :**
-  1. Insérer un lien en prose dans la section `Vous voulez des skills connectés à vos vrais outils ?`, avec une ancre descriptive (par exemple `consultant en automatisation IA` ou `déploiement de skills en production`). Bannir `en savoir plus` et `cliquez ici`.
-  2. Insérer un second lien en prose dans la section `Quel skill pour quelle fonction dans une PME ?`.
-  3. Ne pas toucher aux liens de navigation ni à l'encart auteur.
-  4. Varier les deux ancres, ne pas répéter la même chaîne.
+* **État avant :** 3 liens vers `/votre-expert`, dont 2 dans la navigation et 1 en "En savoir plus" dans l'encart auteur. Aucun lien contextuel dans le corps.
+* **Liens livrés :**
+  1. Bloc `Vous voulez des skills connectés à vos vrais outils ?`, ancre `consultant en automatisation et IA`, placée après la mention de l'audit pour ne pas concurrencer le bouton Calendly.
+  2. Section `Quel skill pour quelle fonction dans une PME ?`, ancre `déploiements d'agents IA en PME`, en introduction du tableau par fonction plutôt qu'en fin de section, où le paragraphe final pointe déjà vers `/solutions-ia-entreprise`.
+* Navigation et encart auteur laissés intacts. Les deux ancres reprennent la formulation de l'encart auteur, elles sont donc fidèles à la page cible.
 * **Écart assumé avec la convention de silo :** la règle interne envoie les articles IA vers `/solutions-ia-entreprise` (déjà 4 liens sur la page) et réserve `/votre-expert` aux sujets ROI et productivité. Le choix de `/votre-expert` ici est délibéré : l'audience de l'article est technique et `/votre-expert` est en position 3,56 avec seulement 54 impressions, donc sous-alimentée.
 * **Vérification :** `/votre-expert` doit dépasser 54 impressions et 2 clics sur le mois d'août.
 
----
-
-## ⬜ À arbitrer (constat de l'analyse, pas encore une tâche validée)
-
-### Cannibalisation du cluster `claude skills`
-Le seul cluster du site à volume mesuré (`claude skills` 4 400/mois, `skills claude` 2 400, `claude code skills` 1 300) est servi par deux pages qui se partagent les impressions et restent toutes les deux en page 2 :
+### [x] Tâche 4.3 : Décannibaliser le cluster `claude skills` — fait le 03/08 (`6b3099d`)
+* **Constat de départ :** le seul cluster du site à volume mesuré (`claude skills` 4 400/mois, `skills claude` 2 400, `claude code skills` 1 300) était servi par deux pages qui se partageaient les impressions en restant toutes les deux en page 2.
 
 | Requête | `/blog/meilleurs-skills-claude` | `/blog/claude-code-skill-guide` |
 | --- | --- | --- |
 | `claude skills` | 24 impr., position 10,4 | 12 impr., position 12,5 |
 | `claude code skills` | 4 impr., position 11,5 | 23 impr., position 8,0 |
 
-À position comparable, `meilleurs-skills-claude` convertit à 14,08 % et `claude-code-skill-guide` à 1,75 %. Concentrer les requêtes génériques sur la première et recentrer la seconde sur l'installation est le levier le plus rentable identifié en juillet, devant les tâches 4.1 et 4.2. Chantier non ouvert : il touche au contenu de deux articles et demande un arbitrage préalable.
+* **Mécanisme identifié :** la section `#installer` du roundup était un quasi-doublon textuel de "Comment activer un skill selon votre environnement" du guide. Le roundup se classait donc sur les requêtes d'installation du guide (`installer skill claude` en position 9,5, un clic capté sur `comment installer skill claude` alors que le guide est mieux placé).
+* **Répartition des cibles retenue :** le roundup prend `claude skills` et `skills claude`, le guide garde `claude code skills` et la traîne installer/créer.
+* **Livré :**
+  1. Roundup : section `#installer` ramenée de 180 à 102 mots, doublon et arborescence supprimés, ancre `guide pour installer et configurer un skill Claude Code` ajoutée. La réponse complète reste dans la FAQ visible, le `FAQPage` JSON-LD reste donc adossé à du contenu affiché.
+  2. Roundup : ajout d'un JSON-LD `ItemList` de 10 items nommés et décrits.
+  3. Guide : "Où trouver des skills" ramenée de 214 à 141 mots, renvoi au roundup, encadré sécurité conservé.
+  4. Guide : nouveau title `Claude Code Skills : créer un skill.md en 4 étapes (2026)` (57 car.) et nouvelle meta (152 car. au lieu de 163 tronquées, sans l'amorce "Découvrez comment"), répercutés sur les balises Open Graph.
+  5. Guide : les quatre sections de construction numérotées `Étape 1.` à `Étape 4.` pour que le chiffre du title soit exact.
+* **Erreur de mesure à ne pas reproduire :** la fiche initiale annonçait 1 716 mots à rapatrier, chiffre produit par une plage `awk` qui avait démarré sur une occurrence de la chaîne dans le JSON-LD du `<head>`. La section réelle faisait 180 mots. Mesurer une section HTML en relevant d'abord les numéros de ligne des `<h2>`, jamais par une plage de texte.
+* **Attente réaliste :** la duplication supprimée est trop petite pour à elle seule sortir le guide de la page 2. Le gain viendra surtout des nouvelles balises et de la répartition des cibles.
+* **Vérification :** positions de `claude skills` et `claude code skills` fin septembre, et CTR du guide une fois le nouveau title recrawlé (compter une à trois semaines).
+
+---
+
+## ⬜ À arbitrer (constat de l'analyse, pas encore une tâche validée)
 
 ### Dispersion sur `n8n pour comptable automatisation`
 Six URL du site se présentent sur la même requête, la mieux placée étant `/blog/automatiser-comptabilite` en position 8,69, les cinq autres au-delà de la position 20. Même si la requête est générative, la dispersion pénalisera les requêtes commerciales du silo comptabilité.
