@@ -81,3 +81,50 @@
 * **Instructions pour Fable V :**
   1. Identifie ces 3 pages (généralement des articles récents du blog).
   2. Ajoute au moins **2 nouveaux liens contextuels** vers ces pages depuis des articles de blog existants ou depuis ta page pilier.
+
+---
+
+## 🟩 Priorité 4 : Exploitation des données Search Console de juillet 2026
+
+> **Source :** `docs/SEO_PERFORMANCE_JULIET_2026.md` (80 clics, 4 280 impressions, CTR 1,87 %, position moyenne 11,6). Volumes de recherche mesurés via Google Ads le 03/08.
+
+### [ ] Tâche 4.1 : Réécrire le `<title>` et la `<meta description>` de `/blog/crm-ia-pme`
+* **État actuel :** la page cumule 287 impressions et 0 clic. Les 10 requêtes qui la déclenchent la placent entre les positions 1,14 et 9,14, dont `problèmes pme logiciel crm` en position 1,24 avec 41 impressions.
+* **Réserve à connaître avant d'agir :** aucune de ces 10 requêtes ne remonte de volume Google Ads, et toutes ont une forme d'invite rédigée. Ce sont des impressions de citation générative, sans lien cliquable. **Le gain attendu de cette tâche sur ces requêtes est nul.** L'intérêt réel de la réécriture porte sur `crm ia` (18 impressions, position 24,06), la seule requête du lot de forme humaine, et sur la préparation d'un futur gain de position.
+* **Balises actuelles :**
+  * Title : `CRM IA pour PME : 7 problèmes résolus (guide 2026)`
+  * Description : `Saisie, relances, scoring, reporting : les 7 problèmes commerciaux qu'un CRM IA résout en PME. Cas concrets + stack à 50€/mois. Audit gratuit 30 min.`
+* **Instructions pour Fable V :**
+  1. Remplacer le title par : `CRM IA pour PME : 7 problèmes résolus et le coût réel (2026)` (60 caractères, `CRM IA` conservé en tête pour la requête cible, ajout du signal prix qui correspond à l'intention commerciale).
+  2. Remplacer la description par : `Un CRM IA règle-t-il la saisie, les relances et les deals dormants en PME ? 7 cas concrets, la stack à 50 €/mois et les limites. Audit gratuit 30 min.` (148 caractères, reprise de `deals dormants` qui ressort en position 5,5).
+  3. Répercuter sur `og:title` et `og:description`.
+  4. **Ne pas s'arrêter là.** La position 24 sur `crm ia` est un problème de classement, pas de balise. Ouvrir un chantier de contenu distinct si la requête reste prioritaire.
+* **Vérification :** relever la position de `crm ia` dans GSC fin septembre. Ne pas juger la tâche sur le CTR des requêtes génératives.
+
+### [ ] Tâche 4.2 : Ajouter 2 liens internes contextuels depuis `/blog/meilleurs-skills-claude` vers `/votre-expert`
+* **Pourquoi cette page :** elle a produit 30 des 80 clics du mois en 8 jours, avec un CTR de 14,08 % à la position 6,81. C'est la seule page du site qui transforme correctement ses impressions, et la seule qui peut transmettre de l'autorité utile.
+* **État actuel :** 3 liens vers `/votre-expert` sur la page, dont 2 dans la navigation (ligne 317 en desktop, ligne 332 en menu mobile) et 1 en "En savoir plus" dans l'encart auteur (ligne 513). **Aucun lien contextuel dans le corps de l'article.**
+* **Instructions pour Fable V :**
+  1. Insérer un lien en prose dans la section `Vous voulez des skills connectés à vos vrais outils ?`, avec une ancre descriptive (par exemple `consultant en automatisation IA` ou `déploiement de skills en production`). Bannir `en savoir plus` et `cliquez ici`.
+  2. Insérer un second lien en prose dans la section `Quel skill pour quelle fonction dans une PME ?`.
+  3. Ne pas toucher aux liens de navigation ni à l'encart auteur.
+  4. Varier les deux ancres, ne pas répéter la même chaîne.
+* **Écart assumé avec la convention de silo :** la règle interne envoie les articles IA vers `/solutions-ia-entreprise` (déjà 4 liens sur la page) et réserve `/votre-expert` aux sujets ROI et productivité. Le choix de `/votre-expert` ici est délibéré : l'audience de l'article est technique et `/votre-expert` est en position 3,56 avec seulement 54 impressions, donc sous-alimentée.
+* **Vérification :** `/votre-expert` doit dépasser 54 impressions et 2 clics sur le mois d'août.
+
+---
+
+## ⬜ À arbitrer (constat de l'analyse, pas encore une tâche validée)
+
+### Cannibalisation du cluster `claude skills`
+Le seul cluster du site à volume mesuré (`claude skills` 4 400/mois, `skills claude` 2 400, `claude code skills` 1 300) est servi par deux pages qui se partagent les impressions et restent toutes les deux en page 2 :
+
+| Requête | `/blog/meilleurs-skills-claude` | `/blog/claude-code-skill-guide` |
+| --- | --- | --- |
+| `claude skills` | 24 impr., position 10,4 | 12 impr., position 12,5 |
+| `claude code skills` | 4 impr., position 11,5 | 23 impr., position 8,0 |
+
+À position comparable, `meilleurs-skills-claude` convertit à 14,08 % et `claude-code-skill-guide` à 1,75 %. Concentrer les requêtes génériques sur la première et recentrer la seconde sur l'installation est le levier le plus rentable identifié en juillet, devant les tâches 4.1 et 4.2. Chantier non ouvert : il touche au contenu de deux articles et demande un arbitrage préalable.
+
+### Dispersion sur `n8n pour comptable automatisation`
+Six URL du site se présentent sur la même requête, la mieux placée étant `/blog/automatiser-comptabilite` en position 8,69, les cinq autres au-delà de la position 20. Même si la requête est générative, la dispersion pénalisera les requêtes commerciales du silo comptabilité.
