@@ -86,7 +86,7 @@
 
 ## 🟩 Priorité 4 : Exploitation des données Search Console de juillet 2026
 
-> **Source :** `docs/SEO_PERFORMANCE_JULIET_2026.md` (80 clics, 4 280 impressions, CTR 1,87 %, position moyenne 11,6). Volumes de recherche mesurés via Google Ads le 03/08.
+> **Source :** `docs/SEO_PERFORMANCE_JUILLET_2026.md` (80 clics, 4 280 impressions, CTR 1,87 %, position moyenne 11,6), données brutes dans `docs/data/`. Volumes de recherche mesurés via Google Ads le 03/08.
 
 ### [ ] Tâche 4.1 : Réécrire le `<title>` et la `<meta description>` de `/blog/crm-ia-pme`
 * **État actuel :** la page cumule 287 impressions et 0 clic. Les 10 requêtes qui la déclenchent la placent entre les positions 1,14 et 9,14, dont `problèmes pme logiciel crm` en position 1,24 avec 41 impressions.
