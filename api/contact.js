@@ -1,5 +1,8 @@
-// Vercel Serverless Function — proxifie les données du formulaire vers le webhook n8n
-// Variables d'environnement requises : N8N_WEBHOOK_URL
+// Vercel Serverless Function — enregistre le prospect en Postgres, puis proxifie
+// les données du formulaire vers le webhook n8n
+// Variables d'environnement requises : N8N_WEBHOOK_URL, DATABASE_URL
+
+const { neon } = require('@neondatabase/serverless');
 
 module.exports = async function handler(req, res) {
     // CORS : même origine seulement
@@ -36,8 +39,10 @@ module.exports = async function handler(req, res) {
         return res.status(400).json({ error: 'Champs manquants', fields: missing });
     }
 
+    // Le trim précède le contrôle : une adresse collée avec une espace autour est
+    // valide, et c'est de toute façon la version nettoyée qui part en base.
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(lead_email)) {
+    if (!emailRegex.test(lead_email.trim())) {
         return res.status(400).json({ error: 'Format email invalide' });
     }
 
@@ -50,7 +55,35 @@ module.exports = async function handler(req, res) {
         pain_point:      pain_point.trim(),
         submitted_at:    new Date().toISOString(),
         source:          'oakflowai.com',
+        lead_id:         null,   // renseigné juste après l'insertion, null si la base est indisponible
     };
+
+    // Enregistrement en base avant l'appel au webhook : si n8n tombe, le prospect
+    // est déjà conservé. À l'inverse, une base indisponible ne doit jamais empêcher
+    // l'automatisation n8n de partir — on journalise et on continue.
+    const databaseUrl = process.env.DATABASE_URL;
+    if (!databaseUrl) {
+        console.error('[contact] DATABASE_URL manquant, prospect non enregistré en base');
+    } else {
+        try {
+            const sql = neon(databaseUrl);
+            const rows = await sql`
+                INSERT INTO leads (
+                    full_name, lead_email, company,
+                    business_type, monthly_revenue, pain_point, source
+                ) VALUES (
+                    ${payload.full_name}, ${payload.lead_email}, ${payload.company},
+                    ${payload.business_type}, ${payload.monthly_revenue},
+                    ${payload.pain_point}, ${payload.source}
+                )
+                RETURNING id
+            `;
+            payload.lead_id = rows[0]?.id ?? null;
+            console.log(`[contact] prospect enregistré, id=${payload.lead_id}`);
+        } catch (err) {
+            console.error('[contact] insertion Postgres échouée:', err.message);
+        }
+    }
 
     try {
         const response = await fetch(webhookUrl, {
