@@ -13,6 +13,11 @@ hyperframes/*.mp4
 
 .playwright-mcp/
 .firecrawl/
+.claude-flow/
+
+# Documents de travail (non versionnes)
+Claude SEO, 18 agents qui auditent ton site.pdf
+GEO 2026, se faire citer par ChatGPT.pdf
 
 # Secrets / cles de service (ne jamais committer)
 *.json.key
