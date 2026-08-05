@@ -403,6 +403,7 @@ h1 .hl {
     animation: fade-up 0.8s 0.3s ease both;
 }
 
+
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -2952,3 +2953,21 @@ footer {
 /* ── Skip link (accessibilité) : caché hors écran, visible au focus clavier ── */
 .skip-link { position: absolute; left: -9999px; top: 0; background: #00E5B0; color: #060910; padding: 10px 18px; border-radius: 0 0 10px 0; font-weight: 600; z-index: 1000; }
 .skip-link:focus { left: 0; }
+
+/* ── Bannière de consentement RGPD (injectée par main.js sur toutes les pages) ── */
+#rgpd-consent-mod { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 9999; width: calc(100% - 48px); max-width: 720px; animation: rgpdSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes rgpdSlideUp { from { opacity: 0; transform: translateX(-50%) translateY(30px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+#rgpd-consent-inner { background: rgba(16, 18, 26, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px 24px; display: flex; align-items: center; gap: 24px; box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 229, 176, 0.1); }
+#rgpd-consent-text { flex: 1; min-width: 0; }
+#rgpd-consent-text strong { display: block; color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 4px; font-family: 'Space Grotesk', sans-serif; }
+#rgpd-consent-text p { margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.55); line-height: 1.5; font-family: 'DM Sans', sans-serif; }
+#rgpd-consent-btns { display: flex; gap: 10px; flex-shrink: 0; }
+#rgpd-consent-decline { padding: 9px 18px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15); background: transparent; color: rgba(255, 255, 255, 0.6); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+#rgpd-consent-decline:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+#rgpd-consent-accept { padding: 9px 20px; border-radius: 8px; border: none; background: linear-gradient(135deg, #00e5b0, #00b8e6); color: #0a0b10; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: 'Space Grotesk', sans-serif; }
+#rgpd-consent-accept:hover { transform: scale(1.04); box-shadow: 0 4px 20px rgba(0, 229, 176, 0.4); }
+@media (max-width: 600px) {
+  #rgpd-consent-inner { flex-direction: column; gap: 16px; }
+  #rgpd-consent-btns { width: 100%; }
+  #rgpd-consent-decline, #rgpd-consent-accept { flex: 1; text-align: center; }
+}

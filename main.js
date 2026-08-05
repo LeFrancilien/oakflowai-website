@@ -1,3 +1,93 @@
+// ── Consentement RGPD + GA4 ──
+// Source unique pour tout le site : charge GA4 et injecte la bannière depuis
+// le JS, pour que les 42 pages soient mesurées et pas seulement l'accueil.
+const OakflowGA = (function () {
+    const GA_ID = 'G-6KG336J754';
+    const CONSENT_KEY = 'oakflow_cookie_consent';
+
+    // Le stub gtag est déjà dans le <head> de certaines pages. On ne le
+    // recrée que là où il manque, sinon on écraserait le consent default.
+    window.dataLayer = window.dataLayer || [];
+    if (typeof window.gtag !== 'function') {
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    }
+
+    let loaded = false;
+    function loadGA() {
+        if (loaded) return;
+        loaded = true;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        gtag('config', GA_ID);
+    }
+
+    function buildBanner() {
+        const el = document.createElement('div');
+        el.id = 'rgpd-consent-mod';
+        el.innerHTML = `
+      <div id="rgpd-consent-inner">
+        <div id="rgpd-consent-text">
+          <strong>🍪 Cookies &amp; confidentialité</strong>
+          <p>Nous utilisons Google Analytics pour analyser le trafic de notre site et améliorer votre expérience. Aucune donnée personnelle n'est partagée à des tiers.</p>
+        </div>
+        <div id="rgpd-consent-btns">
+          <button id="rgpd-consent-decline" type="button">Refuser</button>
+          <button id="rgpd-consent-accept" type="button">Accepter</button>
+        </div>
+      </div>`;
+        document.body.appendChild(el);
+
+        function hide() {
+            el.style.animation = 'none';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(-50%) translateY(20px)';
+            el.style.transition = 'opacity 0.3s, transform 0.3s';
+            setTimeout(() => el.remove(), 300);
+        }
+
+        el.querySelector('#rgpd-consent-accept').addEventListener('click', () => {
+            localStorage.setItem(CONSENT_KEY, 'granted');
+            hide();
+            loadGA();
+        });
+        el.querySelector('#rgpd-consent-decline').addEventListener('click', () => {
+            localStorage.setItem(CONSENT_KEY, 'denied');
+            hide();
+        });
+    }
+
+    const consent = localStorage.getItem(CONSENT_KEY);
+    if (consent === 'granted') {
+        loadGA();
+    } else if (consent !== 'denied') {
+        buildBanner();
+    }
+
+    // Sans consentement, on n'empile rien dans le dataLayer : un accord donné
+    // plus tard ne doit pas faire remonter les événements d'avant.
+    return {
+        track(name, params) {
+            if (localStorage.getItem(CONSENT_KEY) !== 'granted') return;
+            gtag('event', name, params || {});
+        }
+    };
+})();
+
+// ── Clics vers Calendly (délégation : couvre les 149 liens du site) ──
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="calendly.com"]');
+    if (!link) return;
+    OakflowGA.track('click_calendly', {
+        link_url: link.href,
+        page_path: location.pathname
+    });
+}, { passive: true });
+
 // ── Hero Spotlight (mouse tracking) ──
 (function () {
     const hero = document.getElementById('hero');
@@ -329,6 +419,7 @@ const TESTIMONIALS = [
                 throw new Error(data.error || 'Erreur serveur');
             }
 
+            OakflowGA.track('generate_lead', { source: 'qualification_form' });
             unlockCalendly();
 
         } catch (err) {
