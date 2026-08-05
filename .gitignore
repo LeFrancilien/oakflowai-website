@@ -19,6 +19,12 @@ hyperframes/*.mp4
 Claude SEO, 18 agents qui auditent ton site.pdf
 GEO 2026, se faire citer par ChatGPT.pdf
 
+# Exports d'analytics (donnees datees, a re-exporter plutot qu'a versionner)
+Vue d'ensemble_*.csv
+Vue_d'ensemble_*.csv
+Clarity_*.csv
+*-Performance-on-Search-*/
+
 # Secrets / cles de service (ne jamais committer)
 *.json.key
 *-service-account*.json
