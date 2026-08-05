@@ -2971,3 +2971,34 @@ footer {
   #rgpd-consent-btns { width: 100%; }
   #rgpd-consent-decline, #rgpd-consent-accept { flex: 1; text-align: center; }
 }
+
+/* ── Capture email dans le hero (au-dessus de la ligne de flottaison) ── */
+.hero-capture { margin: 0 0 16px; position: relative; z-index: 1; max-width: 520px; }
+.hero-capture-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-capture input[type="email"] {
+  flex: 1 1 240px; min-width: 0; padding: 14px 20px; border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04);
+  color: #fff; font-size: 14px; font-family: 'DM Sans', sans-serif; transition: border-color .2s, background .2s;
+}
+.hero-capture input[type="email"]::placeholder { color: var(--muted); }
+.hero-capture input[type="email"]:focus {
+  outline: none; border-color: var(--accent); background: rgba(0, 229, 176, 0.06);
+}
+.hero-capture .btn-primary { flex: 0 0 auto; }
+.hero-capture-note { margin: 10px 0 0; font-size: 12.5px; color: var(--muted2); font-family: 'DM Sans', sans-serif; }
+@media (max-width: 560px) {
+  .hero-capture-row { flex-direction: column; }
+  .hero-capture .btn-primary { width: 100%; justify-content: center; }
+}
+
+/* ── État d'erreur des champs (hero + formulaire de qualification) ── */
+.field-error {
+  border-color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.07) !important;
+  animation: fieldShake .3s ease;
+}
+@keyframes fieldShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}

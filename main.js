@@ -335,6 +335,65 @@ const TESTIMONIALS = [
     }, { passive: true });
 })();
 
+// ── Hero email capture & préremplissage du formulaire ──
+(function () {
+    const heroForm = document.getElementById('hero-capture');
+    const heroEmail = document.getElementById('hero-email');
+    const qualEmail = document.getElementById('qf-email');
+    if (!heroForm || !heroEmail || !qualEmail) return;
+
+    const LEAD_EMAIL_KEY = 'oakflow_lead_email';
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function savePartialLead(email) {
+        window.oakflowLeadPartial = { email };
+        localStorage.setItem(LEAD_EMAIL_KEY, email);
+    }
+
+    function fillQualificationEmail(email) {
+        qualEmail.value = email;
+    }
+
+    function scrollToCta() {
+        const cta = document.querySelector('#cta');
+        if (!cta) return;
+        // Le hero et #cta sont séparés par ~19 000 px. Mesuré : un défilement
+        // fluide sur cette distance reste immobile 1,9 s avant de sauter, ce qui
+        // se lit comme un clic mort. On garde le fluide sur les courtes courses
+        // et on saute directement au-delà de trois hauteurs d'écran.
+        // 'auto' ne suffit pas : la spec le fait retomber sur la CSS, qui impose
+        // scroll-behavior: smooth sur html. Seul 'instant' force le saut.
+        const distance = Math.abs(cta.getBoundingClientRect().top);
+        const fluide = distance < window.innerHeight * 3;
+        cta.scrollIntoView({ behavior: fluide ? 'smooth' : 'instant', block: 'start' });
+    }
+
+    function showFieldError(el) {
+        el.classList.add('field-error');
+        el.addEventListener('input', () => el.classList.remove('field-error'), { once: true });
+    }
+
+    heroForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = heroEmail.value.trim();
+        if (!emailPattern.test(email)) {
+            showFieldError(heroEmail);
+            heroEmail.focus();
+            return;
+        }
+        savePartialLead(email);
+        fillQualificationEmail(email);
+        scrollToCta();
+        OakflowGA.track('hero_lead_capture', { source: 'hero_single_field' });
+    });
+
+    const storedEmail = localStorage.getItem(LEAD_EMAIL_KEY);
+    if (storedEmail && emailPattern.test(storedEmail)) {
+        heroEmail.value = storedEmail;
+        fillQualificationEmail(storedEmail);
+    }
+})();
+
 // ── Formulaire de qualification ──
 (function () {
     const form        = document.getElementById('qualification-form');

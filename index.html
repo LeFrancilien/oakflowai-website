@@ -513,10 +513,17 @@
                     audit, conseil et implémentation opérationnelle.
                 </p>
 
+                <form id="hero-capture" class="hero-capture" novalidate>
+                    <div class="hero-capture-row">
+                        <input type="email" id="hero-email" name="hero_email"
+                            placeholder="Email professionnel" autocomplete="email"
+                            aria-label="Email professionnel" />
+                        <button type="submit" class="btn-primary">Évaluer mon potentiel IA</button>
+                    </div>
+                    <p class="hero-capture-note">Audit gratuit &middot; réponse sous 24&nbsp;h &middot; sans engagement</p>
+                </form>
+
                 <div class="hero-ctas">
-                    <a href="#cta" class="btn-primary">
-                        ☎&nbsp; Planifier un appel gratuit (30 min)
-                    </a>
                     <a href="#usecases" class="btn-ghost">
                         Voir les cas d'usage &rarr;
                     </a>
@@ -1907,9 +1914,25 @@
 
     <script src="main.js" defer></script>
 
-    <!-- Spline 3D - chargement différé via requestIdleCallback -->
+    <!-- Chargement des gros scripts tiers pendant un créneau d'inactivité -->
+    <script>
+        // Ne jamais accrocher ces chargements au premier geste du visiteur :
+        // le travail tomberait pendant une interaction et ferait exploser l'INP
+        // (mesuré à 1016 ms sur Clarity, plus les 13,6 % de clics morts).
+        // requestIdleCallback ne se déclenche que lorsque le thread est libre.
+        window.oakflowWhenIdle = function (fn) {
+            function run() {
+                if (window.requestIdleCallback) requestIdleCallback(fn, { timeout: 3000 });
+                else setTimeout(fn, 1200);
+            }
+            if (document.readyState === 'complete') run();
+            else window.addEventListener('load', run, { once: true });
+        };
+    </script>
+
+    <!-- Spline 3D - chargement différé pendant l'inactivité -->
     <script type="module">
-        // Spline lazy load - ne charge que sur desktop et après interaction utilisateur
+        // Spline lazy load - desktop uniquement
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         if (isMobile) {
             // Mobile : masquer le loader, la section est déjà cachée via CSS
@@ -1943,12 +1966,7 @@
                 if (heroSection) observer.observe(heroSection);
             }
 
-            // Attendre la première interaction pour charger le moteur 3D (évite le TBT massif sur PageSpeed)
-            ['mousemove', 'keydown', 'touchstart', 'scroll'].forEach(function(e) {
-                document.addEventListener(e, loadSpline, { once: true, passive: true });
-            });
-            // Fallback de sécurité au bout de 4 secondes
-            setTimeout(loadSpline, 4000);
+            window.oakflowWhenIdle(loadSpline);
         }
     </script>
 
@@ -1966,13 +1984,8 @@
             s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
             s.async = true;
             document.body.appendChild(s);
-            ['mousemove','keydown','touchstart','scroll'].forEach(function(e) {
-                document.removeEventListener(e, loadElevenLabs);
-            });
         }
-        ['mousemove','keydown','touchstart','scroll'].forEach(function(e) {
-            document.addEventListener(e, loadElevenLabs, { once: true, passive: true });
-        });
+        window.oakflowWhenIdle(loadElevenLabs);
     })();
     </script>
 
