@@ -52,8 +52,8 @@
         { "source": "/services/integration-llm.html", "destination": "/solutions-ia-entreprise", "permanent": true },
         { "source": "/services/chatbot-personnalise", "destination": "/solutions-ia-entreprise", "permanent": true },
         { "source": "/services/chatbot-personnalise.html", "destination": "/solutions-ia-entreprise", "permanent": true },
-        { "source": "/services/assistant-vocal", "destination": "/solutions-ia-entreprise", "permanent": true },
-        { "source": "/services/assistant-vocal.html", "destination": "/solutions-ia-entreprise", "permanent": true },
+        { "source": "/services/assistant-vocal", "destination": "/solutions-ia-entreprise/assistant-vocal-intelligent", "permanent": true },
+        { "source": "/services/assistant-vocal.html", "destination": "/solutions-ia-entreprise/assistant-vocal-intelligent", "permanent": true },
         { "source": "/blog/:slug.html", "destination": "/blog/:slug", "permanent": true },
         { "source": "/mentions-legales.html", "destination": "/mentions-legales", "permanent": true },
         { "source": "/cdn-cgi/:path*", "destination": "/", "permanent": true }
