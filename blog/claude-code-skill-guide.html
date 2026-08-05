@@ -10,8 +10,8 @@
         gtag('js', new Date());
         gtag('consent', 'default', { 'analytics_storage': 'denied' });
     </script>
-    <title>Claude Code Skills : créer un skill.md en 4 étapes (2026)</title>
-    <meta name="description" content="Structure du dossier, skill.md commenté, appel d'une API interne, packaging et déploiement en équipe. Le tutoriel complet avec un exemple en production." />
+    <title>Installer et créer un skill Claude Code : guide skill.md 2026</title>
+    <meta name="description" content="Installer un skill dans Claude Code, claude.ai ou l'API, puis créer le vôtre : structure du dossier, skill.md commenté et déploiement en équipe." />
     <meta name="author" content="Cyril DE LA RUE" />
     <meta name="last-modified" content="2026-07-24" />
     <link rel="canonical" href="https://www.oakflowai.com/blog/claude-code-skill-guide" />
@@ -21,8 +21,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.oakflowai.com/blog/claude-code-skill-guide" />
-    <meta property="og:title" content="Claude Code Skills : créer un skill.md en 4 étapes (2026)" />
-    <meta property="og:description" content="Structure du dossier, skill.md commenté, appel d'une API interne, packaging et déploiement en équipe. Le tutoriel complet avec un exemple en production." />
+    <meta property="og:title" content="Installer et créer un skill Claude Code : guide skill.md 2026" />
+    <meta property="og:description" content="Installer un skill dans Claude Code, claude.ai ou l'API, puis créer le vôtre : structure du dossier, skill.md commenté et déploiement en équipe." />
     <meta property="og:image" content="https://www.oakflowai.com/og-image.png" />
     <meta property="og:locale" content="fr_FR" />
 
@@ -34,7 +34,7 @@
       "@context": "https://schema.org",
       "@type": "TechArticle",
       "@id": "https://www.oakflowai.com/blog/claude-code-skill-guide#article",
-      "headline": "Guide Claude Code Skills : créer, packager et configurer un skill.md",
+      "headline": "Installer et créer un skill Claude Code : structure, skill.md et déploiement",
       "description": "Guide expert pour créer un skill Claude Code qui connecte l'agent à vos API d'entreprise : structure SKILL.md, exemple concret et déploiement.",
       "datePublished": "2026-07-02",
       "dateModified": "2026-07-24",
@@ -61,7 +61,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.oakflowai.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.oakflowai.com/blog/"},{"@type":"ListItem","position":3,"name":"Créer un skill Claude Code"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce qu'un skill Claude Code ?","acceptedAnswer":{"@type":"Answer","text":"Un skill Claude Code est une capacite reutilisable, packagee dans un dossier contenant un fichier SKILL.md. Ce fichier decrit, via un en-tete YAML (name et description), quand et comment l'agent doit l'utiliser. Un skill peut embarquer des scripts et des fichiers de reference, par exemple pour interroger une API d'entreprise. Claude Code charge la description au demarrage et le contenu complet uniquement quand la tache correspond."}},{"@type":"Question","name":"Comment creer un skill Claude Code ?","acceptedAnswer":{"@type":"Answer","text":"Creez un dossier au nom du skill (en kebab-case) dans ~/.claude/skills ou dans .claude/skills a la racine de votre projet, puis ajoutez un fichier SKILL.md avec un en-tete YAML (name, description). Le corps du fichier contient les instructions que l'agent suit quand le skill est declenche. Vous pouvez y joindre des scripts (Python, Node, shell) que l'agent execute, notamment pour appeler vos API internes."}},{"@type":"Question","name":"Un skill Claude Code peut-il appeler une API d'entreprise ?","acceptedAnswer":{"@type":"Answer","text":"Oui. C'est un usage courant : le skill embarque un script qui appelle votre API (CRM, ERP, base de donnees, webhook n8n), et le SKILL.md indique a l'agent quand l'executer et comment interpreter la reponse. C'est la maniere propre de donner a Claude Code un acces controle a vos outils metier, sans coder l'integration a chaque session."}},{"@type":"Question","name":"Quelle difference entre un skill Claude Code et n8n ?","acceptedAnswer":{"@type":"Answer","text":"Un skill Claude Code sert cote developpement : il outille l'agent pendant que vous construisez ou operez un projet. n8n sert a automatiser des processus metier en production, 24/7, independamment de tout developpeur. Les deux sont complementaires : on prototype avec Claude Code, puis on industrialise le workflow recurrent dans n8n ou Make."}},{"@type":"Question","name":"Comment activer les skills sur Claude ?","acceptedAnswer":{"@type":"Answer","text":"Cela depend de l'environnement. Dans Claude Code, il n'y a rien a activer : deposez le dossier du skill dans ~/.claude/skills/ ou .claude/skills/ et l'agent le decouvre seul. Sur claude.ai, televersez un fichier zip via Parametres > Fonctionnalites, sur un forfait Pro, Max, Team ou Enterprise avec l'execution de code activee. Via l'API, referencez le skill_id dans le parametre container avec l'outil d'execution de code et l'en-tete beta skills-2025-10-02."}},{"@type":"Question","name":"Ou trouver des skills pour Claude ?","acceptedAnswer":{"@type":"Answer","text":"Trois sources. Les skills documentaires preconstruits d'Anthropic (pptx, xlsx, docx, pdf) sont disponibles sur claude.ai et l'API, mais pas dans Claude Code. Le depot open source github.com/anthropics/skills contient des skills d'exemple, une specification et un template. Enfin, des marketplaces communautaires agregent des skills tiers : Anthropic recommande de n'utiliser que des sources de confiance, car un skill execute du code."}},{"@type":"Question","name":"Quels sont les meilleurs skills Claude a installer ?","acceptedAnswer":{"@type":"Answer","text":"Pour un usage bureautique, les quatre skills documentaires d'Anthropic (xlsx, pdf, docx, pptx) couvrent l'essentiel sans configuration. Pour le developpement, skill-creator aide a generer vos propres skills, mcp-builder connecte vos outils via MCP, et frontend-design ameliore la qualite des interfaces produites. Le choix depend surtout de votre environnement, puisque les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code."}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce qu'un skill Claude Code ?","acceptedAnswer":{"@type":"Answer","text":"Un skill Claude Code est une capacite reutilisable, packagee dans un dossier contenant un fichier SKILL.md. Ce fichier decrit, via un en-tete YAML (name et description), quand et comment l'agent doit l'utiliser. Un skill peut embarquer des scripts et des fichiers de reference, par exemple pour interroger une API d'entreprise. Claude Code charge la description au demarrage et le contenu complet uniquement quand la tache correspond."}},{"@type":"Question","name":"Comment creer un skill Claude Code ?","acceptedAnswer":{"@type":"Answer","text":"Creez un dossier au nom du skill (en kebab-case) dans ~/.claude/skills ou dans .claude/skills a la racine de votre projet, puis ajoutez un fichier SKILL.md avec un en-tete YAML (name, description). Le corps du fichier contient les instructions que l'agent suit quand le skill est declenche. Vous pouvez y joindre des scripts (Python, Node, shell) que l'agent execute, notamment pour appeler vos API internes."}},{"@type":"Question","name":"Un skill Claude Code peut-il appeler une API d'entreprise ?","acceptedAnswer":{"@type":"Answer","text":"Oui. C'est un usage courant : le skill embarque un script qui appelle votre API (CRM, ERP, base de donnees, webhook n8n), et le SKILL.md indique a l'agent quand l'executer et comment interpreter la reponse. C'est la maniere propre de donner a Claude Code un acces controle a vos outils metier, sans coder l'integration a chaque session."}},{"@type":"Question","name":"Quelle difference entre un skill Claude Code et n8n ?","acceptedAnswer":{"@type":"Answer","text":"Un skill Claude Code sert cote developpement : il outille l'agent pendant que vous construisez ou operez un projet. n8n sert a automatiser des processus metier en production, 24/7, independamment de tout developpeur. Les deux sont complementaires : on prototype avec Claude Code, puis on industrialise le workflow recurrent dans n8n ou Make."}},{"@type":"Question","name":"Comment installer un skill Claude ?","acceptedAnswer":{"@type":"Answer","text":"Cela depend de l'environnement. Dans Claude Code, il n'y a rien a activer : deposez le dossier du skill dans ~/.claude/skills/ ou .claude/skills/ et l'agent le decouvre seul. Sur claude.ai, televersez un fichier zip via Parametres > Fonctionnalites, sur un forfait Pro, Max, Team ou Enterprise avec l'execution de code activee. Via l'API, referencez le skill_id dans le parametre container avec l'outil d'execution de code et l'en-tete beta skills-2025-10-02."}},{"@type":"Question","name":"Ou trouver des skills pour Claude ?","acceptedAnswer":{"@type":"Answer","text":"Trois sources. Les skills documentaires preconstruits d'Anthropic (pptx, xlsx, docx, pdf) sont disponibles sur claude.ai et l'API, mais pas dans Claude Code. Le depot open source github.com/anthropics/skills contient des skills d'exemple, une specification et un template. Enfin, des marketplaces communautaires agregent des skills tiers : Anthropic recommande de n'utiliser que des sources de confiance, car un skill execute du code."}},{"@type":"Question","name":"Quels sont les meilleurs skills Claude a installer ?","acceptedAnswer":{"@type":"Answer","text":"Le choix depend d'abord de votre environnement, puisque les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code."}}]}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -286,7 +286,7 @@
             </div>
         </div>
 
-        <h1 itemprop="headline">Guide Claude Code Skills : créer, packager et configurer un skill.md</h1>
+        <h1 itemprop="headline">Installer et créer un skill Claude Code : structure, skill.md et déploiement</h1>
 
         <p class="article-intro">Un <strong>skill Claude Code</strong> transforme l'agent en spécialiste de <em>votre</em> contexte : il sait quand appeler votre CRM, comment interroger votre base de données, quelles règles suivre. Ce guide expert montre comment <strong>créer, packager et déployer un skill sur-mesure</strong> qui connecte Claude Code à vos API d'entreprise, avec la structure exacte et un exemple tiré de notre propre stack chez Oakflow AI.</p>
 
@@ -309,7 +309,7 @@
             <p><strong>Sécurité :</strong> un skill n'est pas un simple prompt, il embarque du code que l'agent exécute. La documentation d'Anthropic est sans ambiguïté sur ce point : un skill malveillant peut provoquer une exfiltration de données ou un accès système non autorisé. Traitez l'installation d'un skill communautaire comme l'installation d'un logiciel : auditez le SKILL.md, les scripts et les appels réseau avant de le lancer.</p>
         </div>
 
-        <h2>Étape 1. Activer un skill selon votre environnement</h2>
+        <h2>Étape 1. Installer un skill selon votre environnement</h2>
 
         <p>Le mode d'activation change complètement selon l'endroit où vous travaillez. C'est la source de confusion numéro un chez ceux qui débutent :</p>
 
@@ -435,7 +435,7 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
             <p>Un skill outille l'agent côté développement, piloté par un humain. n8n automatise des processus métier en production, en autonomie et 24/7. Les deux sont complémentaires : on prototype avec Claude Code, puis on industrialise le workflow récurrent dans n8n ou Make.</p>
         </details>
         <details class="faq-item">
-            <summary>Comment activer les skills sur Claude ?</summary>
+            <summary>Comment installer un skill Claude ?</summary>
             <p>Cela dépend de l'environnement. Dans Claude Code, il n'y a rien à activer : déposez le dossier du skill dans ~/.claude/skills/ ou .claude/skills/ et l'agent le découvre seul. Sur claude.ai, téléversez un fichier zip via Paramètres &gt; Fonctionnalités, sur un forfait Pro, Max, Team ou Enterprise avec l'exécution de code activée. Via l'API, référencez le skill_id dans le paramètre container avec l'outil d'exécution de code et l'en-tête bêta skills-2025-10-02.</p>
         </details>
         <details class="faq-item">
@@ -444,7 +444,7 @@ print(json.dumps(lookup(sys.argv[-1]), ensure_ascii=False))</code></div>
         </details>
         <details class="faq-item">
             <summary>Quels sont les meilleurs skills Claude à installer ?</summary>
-            <p>Pour un usage bureautique, les quatre skills documentaires d'Anthropic (xlsx, pdf, docx, pptx) couvrent l'essentiel sans configuration. Pour le développement, skill-creator aide à générer vos propres skills, mcp-builder connecte vos outils via MCP, et frontend-design améliore la qualité des interfaces produites. Le choix dépend surtout de votre environnement, puisque les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code.</p>
+            <p>Le choix dépend d'abord de votre environnement, puisque les skills ne se synchronisent pas entre claude.ai, l'API et Claude Code : un skill téléversé sur claude.ai reste invisible pour les deux autres. Nous avons comparé les skills officiels et communautaires un par un, coût en tokens compris, dans notre <a href="/blog/meilleurs-skills-claude">sélection des 10 meilleurs skills Claude</a>.</p>
         </details>
 
         <div class="article-related">
