@@ -24,6 +24,7 @@
 
 - Workflow n8n simple (formulaire vers CRM, notification, synchronisation) : 490€, livré en 1 semaine
 - Workflow n8n avancé (IA + plusieurs intégrations) : 800 à 2 500€, livré en 2 à 3 semaines
+- Projet d'automatisation complet multi-outils : 2 500 à 5 000€, livré en 3 à 6 semaines
 - Maintenance mensuelle n8n : 149€/mois, sans engagement
 - Hébergement self-hosted sur VPS français : 10 à 20€/mois
 - Chatbot IA sur mesure : à partir de 1 500€, opérationnel en 2 à 3 semaines
@@ -35,7 +36,7 @@
 
 ## Cas d'usage réels déployés
 
-- Traitement automatique de 500 factures fournisseurs/mois — 30h économisées
+- Traitement automatique de 400 factures fournisseurs/mois — 30h économisées
 - Enrichissement & qualification leads B2B : 2000+ leads/semaine, 80% taux de qualification
 - Génération automatique devis, contrats et factures via agent Telegram
 - Agent multi-tâches orchestrateur : Mail, Agenda, Recherche web, CRM — 24/7
