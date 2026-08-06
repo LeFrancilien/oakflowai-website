@@ -45,7 +45,7 @@
 
 - Cabinet comptable (Levallois) : 400 factures/mois traitées automatiquement, 30h récupérées
 - Agence digitale B2B (Paris) : taux de closing passé de 8% à 22% en 3 mois
-- Studio recrutement (Boulogne-Billancourt) : 20h de saisie économisées/semaine
+- Studio recrutement (Boulogne-Billancourt) : 20h de saisie économisées/mois
 - PME industrielle (Nanterre) : 80 appels/jour qualifiés, zéro appel perdu
 
 ## À propos de l'auteur
