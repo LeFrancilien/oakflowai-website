@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quatre tâches que votre agence peut arrêter de faire à la main | Oakflow AI</title>
+    <meta name="description" content="Qualification des demandes de visite, relances acquéreurs, quittances, dossiers de candidature : la démonstration en 50 secondes, pour les agences immobilières des Hauts-de-Seine.">
+    <!-- Page d'atterrissage d'une prospection par email, pas une page de recherche.
+         Hors index pour ne pas concurrencer /solutions-ia-entreprise sur les memes
+         requetes, et absente du sitemap. -->
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.oakflowai.com/agences-immobilieres">
+    <meta property="og:site_name" content="Oakflow AI">
+    <meta property="og:type" content="video.other">
+    <meta property="og:url" content="https://www.oakflowai.com/agences-immobilieres">
+    <meta property="og:title" content="Quatre tâches que votre agence peut arrêter de faire à la main">
+    <meta property="og:description" content="Visites, relances acquéreurs, quittances, dossiers de candidature. La démonstration en 50 secondes.">
+    <meta property="og:image" content="https://www.oakflowai.com/immo-4-taches-poster.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .li-wrap { max-width: 900px; margin: 0 auto; padding: 120px 24px 80px; }
+        .li-eyebrow {
+            display: inline-block;
+            font-family: var(--font-h);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid var(--border-h);
+            border-radius: 999px;
+            padding: 6px 14px;
+            margin-bottom: 24px;
+        }
+        .li-wrap h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin: 0 0 20px; }
+        .li-lede { font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--muted2); max-width: 620px; margin: 0 0 48px; }
+
+        /* La video est un 9:16 : sur desktop elle se pose a cote du texte, sur
+           mobile elle passe dessous. Sans la colonne, un portrait de 1280 px de
+           haut pousse tout le reste sous la ligne de flottaison. */
+        .li-demo { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 40px; align-items: start; margin-bottom: 64px; }
+        .li-video-frame {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            border-radius: var(--r);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+        }
+        .li-video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .li-video-note { font-size: 0.85rem; color: var(--muted); margin-top: 12px; }
+
+        .li-tasks { display: grid; gap: 16px; }
+        .li-task {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            background: var(--bg2);
+            padding: 20px 22px;
+        }
+        .li-task h2 { font-size: 1.05rem; margin: 0 0 6px; }
+        .li-task p { margin: 0; color: var(--muted2); font-size: 0.95rem; line-height: 1.55; }
+        .li-task-num { font-family: var(--font-h); color: var(--accent); font-size: 0.8rem; letter-spacing: 0.08em; }
+
+        .li-cta {
+            border: 1px solid var(--border-h);
+            border-radius: var(--r);
+            background: rgba(0, 229, 176, 0.03);
+            padding: 32px;
+            text-align: center;
+        }
+        .li-cta h2 { margin: 0 0 10px; font-size: 1.4rem; }
+        .li-cta p { color: var(--muted2); margin: 0 0 24px; }
+        .li-cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+        .li-mail { color: var(--muted2); font-size: 0.95rem; }
+        .li-mail a { color: var(--accent); }
+
+        /* Sans cette regle, le lien sort en bleu souligne du navigateur : le
+           style global ne cible pas cette zone. */
+        .li-foot { margin-top: 48px; font-size: 0.85rem; color: var(--muted); }
+        .li-foot a { color: var(--accent); text-decoration: none; }
+        .li-foot a:hover { text-decoration: underline; }
+
+        @media (max-width: 760px) {
+            .li-wrap { padding-top: 100px; }
+            .li-demo { grid-template-columns: 1fr; gap: 28px; }
+            .li-video-frame { max-width: 300px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <a href="/" class="nav-logo">
+            <img src="/logo-oakflow-v2.webp" alt="Oakflow AI" class="logo-img" width="48" height="48" fetchpriority="high" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="/solutions-ia-entreprise">Solutions&nbsp;IA</a></li>
+            <li><a href="/automatisation-n8n">Automatisation&nbsp;n8n</a></li>
+            <li><a href="/votre-expert">Expert&nbsp;IA</a></li>
+            <li><a href="/#usecases">Cas&nbsp;d'usage</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="nav-cta">📅 Réserver 30min</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="li-wrap">
+        <span class="li-eyebrow">Agences immobilières · Hauts-de-Seine</span>
+        <h1>Quatre tâches que votre agence peut arrêter de faire à la main</h1>
+        <p class="li-lede">
+            Vous venez de recevoir mon email. Voici la démonstration en 50 secondes,
+            sans jargon technique : ce que ça donne concrètement sur les quatre
+            tâches qui reviennent le plus souvent dans une agence.
+        </p>
+
+        <div class="li-demo">
+            <div>
+                <div class="li-video-frame">
+                    <video controls playsinline preload="metadata" poster="/immo-4-taches-poster.jpg">
+                        <source src="/immo-4-taches-demo.mp4" type="video/mp4">
+                        Votre navigateur ne peut pas lire cette vidéo.
+                    </video>
+                </div>
+                <p class="li-video-note">50 secondes, son inclus.</p>
+            </div>
+
+            <div class="li-tasks">
+                <div class="li-task">
+                    <span class="li-task-num">01</span>
+                    <h2>Les demandes de visite</h2>
+                    <p>Chaque demande reçue est qualifiée automatiquement, un créneau est proposé, et le rendez-vous atterrit dans l'agenda du bon négociateur. Vous ne rappelez que les dossiers qui tiennent.</p>
+                </div>
+                <div class="li-task">
+                    <span class="li-task-num">02</span>
+                    <h2>Les relances acquéreurs</h2>
+                    <p>Un acquéreur qui a visité et n'a pas donné suite est relancé au bon moment, avec un message qui reprend le bien qu'il a vu. Sans que personne ait à tenir la liste.</p>
+                </div>
+                <div class="li-task">
+                    <span class="li-task-num">03</span>
+                    <h2>Les quittances</h2>
+                    <p>Elles partent seules chaque mois, au bon locataire, avec le bon montant. L'encaissement est rapproché, et les impayés remontent tout de suite au lieu d'être découverts en fin de mois.</p>
+                </div>
+                <div class="li-task">
+                    <span class="li-task-num">04</span>
+                    <h2>Les dossiers de candidature</h2>
+                    <p>Les pièces sont lues, vérifiées et classées à l'arrivée. Un dossier incomplet est signalé au candidat, pas à vous. Vous recevez les dossiers prêts à décider.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="li-cta">
+            <h2>Trente minutes pour voir ce que ça donnerait chez vous</h2>
+            <p>Sans engagement, et sans installer quoi que ce soit. On regarde vos tâches, je vous dis lesquelles s'automatisent et lesquelles n'en valent pas la peine.</p>
+            <div class="li-cta-row">
+                <a href="https://calendly.com/oakflowai/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary">📅 Choisir un créneau</a>
+                <span class="li-mail">ou répondez simplement à mon email : <a href="mailto:oakflowai@gmail.com">oakflowai@gmail.com</a></span>
+            </div>
+        </div>
+
+        <p class="li-foot">
+            Cyril DE LA RUE, Oakflow AI. Basé à Clichy, j'accompagne des PME des
+            Hauts-de-Seine sur l'automatisation de leurs tâches administratives.
+            <a href="/votre-expert">En savoir plus sur mon parcours</a>.
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Accueil</a>
+                <a href="/automatisation-n8n" class="footer-link">Automatisation n8n</a>
+                <a href="/blog" class="footer-link">Blog</a>
+                <a href="/mentions-legales" class="footer-link">Mentions Légales</a>
+                <a href="https://calendly.com/oakflowai/30min" class="footer-link" target="_blank">Contact</a>
+            </div>
+            <p>© 2026 Oakflow AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const h = document.getElementById('navHamburger');
+        const m = document.querySelector('.nav-links');
+        if(h && m) h.addEventListener('click', () => {
+            const open = h.getAttribute('aria-expanded') === 'true';
+            h.setAttribute('aria-expanded', String(!open));
+            m.classList.toggle('nav-open');
+        });
+    </script>
+    <script src="/main.js" defer></script>
+</body>
+</html>
